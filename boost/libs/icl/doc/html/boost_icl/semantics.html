@@ -1,13 +1,14 @@
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Semantics</title>
 <link rel="stylesheet" href="../../../../../doc/src/boostbook.css" type="text/css">
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
-<link rel="home" href="../index.html" title="Chapter&#160;1.&#160;Boost.Icl">
-<link rel="up" href="../index.html" title="Chapter&#160;1.&#160;Boost.Icl">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
+<link rel="home" href="../index.html" title="Chapter 1. Boost.Icl">
+<link rel="up" href="../index.html" title="Chapter 1. Boost.Icl">
 <link rel="prev" href="concepts/map_traits.html" title="Map Traits">
 <link rel="next" href="semantics/sets.html" title="Sets">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
 <table cellpadding="2" width="100%"><tr>
@@ -26,7 +27,7 @@
 <div class="titlepage"><div><div><h2 class="title" style="clear: both">
 <a name="boost_icl.semantics"></a><a class="link" href="semantics.html" title="Semantics">Semantics</a>
 </h2></div></div></div>
-<div class="toc"><dl>
+<div class="toc"><dl class="toc">
 <dt><span class="section"><a href="semantics.html#boost_icl.semantics.orderings_and_equivalences">Orderings
       and Equivalences</a></span></dt>
 <dt><span class="section"><a href="semantics/sets.html">Sets</a></span></dt>
@@ -38,7 +39,7 @@
 <dt><span class="section"><a href="semantics/concept_induction.html">Concept Induction</a></span></dt>
 </dl></div>
 <p>
-      <span class="quote">&#8220;<span class="quote">Beauty is the ultimate defense against complexity</span>&#8221;</span> -- <a href="http://en.wikipedia.org/wiki/David_Gelernter" target="_top">David Gelernter</a>
+      <span class="quote">“<span class="quote">Beauty is the ultimate defense against complexity</span>”</span> -- <a href="http://en.wikipedia.org/wiki/David_Gelernter" target="_top">David Gelernter</a>
     </p>
 <p>
       In the <span class="bold"><strong>icl</strong></span> we follow the notion, that the
@@ -73,17 +74,17 @@
 </h3></div></div></div>
 <h5>
 <a name="boost_icl.semantics.orderings_and_equivalences.h0"></a>
-        <span><a name="boost_icl.semantics.orderings_and_equivalences.lexicographical_ordering_and_equality"></a></span><a class="link" href="semantics.html#boost_icl.semantics.orderings_and_equivalences.lexicographical_ordering_and_equality">Lexicographical
+        <span class="phrase"><a name="boost_icl.semantics.orderings_and_equivalences.lexicographical_ordering_and_equality"></a></span><a class="link" href="semantics.html#boost_icl.semantics.orderings_and_equivalences.lexicographical_ordering_and_equality">Lexicographical
         Ordering and Equality</a>
       </h5>
 <p>
         On all set and map containers of the icl, there is an <code class="computeroutput"><span class="keyword">operator</span>
-        <span class="special">&lt;</span></code> that implements a <a href="http://www.sgi.com/tech/stl/StrictWeakOrdering.html" target="_top">strict
+        <span class="special">&lt;</span></code> that implements a <a href="https://boost.org/sgi/stl/StrictWeakOrdering.html" target="_top">strict
         weak ordering</a>. The semantics of <code class="computeroutput"><span class="keyword">operator</span>
         <span class="special">&lt;</span></code> is the same as for an stl's
-        <a href="http://www.sgi.com/tech/stl/SortedAssociativeContainer.html" target="_top">SortedAssociativeContainer</a>,
-        specifically <a href="http://www.sgi.com/tech/stl/set.html" target="_top">stl::set</a>
-        and <a href="http://www.sgi.com/tech/stl/map.html" target="_top">stl::map</a>:
+        <a href="https://boost.org/sgi/stl/SortedAssociativeContainer.html" target="_top">SortedAssociativeContainer</a>,
+        specifically <a href="https://boost.org/sgi/stl/set.html" target="_top">stl::set</a>
+        and <a href="https://boost.org/sgi/stl/Map.html" target="_top">stl::map</a>:
 </p>
 <pre class="programlisting"><span class="identifier">Irreflexivity</span><span class="special">&lt;</span><span class="identifier">T</span><span class="special">,&lt;</span> <span class="special">&gt;</span> <span class="special">:</span> <span class="identifier">T</span> <span class="identifier">a</span><span class="special">;</span>     <span class="special">!(</span><span class="identifier">a</span><span class="special">&lt;</span><span class="identifier">a</span><span class="special">)</span>
 <span class="identifier">Asymmetry</span><span class="special">&lt;</span><span class="identifier">T</span><span class="special">,&lt;</span> <span class="special">&gt;</span>     <span class="special">:</span> <span class="identifier">T</span> <span class="identifier">a</span><span class="special">,</span><span class="identifier">b</span><span class="special">;</span>   <span class="identifier">a</span><span class="special">&lt;</span><span class="identifier">b</span> <span class="identifier">implies</span> <span class="special">!(</span><span class="identifier">b</span><span class="special">&lt;</span><span class="identifier">a</span><span class="special">)</span>
@@ -121,7 +122,7 @@
       </p>
 <h5>
 <a name="boost_icl.semantics.orderings_and_equivalences.h1"></a>
-        <span><a name="boost_icl.semantics.orderings_and_equivalences.subset_ordering_and_element_equality"></a></span><a class="link" href="semantics.html#boost_icl.semantics.orderings_and_equivalences.subset_ordering_and_element_equality">Subset
+        <span class="phrase"><a name="boost_icl.semantics.orderings_and_equivalences.subset_ordering_and_element_equality"></a></span><a class="link" href="semantics.html#boost_icl.semantics.orderings_and_equivalences.subset_ordering_and_element_equality">Subset
         Ordering and Element Equality</a>
       </h5>
 <p>
@@ -172,16 +173,13 @@
       </p>
 </div>
 </div>
-<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
-<td align="left"></td>
-<td align="right"><div class="copyright-footer">Copyright &#169; 2007-2010 Joachim
-      Faulhaber<br>Copyright &#169; 1999-2006 Cortex Software
+<div class="copyright-footer">Copyright © 2007-2010 Joachim
+      Faulhaber<br>Copyright © 1999-2006 Cortex Software
       GmbH<p>
         Distributed under the Boost Software License, Version 1.0. (See accompanying
         file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
       </p>
-</div></td>
-</tr></table>
+</div>
 <hr>
 <div class="spirit-nav">
 <a accesskey="p" href="concepts/map_traits.html"><img src="../../../../../doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../index.html"><img src="../../../../../doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../index.html"><img src="../../../../../doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="semantics/sets.html"><img src="../../../../../doc/src/images/next.png" alt="Next"></a>

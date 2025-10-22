@@ -24,9 +24,8 @@
 #include <boost/geometry/geometries/concepts/point_concept.hpp>
 
 #include <boost/config.hpp>
-#ifndef BOOST_NO_CXX11_HDR_INITIALIZER_LIST
+
 #include <initializer_list>
-#endif
 
 namespace boost { namespace geometry
 {
@@ -58,7 +57,7 @@ template
 >
 class multi_point : public Container<Point, Allocator<Point> >
 {
-    BOOST_CONCEPT_ASSERT( (concept::Point<Point>) );
+    BOOST_CONCEPT_ASSERT( (concepts::Point<Point>) );
 
     typedef Container<Point, Allocator<Point> > base_type;
 
@@ -73,8 +72,6 @@ public :
     inline multi_point(Iterator begin, Iterator end)
         : base_type(begin, end)
     {}
-
-#ifndef BOOST_NO_CXX11_HDR_INITIALIZER_LIST
 
     /// \constructor_initializer_list{multi_point}
     inline multi_point(std::initializer_list<Point> l)
@@ -94,7 +91,6 @@ public :
 //    }
 //#endif
 
-#endif
 };
 
 } // namespace model
@@ -112,7 +108,7 @@ template
 >
 struct tag< model::multi_point<Point, Container, Allocator> >
 {
-    typedef multi_point_tag type;
+    using type = multi_point_tag;
 };
 
 } // namespace traits

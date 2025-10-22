@@ -16,11 +16,12 @@
 [section:closure closure]
 
 '''<indexterm><primary>closure</primary></indexterm>'''
-Metafunction defining [*value] as the closure (clockwise, counterclockwise) of the \3. 
+Metafunction defining [*value] as the closure (clockwise, counterclockwise) of the specified geometry type. 
 
 [heading Synopsis]
 ``template<typename Geometry>
 struct closure
+      : public std::integral_constant< closure_selector, core_dispatch::closure< tag_t< Geometry >, util::remove_cptrref_t< Geometry > >::value >
 {
   // ...
 };

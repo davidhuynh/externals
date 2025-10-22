@@ -1,14 +1,15 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Intrusive associative containers: set, multiset, rbtree</title>
 <link rel="stylesheet" href="../../../doc/src/boostbook.css" type="text/css">
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
 <link rel="home" href="../index.html" title="The Boost C++ Libraries BoostBook Documentation Subset">
-<link rel="up" href="../intrusive.html" title="Chapter&#160;16.&#160;Boost.Intrusive">
+<link rel="up" href="../intrusive.html" title="Chapter 16. Boost.Intrusive">
 <link rel="prev" href="list.html" title="Intrusive doubly linked list: list">
 <link rel="next" href="unordered_set_unordered_multiset.html" title="Semi-Intrusive unordered associative containers: unordered_set, unordered_multiset">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
 <table cellpadding="2" width="100%"><tr>
@@ -28,7 +29,7 @@
 <a name="intrusive.set_multiset"></a><a class="link" href="set_multiset.html" title="Intrusive associative containers: set, multiset, rbtree">Intrusive associative containers:
     set, multiset, rbtree</a>
 </h2></div></div></div>
-<div class="toc"><dl>
+<div class="toc"><dl class="toc">
 <dt><span class="section"><a href="set_multiset.html#intrusive.set_multiset.set_multiset_hooks">set, multiset
       and rbtree hooks</a></span></dt>
 <dt><span class="section"><a href="set_multiset.html#intrusive.set_multiset.set_multiset_containers">set,
@@ -49,17 +50,17 @@
       systems).
     </p>
 <p>
-      An empty, non constant-time size <code class="computeroutput"><a class="link" href="../boost/intrusive/set.html" title="Class template set">set</a></code>,
-      <code class="computeroutput"><a class="link" href="../boost/intrusive/multiset.html" title="Class template multiset">multiset</a></code> or <code class="computeroutput"><a class="link" href="../boost/intrusive/rbtree.html" title="Class template rbtree">rbtree</a></code> has also the size of 3 pointers
+      An empty, non constant-time size <code class="computeroutput"><a class="link" href="../doxygen/classboost_1_1intrusive_1_1set.html" title="Class template set">set</a></code>,
+      <code class="computeroutput"><a class="link" href="../doxygen/classboost_1_1intrusive_1_1multiset.html" title="Class template multiset">multiset</a></code> or <code class="computeroutput"><a class="link" href="../doxygen/classboost_1_1intrusive_1_1rbtree.html" title="Class template rbtree">rbtree</a></code> has also the size of 3 pointers
       and an integer (3 pointers when optimized for size). These containers have
       logarithmic complexity in many operations like searches, insertions, erasures,
-      etc. <code class="computeroutput"><a class="link" href="../boost/intrusive/set.html" title="Class template set">set</a></code> and <code class="computeroutput"><a class="link" href="../boost/intrusive/multiset.html" title="Class template multiset">multiset</a></code> are the intrusive equivalents
+      etc. <code class="computeroutput"><a class="link" href="../doxygen/classboost_1_1intrusive_1_1set.html" title="Class template set">set</a></code> and <code class="computeroutput"><a class="link" href="../doxygen/classboost_1_1intrusive_1_1multiset.html" title="Class template multiset">multiset</a></code> are the intrusive equivalents
       of standard <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">set</span></code> and <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">multiset</span></code>
       containers.
     </p>
 <p>
-      <code class="computeroutput"><a class="link" href="../boost/intrusive/rbtree.html" title="Class template rbtree">rbtree</a></code> is a superset
-      of <code class="computeroutput"><a class="link" href="../boost/intrusive/set.html" title="Class template set">set</a></code> and <code class="computeroutput"><a class="link" href="../boost/intrusive/multiset.html" title="Class template multiset">multiset</a></code>
+      <code class="computeroutput"><a class="link" href="../doxygen/classboost_1_1intrusive_1_1rbtree.html" title="Class template rbtree">rbtree</a></code> is a superset
+      of <code class="computeroutput"><a class="link" href="../doxygen/classboost_1_1intrusive_1_1set.html" title="Class template set">set</a></code> and <code class="computeroutput"><a class="link" href="../doxygen/classboost_1_1intrusive_1_1multiset.html" title="Class template multiset">multiset</a></code>
       containers that offers functions to insert unique and multiple keys.
     </p>
 <div class="section">
@@ -68,36 +69,36 @@
       and rbtree hooks</a>
 </h3></div></div></div>
 <p>
-        <code class="computeroutput"><a class="link" href="../boost/intrusive/set.html" title="Class template set">set</a></code>, <code class="computeroutput"><a class="link" href="../boost/intrusive/multiset.html" title="Class template multiset">multiset</a></code>
-        and <code class="computeroutput"><a class="link" href="../boost/intrusive/rbtree.html" title="Class template rbtree">rbtree</a></code> share the
+        <code class="computeroutput"><a class="link" href="../doxygen/classboost_1_1intrusive_1_1set.html" title="Class template set">set</a></code>, <code class="computeroutput"><a class="link" href="../doxygen/classboost_1_1intrusive_1_1multiset.html" title="Class template multiset">multiset</a></code>
+        and <code class="computeroutput"><a class="link" href="../doxygen/classboost_1_1intrusive_1_1rbtree.html" title="Class template rbtree">rbtree</a></code> share the
         same hooks. This is an advantage, because the same user type can be inserted
-        first in a <code class="computeroutput"><a class="link" href="../boost/intrusive/multiset.html" title="Class template multiset">multiset</a></code>
-        and after that in <code class="computeroutput"><a class="link" href="../boost/intrusive/set.html" title="Class template set">set</a></code>
+        first in a <code class="computeroutput"><a class="link" href="../doxygen/classboost_1_1intrusive_1_1multiset.html" title="Class template multiset">multiset</a></code>
+        and after that in <code class="computeroutput"><a class="link" href="../doxygen/classboost_1_1intrusive_1_1set.html" title="Class template set">set</a></code>
         without changing the definition of the user class.
       </p>
 <pre class="programlisting"><span class="keyword">template</span> <span class="special">&lt;</span><span class="keyword">class</span> <span class="special">...</span><span class="identifier">Options</span><span class="special">&gt;</span>
 <span class="keyword">class</span> <span class="identifier">set_base_hook</span><span class="special">;</span>
 </pre>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
-            <code class="computeroutput"><a class="link" href="../boost/intrusive/set_base_hook.html" title="Class template set_base_hook">set_base_hook</a></code>:
-            the user class derives publicly from <code class="computeroutput"><a class="link" href="../boost/intrusive/set_base_hook.html" title="Class template set_base_hook">set_base_hook</a></code>
-            to make it <code class="computeroutput"><a class="link" href="../boost/intrusive/set.html" title="Class template set">set</a></code>/<code class="computeroutput"><a class="link" href="../boost/intrusive/multiset.html" title="Class template multiset">multiset</a></code>-compatible.
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+            <code class="computeroutput"><a class="link" href="../doxygen/classboost_1_1intrusive_1_1set__base__hook.html" title="Class template set_base_hook">set_base_hook</a></code>:
+            the user class derives publicly from <code class="computeroutput"><a class="link" href="../doxygen/classboost_1_1intrusive_1_1set__base__hook.html" title="Class template set_base_hook">set_base_hook</a></code>
+            to make it <code class="computeroutput"><a class="link" href="../doxygen/classboost_1_1intrusive_1_1set.html" title="Class template set">set</a></code>/<code class="computeroutput"><a class="link" href="../doxygen/classboost_1_1intrusive_1_1multiset.html" title="Class template multiset">multiset</a></code>-compatible.
           </li></ul></div>
 <pre class="programlisting"><span class="keyword">template</span> <span class="special">&lt;</span><span class="keyword">class</span> <span class="special">...</span><span class="identifier">Options</span><span class="special">&gt;</span>
 <span class="keyword">class</span> <span class="identifier">set_member_hook</span><span class="special">;</span>
 </pre>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
-            <code class="computeroutput"><a class="link" href="../boost/intrusive/set_member_hook.html" title="Class template set_member_hook">set_member_hook</a></code>:
-            the user class contains a public <code class="computeroutput"><a class="link" href="../boost/intrusive/set_member_hook.html" title="Class template set_member_hook">set_member_hook</a></code>
-            to make it <code class="computeroutput"><a class="link" href="../boost/intrusive/set.html" title="Class template set">set</a></code>/<code class="computeroutput"><a class="link" href="../boost/intrusive/multiset.html" title="Class template multiset">multiset</a></code>-compatible.
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+            <code class="computeroutput"><a class="link" href="../doxygen/classboost_1_1intrusive_1_1set__member__hook.html" title="Class template set_member_hook">set_member_hook</a></code>:
+            the user class contains a public <code class="computeroutput"><a class="link" href="../doxygen/classboost_1_1intrusive_1_1set__member__hook.html" title="Class template set_member_hook">set_member_hook</a></code>
+            to make it <code class="computeroutput"><a class="link" href="../doxygen/classboost_1_1intrusive_1_1set.html" title="Class template set">set</a></code>/<code class="computeroutput"><a class="link" href="../doxygen/classboost_1_1intrusive_1_1multiset.html" title="Class template multiset">multiset</a></code>-compatible.
           </li></ul></div>
 <p>
-        <code class="computeroutput"><a class="link" href="../boost/intrusive/set_base_hook.html" title="Class template set_base_hook">set_base_hook</a></code>
-        and <code class="computeroutput"><a class="link" href="../boost/intrusive/set_member_hook.html" title="Class template set_member_hook">set_member_hook</a></code>
+        <code class="computeroutput"><a class="link" href="../doxygen/classboost_1_1intrusive_1_1set__base__hook.html" title="Class template set_base_hook">set_base_hook</a></code>
+        and <code class="computeroutput"><a class="link" href="../doxygen/classboost_1_1intrusive_1_1set__member__hook.html" title="Class template set_member_hook">set_member_hook</a></code>
         receive the same options explained in the section <a class="link" href="usage.html" title="How to use Boost.Intrusive">How
         to use Boost.Intrusive</a> plus a size optimization option:
       </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
             <span class="bold"><strong><code class="computeroutput"><span class="identifier">tag</span><span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">Tag</span><span class="special">&gt;</span></code></strong></span>
             (for base hooks only): This argument serves as a tag, so you can derive
@@ -141,7 +142,7 @@
 <p>
         These containers receive the same options explained in the section <a class="link" href="usage.html" title="How to use Boost.Intrusive">How to use Boost.Intrusive</a>:
       </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
             <span class="bold"><strong><code class="computeroutput"><span class="identifier">base_hook</span><span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">Hook</span><span class="special">&gt;</span></code></strong></span>
             / <span class="bold"><strong><code class="computeroutput"><span class="identifier">member_hook</span><span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">T</span><span class="special">,</span> <span class="keyword">class</span> <span class="identifier">Hook</span><span class="special">,</span> <span class="identifier">Hook</span> <span class="identifier">T</span><span class="special">::*</span> <span class="identifier">PtrToMember</span><span class="special">&gt;</span></code></strong></span>
@@ -155,7 +156,8 @@
             To activate the constant-time <code class="computeroutput"><span class="identifier">size</span><span class="special">()</span></code> operation. Default: <code class="computeroutput"><span class="identifier">constant_time_size</span><span class="special">&lt;</span><span class="keyword">true</span><span class="special">&gt;</span></code>
           </li>
 <li class="listitem">
-            <span class="bold"><strong><code class="computeroutput"><span class="identifier">size_type</span><span class="special">&lt;</span><span class="keyword">bool</span> <span class="identifier">Enabled</span><span class="special">&gt;</span></code></strong></span>:
+            <span class="bold"><strong><code class="computeroutput"><span class="identifier">size_type</span><span class="special">&lt;</span><span class="keyword">typename</span>
+            <span class="identifier">SizeType</span><span class="special">&gt;</span></code></strong></span>:
             To specify the type that will be used to store the size of the container.
             Default: <code class="computeroutput"><span class="identifier">size_type</span><span class="special">&lt;</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span><span class="special">&gt;</span></code>
           </li>
@@ -163,7 +165,7 @@
 <p>
         And they also can receive an additional option:
       </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
             <span class="bold"><strong><code class="computeroutput"><span class="identifier">compare</span><span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">Compare</span><span class="special">&gt;</span></code></strong></span>:
             Comparison function for the objects to be inserted in containers. The
@@ -264,14 +266,11 @@
 </pre>
 </div>
 </div>
-<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
-<td align="left"></td>
-<td align="right"><div class="copyright-footer">Copyright &#169; 2005 Olaf Krzikalla<br>Copyright &#169; 2006-2015 Ion Gaztanaga<p>
+<div class="copyright-footer">Copyright © 2005 Olaf Krzikalla<br>Copyright © 2006-2015 Ion Gaztanaga<p>
         Distributed under the Boost Software License, Version 1.0. (See accompanying
         file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
       </p>
-</div></td>
-</tr></table>
+</div>
 <hr>
 <div class="spirit-nav">
 <a accesskey="p" href="list.html"><img src="../../../doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../intrusive.html"><img src="../../../doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../index.html"><img src="../../../doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="unordered_set_unordered_multiset.html"><img src="../../../doc/src/images/next.png" alt="Next"></a>

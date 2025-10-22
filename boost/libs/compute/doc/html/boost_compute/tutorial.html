@@ -1,13 +1,14 @@
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Tutorial</title>
 <link rel="stylesheet" href="../../../../../doc/src/boostbook.css" type="text/css">
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
-<link rel="home" href="../index.html" title="Chapter&#160;1.&#160;Boost.Compute">
-<link rel="up" href="../index.html" title="Chapter&#160;1.&#160;Boost.Compute">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
+<link rel="home" href="../index.html" title="Chapter 1. Boost.Compute">
+<link rel="up" href="../index.html" title="Chapter 1. Boost.Compute">
 <link rel="prev" href="design.html" title="Design">
 <link rel="next" href="advanced_topics.html" title="Advanced Topics">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
 <table cellpadding="2" width="100%"><tr>
@@ -26,7 +27,7 @@
 <div class="titlepage"><div><div><h2 class="title" style="clear: both">
 <a name="boost_compute.tutorial"></a><a class="link" href="tutorial.html" title="Tutorial">Tutorial</a>
 </h2></div></div></div>
-<div class="toc"><dl>
+<div class="toc"><dl class="toc">
 <dt><span class="section"><a href="tutorial.html#boost_compute.tutorial.hello_world">Hello World</a></span></dt>
 <dt><span class="section"><a href="tutorial.html#boost_compute.tutorial.transferring_data">Transferring
       Data</a></span></dt>
@@ -42,12 +43,12 @@
         the default compute device on the system.
       </p>
 <p>
-        The <code class="computeroutput">boost::compute::system</code>
+        The <code class="computeroutput"><a class="link" href="../doxygen/header_reference/classboost_1_1compute_1_1system.html" title="Class system">boost::compute::system</a></code>
         class provides access to the OpenCL platforms and devices present on the
         host system.
       </p>
 <p>
-        Compute devices are represented with the <code class="computeroutput">device</code>
+        Compute devices are represented with the <code class="computeroutput"><a class="link" href="../doxygen/header_reference/classboost_1_1compute_1_1device.html" title="Class device">device</a></code>
         class.
       </p>
 <p>
@@ -63,8 +64,9 @@
     <span class="comment">// get the default device</span>
     <span class="identifier">compute</span><span class="special">::</span><span class="identifier">device</span> <span class="identifier">device</span> <span class="special">=</span> <span class="identifier">compute</span><span class="special">::</span><span class="identifier">system</span><span class="special">::</span><span class="identifier">default_device</span><span class="special">();</span>
 
-    <span class="comment">// print the device's name</span>
-    <span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"hello from "</span> <span class="special">&lt;&lt;</span> <span class="identifier">device</span><span class="special">.</span><span class="identifier">name</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+    <span class="comment">// print the device's name and platform</span>
+    <span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"hello from "</span> <span class="special">&lt;&lt;</span> <span class="identifier">device</span><span class="special">.</span><span class="identifier">name</span><span class="special">();</span>
+    <span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">" (platform: "</span> <span class="special">&lt;&lt;</span> <span class="identifier">device</span><span class="special">.</span><span class="identifier">platform</span><span class="special">().</span><span class="identifier">name</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="string">")"</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
 
     <span class="keyword">return</span> <span class="number">0</span><span class="special">;</span>
 <span class="special">}</span>
@@ -79,14 +81,14 @@
 </h3></div></div></div>
 <p>
         Before any computation occurs, data must be transferred from the host to
-        the compute device. The generic <code class="computeroutput"><a class="link" href="../boost/compute/copy.html" title="Function template copy">copy()</a></code>
+        the compute device. The generic <code class="computeroutput"><a class="link" href="../doxygen/header_reference/copy_8hpp_1a8cc9d2abdc35b4abae205c10c35aef32.html" title="Function template copy">copy()</a></code>
         function provides a simple interface for transfering data and the generic
-        <code class="computeroutput"><a class="link" href="../boost/compute/vector.html" title="Class template vector">vector&lt;T&gt;</a></code> class
+        <code class="computeroutput"><a class="link" href="../doxygen/header_reference/classboost_1_1compute_1_1vector.html" title="Class template vector">vector&lt;T&gt;</a></code> class
         provides a container for storing data on a compute device.
       </p>
 <p>
         The following example shows how to transfer data from an array on the host
-        to a <code class="computeroutput"><a class="link" href="../boost/compute/vector.html" title="Class template vector">vector&lt;T&gt;</a></code>
+        to a <code class="computeroutput"><a class="link" href="../doxygen/header_reference/classboost_1_1compute_1_1vector.html" title="Class template vector">vector&lt;T&gt;</a></code>
         on the device and then back to a separate <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">vector</span><span class="special">&lt;</span><span class="identifier">T</span><span class="special">&gt;</span></code>
         on the host. At the end of the example both <code class="computeroutput"><span class="identifier">host_array</span></code>
         and <code class="computeroutput"><span class="identifier">host_vector</span></code> contain the
@@ -141,7 +143,7 @@
 <p>
         The following example shows how to calculate the square-root of a vector
         of <code class="computeroutput"><span class="keyword">float</span></code>s on a compute device
-        using the <code class="computeroutput"><a class="link" href="../boost/compute/transform.html" title="Function transform">transform()</a></code>
+        using the <code class="computeroutput"><a class="link" href="../doxygen/header_reference/transform_8hpp_1a3f3d0dd0ed49b684f32740103a120bce.html" title="Function template transform">transform()</a></code>
         function.
       </p>
 <p>
@@ -195,14 +197,11 @@
       </p>
 </div>
 </div>
-<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
-<td align="left"></td>
-<td align="right"><div class="copyright-footer">Copyright &#169; 2013, 2014 Kyle Lutz<p>
+<div class="copyright-footer">Copyright © 2013, 2014 Kyle Lutz<p>
         Distributed under the Boost Software License, Version 1.0. (See accompanying
         file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
       </p>
-</div></td>
-</tr></table>
+</div>
 <hr>
 <div class="spirit-nav">
 <a accesskey="p" href="design.html"><img src="../../../../../doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../index.html"><img src="../../../../../doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../index.html"><img src="../../../../../doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="advanced_topics.html"><img src="../../../../../doc/src/images/next.png" alt="Next"></a>

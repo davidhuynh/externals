@@ -50,6 +50,27 @@ struct segment_view
 ]]
 ]
 
+[heading Member Function(s)]
+[table
+[[Function] [Description] [Parameters]  [Returns]]
+[[``const_iterator begin()``
+
+] [] [
+
+][
+
+]
+]
+[[``const_iterator end()``
+
+] [] [
+
+][
+
+]
+]
+]
+
 [heading Header]
 Either
 

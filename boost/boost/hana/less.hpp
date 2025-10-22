@@ -2,7 +2,7 @@
 @file
 Defines `boost::hana::less`.
 
-@copyright Louis Dionne 2013-2016
+Copyright Louis Dionne 2013-2022
 Distributed under the Boost Software License, Version 1.0.
 (See accompanying file LICENSE.md or copy at http://boost.org/LICENSE_1_0.txt)
  */
@@ -35,7 +35,7 @@ Distributed under the Boost Software License, Version 1.0.
 #include <boost/hana/value.hpp>
 
 
-BOOST_HANA_NAMESPACE_BEGIN
+namespace boost { namespace hana {
     //! @cond
     template <typename X, typename Y>
     constexpr auto less_t::operator()(X&& x, Y&& y) const {
@@ -103,8 +103,8 @@ BOOST_HANA_NAMESPACE_BEGIN
     >> {
         template <typename X, typename Y>
         static constexpr auto apply(X const&, Y const&) {
-            constexpr auto less = hana::less(hana::value<X>(), hana::value<Y>());
-            constexpr bool truth_value = hana::if_(less, true, false);
+            constexpr auto is_less = hana::less(hana::value<X>(), hana::value<Y>());
+            constexpr bool truth_value = hana::if_(is_less, true, false);
             return hana::bool_c<truth_value>;
         }
     };
@@ -137,6 +137,6 @@ BOOST_HANA_NAMESPACE_BEGIN
         static constexpr auto apply(Xs const& xs, Ys const& ys)
         { return hana::lexicographical_compare(xs, ys); }
     };
-BOOST_HANA_NAMESPACE_END
+}} // end namespace boost::hana
 
 #endif // !BOOST_HANA_LESS_HPP

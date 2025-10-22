@@ -1,14 +1,15 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Semi-Intrusive unordered associative containers: unordered_set, unordered_multiset</title>
 <link rel="stylesheet" href="../../../doc/src/boostbook.css" type="text/css">
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
 <link rel="home" href="../index.html" title="The Boost C++ Libraries BoostBook Documentation Subset">
-<link rel="up" href="../intrusive.html" title="Chapter&#160;16.&#160;Boost.Intrusive">
+<link rel="up" href="../intrusive.html" title="Chapter 16. Boost.Intrusive">
 <link rel="prev" href="set_multiset.html" title="Intrusive associative containers: set, multiset, rbtree">
 <link rel="next" href="map_multimap.html" title="Map and multimap-like interface for associative containers">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
 <table cellpadding="2" width="100%"><tr>
@@ -28,7 +29,7 @@
 <a name="intrusive.unordered_set_unordered_multiset"></a><a class="link" href="unordered_set_unordered_multiset.html" title="Semi-Intrusive unordered associative containers: unordered_set, unordered_multiset">Semi-Intrusive
     unordered associative containers: unordered_set, unordered_multiset</a>
 </h2></div></div></div>
-<div class="toc"><dl>
+<div class="toc"><dl class="toc">
 <dt><span class="section"><a href="unordered_set_unordered_multiset.html#intrusive.unordered_set_unordered_multiset.unordered_set_unordered_multiset_performance">unordered_set
       and unordered_multiset performance notes</a></span></dt>
 <dt><span class="section"><a href="unordered_set_unordered_multiset.html#intrusive.unordered_set_unordered_multiset.unordered_set_unordered_multiset_hooks">unordered_set
@@ -42,8 +43,8 @@
 <p>
       <span class="bold"><strong>Boost.Intrusive</strong></span> also offers hashed containers
       that can be very useful to implement fast-lookup containers. These containers
-      (<code class="computeroutput"><a class="link" href="../boost/intrusive/unordered_set.html" title="Class template unordered_set">unordered_set</a></code>
-      and <code class="computeroutput"><a class="link" href="../boost/intrusive/unordered_multiset.html" title="Class template unordered_multiset">unordered_multiset</a></code>)
+      (<code class="computeroutput"><a class="link" href="../doxygen/classboost_1_1intrusive_1_1unordered__set.html" title="Class template unordered_set">unordered_set</a></code>
+      and <code class="computeroutput"><a class="link" href="../doxygen/classboost_1_1intrusive_1_1unordered__multiset.html" title="Class template unordered_multiset">unordered_multiset</a></code>)
       are semi-intrusive containers: they need additional memory apart from the hook
       stored in the <code class="computeroutput"><span class="identifier">value_type</span></code>. This
       additional memory must be passed in the constructor of the container.
@@ -81,15 +82,15 @@
         pointers per element.
       </p>
 <p>
-        An empty, non constant-time size <code class="computeroutput"><a class="link" href="../boost/intrusive/unordered_set.html" title="Class template unordered_set">unordered_set</a></code>
-        or <code class="computeroutput"><a class="link" href="../boost/intrusive/unordered_multiset.html" title="Class template unordered_multiset">unordered_multiset</a></code>
+        An empty, non constant-time size <code class="computeroutput"><a class="link" href="../doxygen/classboost_1_1intrusive_1_1unordered__set.html" title="Class template unordered_set">unordered_set</a></code>
+        or <code class="computeroutput"><a class="link" href="../doxygen/classboost_1_1intrusive_1_1unordered__multiset.html" title="Class template unordered_multiset">unordered_multiset</a></code>
         has also the size of <code class="computeroutput"><span class="identifier">bucket_count</span><span class="special">()</span></code> pointers.
       </p>
 <p>
         Insertions, erasures, and searches, have amortized constant-time complexity
         in hashed containers. However, some worst-case guarantees are linear. See
-        <code class="computeroutput"><a class="link" href="../boost/intrusive/unordered_set.html" title="Class template unordered_set">unordered_set</a></code>
-        or <code class="computeroutput"><a class="link" href="../boost/intrusive/unordered_multiset.html" title="Class template unordered_multiset">unordered_multiset</a></code>
+        <code class="computeroutput"><a class="link" href="../doxygen/classboost_1_1intrusive_1_1unordered__set.html" title="Class template unordered_set">unordered_set</a></code>
+        or <code class="computeroutput"><a class="link" href="../doxygen/classboost_1_1intrusive_1_1unordered__multiset.html" title="Class template unordered_multiset">unordered_multiset</a></code>
         for complexity guarantees of each operation.
       </p>
 <p>
@@ -104,36 +105,36 @@
       and unordered_multiset hooks</a>
 </h3></div></div></div>
 <p>
-        <code class="computeroutput"><a class="link" href="../boost/intrusive/unordered_set.html" title="Class template unordered_set">unordered_set</a></code>
-        and <code class="computeroutput"><a class="link" href="../boost/intrusive/unordered_multiset.html" title="Class template unordered_multiset">unordered_multiset</a></code>
+        <code class="computeroutput"><a class="link" href="../doxygen/classboost_1_1intrusive_1_1unordered__set.html" title="Class template unordered_set">unordered_set</a></code>
+        and <code class="computeroutput"><a class="link" href="../doxygen/classboost_1_1intrusive_1_1unordered__multiset.html" title="Class template unordered_multiset">unordered_multiset</a></code>
         share the same hooks. This is an advantage, because the same user type can
-        be inserted first in a <code class="computeroutput"><a class="link" href="../boost/intrusive/unordered_multiset.html" title="Class template unordered_multiset">unordered_multiset</a></code>
-        and after that in <code class="computeroutput"><a class="link" href="../boost/intrusive/unordered_set.html" title="Class template unordered_set">unordered_set</a></code>
+        be inserted first in a <code class="computeroutput"><a class="link" href="../doxygen/classboost_1_1intrusive_1_1unordered__multiset.html" title="Class template unordered_multiset">unordered_multiset</a></code>
+        and after that in <code class="computeroutput"><a class="link" href="../doxygen/classboost_1_1intrusive_1_1unordered__set.html" title="Class template unordered_set">unordered_set</a></code>
         without changing the definition of the user class.
       </p>
 <pre class="programlisting"><span class="keyword">template</span> <span class="special">&lt;</span><span class="keyword">class</span> <span class="special">...</span><span class="identifier">Options</span><span class="special">&gt;</span>
 <span class="keyword">class</span> <span class="identifier">unordered_set_base_hook</span><span class="special">;</span>
 </pre>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
-            <code class="computeroutput"><a class="link" href="../boost/intrusive/unordered_set_base_hook.html" title="Class template unordered_set_base_hook">unordered_set_base_hook</a></code>:
-            the user class derives publicly from <code class="computeroutput"><a class="link" href="../boost/intrusive/unordered_set_base_hook.html" title="Class template unordered_set_base_hook">unordered_set_base_hook</a></code>
-            to make it <code class="computeroutput"><a class="link" href="../boost/intrusive/unordered_set.html" title="Class template unordered_set">unordered_set</a></code>/<code class="computeroutput"><a class="link" href="../boost/intrusive/unordered_multiset.html" title="Class template unordered_multiset">unordered_multiset</a></code>-compatible.
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+            <code class="computeroutput"><a class="link" href="../doxygen/classboost_1_1intrusive_1_1unordered__set__base__hook.html" title="Class template unordered_set_base_hook">unordered_set_base_hook</a></code>:
+            the user class derives publicly from <code class="computeroutput"><a class="link" href="../doxygen/classboost_1_1intrusive_1_1unordered__set__base__hook.html" title="Class template unordered_set_base_hook">unordered_set_base_hook</a></code>
+            to make it <code class="computeroutput"><a class="link" href="../doxygen/classboost_1_1intrusive_1_1unordered__set.html" title="Class template unordered_set">unordered_set</a></code>/<code class="computeroutput"><a class="link" href="../doxygen/classboost_1_1intrusive_1_1unordered__multiset.html" title="Class template unordered_multiset">unordered_multiset</a></code>-compatible.
           </li></ul></div>
 <pre class="programlisting"><span class="keyword">template</span> <span class="special">&lt;</span><span class="keyword">class</span> <span class="special">...</span><span class="identifier">Options</span><span class="special">&gt;</span>
 <span class="keyword">class</span> <span class="identifier">unordered_set_member_hook</span><span class="special">;</span>
 </pre>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
-            <code class="computeroutput"><a class="link" href="../boost/intrusive/unordered_set_member_hook.html" title="Class template unordered_set_member_hook">unordered_set_member_hook</a></code>:
-            the user class contains a public <code class="computeroutput"><a class="link" href="../boost/intrusive/unordered_set_member_hook.html" title="Class template unordered_set_member_hook">unordered_set_member_hook</a></code>
-            to make it <code class="computeroutput"><a class="link" href="../boost/intrusive/unordered_set.html" title="Class template unordered_set">unordered_set</a></code>/<code class="computeroutput"><a class="link" href="../boost/intrusive/unordered_multiset.html" title="Class template unordered_multiset">unordered_multiset</a></code>-compatible.
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+            <code class="computeroutput"><a class="link" href="../doxygen/classboost_1_1intrusive_1_1unordered__set__member__hook.html" title="Class template unordered_set_member_hook">unordered_set_member_hook</a></code>:
+            the user class contains a public <code class="computeroutput"><a class="link" href="../doxygen/classboost_1_1intrusive_1_1unordered__set__member__hook.html" title="Class template unordered_set_member_hook">unordered_set_member_hook</a></code>
+            to make it <code class="computeroutput"><a class="link" href="../doxygen/classboost_1_1intrusive_1_1unordered__set.html" title="Class template unordered_set">unordered_set</a></code>/<code class="computeroutput"><a class="link" href="../doxygen/classboost_1_1intrusive_1_1unordered__multiset.html" title="Class template unordered_multiset">unordered_multiset</a></code>-compatible.
           </li></ul></div>
 <p>
-        <code class="computeroutput"><a class="link" href="../boost/intrusive/unordered_set_base_hook.html" title="Class template unordered_set_base_hook">unordered_set_base_hook</a></code>
-        and <code class="computeroutput"><a class="link" href="../boost/intrusive/unordered_set_member_hook.html" title="Class template unordered_set_member_hook">unordered_set_member_hook</a></code>
+        <code class="computeroutput"><a class="link" href="../doxygen/classboost_1_1intrusive_1_1unordered__set__base__hook.html" title="Class template unordered_set_base_hook">unordered_set_base_hook</a></code>
+        and <code class="computeroutput"><a class="link" href="../doxygen/classboost_1_1intrusive_1_1unordered__set__member__hook.html" title="Class template unordered_set_member_hook">unordered_set_member_hook</a></code>
         receive the same options explained in the section <a class="link" href="usage.html" title="How to use Boost.Intrusive">How
         to use Boost.Intrusive</a>:
       </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
             <span class="bold"><strong><code class="computeroutput"><span class="identifier">tag</span><span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">Tag</span><span class="special">&gt;</span></code></strong></span>
             (for base hooks only): This argument serves as a tag, so you can derive
@@ -153,7 +154,7 @@
 <p>
         Apart from them, these hooks offer additional options:
       </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
             <span class="bold"><strong><code class="computeroutput"><span class="identifier">store_hash</span><span class="special">&lt;</span><span class="keyword">bool</span> <span class="identifier">Enabled</span><span class="special">&gt;</span></code></strong></span>:
             This option reserves additional space in the hook to store the hash value
@@ -217,12 +218,12 @@
         the container using it is destroyed, otherwise, the result is undefined.
       </p>
 <p>
-        <code class="computeroutput"><a class="link" href="../boost/intrusive/unordered_set.html" title="Class template unordered_set">unordered_set</a></code>
-        and <code class="computeroutput"><a class="link" href="../boost/intrusive/unordered_multiset.html" title="Class template unordered_multiset">unordered_multiset</a></code>
+        <code class="computeroutput"><a class="link" href="../doxygen/classboost_1_1intrusive_1_1unordered__set.html" title="Class template unordered_set">unordered_set</a></code>
+        and <code class="computeroutput"><a class="link" href="../doxygen/classboost_1_1intrusive_1_1unordered__multiset.html" title="Class template unordered_multiset">unordered_multiset</a></code>
         receive the same options explained in the section <a class="link" href="usage.html" title="How to use Boost.Intrusive">How
         to use Boost.Intrusive</a>:
       </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
             <span class="bold"><strong><code class="computeroutput"><span class="identifier">base_hook</span><span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">Hook</span><span class="special">&gt;</span></code></strong></span>
             / <span class="bold"><strong><code class="computeroutput"><span class="identifier">member_hook</span><span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">T</span><span class="special">,</span> <span class="keyword">class</span> <span class="identifier">Hook</span><span class="special">,</span> <span class="identifier">Hook</span> <span class="identifier">T</span><span class="special">::*</span> <span class="identifier">PtrToMember</span><span class="special">&gt;</span></code></strong></span>
@@ -236,7 +237,8 @@
             To activate the constant-time <code class="computeroutput"><span class="identifier">size</span><span class="special">()</span></code> operation. Default: <code class="computeroutput"><span class="identifier">constant_time_size</span><span class="special">&lt;</span><span class="keyword">true</span><span class="special">&gt;</span></code>
           </li>
 <li class="listitem">
-            <span class="bold"><strong><code class="computeroutput"><span class="identifier">size_type</span><span class="special">&lt;</span><span class="keyword">bool</span> <span class="identifier">Enabled</span><span class="special">&gt;</span></code></strong></span>:
+            <span class="bold"><strong><code class="computeroutput"><span class="identifier">size_type</span><span class="special">&lt;</span><span class="keyword">typename</span>
+            <span class="identifier">SizeType</span><span class="special">&gt;</span></code></strong></span>:
             To specify the type that will be used to store the size of the container.
             Default: <code class="computeroutput"><span class="identifier">size_type</span><span class="special">&lt;</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span><span class="special">&gt;</span></code>
           </li>
@@ -244,7 +246,7 @@
 <p>
         And they also can receive additional options:
       </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
             <span class="bold"><strong><code class="computeroutput"><span class="identifier">equal</span><span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">Equal</span><span class="special">&gt;</span></code></strong></span>:
             Equality function for the objects to be inserted in containers. Default:
@@ -253,7 +255,12 @@
           </li>
 <li class="listitem">
             <span class="bold"><strong><code class="computeroutput"><span class="identifier">hash</span><span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">Hash</span><span class="special">&gt;</span></code></strong></span>:
-            Hash function to be used in the container. Default: <code class="computeroutput"><span class="identifier">hash</span><span class="special">&lt;</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">hash</span><span class="special">&lt;</span><span class="identifier">T</span><span class="special">&gt;</span> <span class="special">&gt;</span></code>
+            Hash function to be used in the container. Default: internal hash functor
+            that hashes scalar types, triggering unqualified call to <code class="computeroutput"><span class="identifier">hash_value</span></code>for non-scalar types (boost::hash&lt;T&gt;
+            compatible protocol). If the ADL call does not find a viable candidate
+            a boost::hash&lt;T&gt;() call is tried in case the user has included
+            boost/container_hash/hash.hpp and a viable candidate is found there.
+            Fails otherwise.
           </li>
 <li class="listitem">
             <span class="bold"><strong><code class="computeroutput"><span class="identifier">bucket_traits</span><span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">BucketTraits</span><span class="special">&gt;</span></code></strong></span>:
@@ -286,7 +293,7 @@
             <span class="bold"><strong>Note: this option requires <code class="computeroutput"><span class="identifier">store_hash</span><span class="special">&lt;</span><span class="keyword">true</span><span class="special">&gt;</span></code> option in the hook</strong></span>. When
             the comparison function is expensive, (e.g. strings with a long common
             predicate) sometimes (specially when the load factor is high or we have
-            many equivalent elements in an <code class="computeroutput"><a class="link" href="../boost/intrusive/unordered_multiset.html" title="Class template unordered_multiset">unordered_multiset</a></code>
+            many equivalent elements in an <code class="computeroutput"><a class="link" href="../doxygen/classboost_1_1intrusive_1_1unordered__multiset.html" title="Class template unordered_multiset">unordered_multiset</a></code>
             and no <code class="computeroutput"><span class="identifier">optimize_multikey</span><span class="special">&lt;&gt;</span></code> is activated in the hook) the
             equality function is a performance problem. Two equal values must have
             equal hashes, so comparing the hash values of two elements before using
@@ -321,7 +328,6 @@
 <pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">intrusive</span><span class="special">/</span><span class="identifier">unordered_set</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
 <span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">vector</span><span class="special">&gt;</span>
 <span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">functional</span><span class="special">&gt;</span>
-<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">functional</span><span class="special">/</span><span class="identifier">hash</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
 
 <span class="keyword">using</span> <span class="keyword">namespace</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">intrusive</span><span class="special">;</span>
 
@@ -419,13 +425,12 @@
 </pre>
 <p>
         The following bucket traits just stores a pointer to the bucket array but
-        the size is a compile-time constant. Note the use of the auxiliary <code class="computeroutput">unordered_bucket</code> and
-        <code class="computeroutput">unordered_bucket_ptr</code>
+        the size is a compile-time constant. Note the use of the auxiliary <code class="computeroutput"><a class="link" href="../doxygen/structboost_1_1intrusive_1_1unordered__bucket.html" title="Struct template unordered_bucket">unordered_bucket</a></code> and
+        <code class="computeroutput"><a class="link" href="../doxygen/structboost_1_1intrusive_1_1unordered__bucket__ptr.html" title="Struct template unordered_bucket_ptr">unordered_bucket_ptr</a></code>
         utilities to obtain the type of the bucket and its pointer before defining
         the unordered container:
       </p>
 <pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">intrusive</span><span class="special">/</span><span class="identifier">unordered_set</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
-<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">functional</span><span class="special">/</span><span class="identifier">hash</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
 <span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">vector</span><span class="special">&gt;</span>
 
 <span class="keyword">using</span> <span class="keyword">namespace</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">intrusive</span><span class="special">;</span>
@@ -442,7 +447,9 @@
    <span class="keyword">friend</span> <span class="keyword">bool</span> <span class="keyword">operator</span><span class="special">==(</span><span class="keyword">const</span> <span class="identifier">MyClass</span> <span class="special">&amp;</span><span class="identifier">l</span><span class="special">,</span> <span class="keyword">const</span> <span class="identifier">MyClass</span> <span class="special">&amp;</span><span class="identifier">r</span><span class="special">)</span>
       <span class="special">{</span>  <span class="keyword">return</span> <span class="identifier">l</span><span class="special">.</span><span class="identifier">int_</span> <span class="special">==</span> <span class="identifier">r</span><span class="special">.</span><span class="identifier">int_</span><span class="special">;</span>   <span class="special">}</span>
    <span class="keyword">friend</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">hash_value</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">MyClass</span> <span class="special">&amp;</span><span class="identifier">v</span><span class="special">)</span>
-      <span class="special">{</span>  <span class="keyword">return</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">hash_value</span><span class="special">(</span><span class="identifier">v</span><span class="special">.</span><span class="identifier">int_</span><span class="special">);</span> <span class="special">}</span>
+   <span class="special">{</span>  <span class="comment">//Use your favorite hash function, like boost::hash or std::hash</span>
+      <span class="keyword">return</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span><span class="special">(</span><span class="identifier">v</span><span class="special">.</span><span class="identifier">int_</span><span class="special">);</span>
+   <span class="special">}</span>
 <span class="special">};</span>
 
 <span class="comment">//Define the base hook option</span>
@@ -497,14 +504,11 @@
 </pre>
 </div>
 </div>
-<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
-<td align="left"></td>
-<td align="right"><div class="copyright-footer">Copyright &#169; 2005 Olaf Krzikalla<br>Copyright &#169; 2006-2015 Ion Gaztanaga<p>
+<div class="copyright-footer">Copyright © 2005 Olaf Krzikalla<br>Copyright © 2006-2015 Ion Gaztanaga<p>
         Distributed under the Boost Software License, Version 1.0. (See accompanying
         file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
       </p>
-</div></td>
-</tr></table>
+</div>
 <hr>
 <div class="spirit-nav">
 <a accesskey="p" href="set_multiset.html"><img src="../../../doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../intrusive.html"><img src="../../../doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../index.html"><img src="../../../doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="map_multimap.html"><img src="../../../doc/src/images/next.png" alt="Next"></a>

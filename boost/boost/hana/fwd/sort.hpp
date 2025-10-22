@@ -2,7 +2,7 @@
 @file
 Forward declares `boost::hana::sort`.
 
-@copyright Louis Dionne 2013-2016
+Copyright Louis Dionne 2013-2022
 Distributed under the Boost Software License, Version 1.0.
 (See accompanying file LICENSE.md or copy at http://boost.org/LICENSE_1_0.txt)
  */
@@ -15,7 +15,7 @@ Distributed under the Boost Software License, Version 1.0.
 #include <boost/hana/detail/nested_by_fwd.hpp>
 
 
-BOOST_HANA_NAMESPACE_BEGIN
+namespace boost { namespace hana {
     //! Sort a sequence, optionally based on a custom `predicate`.
     //! @ingroup group-Sequence
     //!
@@ -79,13 +79,6 @@ BOOST_HANA_NAMESPACE_BEGIN
     //! -------
     //! @include example/sort.cpp
     //!
-    //! Benchmarks
-    //! ----------
-    //! <div class="benchmark-chart"
-    //!      style="min-width: 310px; height: 400px; margin: 0 auto"
-    //!      data-dataset="benchmark.sort.compile.json">
-    //! </div>
-    //!
     //! [1]: http://en.wikipedia.org/wiki/Strict_weak_ordering
 #ifdef BOOST_HANA_DOXYGEN_INVOKED
     constexpr auto sort = [](auto&& xs[, auto&& predicate]) {
@@ -103,8 +96,8 @@ BOOST_HANA_NAMESPACE_BEGIN
         constexpr auto operator()(Xs&& xs, Predicate&& pred) const;
     };
 
-    constexpr sort_t sort{};
+    BOOST_HANA_INLINE_VARIABLE constexpr sort_t sort{};
 #endif
-BOOST_HANA_NAMESPACE_END
+}} // end namespace boost::hana
 
 #endif // !BOOST_HANA_FWD_SORT_HPP

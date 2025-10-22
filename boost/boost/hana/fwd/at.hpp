@@ -2,7 +2,7 @@
 @file
 Forward declares `boost::hana::at` and `boost::hana::at_c`.
 
-@copyright Louis Dionne 2013-2016
+Copyright Louis Dionne 2013-2022
 Distributed under the Boost Software License, Version 1.0.
 (See accompanying file LICENSE.md or copy at http://boost.org/LICENSE_1_0.txt)
  */
@@ -16,7 +16,7 @@ Distributed under the Boost Software License, Version 1.0.
 #include <cstddef>
 
 
-BOOST_HANA_NAMESPACE_BEGIN
+namespace boost { namespace hana {
     //! Returns the `n`th element of an iterable.
     //! @ingroup group-Iterable
     //!
@@ -46,14 +46,6 @@ BOOST_HANA_NAMESPACE_BEGIN
     //! Example
     //! -------
     //! @include example/at.cpp
-    //!
-    //!
-    //! Benchmarks
-    //! ----------
-    //! <div class="benchmark-chart"
-    //!      style="min-width: 310px; height: 400px; margin: 0 auto"
-    //!      data-dataset="benchmark.at.compile.json">
-    //! </div>
 #ifdef BOOST_HANA_DOXYGEN_INVOKED
     constexpr auto at = [](auto&& xs, auto const& n) -> decltype(auto) {
         return tag-dispatched;
@@ -67,7 +59,7 @@ BOOST_HANA_NAMESPACE_BEGIN
         constexpr decltype(auto) operator()(Xs&& xs, N const& n) const;
     };
 
-    constexpr at_t at{};
+    BOOST_HANA_INLINE_VARIABLE constexpr at_t at{};
 #endif
 
     //! Equivalent to `at`; provided for convenience.
@@ -92,6 +84,6 @@ BOOST_HANA_NAMESPACE_BEGIN
     template <std::size_t n, typename Xs>
     constexpr decltype(auto) at_c(Xs&& xs);
 #endif
-BOOST_HANA_NAMESPACE_END
+}} // end namespace boost::hana
 
 #endif // !BOOST_HANA_FWD_AT_HPP

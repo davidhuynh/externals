@@ -1,13 +1,14 @@
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Design</title>
 <link rel="stylesheet" href="../../../../../doc/src/boostbook.css" type="text/css">
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
-<link rel="home" href="../index.html" title="Chapter&#160;1.&#160;Boost.Compute">
-<link rel="up" href="../index.html" title="Chapter&#160;1.&#160;Boost.Compute">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
+<link rel="home" href="../index.html" title="Chapter 1. Boost.Compute">
+<link rel="up" href="../index.html" title="Chapter 1. Boost.Compute">
 <link rel="prev" href="getting_started.html" title="Getting Started">
 <link rel="next" href="tutorial.html" title="Tutorial">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
 <table cellpadding="2" width="100%"><tr>
@@ -26,7 +27,7 @@
 <div class="titlepage"><div><div><h2 class="title" style="clear: both">
 <a name="boost_compute.design"></a><a class="link" href="design.html" title="Design">Design</a>
 </h2></div></div></div>
-<div class="toc"><dl>
+<div class="toc"><dl class="toc">
 <dt><span class="section"><a href="design.html#boost_compute.design.library_architecture">Library Architecture</a></span></dt>
 <dt><span class="section"><a href="design.html#boost_compute.design.why_opencl">Why OpenCL</a></span></dt>
 </dl></div>
@@ -37,20 +38,20 @@
 <p>
         The Boost Compute library consists of several different components. The core
         layer provides a "thin" C++ wrapper over the OpenCL API. This includes
-        classes to manage OpenCL objects such as <code class="computeroutput">device</code>'s,
-        <code class="computeroutput">kernel</code>'s and <code class="computeroutput">command_queue</code>'s.
+        classes to manage OpenCL objects such as <code class="computeroutput"><a class="link" href="../doxygen/header_reference/classboost_1_1compute_1_1device.html" title="Class device">device</a></code>'s,
+        <code class="computeroutput"><a class="link" href="../doxygen/header_reference/classboost_1_1compute_1_1device.html" title="Class device">kernel</a></code>'s and <code class="computeroutput"><a class="link" href="../doxygen/header_reference/classboost_1_1compute_1_1device.html" title="Class device">command_queue</a></code>'s.
       </p>
 <p>
         On top of the core layer is a partial implementation of the C++ standard
-        library providing common containers (e.g. <code class="computeroutput"><a class="link" href="../boost/compute/vector.html" title="Class template vector">vector&lt;T&gt;</a></code>,
-        <code class="computeroutput"><a class="link" href="../boost/compute/array.html" title="Class template array">array&lt;T, N&gt;</a></code>) along
-        with common algorithms (e.g. <code class="computeroutput"><a class="link" href="../boost/compute/transform.html" title="Function transform">transform()</a></code>
-        and <code class="computeroutput"><a class="link" href="../boost/compute/sort.html" title="Function sort">sort()</a></code>).
+        library providing common containers (e.g. <code class="computeroutput"><a class="link" href="../doxygen/header_reference/classboost_1_1compute_1_1vector.html" title="Class template vector">vector&lt;T&gt;</a></code>,
+        <code class="computeroutput"><a class="link" href="../doxygen/header_reference/classboost_1_1compute_1_1array.html" title="Class template array">array&lt;T, N&gt;</a></code>) along
+        with common algorithms (e.g. <code class="computeroutput"><a class="link" href="../doxygen/header_reference/transform_8hpp_1a3f3d0dd0ed49b684f32740103a120bce.html" title="Function template transform">transform()</a></code>
+        and <code class="computeroutput"><a class="link" href="../doxygen/header_reference/sort_8hpp_1aa20f8f7c2398ace17e6df345175ec4d2.html" title="Function template sort">sort()</a></code>).
       </p>
 <p>
         The library also provides a number of "fancy" iterators (e.g.
-        <code class="computeroutput"><a class="link" href="../boost/compute/transform_iterator.html" title="Class template transform_iterator">transform_iterator</a></code>
-        and <code class="computeroutput"><a class="link" href="../boost/compute/permutation_iterator.html" title="Class template permutation_iterator">permutation_iterator</a></code>)
+        <code class="computeroutput"><a class="link" href="../doxygen/header_reference/classboost_1_1compute_1_1transform__iterator.html" title="Class template transform_iterator">transform_iterator</a></code>
+        and <code class="computeroutput"><a class="link" href="../doxygen/header_reference/classboost_1_1compute_1_1permutation__iterator.html" title="Class template permutation_iterator">permutation_iterator</a></code>)
         which enhance the functionality of the standard algorithms.
       </p>
 <p>
@@ -75,7 +76,7 @@
 <p>
         OpenCL was chosen for a number of reasons:
       </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
             Vendor-neutral, standard C/C++, and doesn't require a special compiler,
             non-standard pragmas, or compiler extensions.
@@ -103,14 +104,11 @@
 </ul></div>
 </div>
 </div>
-<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
-<td align="left"></td>
-<td align="right"><div class="copyright-footer">Copyright &#169; 2013, 2014 Kyle Lutz<p>
+<div class="copyright-footer">Copyright © 2013, 2014 Kyle Lutz<p>
         Distributed under the Boost Software License, Version 1.0. (See accompanying
         file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
       </p>
-</div></td>
-</tr></table>
+</div>
 <hr>
 <div class="spirit-nav">
 <a accesskey="p" href="getting_started.html"><img src="../../../../../doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../index.html"><img src="../../../../../doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../index.html"><img src="../../../../../doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="tutorial.html"><img src="../../../../../doc/src/images/next.png" alt="Next"></a>

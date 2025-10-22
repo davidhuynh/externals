@@ -1,8 +1,9 @@
 // Boost.Geometry (aka GGL, Generic Geometry Library)
 
-// Copyright (c) 2015, Oracle and/or its affiliates.
+// Copyright (c) 2015-2020 Oracle and/or its affiliates.
 
 // Contributed and/or modified by Menelaos Karavelas, on behalf of Oracle
+// Contributed and/or modified by Adam Wulkiewicz, on behalf of Oracle
 
 // Licensed under the Boost Software License version 1.0.
 // http://www.boost.org/users/license.html
@@ -15,34 +16,27 @@
 #include <iterator>
 #include <memory>
 #include <new>
+#include <type_traits>
 #include <utility>
 #include <vector>
 
 #include <boost/core/addressof.hpp>
-#include <boost/iterator.hpp>
 #include <boost/iterator/iterator_facade.hpp>
 #include <boost/iterator/iterator_categories.hpp>
-#include <boost/mpl/assert.hpp>
-#include <boost/mpl/if.hpp>
-#include <boost/range.hpp>
-#include <boost/type_traits/is_const.hpp>
-#include <boost/type_traits/is_convertible.hpp>
-#include <boost/type_traits/remove_reference.hpp>
+#include <boost/range/size.hpp>
 
+#include <boost/geometry/algorithms/num_interior_rings.hpp>
 #include <boost/geometry/core/assert.hpp>
 #include <boost/geometry/core/closure.hpp>
 #include <boost/geometry/core/exterior_ring.hpp>
 #include <boost/geometry/core/interior_rings.hpp>
 #include <boost/geometry/core/ring_type.hpp>
+#include <boost/geometry/core/static_assert.hpp>
 #include <boost/geometry/core/tags.hpp>
-
 #include <boost/geometry/iterators/flatten_iterator.hpp>
-
 #include <boost/geometry/util/range.hpp>
-
 #include <boost/geometry/views/closeable_view.hpp>
-
-#include <boost/geometry/algorithms/num_interior_rings.hpp>
+#include <boost/geometry/views/detail/boundary_view/interface.hpp>
 
 
 namespace boost { namespace geometry
@@ -57,14 +51,11 @@ namespace detail { namespace boundary_views
 template
 <
     typename Polygon,
-    typename Value = typename ring_type<Polygon>::type,
-    typename Reference = typename ring_return_type<Polygon>::type,
+    typename Value = ring_type_t<Polygon>,
+    typename Reference = ring_return_type_t<Polygon>,
     typename Difference = typename boost::range_difference
         <
-            typename boost::remove_reference
-                <
-                    typename interior_return_type<Polygon>::type
-                >::type
+            std::remove_reference_t<interior_return_type_t<Polygon>>
         >::type
 >
 class polygon_rings_iterator
@@ -77,13 +68,10 @@ class polygon_rings_iterator
             Difference
         >
 {
-    typedef typename boost::range_size
+    using size_type = typename boost::range_size
         <
-            typename boost::remove_reference
-                <
-                    typename interior_return_type<Polygon>::type
-                >::type
-        >::type size_type;
+            std::remove_reference_t<interior_return_type_t<Polygon>>
+        >::type;
 
 public:
     // default constructor
@@ -122,11 +110,11 @@ public:
         , m_index(other.m_index)
     {
         static const bool is_convertible
-            = boost::is_convertible<OtherPolygon, Polygon>::value;
+            = std::is_convertible<OtherPolygon, Polygon>::value;
 
-        BOOST_MPL_ASSERT_MSG((is_convertible),
-                             NOT_CONVERTIBLE,
-                             (types<OtherPolygon>));
+        BOOST_GEOMETRY_STATIC_ASSERT((is_convertible),
+            "OtherPolygon has to be convertible to Polygon.",
+            OtherPolygon, Polygon);
     }
 
 private:
@@ -224,7 +212,7 @@ private:
 public:
     typedef typename base_type::iterator iterator;
     typedef typename base_type::const_iterator const_iterator;
-    
+
     typedef linestring_tag tag_type;
 
     explicit ring_boundary(Ring& ring)
@@ -237,7 +225,7 @@ public:
 };
 
 
-template <typename Geometry, typename Tag = typename tag<Geometry>::type>
+template <typename Geometry, typename Tag = tag_t<Geometry>>
 struct num_rings
 {};
 
@@ -261,7 +249,7 @@ struct num_rings<MultiPolygon, multi_polygon_tag>
 };
 
 
-template <typename Geometry, typename Tag = typename tag<Geometry>::type>
+template <typename Geometry, typename Tag = tag_t<Geometry>>
 struct views_container_initializer
 {};
 
@@ -282,12 +270,12 @@ struct views_container_initializer<Polygon, polygon_tag>
 template <typename MultiPolygon>
 class views_container_initializer<MultiPolygon, multi_polygon_tag>
 {
-    typedef typename boost::mpl::if_
+    typedef std::conditional_t
         <
-            boost::is_const<MultiPolygon>,
+            std::is_const<MultiPolygon>::value,
             typename boost::range_value<MultiPolygon>::type const,
             typename boost::range_value<MultiPolygon>::type
-        >::type polygon_type;
+        > polygon_type;
 
     typedef polygon_rings_iterator<polygon_type> inner_iterator_type;
 
@@ -334,7 +322,7 @@ public:
 template <typename Areal>
 class areal_boundary
 {
-    typedef boundary_view<typename ring_type<Areal>::type> boundary_view_type;
+    typedef boundary_view<ring_type_t<Areal>> boundary_view_type;
     typedef views_container_initializer<Areal> exception_safe_initializer;
 
     template <typename T>

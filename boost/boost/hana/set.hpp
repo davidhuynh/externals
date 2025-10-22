@@ -2,7 +2,7 @@
 @file
 Defines `boost::hana::set`.
 
-@copyright Louis Dionne 2013-2016
+Copyright Louis Dionne 2013-2022
 Distributed under the Boost Software License, Version 1.0.
 (See accompanying file LICENSE.md or copy at http://boost.org/LICENSE_1_0.txt)
  */
@@ -50,13 +50,13 @@ Distributed under the Boost Software License, Version 1.0.
 #include <utility>
 
 
-BOOST_HANA_NAMESPACE_BEGIN
+namespace boost { namespace hana {
     //////////////////////////////////////////////////////////////////////////
     // set
     //////////////////////////////////////////////////////////////////////////
     //! @cond
     template <typename ...Xs>
-    struct set
+    struct set final
         : detail::operators::adl<set<Xs...>>
         , detail::searchable_operators<set<Xs...>>
     {
@@ -72,6 +72,7 @@ BOOST_HANA_NAMESPACE_BEGIN
             : storage(static_cast<tuple<Xs...>&&>(xs))
         { }
 
+        constexpr set() = default;
         constexpr set(set const& other) = default;
         constexpr set(set&& other) = default;
     };
@@ -317,6 +318,6 @@ BOOST_HANA_NAMESPACE_BEGIN
                                    hana::erase_key);
         }
     };
-BOOST_HANA_NAMESPACE_END
+}} // end namespace boost::hana
 
 #endif // !BOOST_HANA_SET_HPP

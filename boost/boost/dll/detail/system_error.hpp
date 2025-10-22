@@ -1,4 +1,5 @@
 // Copyright 2014 Renato Tegon Forti, Antony Polukhin.
+// Copyright Antony Polukhin, 2015-2025.
 //
 // Distributed under the Boost Software License, Version 1.0.
 // (See accompanying file LICENSE_1_0.txt
@@ -7,10 +8,8 @@
 #ifndef BOOST_DLL_SYSTEM_ERROR_HPP
 #define BOOST_DLL_SYSTEM_ERROR_HPP
 
-#include <boost/config.hpp>
+#include <boost/dll/config.hpp>
 #include <boost/predef/os.h>
-#include <boost/system/error_code.hpp>
-#include <boost/system/system_error.hpp>
 #include <boost/throw_exception.hpp>
 
 #if !BOOST_OS_WINDOWS
@@ -23,19 +22,19 @@
 
 namespace boost { namespace dll { namespace detail {
 
-    inline void reset_dlerror() BOOST_NOEXCEPT {
+    inline void reset_dlerror() noexcept {
 #if !BOOST_OS_WINDOWS
         const char* const error_txt = dlerror();
         (void)error_txt;
 #endif
     }
 
-    inline void report_error(const boost::system::error_code& ec, const char* message) {
+    inline void report_error(const std::error_code& ec, const char* message) {
 #if !BOOST_OS_WINDOWS
         const char* const error_txt = dlerror();
         if (error_txt) {
             boost::throw_exception(
-                boost::system::system_error(
+                boost::dll::fs::system_error(
                     ec,
                     message + std::string(" (dlerror system message: ") + error_txt + std::string(")")
                 )
@@ -44,7 +43,7 @@ namespace boost { namespace dll { namespace detail {
 #endif
 
         boost::throw_exception(
-            boost::system::system_error(
+            boost::dll::fs::system_error(
                 ec, message
             )
         );

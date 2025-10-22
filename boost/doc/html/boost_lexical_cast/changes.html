@@ -1,14 +1,15 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Changes</title>
 <link rel="stylesheet" href="../../../doc/src/boostbook.css" type="text/css">
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
 <link rel="home" href="../index.html" title="The Boost C++ Libraries BoostBook Documentation Subset">
-<link rel="up" href="../boost_lexical_cast.html" title="Chapter&#160;18.&#160;Boost.Lexical_Cast 1.0">
+<link rel="up" href="../boost_lexical_cast.html" title="Chapter 18. Boost.Lexical_Cast 1.0">
 <link rel="prev" href="frequently_asked_questions.html" title="Frequently Asked Questions">
 <link rel="next" href="performance.html" title="Performance">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
 <table cellpadding="2" width="100%"><tr>
@@ -27,16 +28,69 @@
 <div class="titlepage"><div><div><h2 class="title" style="clear: both">
 <a name="boost_lexical_cast.changes"></a><a class="link" href="changes.html" title="Changes">Changes</a>
 </h2></div></div></div>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+          <span class="bold"><strong>boost 1.86.0 :</strong></span>
+          <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; "><li class="listitem">
+                Fixed conversion of <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">basic_string_view</span></code>
+                and <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">basic_string_view</span></code> containing one
+                or more <code class="computeroutput"><span class="special">\</span><span class="number">0</span></code>
+                characters. Issue was introduced in 1.85.0.
+              </li></ul></div>
+        </li>
+<li class="listitem">
+          <span class="bold"><strong>boost 1.85.0 :</strong></span>
+          <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; ">
+<li class="listitem">
+                Significant rewrite of the internal logic to separate optimized and
+                C++ Standard Library IO-based streams:
+                <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: square; ">
+<li class="listitem">
+                      C++ Standard Library based streams now constructed in less
+                      cases leading to <span class="bold"><strong>better performance</strong></span>;
+                    </li>
+<li class="listitem">
+                      less template instantiations and simpler code;
+                    </li>
+<li class="listitem">
+                      always use <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">char_traits</span></code>
+                      (do not use custom traits from input/output types as it leads
+                      to linktime or runtime errors);
+                    </li>
+<li class="listitem">
+                      support for <code class="computeroutput"><span class="keyword">volatile</span></code>
+                      input types was dropped, following the C++ Standard Library
+                      trend.
+                    </li>
+</ul></div>
+              </li>
+<li class="listitem">
+                Optimized conversions from std::basic_string_view and boost::basic_string_view
+              </li>
+<li class="listitem">
+                Dropped dependency on Boost.NumericConversion and Boost.MPL. Fixed
+                some cases of converting floting point types to arithmetics.
+              </li>
+<li class="listitem">
+                The library now works fine with <code class="computeroutput"><span class="special">-</span><span class="identifier">fno</span><span class="special">-</span><span class="identifier">sanitize</span><span class="special">-</span><span class="identifier">recover</span><span class="special">=</span><span class="identifier">integer</span></code>.
+              </li>
+</ul></div>
+        </li>
+<li class="listitem">
+          <span class="bold"><strong>boost 1.84.0 :</strong></span>
+          <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; "><li class="listitem">
+                Dropped support of C++98 and C++03.
+              </li></ul></div>
+        </li>
 <li class="listitem">
           <span class="bold"><strong>boost 1.56.0 :</strong></span>
-          <div class="itemizedlist"><ul class="itemizedlist" type="circle"><li class="listitem">
+          <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; "><li class="listitem">
                 Added <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">conversion</span><span class="special">::</span><span class="identifier">try_lexical_convert</span></code> functions.
               </li></ul></div>
         </li>
 <li class="listitem">
           <span class="bold"><strong>boost 1.54.0 :</strong></span>
-          <div class="itemizedlist"><ul class="itemizedlist" type="circle"><li class="listitem">
+          <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; "><li class="listitem">
                 Fix some issues with <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">int128_type</span></code>
                 and <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">uint128_type</span></code> conversions. Notify
                 user at compile time if the <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">numeric_limits</span></code>
@@ -46,7 +100,7 @@
         </li>
 <li class="listitem">
           <span class="bold"><strong>boost 1.54.0 :</strong></span>
-          <div class="itemizedlist"><ul class="itemizedlist" type="circle">
+          <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; ">
 <li class="listitem">
                 Added code to convert <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">int128_type</span></code>
                 and <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">uint128_type</span></code> types (requires GCC
@@ -64,13 +118,13 @@
         </li>
 <li class="listitem">
           <span class="bold"><strong>boost 1.53.0 :</strong></span>
-          <div class="itemizedlist"><ul class="itemizedlist" type="circle"><li class="listitem">
+          <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; "><li class="listitem">
                 Much better input and output streams detection for user defined types.
               </li></ul></div>
         </li>
 <li class="listitem">
           <span class="bold"><strong>boost 1.52.0 :</strong></span>
-          <div class="itemizedlist"><ul class="itemizedlist" type="circle">
+          <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; ">
 <li class="listitem">
                 Restored compilation on MSVC-2003 (was broken in 1.51.0).
               </li>
@@ -83,13 +137,13 @@
         </li>
 <li class="listitem">
           <span class="bold"><strong>boost 1.51.0 :</strong></span>
-          <div class="itemizedlist"><ul class="itemizedlist" type="circle"><li class="listitem">
+          <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; "><li class="listitem">
                 Better performance, less memory usage for <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">array</span><span class="special">&lt;</span><span class="identifier">character_type</span><span class="special">,</span> <span class="identifier">N</span><span class="special">&gt;</span></code> and <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">array</span><span class="special">&lt;</span><span class="identifier">character_type</span><span class="special">,</span> <span class="identifier">N</span><span class="special">&gt;</span></code> conversions.
               </li></ul></div>
         </li>
 <li class="listitem">
           <span class="bold"><strong>boost 1.50.0 :</strong></span>
-          <div class="itemizedlist"><ul class="itemizedlist" type="circle">
+          <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; ">
 <li class="listitem">
                 <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">bad_lexical_cast</span></code> exception is now
                 globaly visible and can be catched even if code is compiled with
@@ -106,7 +160,7 @@
         </li>
 <li class="listitem">
           <span class="bold"><strong>boost 1.49.0 :</strong></span>
-          <div class="itemizedlist"><ul class="itemizedlist" type="circle">
+          <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; ">
 <li class="listitem">
                 Restored work with typedefed wchar_t (compilation flag /Zc:wchar_t-
                 for Visual Studio).
@@ -119,7 +173,7 @@
         </li>
 <li class="listitem">
           <span class="bold"><strong>boost 1.48.0 :</strong></span>
-          <div class="itemizedlist"><ul class="itemizedlist" type="circle">
+          <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; ">
 <li class="listitem">
                 Added code to work with Inf and NaN on any platform.
               </li>
@@ -131,7 +185,7 @@
         </li>
 <li class="listitem">
           <span class="bold"><strong>boost 1.47.0 :</strong></span>
-          <div class="itemizedlist"><ul class="itemizedlist" type="circle">
+          <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; ">
 <li class="listitem">
                 Optimizations for "C" and other locales without number
                 grouping.
@@ -157,7 +211,7 @@
         </li>
 <li class="listitem">
           <span class="bold"><strong>boost 1.34.0 :</strong></span>
-          <div class="itemizedlist"><ul class="itemizedlist" type="circle"><li class="listitem">
+          <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; "><li class="listitem">
                 Better performance for many combinations of Source and Target types.
                 For more details refer to Alexander Nasonovs article <a href="http://accu.org/index.php/journals/1375" target="_top">Fine
                 Tuning for lexical_cast, Overload #74, August 2006</a> <a href="http://www.accu.org/var/uploads/journals/overload74.pdf" target="_top">(PDF)</a>.
@@ -165,7 +219,7 @@
         </li>
 <li class="listitem">
           <span class="bold"><strong>boost 1.33.0 :</strong></span>
-          <div class="itemizedlist"><ul class="itemizedlist" type="circle">
+          <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; ">
 <li class="listitem">
                 Call-by-const reference for the parameters. This requires partial
                 specialization of class templates, so it doesn't work for MSVC 6,
@@ -179,7 +233,7 @@
         </li>
 <li class="listitem">
           <span class="bold"><strong>Earlier :</strong></span>
-          <div class="itemizedlist"><ul class="itemizedlist" type="circle">
+          <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; ">
 <li class="listitem">
                 The previous version of lexical_cast used the default stream precision
                 for reading and writing floating-point numbers. For numerics that
@@ -219,15 +273,11 @@
         </li>
 </ul></div>
 </div>
-<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
-<td align="left"></td>
-<td align="right"><div class="copyright-footer">Copyright &#169; 2000-2005 Kevlin Henney<br>Copyright &#169; 2006-2010 Alexander Nasonov<br>Copyright &#169; 2011-2014 Antony
-      Polukhin<p>
+<div class="copyright-footer">Copyright © 2000-2005 Kevlin Henney<br>Copyright © 2006-2010 Alexander Nasonov<br>Copyright © 2011-2025 Antony Polukhin<p>
         Distributed under the Boost Software License, Version 1.0. (See accompanying
         file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
       </p>
-</div></td>
-</tr></table>
+</div>
 <hr>
 <div class="spirit-nav">
 <a accesskey="p" href="frequently_asked_questions.html"><img src="../../../doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../boost_lexical_cast.html"><img src="../../../doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../index.html"><img src="../../../doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="performance.html"><img src="../../../doc/src/images/next.png" alt="Next"></a>

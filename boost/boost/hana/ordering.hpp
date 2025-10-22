@@ -2,7 +2,7 @@
 @file
 Defines `boost::hana::ordering`.
 
-@copyright Louis Dionne 2013-2016
+Copyright Louis Dionne 2013-2022
 Distributed under the Boost Software License, Version 1.0.
 (See accompanying file LICENSE.md or copy at http://boost.org/LICENSE_1_0.txt)
  */
@@ -13,12 +13,11 @@ Distributed under the Boost Software License, Version 1.0.
 #include <boost/hana/fwd/ordering.hpp>
 
 #include <boost/hana/config.hpp>
+#include <boost/hana/detail/decay.hpp>
 #include <boost/hana/less.hpp>
 
-#include <type_traits>
 
-
-BOOST_HANA_NAMESPACE_BEGIN
+namespace boost { namespace hana {
     namespace detail {
         template <typename F>
         struct less_by {
@@ -37,9 +36,9 @@ BOOST_HANA_NAMESPACE_BEGIN
     //! @cond
     template <typename F>
     constexpr auto ordering_t::operator()(F&& f) const {
-        return detail::less_by<typename std::decay<F>::type>{static_cast<F&&>(f)};
+        return detail::less_by<typename detail::decay<F>::type>{static_cast<F&&>(f)};
     }
     //! @endcond
-BOOST_HANA_NAMESPACE_END
+}} // end namespace boost::hana
 
 #endif // !BOOST_HANA_ORDERING_HPP

@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['value',['value',['../structboost_1_1hana_1_1optional.html#acdcf71b43d4e27d5efbf0ad875d0be58',1,'boost::hana::optional']]],
-  ['value_5for',['value_or',['../structboost_1_1hana_1_1optional.html#a1f511267d94c178e4ef955da60f0888d',1,'boost::hana::optional']]]
+  ['set_977',['set',['../structboost_1_1hana_1_1set.html#a51bdb213a03abc126668c4c3b14fc50b',1,'boost::hana::set::set()=default'],['../structboost_1_1hana_1_1set.html#a937a7d47238690b571e7dd524278f6d5',1,'boost::hana::set::set(set const &amp;other)=default'],['../structboost_1_1hana_1_1set.html#ac5b7025edfb0c6c28f31d84598e130f0',1,'boost::hana::set::set(set &amp;&amp;other)=default']]]
 ];

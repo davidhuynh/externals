@@ -1,13 +1,14 @@
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>regex_replace</title>
 <link rel="stylesheet" href="../../../../../../doc/src/boostbook.css" type="text/css">
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
-<link rel="home" href="../../index.html" title="Boost.Regex 5.1.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
+<link rel="home" href="../../index.html" title="Boost.Regex 7.0.1">
 <link rel="up" href="../ref.html" title="Reference">
 <link rel="prev" href="regex_search.html" title="regex_search">
 <link rel="next" href="regex_iterator.html" title="regex_iterator">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
 <table cellpadding="2" width="100%"><tr>
@@ -54,7 +55,7 @@
 </pre>
 <h5>
 <a name="boost_regex.ref.regex_replace.h0"></a>
-        <span><a name="boost_regex.ref.regex_replace.description"></a></span><a class="link" href="regex_replace.html#boost_regex.ref.regex_replace.description">Description</a>
+        <span class="phrase"><a name="boost_regex.ref.regex_replace.description"></a></span><a class="link" href="regex_replace.html#boost_regex.ref.regex_replace.description">Description</a>
       </h5>
 <pre class="programlisting"><span class="keyword">template</span> <span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">OutputIterator</span><span class="special">,</span> <span class="keyword">class</span> <span class="identifier">BidirectionalIterator</span><span class="special">,</span> <span class="keyword">class</span> <span class="identifier">traits</span><span class="special">,</span> <span class="keyword">class</span> <span class="identifier">Formatter</span><span class="special">&gt;</span>
 <span class="identifier">OutputIterator</span> <span class="identifier">regex_replace</span><span class="special">(</span><span class="identifier">OutputIterator</span> <span class="identifier">out</span><span class="special">,</span>
@@ -135,7 +136,7 @@
 <p>
         calls
       </p>
-<pre class="programlisting"><span class="identifier">std</span><span class="special">::</span><span class="identifier">copy</span><span class="special">(</span><span class="identifier">m</span><span class="special">.</span><span class="identifier">prefix</span><span class="special">().</span><span class="identifier">first</span><span class="special">,</span> <span class="identifier">m</span><span class="special">.</span><span class="identifier">prefix</span><span class="special">().</span><span class="identifier">last</span><span class="special">,</span> <span class="identifier">out</span><span class="special">),</span>
+<pre class="programlisting"><span class="identifier">std</span><span class="special">::</span><span class="identifier">copy</span><span class="special">(</span><span class="identifier">m</span><span class="special">.</span><span class="identifier">prefix</span><span class="special">().</span><span class="identifier">first</span><span class="special">,</span> <span class="identifier">m</span><span class="special">.</span><span class="identifier">prefix</span><span class="special">().</span><span class="identifier">second</span><span class="special">,</span> <span class="identifier">out</span><span class="special">),</span>
 </pre>
 <p>
         and then calls
@@ -150,7 +151,7 @@
 <p>
         calls
       </p>
-<pre class="programlisting"><span class="identifier">std</span><span class="special">::</span><span class="identifier">copy</span><span class="special">(</span><span class="identifier">last_m</span><span class="special">.</span><span class="identifier">suffix</span><span class="special">().</span><span class="identifier">first</span><span class="special">,</span> <span class="identifier">last_m</span><span class="special">,</span><span class="identifier">suffix</span><span class="special">().</span><span class="identifier">last</span><span class="special">,</span> <span class="identifier">out</span><span class="special">)</span>
+<pre class="programlisting"><span class="identifier">std</span><span class="special">::</span><span class="identifier">copy</span><span class="special">(</span><span class="identifier">last_m</span><span class="special">.</span><span class="identifier">suffix</span><span class="special">().</span><span class="identifier">first</span><span class="special">,</span> <span class="identifier">last_m</span><span class="special">.</span><span class="identifier">suffix</span><span class="special">().</span><span class="identifier">second</span><span class="special">,</span> <span class="identifier">out</span><span class="special">)</span>
 </pre>
 <p>
         where <span class="emphasis"><em>last_m</em></span> is a copy of the last match found.
@@ -200,7 +201,7 @@
       </p>
 <h5>
 <a name="boost_regex.ref.regex_replace.h1"></a>
-        <span><a name="boost_regex.ref.regex_replace.examples"></a></span><a class="link" href="regex_replace.html#boost_regex.ref.regex_replace.examples">Examples</a>
+        <span class="phrase"><a name="boost_regex.ref.regex_replace.examples"></a></span><a class="link" href="regex_replace.html#boost_regex.ref.regex_replace.examples">Examples</a>
       </h5>
 <p>
         The following example takes C/C++ source code as input, and outputs syntax
@@ -316,14 +317,11 @@
 <span class="keyword">const</span> <span class="keyword">char</span><span class="special">*</span> <span class="identifier">footer_text</span> <span class="special">=</span> <span class="string">"&lt;/PRE&gt;\n&lt;/BODY&gt;\n\n"</span><span class="special">;</span>
 </pre>
 </div>
-<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
-<td align="left"></td>
-<td align="right"><div class="copyright-footer">Copyright &#169; 1998-2013 John Maddock<p>
+<div class="copyright-footer">Copyright © 1998-2013 John Maddock<p>
         Distributed under the Boost Software License, Version 1.0. (See accompanying
         file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
       </p>
-</div></td>
-</tr></table>
+</div>
 <hr>
 <div class="spirit-nav">
 <a accesskey="p" href="regex_search.html"><img src="../../../../../../doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../ref.html"><img src="../../../../../../doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../../../../../doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="regex_iterator.html"><img src="../../../../../../doc/src/images/next.png" alt="Next"></a>

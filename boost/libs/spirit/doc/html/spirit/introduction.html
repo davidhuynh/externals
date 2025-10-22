@@ -1,13 +1,14 @@
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Introduction</title>
 <link rel="stylesheet" href="../../../../../doc/src/boostbook.css" type="text/css">
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
-<link rel="home" href="../index.html" title="Spirit 2.5.2">
-<link rel="up" href="../index.html" title="Spirit 2.5.2">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
+<link rel="home" href="../index.html" title="Spirit 2.59">
+<link rel="up" href="../index.html" title="Spirit 2.59">
 <link rel="prev" href="what_s_new/spirit_1_x.html" title="Spirit Classic">
 <link rel="next" href="structure.html" title="Structure">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
 <table cellpadding="2" width="100%"><tr>
@@ -29,7 +30,7 @@
 <p>
       Boost Spirit is an object-oriented, recursive-descent parser and output generation
       library for C++. It allows you to write grammars and format descriptions using
-      a format similar to Extended Backus Naur Form (EBNF)<sup>[<a name="spirit.introduction.f0" href="#ftn.spirit.introduction.f0" class="footnote">2</a>]</sup> directly in C++. These inline grammar specifications can mix freely
+      a format similar to Extended Backus Naur Form (EBNF)<a href="#ftn.spirit.introduction.f0" class="footnote" name="spirit.introduction.f0"><sup class="footnote">[2]</sup></a> directly in C++. These inline grammar specifications can mix freely
       with other C++ code and, thanks to the generative power of C++ templates, are
       immediately executable. In retrospect, conventional compiler-compilers or parser-generators
       have to perform an additional translation step from the source EBNF code to
@@ -40,7 +41,7 @@
       embedded languages (DSEL). In fact, Spirit exposes 3 different DSELs to the
       user:
     </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
           one for creating parser grammars,
         </li>
@@ -65,11 +66,11 @@
       used to generate arbitrarily-formatted output.
     </p>
 <p>
-      The <a class="link" href="introduction.html#spirit.spiritstructure" title="Figure&#160;1.&#160;The overall structure of the Boost Spirit library">figure</a> below depicts the
+      The <a class="link" href="introduction.html#spirit.spiritstructure" title="Figure 1. The overall structure of the Boost Spirit library">figure</a> below depicts the
       overall structure of the Boost Spirit library. The library consists of 4 major
       parts:
     </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
           <a href="../../../../../libs/spirit/classic/index.html" target="_top"><span class="emphasis"><em>Spirit.Classic</em></span></a>:
           This is the almost-unchanged code base taken from the former Boost Spirit
@@ -103,7 +104,7 @@
 <p>
       </p>
 <div class="figure">
-<a name="spirit.spiritstructure"></a><p class="title"><b>Figure&#160;1.&#160;The overall structure of the Boost Spirit library</b></p>
+<a name="spirit.spiritstructure"></a><p class="title"><b>Figure 1. The overall structure of the Boost Spirit library</b></p>
 <div class="figure-contents"><span class="inlinemediaobject"><img src=".././images/spiritstructure.png" alt="The overall structure of the Boost Spirit library"></span></div>
 </div>
 <p><br class="figure-break">
@@ -119,7 +120,7 @@
       there is nothing to stop you from using any of these components all by themselves.
     </p>
 <p>
-      The <a class="link" href="introduction.html#spirit.spiritkarmaflow" title="Figure&#160;2.&#160;The place of Spirit.Qi and Spirit.Karma in a data transformation flow of a typical application">figure</a> below shows the typical
+      The <a class="link" href="introduction.html#spirit.spiritkarmaflow" title="Figure 2. The place of Spirit.Qi and Spirit.Karma in a data transformation flow of a typical application">figure</a> below shows the typical
       data flow of some input being converted to some internal representation. After
       some (optional) transformation these data are converted back into some different,
       external representation. The picture highlights Spirit's place in this data
@@ -128,7 +129,7 @@
 <p>
       </p>
 <div class="figure">
-<a name="spirit.spiritkarmaflow"></a><p class="title"><b>Figure&#160;2.&#160;The place of <span class="emphasis"><em>Spirit.Qi</em></span> and <span class="emphasis"><em>Spirit.Karma</em></span>
+<a name="spirit.spiritkarmaflow"></a><p class="title"><b>Figure 2. The place of <span class="emphasis"><em>Spirit.Qi</em></span> and <span class="emphasis"><em>Spirit.Karma</em></span>
       in a data transformation flow of a typical application</b></p>
 <div class="figure-contents"><span class="inlinemediaobject"><img src=".././images/spiritkarmaflow.png" alt="The place of Spirit.Qi and Spirit.Karma in a data transformation flow of a typical application"></span></div>
 </div>
@@ -136,7 +137,7 @@
     </p>
 <h4>
 <a name="spirit.introduction.h0"></a>
-      <span><a name="spirit.introduction.a_quick_overview_of_parsing_with__emphasis_spirit_qi__emphasis_"></a></span><a class="link" href="introduction.html#spirit.introduction.a_quick_overview_of_parsing_with__emphasis_spirit_qi__emphasis_">A
+      <span class="phrase"><a name="spirit.introduction.a_quick_overview_of_parsing_with__emphasis_spirit_qi__emphasis_"></a></span><a class="link" href="introduction.html#spirit.introduction.a_quick_overview_of_parsing_with__emphasis_spirit_qi__emphasis_">A
       Quick Overview of Parsing with <span class="emphasis"><em>Spirit.Qi</em></span></a>
     </h4>
 <p>
@@ -227,7 +228,7 @@
     </p>
 <h4>
 <a name="spirit.introduction.h1"></a>
-      <span><a name="spirit.introduction.a_quick_overview_of_output_generation_with__emphasis_spirit_karma__emphasis_"></a></span><a class="link" href="introduction.html#spirit.introduction.a_quick_overview_of_output_generation_with__emphasis_spirit_karma__emphasis_">A
+      <span class="phrase"><a name="spirit.introduction.a_quick_overview_of_output_generation_with__emphasis_spirit_karma__emphasis_"></a></span><a class="link" href="introduction.html#spirit.introduction.a_quick_overview_of_output_generation_with__emphasis_spirit_karma__emphasis_">A
       Quick Overview of Output Generation with <span class="emphasis"><em>Spirit.Karma</em></span></a>
     </h4>
 <p>
@@ -259,7 +260,7 @@
       of the same <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">vector</span><span class="special">&lt;</span><span class="keyword">int</span><span class="special">&gt;</span></code>:
     </p>
 <div class="table">
-<a name="spirit.introduction.different_output_formats_for__std__vector_int__"></a><p class="title"><b>Table&#160;2.&#160;Different output formats for `std::vector&lt;int&gt;`</b></p>
+<a name="spirit.introduction.different_output_formats_for__std__vector_int__"></a><p class="title"><b>Table 2. Different output formats for `std::vector&lt;int&gt;`</b></p>
 <div class="table-contents"><table class="table" summary="Different output formats for `std::vector&lt;int&gt;`">
 <colgroup>
 <col>
@@ -379,7 +380,7 @@
       next table gives some related examples.
     </p>
 <div class="table">
-<a name="spirit.introduction.different_data_types_usable_with_the_output_format____int_____eol__"></a><p class="title"><b>Table&#160;3.&#160;Different data types usable with the output format `*(int_ &lt;&lt;
+<a name="spirit.introduction.different_data_types_usable_with_the_output_format____int_____eol__"></a><p class="title"><b>Table 3. Different data types usable with the output format `*(int_ &lt;&lt;
       eol)`</b></p>
 <div class="table-contents"><table class="table" summary="Different data types usable with the output format `*(int_ &lt;&lt;
       eol)`">
@@ -452,20 +453,17 @@
 </table></div>
 </div>
 <br class="table-break"><div class="footnotes">
-<br><hr width="100" align="left">
-<div class="footnote"><p><sup>[<a id="ftn.spirit.introduction.f0" href="#spirit.introduction.f0" class="para">2</a>] </sup>
+<br><hr style="width:100; text-align:left;margin-left: 0">
+<div id="ftn.spirit.introduction.f0" class="footnote"><p><a href="#spirit.introduction.f0" class="para"><sup class="para">[2] </sup></a>
         <a href="http://www.cl.cam.ac.uk/%7Emgk25/iso-14977.pdf" target="_top">ISO-EBNF</a>
       </p></div>
 </div>
 </div>
-<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
-<td align="left"></td>
-<td align="right"><div class="copyright-footer">Copyright &#169; 2001-2011 Joel de Guzman, Hartmut Kaiser<p>
+<div class="copyright-footer">Copyright © 2001-2011 Joel de Guzman, Hartmut Kaiser<p>
         Distributed under the Boost Software License, Version 1.0. (See accompanying
         file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
       </p>
-</div></td>
-</tr></table>
+</div>
 <hr>
 <div class="spirit-nav">
 <a accesskey="p" href="what_s_new/spirit_1_x.html"><img src="../../../../../doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../index.html"><img src="../../../../../doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../index.html"><img src="../../../../../doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="structure.html"><img src="../../../../../doc/src/images/next.png" alt="Next"></a>

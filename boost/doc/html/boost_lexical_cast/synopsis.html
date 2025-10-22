@@ -1,14 +1,15 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Synopsis</title>
 <link rel="stylesheet" href="../../../doc/src/boostbook.css" type="text/css">
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
 <link rel="home" href="../index.html" title="The Boost C++ Libraries BoostBook Documentation Subset">
-<link rel="up" href="../boost_lexical_cast.html" title="Chapter&#160;18.&#160;Boost.Lexical_Cast 1.0">
+<link rel="up" href="../boost_lexical_cast.html" title="Chapter 18. Boost.Lexical_Cast 1.0">
 <link rel="prev" href="examples.html" title="Examples">
 <link rel="next" href="frequently_asked_questions.html" title="Frequently Asked Questions">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
 <table cellpadding="2" width="100%"><tr>
@@ -27,7 +28,7 @@
 <div class="titlepage"><div><div><h2 class="title" style="clear: both">
 <a name="boost_lexical_cast.synopsis"></a><a class="link" href="synopsis.html" title="Synopsis">Synopsis</a>
 </h2></div></div></div>
-<div class="toc"><dl>
+<div class="toc"><dl class="toc">
 <dt><span class="section"><a href="synopsis.html#boost_lexical_cast.synopsis.lexical_cast">lexical_cast</a></span></dt>
 <dt><span class="section"><a href="synopsis.html#boost_lexical_cast.synopsis.bad_lexical_cast">bad_lexical_cast</a></span></dt>
 <dt><span class="section"><a href="synopsis.html#boost_lexical_cast.synopsis.try_lexical_convert">try_lexical_convert</a></span></dt>
@@ -91,7 +92,7 @@
 <p>
         The requirements on the argument and result types for both functions are:
       </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
             Source is OutputStreamable, meaning that an <code class="computeroutput"><span class="keyword">operator</span><span class="special">&lt;&lt;</span></code> is defined that takes a <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">ostream</span></code> or <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">wostream</span></code>
             object on the left hand side and an instance of the argument type on
@@ -118,7 +119,7 @@
         or <code class="computeroutput"><span class="keyword">char32_t</span></code> for wide-character
         streaming:
       </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
             Single character: <code class="computeroutput"><span class="keyword">char16_t</span></code>,
             <code class="computeroutput"><span class="keyword">char32_t</span></code>
@@ -228,7 +229,7 @@
         the CopyConstructible and DefaultConstructible requirements for <code class="computeroutput"><span class="identifier">Target</span></code> type. Following requirements for
         <code class="computeroutput"><span class="identifier">Target</span></code> and <code class="computeroutput"><span class="identifier">Source</span></code> remain:
       </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
             Source must be OutputStreamable, meaning that an <code class="computeroutput"><span class="keyword">operator</span><span class="special">&lt;&lt;</span></code> is defined that takes a <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">ostream</span></code> or <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">wostream</span></code>
             object on the left hand side and an instance of the argument type on
@@ -242,15 +243,11 @@
 </ul></div>
 </div>
 </div>
-<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
-<td align="left"></td>
-<td align="right"><div class="copyright-footer">Copyright &#169; 2000-2005 Kevlin Henney<br>Copyright &#169; 2006-2010 Alexander Nasonov<br>Copyright &#169; 2011-2014 Antony
-      Polukhin<p>
+<div class="copyright-footer">Copyright © 2000-2005 Kevlin Henney<br>Copyright © 2006-2010 Alexander Nasonov<br>Copyright © 2011-2025 Antony Polukhin<p>
         Distributed under the Boost Software License, Version 1.0. (See accompanying
         file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
       </p>
-</div></td>
-</tr></table>
+</div>
 <hr>
 <div class="spirit-nav">
 <a accesskey="p" href="examples.html"><img src="../../../doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../boost_lexical_cast.html"><img src="../../../doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../index.html"><img src="../../../doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="frequently_asked_questions.html"><img src="../../../doc/src/images/next.png" alt="Next"></a>

@@ -1,14 +1,15 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Synchronization mechanisms</title>
 <link rel="stylesheet" href="../../../doc/src/boostbook.css" type="text/css">
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
 <link rel="home" href="../index.html" title="The Boost C++ Libraries BoostBook Documentation Subset">
-<link rel="up" href="../interprocess.html" title="Chapter&#160;15.&#160;Boost.Interprocess">
+<link rel="up" href="../interprocess.html" title="Chapter 15. Boost.Interprocess">
 <link rel="prev" href="offset_ptr.html" title="Mapping Address Independent Pointer: offset_ptr">
 <link rel="next" href="managed_memory_segments.html" title="Managed Memory Segments">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
 <table cellpadding="2" width="100%"><tr>
@@ -28,7 +29,7 @@
 <a name="interprocess.synchronization_mechanisms"></a><a class="link" href="synchronization_mechanisms.html" title="Synchronization mechanisms">Synchronization
     mechanisms</a>
 </h2></div></div></div>
-<div class="toc"><dl>
+<div class="toc"><dl class="toc">
 <dt><span class="section"><a href="synchronization_mechanisms.html#interprocess.synchronization_mechanisms.synchronization_mechanisms_overview">Synchronization
       mechanisms overview</a></span></dt>
 <dt><span class="section"><a href="synchronization_mechanisms.html#interprocess.synchronization_mechanisms.mutexes">Mutexes</a></span></dt>
@@ -48,7 +49,7 @@
 <a name="interprocess.synchronization_mechanisms.synchronization_mechanisms_overview"></a><a class="link" href="synchronization_mechanisms.html#interprocess.synchronization_mechanisms.synchronization_mechanisms_overview" title="Synchronization mechanisms overview">Synchronization
       mechanisms overview</a>
 </h3></div></div></div>
-<div class="toc"><dl>
+<div class="toc"><dl class="toc">
 <dt><span class="section"><a href="synchronization_mechanisms.html#interprocess.synchronization_mechanisms.synchronization_mechanisms_overview.synchronization_mechanisms_named_vs_anonymous">Named
         And Anonymous Synchronization Mechanisms</a></span></dt>
 <dt><span class="section"><a href="synchronization_mechanisms.html#interprocess.synchronization_mechanisms.synchronization_mechanisms_overview.synchronization_mechanisms_types">Types
@@ -74,7 +75,7 @@
           <span class="bold"><strong>Boost.Interprocess</strong></span> presents two types
           of synchronization objects:
         </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
               <span class="bold"><strong>Named utilities</strong></span>: When two processes
               want to create an object of such type, both processes must <span class="emphasis"><em>create</em></span>
@@ -102,7 +103,7 @@
 <p>
           Each type has it's own advantages and disadvantages:
         </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
               Named utilities are easier to handle for simple synchronization tasks,
               since both process don't have to create a shared memory region and
@@ -158,7 +159,7 @@
           Apart from its named/anonymous nature, <span class="bold"><strong>Boost.Interprocess</strong></span>
           presents the following synchronization utilities:
         </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
               Mutexes (named and anonymous)
             </li>
@@ -181,7 +182,7 @@
 <div class="titlepage"><div><div><h3 class="title">
 <a name="interprocess.synchronization_mechanisms.mutexes"></a><a class="link" href="synchronization_mechanisms.html#interprocess.synchronization_mechanisms.mutexes" title="Mutexes">Mutexes</a>
 </h3></div></div></div>
-<div class="toc"><dl>
+<div class="toc"><dl class="toc">
 <dt><span class="section"><a href="synchronization_mechanisms.html#interprocess.synchronization_mechanisms.mutexes.mutexes_whats_a_mutex">What's
         A Mutex?</a></span></dt>
 <dt><span class="section"><a href="synchronization_mechanisms.html#interprocess.synchronization_mechanisms.mutexes.mutexes_mutex_operations">Mutex
@@ -221,7 +222,7 @@
 <p>
           A mutex can also be <span class="bold"><strong>recursive</strong></span> or <span class="bold"><strong>non-recursive</strong></span>:
         </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
               Recursive mutexes can be locked several times by the same thread. To
               fully unlock the mutex, the thread has to unlock the mutex the same
@@ -243,8 +244,8 @@
           All the mutex types from <span class="bold"><strong>Boost.Interprocess</strong></span>
           implement the following operations:
         </p>
-<div class="sidebar">
-<div class="titlepage"></div>
+<div class="blurb">
+<div class="titlepage"><div><div><p class="title"><b></b></p></div></div></div>
 <p>
           <span class="emphasis"><em><span class="bold"><strong>void lock()</strong></span></em></span>
         </p>
@@ -261,8 +262,8 @@
           <span class="bold"><strong>Throws:</strong></span> <span class="bold"><strong>interprocess_exception</strong></span>
           on error.
         </p>
-<div class="sidebar">
-<div class="titlepage"></div>
+<div class="blurb">
+<div class="titlepage"><div><div><p class="title"><b></b></p></div></div></div>
 <p>
           <span class="emphasis"><em><span class="bold"><strong>bool try_lock()</strong></span></em></span>
         </p>
@@ -282,11 +283,11 @@
           <span class="bold"><strong>Throws:</strong></span> <span class="bold"><strong>interprocess_exception</strong></span>
           on error.
         </p>
-<div class="sidebar">
-<div class="titlepage"></div>
+<div class="blurb">
+<div class="titlepage"><div><div><p class="title"><b></b></p></div></div></div>
 <p>
-          <span class="emphasis"><em><span class="bold"><strong>bool timed_lock(const boost::posix_time::ptime
-          &amp;abs_time)</strong></span></em></span>
+          <span class="emphasis"><em><span class="bold"><strong>template&lt;class TimePoint&gt; bool timed_lock(const
+          TimePoint &amp;abs_time)</strong></span></em></span>
         </p>
 </div>
 <p>
@@ -303,8 +304,8 @@
           <span class="bold"><strong>Throws:</strong></span> <span class="bold"><strong>interprocess_exception</strong></span>
           on error.
         </p>
-<div class="sidebar">
-<div class="titlepage"></div>
+<div class="blurb">
+<div class="titlepage"><div><div><p class="title"><b></b></p></div></div></div>
 <p>
           <span class="emphasis"><em><span class="bold"><strong>void unlock()</strong></span></em></span>
         </p>
@@ -327,9 +328,9 @@
 <th align="left">Important</th>
 </tr>
 <tr><td align="left" valign="top"><p>
-            <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">posix_time</span><span class="special">::</span><span class="identifier">ptime</span></code> absolute time points used by
-            Boost.Interprocess synchronization mechanisms are UTC time points, not
-            local time points
+            Boost.Interprocess timed synchronization mechanisms support several timepoints:
+            <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">posix_time</span><span class="special">::</span><span class="identifier">ptime</span></code> absolute UTC time points, <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">chrono</span></code> and <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">chrono</span></code>
+            timepoints. Additionally Interprocess' mutexes meet standard C++ <code class="computeroutput"><span class="identifier">TimedLockable</span></code> requirements for std-compatibility
           </p></td></tr>
 </table></div>
 </div>
@@ -343,28 +344,28 @@
         </p>
 <pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">interprocess</span><span class="special">/</span><span class="identifier">sync</span><span class="special">/</span><span class="identifier">interprocess_mutex</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
 </pre>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
-              <code class="computeroutput"><a class="link" href="../boost/interprocess/interprocess_mutex.html" title="Class interprocess_mutex">interprocess_mutex</a></code>:
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+              <code class="computeroutput"><a class="link" href="../doxygen/boost_interprocess_header_reference/classboost_1_1interprocess_1_1interprocess__mutex.html" title="Class interprocess_mutex">interprocess_mutex</a></code>:
               A non-recursive, anonymous mutex that can be placed in shared memory
               or memory mapped files.
             </li></ul></div>
 <pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">interprocess</span><span class="special">/</span><span class="identifier">sync</span><span class="special">/</span><span class="identifier">interprocess_recursive_mutex</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
 </pre>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
-              <code class="computeroutput"><a class="link" href="../boost/interprocess/interprocess_r_idp24012800.html" title="Class interprocess_recursive_mutex">interprocess_recursive_mutex</a></code>:
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+              <code class="computeroutput"><a class="link" href="../doxygen/boost_interprocess_header_reference/classboost_1_1interprocess_1_1interprocess__recursive__mutex.html" title="Class interprocess_recursive_mutex">interprocess_recursive_mutex</a></code>:
               A recursive, anonymous mutex that can be placed in shared memory or
               memory mapped files.
             </li></ul></div>
 <pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">interprocess</span><span class="special">/</span><span class="identifier">sync</span><span class="special">/</span><span class="identifier">named_mutex</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
 </pre>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
-              <code class="computeroutput"><a class="link" href="../boost/interprocess/named_mutex.html" title="Class named_mutex">named_mutex</a></code>:
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+              <code class="computeroutput"><a class="link" href="../doxygen/boost_interprocess_header_reference/classboost_1_1interprocess_1_1named__mutex.html" title="Class named_mutex">named_mutex</a></code>:
               A non-recursive, named mutex.
             </li></ul></div>
 <pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">interprocess</span><span class="special">/</span><span class="identifier">sync</span><span class="special">/</span><span class="identifier">named_recursive_mutex</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
 </pre>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
-              <code class="computeroutput"><a class="link" href="../boost/interprocess/named_recursive_mutex.html" title="Class named_recursive_mutex">named_recursive_mutex</a></code>:
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+              <code class="computeroutput"><a class="link" href="../doxygen/boost_interprocess_header_reference/classboost_1_1interprocess_1_1named__recursive__mutex.html" title="Class named_recursive_mutex">named_recursive_mutex</a></code>:
               A recursive, named mutex.
             </li></ul></div>
 </div>
@@ -429,7 +430,7 @@
 <span class="special">}</span>
 </pre>
 <p>
-          For more information, check the <code class="computeroutput"><a class="link" href="../boost/interprocess/scoped_lock.html" title="Class template scoped_lock">scoped_lock's
+          For more information, check the <code class="computeroutput"><a class="link" href="../doxygen/boost_interprocess_header_reference/classboost_1_1interprocess_1_1scoped__lock.html" title="Class template scoped_lock">scoped_lock's
           reference</a></code>.
         </p>
 <div class="important"><table border="0" summary="Important">
@@ -438,9 +439,9 @@
 <th align="left">Important</th>
 </tr>
 <tr><td align="left" valign="top"><p>
-            <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">posix_time</span><span class="special">::</span><span class="identifier">ptime</span></code> absolute time points used by
-            Boost.Interprocess synchronization mechanisms are UTC time points, not
-            local time points
+            Boost.Interprocess timed synchronization operations support several timepoints:
+            <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">posix_time</span><span class="special">::</span><span class="identifier">ptime</span></code> absolute UTC time points, <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">chrono</span></code> and <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">chrono</span></code>
+            timepoints
           </p></td></tr>
 </table></div>
 </div>
@@ -460,8 +461,6 @@
           and will write a flag when ends writing the traces (<code class="computeroutput"><span class="identifier">doc_anonymous_mutex_shared_data</span><span class="special">.</span><span class="identifier">hpp</span></code>
           header):
         </p>
-<p>
-</p>
 <pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">interprocess</span><span class="special">/</span><span class="identifier">sync</span><span class="special">/</span><span class="identifier">interprocess_mutex</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
 
 <span class="keyword">struct</span> <span class="identifier">shared_memory_log</span>
@@ -486,13 +485,9 @@
 <span class="special">};</span>
 </pre>
 <p>
-        </p>
-<p>
           This is the process main process. Creates the shared memory, constructs
           the cyclic buffer and start writing traces:
         </p>
-<p>
-</p>
 <pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">interprocess</span><span class="special">/</span><span class="identifier">shared_memory_object</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
 <span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">interprocess</span><span class="special">/</span><span class="identifier">mapped_region</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
 <span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">interprocess</span><span class="special">/</span><span class="identifier">sync</span><span class="special">/</span><span class="identifier">scoped_lock</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
@@ -504,19 +499,19 @@
 
 <span class="keyword">int</span> <span class="identifier">main</span> <span class="special">()</span>
 <span class="special">{</span>
-   <span class="keyword">try</span><span class="special">{</span>
+   try <span class="special">{</span>
       <span class="comment">//Remove shared memory on construction and destruction</span>
       <span class="keyword">struct</span> <span class="identifier">shm_remove</span>
       <span class="special">{</span>
-         <span class="identifier">shm_remove</span><span class="special">()</span> <span class="special">{</span> <span class="identifier">shared_memory_object</span><span class="special">::</span><span class="identifier">remove</span><span class="special">(</span><span class="string">"MySharedMemory"</span><span class="special">);</span> <span class="special">}</span>
-         <span class="special">~</span><span class="identifier">shm_remove</span><span class="special">(){</span> <span class="identifier">shared_memory_object</span><span class="special">::</span><span class="identifier">remove</span><span class="special">(</span><span class="string">"MySharedMemory"</span><span class="special">);</span> <span class="special">}</span>
+         <span class="identifier">shm_remove</span><span class="special">()</span> <span class="special">{</span> <span class="identifier">shared_memory_object</span><span class="special">::</span><span class="identifier">remove</span><span class="special">(</span>"MyName"<span class="special">);</span> <span class="special">}</span>
+         <span class="special">~</span><span class="identifier">shm_remove</span><span class="special">(){</span> <span class="identifier">shared_memory_object</span><span class="special">::</span><span class="identifier">remove</span><span class="special">(</span>"MyName"<span class="special">);</span> <span class="special">}</span>
       <span class="special">}</span> <span class="identifier">remover</span><span class="special">;</span>
 
       <span class="comment">//Create a shared memory object.</span>
       <span class="identifier">shared_memory_object</span> <span class="identifier">shm</span>
-         <span class="special">(</span><span class="identifier">create_only</span>               <span class="comment">//only create</span>
-         <span class="special">,</span><span class="string">"MySharedMemory"</span>          <span class="comment">//name</span>
-         <span class="special">,</span><span class="identifier">read_write</span>   <span class="comment">//read-write mode</span>
+         <span class="special">(</span><span class="identifier">create_only</span>                  <span class="comment">//only create</span>
+         <span class="special">,</span> "MyName" <span class="comment">//name</span>
+         <span class="special">,</span> <span class="identifier">read_write</span>                  <span class="comment">//read-write mode</span>
          <span class="special">);</span>
 
       <span class="comment">//Set size</span>
@@ -552,7 +547,7 @@
             <span class="keyword">break</span><span class="special">;</span>
       <span class="special">}</span>
    <span class="special">}</span>
-   <span class="keyword">catch</span><span class="special">(</span><span class="identifier">interprocess_exception</span> <span class="special">&amp;</span><span class="identifier">ex</span><span class="special">){</span>
+   catch<span class="special">(</span><span class="identifier">interprocess_exception</span> <span class="special">&amp;</span><span class="identifier">ex</span><span class="special">){</span>
       <span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">ex</span><span class="special">.</span><span class="identifier">what</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
       <span class="keyword">return</span> <span class="number">1</span><span class="special">;</span>
    <span class="special">}</span>
@@ -560,13 +555,9 @@
 <span class="special">}</span>
 </pre>
 <p>
-        </p>
-<p>
           The second process opens the shared memory, obtains access to the cyclic
           buffer and starts writing traces:
         </p>
-<p>
-</p>
 <pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">interprocess</span><span class="special">/</span><span class="identifier">shared_memory_object</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
 <span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">interprocess</span><span class="special">/</span><span class="identifier">mapped_region</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
 <span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">interprocess</span><span class="special">/</span><span class="identifier">sync</span><span class="special">/</span><span class="identifier">scoped_lock</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
@@ -581,14 +572,14 @@
    <span class="comment">//Remove shared memory on destruction</span>
    <span class="keyword">struct</span> <span class="identifier">shm_remove</span>
    <span class="special">{</span>
-      <span class="special">~</span><span class="identifier">shm_remove</span><span class="special">(){</span> <span class="identifier">shared_memory_object</span><span class="special">::</span><span class="identifier">remove</span><span class="special">(</span><span class="string">"MySharedMemory"</span><span class="special">);</span> <span class="special">}</span>
+      <span class="special">~</span><span class="identifier">shm_remove</span><span class="special">(){</span> <span class="identifier">shared_memory_object</span><span class="special">::</span><span class="identifier">remove</span><span class="special">(</span>"MyName"<span class="special">);</span> <span class="special">}</span>
    <span class="special">}</span> <span class="identifier">remover</span><span class="special">;</span>
 
    <span class="comment">//Open the shared memory object.</span>
    <span class="identifier">shared_memory_object</span> <span class="identifier">shm</span>
       <span class="special">(</span><span class="identifier">open_only</span>                    <span class="comment">//only create</span>
-      <span class="special">,</span><span class="string">"MySharedMemory"</span>              <span class="comment">//name</span>
-      <span class="special">,</span><span class="identifier">read_write</span>  <span class="comment">//read-write mode</span>
+      <span class="special">,</span> "MyName" <span class="comment">//name</span>
+      <span class="special">,</span> <span class="identifier">read_write</span>                  <span class="comment">//read-write mode</span>
       <span class="special">);</span>
 
    <span class="comment">//Map the whole shared memory in this process</span>
@@ -624,8 +615,6 @@
 <span class="special">}</span>
 </pre>
 <p>
-        </p>
-<p>
           As we can see, a mutex is useful to protect data but not to notify an event
           to another process. For this, we need a condition variable, as we will
           see in the next section.
@@ -644,8 +633,6 @@
           atomically. To achieve this, we can use a named mutex so that each process
           locks the mutex before writing:
         </p>
-<p>
-</p>
 <pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">interprocess</span><span class="special">/</span><span class="identifier">sync</span><span class="special">/</span><span class="identifier">scoped_lock</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
 <span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">interprocess</span><span class="special">/</span><span class="identifier">sync</span><span class="special">/</span><span class="identifier">named_mutex</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
 <span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">fstream</span><span class="special">&gt;</span>
@@ -656,22 +643,22 @@
 <span class="keyword">int</span> <span class="identifier">main</span> <span class="special">()</span>
 <span class="special">{</span>
    <span class="keyword">using</span> <span class="keyword">namespace</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">interprocess</span><span class="special">;</span>
-   <span class="keyword">try</span><span class="special">{</span>
+   try <span class="special">{</span>
       <span class="keyword">struct</span> <span class="identifier">file_remove</span>
       <span class="special">{</span>
-         <span class="identifier">file_remove</span><span class="special">()</span> <span class="special">{</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">remove</span><span class="special">(</span><span class="string">"file_name"</span><span class="special">);</span> <span class="special">}</span>
-         <span class="special">~</span><span class="identifier">file_remove</span><span class="special">(){</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">remove</span><span class="special">(</span><span class="string">"file_name"</span><span class="special">);</span> <span class="special">}</span>
+         <span class="identifier">file_remove</span><span class="special">()</span> <span class="special">{</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">remove</span><span class="special">(</span>"MyName"<span class="special">);</span> <span class="special">}</span>
+         <span class="special">~</span><span class="identifier">file_remove</span><span class="special">(){</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">remove</span><span class="special">(</span>"MyName"<span class="special">);</span> <span class="special">}</span>
       <span class="special">}</span> <span class="identifier">file_remover</span><span class="special">;</span>
       <span class="keyword">struct</span> <span class="identifier">mutex_remove</span>
       <span class="special">{</span>
-         <span class="identifier">mutex_remove</span><span class="special">()</span> <span class="special">{</span> <span class="identifier">named_mutex</span><span class="special">::</span><span class="identifier">remove</span><span class="special">(</span><span class="string">"fstream_named_mutex"</span><span class="special">);</span> <span class="special">}</span>
-         <span class="special">~</span><span class="identifier">mutex_remove</span><span class="special">(){</span> <span class="identifier">named_mutex</span><span class="special">::</span><span class="identifier">remove</span><span class="special">(</span><span class="string">"fstream_named_mutex"</span><span class="special">);</span> <span class="special">}</span>
+         <span class="identifier">mutex_remove</span><span class="special">()</span> <span class="special">{</span> <span class="identifier">named_mutex</span><span class="special">::</span><span class="identifier">remove</span><span class="special">(</span>"MyName"<span class="special">);</span> <span class="special">}</span>
+         <span class="special">~</span><span class="identifier">mutex_remove</span><span class="special">(){</span> <span class="identifier">named_mutex</span><span class="special">::</span><span class="identifier">remove</span><span class="special">(</span>"MyName"<span class="special">);</span> <span class="special">}</span>
       <span class="special">}</span> <span class="identifier">remover</span><span class="special">;</span>
 
       <span class="comment">//Open or create the named mutex</span>
-      <span class="identifier">named_mutex</span> <span class="identifier">mutex</span><span class="special">(</span><span class="identifier">open_or_create</span><span class="special">,</span> <span class="string">"fstream_named_mutex"</span><span class="special">);</span>
+      <span class="identifier">named_mutex</span> <span class="identifier">mutex</span><span class="special">(</span><span class="identifier">open_or_create</span><span class="special">,</span> "MyName"<span class="special">);</span>
 
-      <span class="identifier">std</span><span class="special">::</span><span class="identifier">ofstream</span> <span class="identifier">file</span><span class="special">(</span><span class="string">"file_name"</span><span class="special">);</span>
+      <span class="identifier">std</span><span class="special">::</span><span class="identifier">ofstream</span> <span class="identifier">file</span><span class="special">(</span>"MyName"<span class="special">);</span>
 
       <span class="keyword">for</span><span class="special">(</span><span class="keyword">int</span> <span class="identifier">i</span> <span class="special">=</span> <span class="number">0</span><span class="special">;</span> <span class="identifier">i</span> <span class="special">&lt;</span> <span class="number">10</span><span class="special">;</span> <span class="special">++</span><span class="identifier">i</span><span class="special">){</span>
 
@@ -684,22 +671,20 @@
          <span class="identifier">file</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
       <span class="special">}</span>
    <span class="special">}</span>
-   <span class="keyword">catch</span><span class="special">(</span><span class="identifier">interprocess_exception</span> <span class="special">&amp;</span><span class="identifier">ex</span><span class="special">){</span>
+   catch<span class="special">(</span><span class="identifier">interprocess_exception</span> <span class="special">&amp;</span><span class="identifier">ex</span><span class="special">){</span>
       <span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">ex</span><span class="special">.</span><span class="identifier">what</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
       <span class="keyword">return</span> <span class="number">1</span><span class="special">;</span>
    <span class="special">}</span>
    <span class="keyword">return</span> <span class="number">0</span><span class="special">;</span>
 <span class="special">}</span>
 </pre>
-<p>
-        </p>
 </div>
 </div>
 <div class="section">
 <div class="titlepage"><div><div><h3 class="title">
 <a name="interprocess.synchronization_mechanisms.conditions"></a><a class="link" href="synchronization_mechanisms.html#interprocess.synchronization_mechanisms.conditions" title="Conditions">Conditions</a>
 </h3></div></div></div>
-<div class="toc"><dl>
+<div class="toc"><dl class="toc">
 <dt><span class="section"><a href="synchronization_mechanisms.html#interprocess.synchronization_mechanisms.conditions.conditions_whats_a_condition">What's
         A Condition Variable?</a></span></dt>
 <dt><span class="section"><a href="synchronization_mechanisms.html#interprocess.synchronization_mechanisms.conditions.conditions_interprocess_conditions">Boost.Interprocess
@@ -717,7 +702,7 @@
           we can't use it to <span class="emphasis"><em>wait</em></span> efficiently until the condition
           to continue is met. A condition variable can do two things:
         </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
               <span class="bold"><strong>wait</strong></span>: The thread is blocked until
               some other thread notifies that it can continue because the condition
@@ -749,28 +734,28 @@
         </p>
 <pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">interprocess</span><span class="special">/</span><span class="identifier">sync</span><span class="special">/</span><span class="identifier">interprocess_condition</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
 </pre>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
-              <code class="computeroutput"><a class="link" href="../boost/interprocess/interprocess_condition.html" title="Class interprocess_condition">interprocess_condition</a></code>:
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+              <code class="computeroutput"><a class="link" href="../doxygen/boost_interprocess_header_reference/classboost_1_1interprocess_1_1interprocess__condition.html" title="Class interprocess_condition">interprocess_condition</a></code>:
               An anonymous condition variable that can be placed in shared memory
-              or memory mapped files to be used with <code class="computeroutput"><a class="link" href="../boost/interprocess/interprocess_mutex.html" title="Class interprocess_mutex">boost::interprocess::interprocess_mutex</a></code>.
+              or memory mapped files to be used with <code class="computeroutput"><a class="link" href="../doxygen/boost_interprocess_header_reference/classboost_1_1interprocess_1_1interprocess__mutex.html" title="Class interprocess_mutex">boost::interprocess::interprocess_mutex</a></code>.
             </li></ul></div>
 <pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">interprocess</span><span class="special">/</span><span class="identifier">sync</span><span class="special">/</span><span class="identifier">interprocess_condition_any</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
 </pre>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
-              <code class="computeroutput"><a class="link" href="../boost/interprocess/interprocess_condition_any.html" title="Class interprocess_condition_any">interprocess_condition_any</a></code>:
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+              <code class="computeroutput"><a class="link" href="../doxygen/boost_interprocess_header_reference/classboost_1_1interprocess_1_1interprocess__condition__any.html" title="Class interprocess_condition_any">interprocess_condition_any</a></code>:
               An anonymous condition variable that can be placed in shared memory
               or memory mapped files to be used with any lock type.
             </li></ul></div>
 <pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">interprocess</span><span class="special">/</span><span class="identifier">sync</span><span class="special">/</span><span class="identifier">named_condition</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
 </pre>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
-              <code class="computeroutput"><a class="link" href="../boost/interprocess/named_condition.html" title="Class named_condition">named_condition</a></code>:
-              A named condition variable to be used with <code class="computeroutput"><a class="link" href="../boost/interprocess/named_mutex.html" title="Class named_mutex">named_mutex</a></code>.
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+              <code class="computeroutput"><a class="link" href="../doxygen/boost_interprocess_header_reference/classboost_1_1interprocess_1_1named__condition.html" title="Class named_condition">named_condition</a></code>:
+              A named condition variable to be used with <code class="computeroutput"><a class="link" href="../doxygen/boost_interprocess_header_reference/classboost_1_1interprocess_1_1named__mutex.html" title="Class named_mutex">named_mutex</a></code>.
             </li></ul></div>
 <pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">interprocess</span><span class="special">/</span><span class="identifier">sync</span><span class="special">/</span><span class="identifier">named_condition_any</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
 </pre>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
-              <code class="computeroutput"><a class="link" href="../boost/interprocess/named_condition.html" title="Class named_condition">named_condition</a></code>:
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+              <code class="computeroutput"><a class="link" href="../doxygen/boost_interprocess_header_reference/classboost_1_1interprocess_1_1named__condition__any.html" title="Class named_condition_any">named_condition_any</a></code>:
               A named condition variable to be used with any lock type.
             </li></ul></div>
 <p>
@@ -778,7 +763,7 @@
           in combination with named mutexes. Several times, we don't want to store
           synchronization objects with the synchronized data:
         </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
               We want to change the synchronization method (from interprocess to
               intra-process, or without any synchronization) using the same data.
@@ -808,8 +793,6 @@
 <p>
           The shared memory trace buffer (doc_anonymous_condition_shared_data.hpp):
         </p>
-<p>
-</p>
 <pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">interprocess</span><span class="special">/</span><span class="identifier">sync</span><span class="special">/</span><span class="identifier">interprocess_mutex</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
 <span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">interprocess</span><span class="special">/</span><span class="identifier">sync</span><span class="special">/</span><span class="identifier">interprocess_condition</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
 
@@ -838,14 +821,10 @@
 <span class="special">};</span>
 </pre>
 <p>
-        </p>
-<p>
           This is the process main process. Creates the shared memory, places there
           the buffer and starts writing messages one by one until it writes "last
           message" to indicate that there are no more messages to print:
         </p>
-<p>
-</p>
 <pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">interprocess</span><span class="special">/</span><span class="identifier">shared_memory_object</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
 <span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">interprocess</span><span class="special">/</span><span class="identifier">mapped_region</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
 <span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">interprocess</span><span class="special">/</span><span class="identifier">sync</span><span class="special">/</span><span class="identifier">scoped_lock</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
@@ -861,17 +840,17 @@
    <span class="comment">//Erase previous shared memory and schedule erasure on exit</span>
    <span class="keyword">struct</span> <span class="identifier">shm_remove</span>
    <span class="special">{</span>
-      <span class="identifier">shm_remove</span><span class="special">()</span> <span class="special">{</span> <span class="identifier">shared_memory_object</span><span class="special">::</span><span class="identifier">remove</span><span class="special">(</span><span class="string">"MySharedMemory"</span><span class="special">);</span> <span class="special">}</span>
-      <span class="special">~</span><span class="identifier">shm_remove</span><span class="special">(){</span> <span class="identifier">shared_memory_object</span><span class="special">::</span><span class="identifier">remove</span><span class="special">(</span><span class="string">"MySharedMemory"</span><span class="special">);</span> <span class="special">}</span>
+      <span class="identifier">shm_remove</span><span class="special">()</span> <span class="special">{</span> <span class="identifier">shared_memory_object</span><span class="special">::</span><span class="identifier">remove</span><span class="special">(</span>"MyName"<span class="special">);</span> <span class="special">}</span>
+      <span class="special">~</span><span class="identifier">shm_remove</span><span class="special">(){</span> <span class="identifier">shared_memory_object</span><span class="special">::</span><span class="identifier">remove</span><span class="special">(</span>"MyName"<span class="special">);</span> <span class="special">}</span>
    <span class="special">}</span> <span class="identifier">remover</span><span class="special">;</span>
 
    <span class="comment">//Create a shared memory object.</span>
    <span class="identifier">shared_memory_object</span> <span class="identifier">shm</span>
-      <span class="special">(</span><span class="identifier">create_only</span>               <span class="comment">//only create</span>
-      <span class="special">,</span><span class="string">"MySharedMemory"</span>           <span class="comment">//name</span>
-      <span class="special">,</span><span class="identifier">read_write</span>                <span class="comment">//read-write mode</span>
+      <span class="special">(</span><span class="identifier">create_only</span>                  <span class="comment">//only create</span>
+      <span class="special">,</span> "MyName" <span class="comment">//name</span>
+      <span class="special">,</span> <span class="identifier">read_write</span>                  <span class="comment">//read-write mode</span>
       <span class="special">);</span>
-   <span class="keyword">try</span><span class="special">{</span>
+   try <span class="special">{</span>
       <span class="comment">//Set size</span>
       <span class="identifier">shm</span><span class="special">.</span><span class="identifier">truncate</span><span class="special">(</span><span class="keyword">sizeof</span><span class="special">(</span><span class="identifier">trace_queue</span><span class="special">));</span>
 
@@ -906,22 +885,19 @@
          <span class="identifier">data</span><span class="special">-&gt;</span><span class="identifier">message_in</span> <span class="special">=</span> <span class="keyword">true</span><span class="special">;</span>
       <span class="special">}</span>
    <span class="special">}</span>
-   <span class="keyword">catch</span><span class="special">(</span><span class="identifier">interprocess_exception</span> <span class="special">&amp;</span><span class="identifier">ex</span><span class="special">){</span>
+   catch<span class="special">(</span><span class="identifier">interprocess_exception</span> <span class="special">&amp;</span><span class="identifier">ex</span><span class="special">){</span>
       <span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">ex</span><span class="special">.</span><span class="identifier">what</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
       <span class="keyword">return</span> <span class="number">1</span><span class="special">;</span>
    <span class="special">}</span>
+
 
    <span class="keyword">return</span> <span class="number">0</span><span class="special">;</span>
 <span class="special">}</span>
 </pre>
 <p>
-        </p>
-<p>
           The second process opens the shared memory and prints each message until
           the "last message" message is received:
         </p>
-<p>
-</p>
 <pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">interprocess</span><span class="special">/</span><span class="identifier">shared_memory_object</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
 <span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">interprocess</span><span class="special">/</span><span class="identifier">mapped_region</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
 <span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">interprocess</span><span class="special">/</span><span class="identifier">sync</span><span class="special">/</span><span class="identifier">scoped_lock</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
@@ -936,11 +912,11 @@
    <span class="comment">//Create a shared memory object.</span>
    <span class="identifier">shared_memory_object</span> <span class="identifier">shm</span>
       <span class="special">(</span><span class="identifier">open_only</span>                    <span class="comment">//only create</span>
-      <span class="special">,</span><span class="string">"MySharedMemory"</span>              <span class="comment">//name</span>
+      <span class="special">,</span> "MyName" <span class="comment">//name</span>
       <span class="special">,</span><span class="identifier">read_write</span>                   <span class="comment">//read-write mode</span>
       <span class="special">);</span>
 
-   <span class="keyword">try</span><span class="special">{</span>
+   try <span class="special">{</span>
       <span class="comment">//Map the whole shared memory in this process</span>
       <span class="identifier">mapped_region</span> <span class="identifier">region</span>
          <span class="special">(</span><span class="identifier">shm</span>                       <span class="comment">//What to map</span>
@@ -973,7 +949,7 @@
       <span class="special">}</span>
       <span class="keyword">while</span><span class="special">(!</span><span class="identifier">end_loop</span><span class="special">);</span>
    <span class="special">}</span>
-   <span class="keyword">catch</span><span class="special">(</span><span class="identifier">interprocess_exception</span> <span class="special">&amp;</span><span class="identifier">ex</span><span class="special">){</span>
+   catch<span class="special">(</span><span class="identifier">interprocess_exception</span> <span class="special">&amp;</span><span class="identifier">ex</span><span class="special">){</span>
       <span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">ex</span><span class="special">.</span><span class="identifier">what</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
       <span class="keyword">return</span> <span class="number">1</span><span class="special">;</span>
    <span class="special">}</span>
@@ -981,8 +957,6 @@
    <span class="keyword">return</span> <span class="number">0</span><span class="special">;</span>
 <span class="special">}</span>
 </pre>
-<p>
-        </p>
 <p>
           With condition variables, a process can block if it can't continue the
           work, and when the conditions to continue are met another process can wake
@@ -994,7 +968,7 @@
 <div class="titlepage"><div><div><h3 class="title">
 <a name="interprocess.synchronization_mechanisms.semaphores"></a><a class="link" href="synchronization_mechanisms.html#interprocess.synchronization_mechanisms.semaphores" title="Semaphores">Semaphores</a>
 </h3></div></div></div>
-<div class="toc"><dl>
+<div class="toc"><dl class="toc">
 <dt><span class="section"><a href="synchronization_mechanisms.html#interprocess.synchronization_mechanisms.semaphores.semaphores_whats_a_semaphores">What's
         A Semaphore?</a></span></dt>
 <dt><span class="section"><a href="synchronization_mechanisms.html#interprocess.synchronization_mechanisms.semaphores.semaphores_interprocess_semaphores">Boost.Interprocess
@@ -1011,7 +985,7 @@
           A semaphore is a synchronization mechanism between processes based in an
           internal count that offers two basic operations:
         </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
               <span class="bold"><strong>Wait</strong></span>: Tests the value of the semaphore
               count, and waits if the value is less than or equal than 0. Otherwise,
@@ -1044,15 +1018,15 @@
         </p>
 <pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">interprocess</span><span class="special">/</span><span class="identifier">sync</span><span class="special">/</span><span class="identifier">interprocess_semaphore</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
 </pre>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
-              <code class="computeroutput"><a class="link" href="../boost/interprocess/interprocess_semaphore.html" title="Class interprocess_semaphore">interprocess_semaphore</a></code>:
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+              <code class="computeroutput"><a class="link" href="../doxygen/boost_interprocess_header_reference/classboost_1_1interprocess_1_1interprocess__semaphore.html" title="Class interprocess_semaphore">interprocess_semaphore</a></code>:
               An anonymous semaphore that can be placed in shared memory or memory
               mapped files.
             </li></ul></div>
 <pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">interprocess</span><span class="special">/</span><span class="identifier">sync</span><span class="special">/</span><span class="identifier">named_semaphore</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
 </pre>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
-              <code class="computeroutput"><a class="link" href="../boost/interprocess/named_semaphore.html" title="Class named_semaphore">named_semaphore</a></code>:
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+              <code class="computeroutput"><a class="link" href="../doxygen/boost_interprocess_header_reference/classboost_1_1interprocess_1_1named__semaphore.html" title="Class named_semaphore">named_semaphore</a></code>:
               A named semaphore.
             </li></ul></div>
 </div>
@@ -1074,8 +1048,6 @@
 <p>
           This is the shared integer array (doc_anonymous_semaphore_shared_data.hpp):
         </p>
-<p>
-</p>
 <pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">interprocess</span><span class="special">/</span><span class="identifier">sync</span><span class="special">/</span><span class="identifier">interprocess_semaphore</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
 
 <span class="keyword">struct</span> <span class="identifier">shared_memory_buffer</span>
@@ -1095,14 +1067,10 @@
 <span class="special">};</span>
 </pre>
 <p>
-        </p>
-<p>
           This is the process main process. Creates the shared memory, places there
           the integer array and starts integers one by one, blocking if the array
           is full:
         </p>
-<p>
-</p>
 <pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">interprocess</span><span class="special">/</span><span class="identifier">shared_memory_object</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
 <span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">interprocess</span><span class="special">/</span><span class="identifier">mapped_region</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
 <span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
@@ -1115,15 +1083,15 @@
    <span class="comment">//Remove shared memory on construction and destruction</span>
    <span class="keyword">struct</span> <span class="identifier">shm_remove</span>
    <span class="special">{</span>
-      <span class="identifier">shm_remove</span><span class="special">()</span> <span class="special">{</span> <span class="identifier">shared_memory_object</span><span class="special">::</span><span class="identifier">remove</span><span class="special">(</span><span class="string">"MySharedMemory"</span><span class="special">);</span> <span class="special">}</span>
-      <span class="special">~</span><span class="identifier">shm_remove</span><span class="special">(){</span> <span class="identifier">shared_memory_object</span><span class="special">::</span><span class="identifier">remove</span><span class="special">(</span><span class="string">"MySharedMemory"</span><span class="special">);</span> <span class="special">}</span>
+      <span class="identifier">shm_remove</span><span class="special">()</span> <span class="special">{</span> <span class="identifier">shared_memory_object</span><span class="special">::</span><span class="identifier">remove</span><span class="special">(</span>"MyName"<span class="special">);</span> <span class="special">}</span>
+      <span class="special">~</span><span class="identifier">shm_remove</span><span class="special">(){</span> <span class="identifier">shared_memory_object</span><span class="special">::</span><span class="identifier">remove</span><span class="special">(</span>"MyName"<span class="special">);</span> <span class="special">}</span>
    <span class="special">}</span> <span class="identifier">remover</span><span class="special">;</span>
 
    <span class="comment">//Create a shared memory object.</span>
    <span class="identifier">shared_memory_object</span> <span class="identifier">shm</span>
-      <span class="special">(</span><span class="identifier">create_only</span>                  <span class="comment">//only create</span>
-      <span class="special">,</span><span class="string">"MySharedMemory"</span>              <span class="comment">//name</span>
-      <span class="special">,</span><span class="identifier">read_write</span>  <span class="comment">//read-write mode</span>
+      <span class="special">(</span> <span class="identifier">create_only</span>                 <span class="comment">//only create</span>
+      <span class="special">,</span> "MyName" <span class="comment">//name</span>
+      <span class="special">,</span> <span class="identifier">read_write</span>                  <span class="comment">//read-write mode</span>
       <span class="special">);</span>
 
    <span class="comment">//Set size</span>
@@ -1156,17 +1124,14 @@
 <span class="special">}</span>
 </pre>
 <p>
-        </p>
-<p>
           The second process opens the shared memory and copies the received integers
           to it's own buffer:
         </p>
-<p>
-</p>
 <pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">interprocess</span><span class="special">/</span><span class="identifier">shared_memory_object</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
 <span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">interprocess</span><span class="special">/</span><span class="identifier">mapped_region</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
 <span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
 <span class="preprocessor">#include</span> <span class="string">"doc_anonymous_semaphore_shared_data.hpp"</span>
+
 
 <span class="keyword">using</span> <span class="keyword">namespace</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">interprocess</span><span class="special">;</span>
 
@@ -1175,14 +1140,14 @@
    <span class="comment">//Remove shared memory on destruction</span>
    <span class="keyword">struct</span> <span class="identifier">shm_remove</span>
    <span class="special">{</span>
-      <span class="special">~</span><span class="identifier">shm_remove</span><span class="special">(){</span> <span class="identifier">shared_memory_object</span><span class="special">::</span><span class="identifier">remove</span><span class="special">(</span><span class="string">"MySharedMemory"</span><span class="special">);</span> <span class="special">}</span>
+      <span class="special">~</span><span class="identifier">shm_remove</span><span class="special">(){</span> <span class="identifier">shared_memory_object</span><span class="special">::</span><span class="identifier">remove</span><span class="special">(</span>"MyName"<span class="special">);</span> <span class="special">}</span>
    <span class="special">}</span> <span class="identifier">remover</span><span class="special">;</span>
 
    <span class="comment">//Create a shared memory object.</span>
    <span class="identifier">shared_memory_object</span> <span class="identifier">shm</span>
-      <span class="special">(</span><span class="identifier">open_only</span>                    <span class="comment">//only create</span>
-      <span class="special">,</span><span class="string">"MySharedMemory"</span>              <span class="comment">//name</span>
-      <span class="special">,</span><span class="identifier">read_write</span>  <span class="comment">//read-write mode</span>
+      <span class="special">(</span> <span class="identifier">open_only</span>                      <span class="comment">//only open</span>
+      <span class="special">,</span> "MyName"    <span class="comment">//name</span>
+      <span class="special">,</span> <span class="identifier">read_write</span>                     <span class="comment">//read-write mode</span>
       <span class="special">);</span>
 
    <span class="comment">//Map the whole shared memory in this process</span>
@@ -1213,8 +1178,6 @@
 <span class="special">}</span>
 </pre>
 <p>
-        </p>
-<p>
           The same interprocess communication can be achieved with a condition variables
           and mutexes, but for several synchronization patterns, a semaphore is more
           efficient than a mutex/condition combination.
@@ -1226,7 +1189,7 @@
 <a name="interprocess.synchronization_mechanisms.sharable_upgradable_mutexes"></a><a class="link" href="synchronization_mechanisms.html#interprocess.synchronization_mechanisms.sharable_upgradable_mutexes" title="Sharable and Upgradable Mutexes">Sharable
       and Upgradable Mutexes</a>
 </h3></div></div></div>
-<div class="toc"><dl>
+<div class="toc"><dl class="toc">
 <dt><span class="section"><a href="synchronization_mechanisms.html#interprocess.synchronization_mechanisms.sharable_upgradable_mutexes.upgradable_whats_a_mutex">What's
         a Sharable and an Upgradable Mutex?</a></span></dt>
 <dt><span class="section"><a href="synchronization_mechanisms.html#interprocess.synchronization_mechanisms.sharable_upgradable_mutexes.upgradable_transitions">Lock
@@ -1259,7 +1222,7 @@
           and the synchronized data reading code needs some time to execute. With
           a sharable mutex we can acquire 2 lock types:
         </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
               <span class="bold"><strong>Exclusive lock</strong></span>: Similar to a plain
               mutex. If a thread acquires an exclusive lock, no other thread can
@@ -1280,7 +1243,7 @@
           With an upgradable mutex we can acquire previous locks plus a new upgradable
           lock:
         </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
               <span class="bold"><strong>Upgradable lock</strong></span>: Acquiring an upgradable
               lock is similar to acquiring a <span class="bold"><strong>privileged sharable
               lock</strong></span>. If a thread acquires an upgradable lock, other threads
@@ -1304,7 +1267,7 @@
           To sum up:
         </p>
 <div class="table">
-<a name="interprocess.synchronization_mechanisms.sharable_upgradable_mutexes.upgradable_whats_a_mutex.locking_possibilities_for_a_sharable_mutex"></a><p class="title"><b>Table&#160;15.5.&#160;Locking Possibilities for a Sharable Mutex</b></p>
+<a name="interprocess.synchronization_mechanisms.sharable_upgradable_mutexes.upgradable_whats_a_mutex.locking_possibilities_for_a_shar"></a><p class="title"><b>Table 15.5. Locking Possibilities for a Sharable Mutex</b></p>
 <div class="table-contents"><table class="table" summary="Locking Possibilities for a Sharable Mutex">
 <colgroup>
 <col>
@@ -1351,7 +1314,7 @@
 </table></div>
 </div>
 <br class="table-break"><div class="table">
-<a name="interprocess.synchronization_mechanisms.sharable_upgradable_mutexes.upgradable_whats_a_mutex.locking_possibilities_for_an_upgradable_mutex"></a><p class="title"><b>Table&#160;15.6.&#160;Locking Possibilities for an Upgradable Mutex</b></p>
+<a name="interprocess.synchronization_mechanisms.sharable_upgradable_mutexes.upgradable_whats_a_mutex.locking_possibilities_for_an_upg"></a><p class="title"><b>Table 15.6. Locking Possibilities for an Upgradable Mutex</b></p>
 <div class="table-contents"><table class="table" summary="Locking Possibilities for an Upgradable Mutex">
 <colgroup>
 <col>
@@ -1430,7 +1393,7 @@
           <span class="bold"><strong>so data is guaranteed to remain unchanged</strong></span>:
         </p>
 <div class="table">
-<a name="interprocess.synchronization_mechanisms.sharable_upgradable_mutexes.upgradable_transitions.transition_possibilities_for_an_upgradable_mutex"></a><p class="title"><b>Table&#160;15.7.&#160;Transition Possibilities for an Upgradable Mutex</b></p>
+<a name="interprocess.synchronization_mechanisms.sharable_upgradable_mutexes.upgradable_transitions.transition_possibilities_for_an_"></a><p class="title"><b>Table 15.7. Transition Possibilities for an Upgradable Mutex</b></p>
 <div class="table-contents"><table class="table" summary="Transition Possibilities for an Upgradable Mutex">
 <colgroup>
 <col>
@@ -1540,7 +1503,7 @@
 <a name="interprocess.synchronization_mechanisms.sharable_upgradable_mutexes.sharable_upgradable_mutexes_operations"></a><a class="link" href="synchronization_mechanisms.html#interprocess.synchronization_mechanisms.sharable_upgradable_mutexes.sharable_upgradable_mutexes_operations" title="Upgradable Mutex Operations">Upgradable
         Mutex Operations</a>
 </h4></div></div></div>
-<div class="toc"><dl>
+<div class="toc"><dl class="toc">
 <dt><span class="section"><a href="synchronization_mechanisms.html#interprocess.synchronization_mechanisms.sharable_upgradable_mutexes.sharable_upgradable_mutexes_operations.sharable_upgradable_mutexes_operations_exclusive">Exclusive
           Locking (Sharable &amp; Upgradable Mutexes)</a></span></dt>
 <dt><span class="section"><a href="synchronization_mechanisms.html#interprocess.synchronization_mechanisms.sharable_upgradable_mutexes.sharable_upgradable_mutexes_operations.sharable_upgradable_mutexes_operations_sharable">Sharable
@@ -1561,8 +1524,8 @@
 <a name="interprocess.synchronization_mechanisms.sharable_upgradable_mutexes.sharable_upgradable_mutexes_operations.sharable_upgradable_mutexes_operations_exclusive"></a><a class="link" href="synchronization_mechanisms.html#interprocess.synchronization_mechanisms.sharable_upgradable_mutexes.sharable_upgradable_mutexes_operations.sharable_upgradable_mutexes_operations_exclusive" title="Exclusive Locking (Sharable &amp; Upgradable Mutexes)">Exclusive
           Locking (Sharable &amp; Upgradable Mutexes)</a>
 </h5></div></div></div>
-<div class="sidebar">
-<div class="titlepage"></div>
+<div class="blurb">
+<div class="titlepage"><div><div><p class="title"><b></b></p></div></div></div>
 <p>
             <span class="emphasis"><em><span class="bold"><strong>void lock()</strong></span></em></span>
           </p>
@@ -1577,8 +1540,8 @@
             <span class="bold"><strong>Throws:</strong></span> <span class="bold"><strong>interprocess_exception</strong></span>
             on error.
           </p>
-<div class="sidebar">
-<div class="titlepage"></div>
+<div class="blurb">
+<div class="titlepage"><div><div><p class="title"><b></b></p></div></div></div>
 <p>
             <span class="emphasis"><em><span class="bold"><strong>bool try_lock()</strong></span></em></span>
           </p>
@@ -1596,11 +1559,11 @@
             <span class="bold"><strong>Throws:</strong></span> <span class="bold"><strong>interprocess_exception</strong></span>
             on error.
           </p>
-<div class="sidebar">
-<div class="titlepage"></div>
+<div class="blurb">
+<div class="titlepage"><div><div><p class="title"><b></b></p></div></div></div>
 <p>
-            <span class="emphasis"><em><span class="bold"><strong>bool timed_lock(const boost::posix_time::ptime
-            &amp;abs_time)</strong></span></em></span>
+            <span class="emphasis"><em><span class="bold"><strong>template&lt;class TimePoint&gt; bool
+            timed_lock(const TimePoint &amp;abs_time)</strong></span></em></span>
           </p>
 </div>
 <p>
@@ -1617,8 +1580,8 @@
             <span class="bold"><strong>Throws:</strong></span> <span class="bold"><strong>interprocess_exception</strong></span>
             on error.
           </p>
-<div class="sidebar">
-<div class="titlepage"></div>
+<div class="blurb">
+<div class="titlepage"><div><div><p class="title"><b></b></p></div></div></div>
 <p>
             <span class="emphasis"><em><span class="bold"><strong>void unlock()</strong></span></em></span>
           </p>
@@ -1640,8 +1603,8 @@
 <a name="interprocess.synchronization_mechanisms.sharable_upgradable_mutexes.sharable_upgradable_mutexes_operations.sharable_upgradable_mutexes_operations_sharable"></a><a class="link" href="synchronization_mechanisms.html#interprocess.synchronization_mechanisms.sharable_upgradable_mutexes.sharable_upgradable_mutexes_operations.sharable_upgradable_mutexes_operations_sharable" title="Sharable Locking (Sharable &amp; Upgradable Mutexes)">Sharable
           Locking (Sharable &amp; Upgradable Mutexes)</a>
 </h5></div></div></div>
-<div class="sidebar">
-<div class="titlepage"></div>
+<div class="blurb">
+<div class="titlepage"><div><div><p class="title"><b></b></p></div></div></div>
 <p>
             <span class="emphasis"><em><span class="bold"><strong>void lock_sharable()</strong></span></em></span>
           </p>
@@ -1655,8 +1618,8 @@
             <span class="bold"><strong>Throws:</strong></span> <span class="bold"><strong>interprocess_exception</strong></span>
             on error.
           </p>
-<div class="sidebar">
-<div class="titlepage"></div>
+<div class="blurb">
+<div class="titlepage"><div><div><p class="title"><b></b></p></div></div></div>
 <p>
             <span class="emphasis"><em><span class="bold"><strong>bool try_lock_sharable()</strong></span></em></span>
           </p>
@@ -1674,11 +1637,11 @@
             <span class="bold"><strong>Throws:</strong></span> <span class="bold"><strong>interprocess_exception</strong></span>
             on error.
           </p>
-<div class="sidebar">
-<div class="titlepage"></div>
+<div class="blurb">
+<div class="titlepage"><div><div><p class="title"><b></b></p></div></div></div>
 <p>
-            <span class="emphasis"><em><span class="bold"><strong>bool timed_lock_sharable(const boost::posix_time::ptime
-            &amp;abs_time)</strong></span></em></span>
+            <span class="emphasis"><em><span class="bold"><strong>template &lt;class TimePoint&gt; bool
+            timed_lock_sharable(const TimePoint &amp;abs_time)</strong></span></em></span>
           </p>
 </div>
 <p>
@@ -1694,8 +1657,8 @@
             <span class="bold"><strong>Throws:</strong></span> <span class="bold"><strong>interprocess_exception</strong></span>
             on error.
           </p>
-<div class="sidebar">
-<div class="titlepage"></div>
+<div class="blurb">
+<div class="titlepage"><div><div><p class="title"><b></b></p></div></div></div>
 <p>
             <span class="emphasis"><em><span class="bold"><strong>void unlock_sharable()</strong></span></em></span>
           </p>
@@ -1717,8 +1680,8 @@
 <a name="interprocess.synchronization_mechanisms.sharable_upgradable_mutexes.sharable_upgradable_mutexes_operations.upgradable_mutexes_operations_upgradable"></a><a class="link" href="synchronization_mechanisms.html#interprocess.synchronization_mechanisms.sharable_upgradable_mutexes.sharable_upgradable_mutexes_operations.upgradable_mutexes_operations_upgradable" title="Upgradable Locking (Upgradable Mutex only)">Upgradable
           Locking (Upgradable Mutex only)</a>
 </h5></div></div></div>
-<div class="sidebar">
-<div class="titlepage"></div>
+<div class="blurb">
+<div class="titlepage"><div><div><p class="title"><b></b></p></div></div></div>
 <p>
             <span class="emphasis"><em><span class="bold"><strong>void lock_upgradable()</strong></span></em></span>
           </p>
@@ -1732,8 +1695,8 @@
             <span class="bold"><strong>Throws:</strong></span> <span class="bold"><strong>interprocess_exception</strong></span>
             on error.
           </p>
-<div class="sidebar">
-<div class="titlepage"></div>
+<div class="blurb">
+<div class="titlepage"><div><div><p class="title"><b></b></p></div></div></div>
 <p>
             <span class="emphasis"><em><span class="bold"><strong>bool try_lock_upgradable()</strong></span></em></span>
           </p>
@@ -1751,11 +1714,11 @@
             <span class="bold"><strong>Throws:</strong></span> <span class="bold"><strong>interprocess_exception</strong></span>
             on error.
           </p>
-<div class="sidebar">
-<div class="titlepage"></div>
+<div class="blurb">
+<div class="titlepage"><div><div><p class="title"><b></b></p></div></div></div>
 <p>
-            <span class="emphasis"><em><span class="bold"><strong>bool timed_lock_upgradable(const boost::posix_time::ptime
-            &amp;abs_time)</strong></span></em></span>
+            <span class="emphasis"><em><span class="bold"><strong>template &lt;class TimePoint&gt; bool
+            timed_lock_upgradable(const TimePoint &amp;abs_time)</strong></span></em></span>
           </p>
 </div>
 <p>
@@ -1771,8 +1734,8 @@
             <span class="bold"><strong>Throws:</strong></span> <span class="bold"><strong>interprocess_exception</strong></span>
             on error.
           </p>
-<div class="sidebar">
-<div class="titlepage"></div>
+<div class="blurb">
+<div class="titlepage"><div><div><p class="title"><b></b></p></div></div></div>
 <p>
             <span class="emphasis"><em><span class="bold"><strong>void unlock_upgradable()</strong></span></em></span>
           </p>
@@ -1794,8 +1757,8 @@
 <a name="interprocess.synchronization_mechanisms.sharable_upgradable_mutexes.sharable_upgradable_mutexes_operations.upgradable_mutexes_operations_demotions"></a><a class="link" href="synchronization_mechanisms.html#interprocess.synchronization_mechanisms.sharable_upgradable_mutexes.sharable_upgradable_mutexes_operations.upgradable_mutexes_operations_demotions" title="Demotions (Upgradable Mutex only)">Demotions
           (Upgradable Mutex only)</a>
 </h5></div></div></div>
-<div class="sidebar">
-<div class="titlepage"></div>
+<div class="blurb">
+<div class="titlepage"><div><div><p class="title"><b></b></p></div></div></div>
 <p>
             <span class="emphasis"><em><span class="bold"><strong>void unlock_and_lock_upgradable()</strong></span></em></span>
           </p>
@@ -1812,8 +1775,8 @@
 <p>
             <span class="bold"><strong>Throws:</strong></span> An exception derived from <span class="bold"><strong>interprocess_exception</strong></span> on error.
           </p>
-<div class="sidebar">
-<div class="titlepage"></div>
+<div class="blurb">
+<div class="titlepage"><div><div><p class="title"><b></b></p></div></div></div>
 <p>
             <span class="emphasis"><em><span class="bold"><strong>void unlock_and_lock_sharable()</strong></span></em></span>
           </p>
@@ -1830,8 +1793,8 @@
 <p>
             <span class="bold"><strong>Throws:</strong></span> An exception derived from <span class="bold"><strong>interprocess_exception</strong></span> on error.
           </p>
-<div class="sidebar">
-<div class="titlepage"></div>
+<div class="blurb">
+<div class="titlepage"><div><div><p class="title"><b></b></p></div></div></div>
 <p>
             <span class="emphasis"><em><span class="bold"><strong>void unlock_upgradable_and_lock_sharable()</strong></span></em></span>
           </p>
@@ -1854,8 +1817,8 @@
 <a name="interprocess.synchronization_mechanisms.sharable_upgradable_mutexes.sharable_upgradable_mutexes_operations.upgradable_mutexes_operations_promotions"></a><a class="link" href="synchronization_mechanisms.html#interprocess.synchronization_mechanisms.sharable_upgradable_mutexes.sharable_upgradable_mutexes_operations.upgradable_mutexes_operations_promotions" title="Promotions (Upgradable Mutex only)">Promotions
           (Upgradable Mutex only)</a>
 </h5></div></div></div>
-<div class="sidebar">
-<div class="titlepage"></div>
+<div class="blurb">
+<div class="titlepage"><div><div><p class="title"><b></b></p></div></div></div>
 <p>
             <span class="emphasis"><em><span class="bold"><strong>void unlock_upgradable_and_lock()</strong></span></em></span>
           </p>
@@ -1872,8 +1835,8 @@
 <p>
             <span class="bold"><strong>Throws:</strong></span> An exception derived from <span class="bold"><strong>interprocess_exception</strong></span> on error.
           </p>
-<div class="sidebar">
-<div class="titlepage"></div>
+<div class="blurb">
+<div class="titlepage"><div><div><p class="title"><b></b></p></div></div></div>
 <p>
             <span class="emphasis"><em><span class="bold"><strong>bool try_unlock_upgradable_and_lock()</strong></span></em></span>
           </p>
@@ -1895,11 +1858,11 @@
 <p>
             <span class="bold"><strong>Throws:</strong></span> An exception derived from <span class="bold"><strong>interprocess_exception</strong></span> on error.
           </p>
-<div class="sidebar">
-<div class="titlepage"></div>
+<div class="blurb">
+<div class="titlepage"><div><div><p class="title"><b></b></p></div></div></div>
 <p>
-            <span class="emphasis"><em><span class="bold"><strong>bool timed_unlock_upgradable_and_lock(const
-            boost::posix_time::ptime &amp;abs_time)</strong></span></em></span>
+            <span class="emphasis"><em><span class="bold"><strong>template &lt;class TimePoint&gt; bool
+            timed_unlock_upgradable_and_lock(const TimePoint &amp;abs_time)</strong></span></em></span>
           </p>
 </div>
 <p>
@@ -1920,8 +1883,8 @@
 <p>
             <span class="bold"><strong>Throws:</strong></span> An exception derived from <span class="bold"><strong>interprocess_exception</strong></span> on error.
           </p>
-<div class="sidebar">
-<div class="titlepage"></div>
+<div class="blurb">
+<div class="titlepage"><div><div><p class="title"><b></b></p></div></div></div>
 <p>
             <span class="emphasis"><em><span class="bold"><strong>bool try_unlock_sharable_and_lock()</strong></span></em></span>
           </p>
@@ -1943,8 +1906,8 @@
 <p>
             <span class="bold"><strong>Throws:</strong></span> An exception derived from <span class="bold"><strong>interprocess_exception</strong></span> on error.
           </p>
-<div class="sidebar">
-<div class="titlepage"></div>
+<div class="blurb">
+<div class="titlepage"><div><div><p class="title"><b></b></p></div></div></div>
 <p>
             <span class="emphasis"><em><span class="bold"><strong>bool try_unlock_sharable_and_lock_upgradable()</strong></span></em></span>
           </p>
@@ -1972,9 +1935,10 @@
 <th align="left">Important</th>
 </tr>
 <tr><td align="left" valign="top"><p>
-              <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">posix_time</span><span class="special">::</span><span class="identifier">ptime</span></code> absolute time points used by
-              Boost.Interprocess synchronization mechanisms are UTC time points,
-              not local time points
+              Boost.Interprocess timed synchronization mechanisms support several
+              timepoints: <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">posix_time</span><span class="special">::</span><span class="identifier">ptime</span></code> absolute UTC time points,
+              <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">chrono</span></code> and <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">chrono</span></code>
+              timepoints.
             </p></td></tr>
 </table></div>
 </div>
@@ -1989,15 +1953,15 @@
         </p>
 <pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">interprocess</span><span class="special">/</span><span class="identifier">sync</span><span class="special">/</span><span class="identifier">interprocess_sharable_mutex</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
 </pre>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
-              <code class="computeroutput"><a class="link" href="../boost/interprocess/interprocess_s_idp24058192.html" title="Class interprocess_sharable_mutex">interprocess_sharable_mutex</a></code>:
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+              <code class="computeroutput"><a class="link" href="../doxygen/boost_interprocess_header_reference/classboost_1_1interprocess_1_1interprocess__sharable__mutex.html" title="Class interprocess_sharable_mutex">interprocess_sharable_mutex</a></code>:
               A non-recursive, anonymous sharable mutex that can be placed in shared
               memory or memory mapped files.
             </li></ul></div>
 <pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">interprocess</span><span class="special">/</span><span class="identifier">sync</span><span class="special">/</span><span class="identifier">named_sharable_mutex</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
 </pre>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
-              <code class="computeroutput"><a class="link" href="../boost/interprocess/named_sharable_mutex.html" title="Class named_sharable_mutex">named_sharable_mutex</a></code>:
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+              <code class="computeroutput"><a class="link" href="../doxygen/boost_interprocess_header_reference/classboost_1_1interprocess_1_1named__sharable__mutex.html" title="Class named_sharable_mutex">named_sharable_mutex</a></code>:
               A non-recursive, named sharable mutex.
             </li></ul></div>
 <p>
@@ -2005,35 +1969,45 @@
         </p>
 <pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">interprocess</span><span class="special">/</span><span class="identifier">sync</span><span class="special">/</span><span class="identifier">interprocess_upgradable_mutex</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
 </pre>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
-              <code class="computeroutput"><a class="link" href="../boost/interprocess/interprocess_u_idp24089008.html" title="Class interprocess_upgradable_mutex">interprocess_upgradable_mutex</a></code>:
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+              <code class="computeroutput"><a class="link" href="../doxygen/boost_interprocess_header_reference/classboost_1_1interprocess_1_1interprocess__upgradable__mutex.html" title="Class interprocess_upgradable_mutex">interprocess_upgradable_mutex</a></code>:
               A non-recursive, anonymous upgradable mutex that can be placed in shared
               memory or memory mapped files.
             </li></ul></div>
 <pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">interprocess</span><span class="special">/</span><span class="identifier">sync</span><span class="special">/</span><span class="identifier">named_upgradable_mutex</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
 </pre>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
-              <code class="computeroutput"><a class="link" href="../boost/interprocess/named_upgradable_mutex.html" title="Class named_upgradable_mutex">named_upgradable_mutex</a></code>:
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+              <code class="computeroutput"><a class="link" href="../doxygen/boost_interprocess_header_reference/classboost_1_1interprocess_1_1named__upgradable__mutex.html" title="Class named_upgradable_mutex">named_upgradable_mutex</a></code>:
               A non-recursive, named upgradable mutex.
             </li></ul></div>
+<div class="important"><table border="0" summary="Important">
+<tr>
+<td rowspan="2" align="center" valign="top" width="25"><img alt="[Important]" src="../../../doc/src/images/important.png"></td>
+<th align="left">Important</th>
+</tr>
+<tr><td align="left" valign="top"><p>
+            Interprocess shared mutexes meet standard C++ <code class="computeroutput"><span class="identifier">SharedTimedMutex</span></code>
+            requirements for std-compatibility
+          </p></td></tr>
+</table></div>
 </div>
 <div class="section">
 <div class="titlepage"><div><div><h4 class="title">
 <a name="interprocess.synchronization_mechanisms.sharable_upgradable_mutexes.sharable_upgradable_locks"></a><a class="link" href="synchronization_mechanisms.html#interprocess.synchronization_mechanisms.sharable_upgradable_mutexes.sharable_upgradable_locks" title="Sharable Lock And Upgradable Lock">Sharable
         Lock And Upgradable Lock</a>
 </h4></div></div></div>
-<div class="toc"><dl><dt><span class="section"><a href="synchronization_mechanisms.html#interprocess.synchronization_mechanisms.sharable_upgradable_mutexes.sharable_upgradable_locks.upgradable_mutexes_lock_types">Sharable
+<div class="toc"><dl class="toc"><dt><span class="section"><a href="synchronization_mechanisms.html#interprocess.synchronization_mechanisms.sharable_upgradable_mutexes.sharable_upgradable_locks.upgradable_mutexes_lock_types">Sharable
           Lock And Upgradable Lock Headers</a></span></dt></dl></div>
 <p>
           As with plain mutexes, it's important to release the acquired lock even
           in the presence of exceptions. <span class="bold"><strong>Boost.Interprocess</strong></span>
-          mutexes are best used with the <code class="computeroutput"><a class="link" href="../boost/interprocess/scoped_lock.html" title="Class template scoped_lock">scoped_lock</a></code>
+          mutexes are best used with the <code class="computeroutput"><a class="link" href="../doxygen/boost_interprocess_header_reference/classboost_1_1interprocess_1_1scoped__lock.html" title="Class template scoped_lock">scoped_lock</a></code>
           utility, and this class only offers exclusive locking.
         </p>
 <p>
           As we have sharable locking and upgradable locking with upgradable mutexes,
-          we have two new utilities: <code class="computeroutput"><a class="link" href="../boost/interprocess/sharable_lock.html" title="Class template sharable_lock">sharable_lock</a></code>
-          and <code class="computeroutput"><a class="link" href="../boost/interprocess/upgradable_lock.html" title="Class template upgradable_lock">upgradable_lock</a></code>.
+          we have two new utilities: <code class="computeroutput"><a class="link" href="../doxygen/boost_interprocess_header_reference/classboost_1_1interprocess_1_1sharable__lock.html" title="Class template sharable_lock">sharable_lock</a></code>
+          and <code class="computeroutput"><a class="link" href="../doxygen/boost_interprocess_header_reference/classboost_1_1interprocess_1_1upgradable__lock.html" title="Class template upgradable_lock">upgradable_lock</a></code>.
           Both classes are similar to <code class="computeroutput"><span class="identifier">scoped_lock</span></code>
           but <code class="computeroutput"><span class="identifier">sharable_lock</span></code> acquires
           the sharable lock in the constructor and <code class="computeroutput"><span class="identifier">upgradable_lock</span></code>
@@ -2158,8 +2132,8 @@
 <span class="special">}</span>
 </pre>
 <p>
-          <code class="computeroutput"><a class="link" href="../boost/interprocess/upgradable_lock.html" title="Class template upgradable_lock">upgradable_lock</a></code>
-          and <code class="computeroutput"><a class="link" href="../boost/interprocess/sharable_lock.html" title="Class template sharable_lock">sharable_lock</a></code>
+          <code class="computeroutput"><a class="link" href="../doxygen/boost_interprocess_header_reference/classboost_1_1interprocess_1_1upgradable__lock.html" title="Class template upgradable_lock">upgradable_lock</a></code>
+          and <code class="computeroutput"><a class="link" href="../doxygen/boost_interprocess_header_reference/classboost_1_1interprocess_1_1sharable__lock.html" title="Class template sharable_lock">sharable_lock</a></code>
           offer more features and operations, see their reference for more informations
         </p>
 <div class="important"><table border="0" summary="Important">
@@ -2168,9 +2142,9 @@
 <th align="left">Important</th>
 </tr>
 <tr><td align="left" valign="top"><p>
-            <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">posix_time</span><span class="special">::</span><span class="identifier">ptime</span></code> absolute time points used by
-            Boost.Interprocess synchronization mechanisms are UTC time points, not
-            local time points
+            Boost.Interprocess timed synchronization mechanisms support several timepoints:
+            <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">posix_time</span><span class="special">::</span><span class="identifier">ptime</span></code> absolute UTC time points, <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">chrono</span></code> and <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">chrono</span></code>
+            timepoints.
           </p></td></tr>
 </table></div>
 </div>
@@ -2180,7 +2154,7 @@
 <a name="interprocess.synchronization_mechanisms.lock_conversions"></a><a class="link" href="synchronization_mechanisms.html#interprocess.synchronization_mechanisms.lock_conversions" title="Lock Transfers Through Move Semantics">Lock
       Transfers Through Move Semantics</a>
 </h3></div></div></div>
-<div class="toc"><dl>
+<div class="toc"><dl class="toc">
 <dt><span class="section"><a href="synchronization_mechanisms.html#interprocess.synchronization_mechanisms.lock_conversions.lock_transfer_simple_transfer">Simple
         Lock Transfer</a></span></dt>
 <dt><span class="section"><a href="synchronization_mechanisms.html#interprocess.synchronization_mechanisms.lock_conversions.lock_transfer_summary">Lock
@@ -2190,8 +2164,8 @@
 <dt><span class="section"><a href="synchronization_mechanisms.html#interprocess.synchronization_mechanisms.lock_conversions.lock_transfer_failure">Transfer
         Failures</a></span></dt>
 </dl></div>
-<div class="sidebar">
-<div class="titlepage"></div>
+<div class="blurb">
+<div class="titlepage"><div><div><p class="title"><b></b></p></div></div></div>
 <p>
         <span class="bold"><strong>Interprocess uses its own move semantics emulation
         code for compilers that don't support rvalues references. This is a temporary
@@ -2224,7 +2198,7 @@
           sharable lock, increasing concurrency. Without lock transfer operations,
           this would be coded like this:
         </p>
-<pre class="programlisting"><span class="keyword">using</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">interprocess</span><span class="special">;</span>
+<pre class="programlisting"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">interprocess</span><span class="special">;</span>
 <span class="identifier">interprocess_upgradable_mutex</span> <span class="identifier">mutex</span><span class="special">;</span>
 
 <span class="comment">//Acquire exclusive lock</span>
@@ -2258,7 +2232,7 @@
           We can use <span class="bold"><strong>lock transfer</strong></span> to simplify all
           this management:
         </p>
-<pre class="programlisting"><span class="keyword">using</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">interprocess</span><span class="special">;</span>
+<pre class="programlisting"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">interprocess</span><span class="special">;</span>
 <span class="identifier">interprocess_upgradable_mutex</span> <span class="identifier">mutex</span><span class="special">;</span>
 
 <span class="comment">//Acquire exclusive lock</span>
@@ -2286,7 +2260,7 @@
 <a name="interprocess.synchronization_mechanisms.lock_conversions.lock_transfer_summary"></a><a class="link" href="synchronization_mechanisms.html#interprocess.synchronization_mechanisms.lock_conversions.lock_transfer_summary" title="Lock Transfer Summary">Lock
         Transfer Summary</a>
 </h4></div></div></div>
-<div class="toc"><dl>
+<div class="toc"><dl class="toc">
 <dt><span class="section"><a href="synchronization_mechanisms.html#interprocess.synchronization_mechanisms.lock_conversions.lock_transfer_summary.lock_transfer_summary_scoped">Transfers
           To Scoped Lock</a></span></dt>
 <dt><span class="section"><a href="synchronization_mechanisms.html#interprocess.synchronization_mechanisms.lock_conversions.lock_transfer_summary.lock_transfer_summary_upgradable">Transfers
@@ -2298,7 +2272,7 @@
           There are many lock transfer operations that we can classify according
           to the operations presented in the upgradable mutex operations:
         </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
               <span class="bold"><strong>Guaranteed to succeed and non-blocking:</strong></span>
               Any transition from a more restrictive lock to a less restrictive one.
@@ -2346,10 +2320,11 @@
    <span class="identifier">scoped_lock</span><span class="special">&lt;</span><span class="identifier">Mutex</span><span class="special">&gt;</span>      <span class="identifier">e_lock</span><span class="special">(</span><span class="identifier">move</span><span class="special">(</span><span class="identifier">u_lock</span><span class="special">,</span> <span class="identifier">try_to_lock</span><span class="special">));</span>
 <span class="special">}</span>
 <span class="special">{</span>
-   <span class="identifier">boost</span><span class="special">::</span><span class="identifier">posix_time</span><span class="special">::</span><span class="identifier">ptime</span> <span class="identifier">t</span> <span class="special">=</span> <span class="identifier">test</span><span class="special">::</span><span class="identifier">delay</span><span class="special">(</span><span class="number">100</span><span class="special">);</span>
+   <span class="keyword">using</span> <span class="keyword">namespace</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">posix_time</span><span class="special">;</span>
    <span class="identifier">upgradable_lock</span><span class="special">&lt;</span><span class="identifier">Mutex</span><span class="special">&gt;</span>  <span class="identifier">u_lock</span><span class="special">(</span><span class="identifier">mut</span><span class="special">);</span>
+   <span class="identifier">ptime</span> <span class="identifier">t</span> <span class="special">=</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">date_time</span><span class="special">::</span><span class="identifier">microsec_clock</span><span class="special">&lt;</span><span class="identifier">ptime</span><span class="special">&gt;::</span><span class="identifier">universal_time</span><span class="special">()</span> <span class="special">+</span> <span class="identifier">milliseconds</span><span class="special">(</span><span class="number">100</span><span class="special">);</span>
    <span class="comment">//This calls timed_unlock_upgradable_and_lock()</span>
-   <span class="identifier">scoped_lock</span><span class="special">&lt;</span><span class="identifier">Mutex</span><span class="special">&gt;</span>      <span class="identifier">e_lock</span><span class="special">(</span><span class="identifier">move</span><span class="special">(</span><span class="identifier">u_lock</span><span class="special">));</span>
+   <span class="identifier">scoped_lock</span><span class="special">&lt;</span><span class="identifier">Mutex</span><span class="special">&gt;</span>      <span class="identifier">e_lock</span><span class="special">(</span><span class="identifier">move</span><span class="special">(</span><span class="identifier">u_lock</span><span class="special">),</span> <span class="identifier">t</span><span class="special">);</span>
 <span class="special">}</span>
 <span class="special">{</span>
    <span class="identifier">sharable_lock</span><span class="special">&lt;</span><span class="identifier">Mutex</span><span class="special">&gt;</span>    <span class="identifier">s_lock</span><span class="special">(</span><span class="identifier">mut</span><span class="special">);</span>
@@ -2363,9 +2338,10 @@
 <th align="left">Important</th>
 </tr>
 <tr><td align="left" valign="top"><p>
-              <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">posix_time</span><span class="special">::</span><span class="identifier">ptime</span></code> absolute time points used by
-              Boost.Interprocess synchronization mechanisms are UTC time points,
-              not local time points
+              Boost.Interprocess timed synchronization mechanisms support several
+              timepoints: <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">posix_time</span><span class="special">::</span><span class="identifier">ptime</span></code> absolute UTC time points,
+              <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">chrono</span></code> and <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">chrono</span></code>
+              timepoints.
             </p></td></tr>
 </table></div>
 </div>
@@ -2474,7 +2450,7 @@
 <p>
           If the source mutex was not locked:
         </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
               The target lock does not execute the atomic <code class="computeroutput"><span class="identifier">unlock_xxx_and_lock_xxx</span></code>
               operation.
@@ -2506,7 +2482,7 @@
 <p>
           When executing a lock transfer, the operation can fail:
         </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
               The executed atomic mutex unlock plus lock function might throw.
             </li>
@@ -2559,7 +2535,7 @@
 <a name="interprocess.synchronization_mechanisms.file_lock"></a><a class="link" href="synchronization_mechanisms.html#interprocess.synchronization_mechanisms.file_lock" title="File Locks">File
       Locks</a>
 </h3></div></div></div>
-<div class="toc"><dl>
+<div class="toc"><dl class="toc">
 <dt><span class="section"><a href="synchronization_mechanisms.html#interprocess.synchronization_mechanisms.file_lock.file_lock_whats_a_file_lock">What's
         A File Lock?</a></span></dt>
 <dt><span class="section"><a href="synchronization_mechanisms.html#interprocess.synchronization_mechanisms.file_lock.file_lock_operations">File
@@ -2587,7 +2563,7 @@
 <p>
           Generally speaking, we can have two file locking capabilities:
         </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
               <span class="bold"><strong>Advisory locking:</strong></span> The operating system
               kernel maintains a list of files that have been locked. But does not
@@ -2609,10 +2585,20 @@
             </li>
 </ul></div>
 <p>
-          <span class="bold"><strong>Boost.Interprocess</strong></span> implements <span class="bold"><strong>advisory blocking</strong></span> because of portability reasons.
-          This means that every process accessing to a file concurrently, must cooperate
-          using file locks to synchronize the access.
+          <span class="bold"><strong>Boost.Interprocess</strong></span> uses the widely used
+          native capability in each OS, which means:
         </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+              On Unix systems the widly available and tested POSIX <code class="computeroutput"><span class="identifier">fcntl</span></code>-based advisory locking is used.
+              Moreover, <a href="https://man7.org/linux/man-pages/man2/fcntl.2.html" target="_top">some
+              mandatory locking implementations (e.g. Linux) are not reliable</a>.
+            </li>
+<li class="listitem">
+              On Windows systems native Mandatory Locking (using <code class="computeroutput"><span class="identifier">FileLockEx</span></code>)
+              is used.
+            </li>
+</ul></div>
 <p>
           In some systems file locking can be even further refined, leading to <span class="bold"><strong>record locking</strong></span>, where a user can specify a <span class="bold"><strong>byte range</strong></span> within the file where the lock is applied.
           This allows concurrent write access by several processes if they need to
@@ -2657,8 +2643,8 @@
           upgradable locking or promotion or demotion (lock transfers), so it's more
           limited than an upgradable lock. These are the operations:
         </p>
-<div class="sidebar">
-<div class="titlepage"></div>
+<div class="blurb">
+<div class="titlepage"><div><div><p class="title"><b></b></p></div></div></div>
 <p>
           <span class="emphasis"><em><span class="bold"><strong>void lock()</strong></span></em></span>
         </p>
@@ -2672,8 +2658,8 @@
           <span class="bold"><strong>Throws:</strong></span> <span class="bold"><strong>interprocess_exception</strong></span>
           on error.
         </p>
-<div class="sidebar">
-<div class="titlepage"></div>
+<div class="blurb">
+<div class="titlepage"><div><div><p class="title"><b></b></p></div></div></div>
 <p>
           <span class="emphasis"><em><span class="bold"><strong>bool try_lock()</strong></span></em></span>
         </p>
@@ -2691,11 +2677,11 @@
           <span class="bold"><strong>Throws:</strong></span> <span class="bold"><strong>interprocess_exception</strong></span>
           on error.
         </p>
-<div class="sidebar">
-<div class="titlepage"></div>
+<div class="blurb">
+<div class="titlepage"><div><div><p class="title"><b></b></p></div></div></div>
 <p>
-          <span class="emphasis"><em><span class="bold"><strong>bool timed_lock(const boost::posix_time::ptime
-          &amp;abs_time)</strong></span></em></span>
+          <span class="emphasis"><em><span class="bold"><strong>template &lt;class TimePoint&gt; bool timed_lock(const
+          TimePoint &amp;abs_time)</strong></span></em></span>
         </p>
 </div>
 <p>
@@ -2712,8 +2698,8 @@
           <span class="bold"><strong>Throws:</strong></span> <span class="bold"><strong>interprocess_exception</strong></span>
           on error.
         </p>
-<div class="sidebar">
-<div class="titlepage"></div>
+<div class="blurb">
+<div class="titlepage"><div><div><p class="title"><b></b></p></div></div></div>
 <p>
           <span class="emphasis"><em><span class="bold"><strong>void unlock()</strong></span></em></span>
         </p>
@@ -2729,8 +2715,8 @@
 <p>
           <span class="bold"><strong>Throws:</strong></span> An exception derived from <span class="bold"><strong>interprocess_exception</strong></span> on error.
         </p>
-<div class="sidebar">
-<div class="titlepage"></div>
+<div class="blurb">
+<div class="titlepage"><div><div><p class="title"><b></b></p></div></div></div>
 <p>
           <span class="emphasis"><em><span class="bold"><strong>void lock_sharable()</strong></span></em></span>
         </p>
@@ -2744,8 +2730,8 @@
           <span class="bold"><strong>Throws:</strong></span> <span class="bold"><strong>interprocess_exception</strong></span>
           on error.
         </p>
-<div class="sidebar">
-<div class="titlepage"></div>
+<div class="blurb">
+<div class="titlepage"><div><div><p class="title"><b></b></p></div></div></div>
 <p>
           <span class="emphasis"><em><span class="bold"><strong>bool try_lock_sharable()</strong></span></em></span>
         </p>
@@ -2763,11 +2749,11 @@
           <span class="bold"><strong>Throws:</strong></span> <span class="bold"><strong>interprocess_exception</strong></span>
           on error.
         </p>
-<div class="sidebar">
-<div class="titlepage"></div>
+<div class="blurb">
+<div class="titlepage"><div><div><p class="title"><b></b></p></div></div></div>
 <p>
-          <span class="emphasis"><em><span class="bold"><strong>bool timed_lock_sharable(const boost::posix_time::ptime
-          &amp;abs_time)</strong></span></em></span>
+          <span class="emphasis"><em><span class="bold"><strong>template &lt;class TimePoint&gt; bool timed_lock_sharable(const
+          TimePoint &amp;abs_time)</strong></span></em></span>
         </p>
 </div>
 <p>
@@ -2783,8 +2769,8 @@
           <span class="bold"><strong>Throws:</strong></span> <span class="bold"><strong>interprocess_exception</strong></span>
           on error.
         </p>
-<div class="sidebar">
-<div class="titlepage"></div>
+<div class="blurb">
+<div class="titlepage"><div><div><p class="title"><b></b></p></div></div></div>
 <p>
           <span class="emphasis"><em><span class="bold"><strong>void unlock_sharable()</strong></span></em></span>
         </p>
@@ -2801,7 +2787,7 @@
           <span class="bold"><strong>Throws:</strong></span> An exception derived from <span class="bold"><strong>interprocess_exception</strong></span> on error.
         </p>
 <p>
-          For more file locking methods, please <code class="computeroutput"><a class="link" href="../boost/interprocess/file_lock.html" title="Class file_lock">file_lock
+          For more file locking methods, please <code class="computeroutput"><a class="link" href="../doxygen/boost_interprocess_header_reference/classboost_1_1interprocess_1_1file__lock.html" title="Class file_lock">file_lock
           reference</a></code>.
         </p>
 <div class="important"><table border="0" summary="Important">
@@ -2810,9 +2796,9 @@
 <th align="left">Important</th>
 </tr>
 <tr><td align="left" valign="top"><p>
-            <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">posix_time</span><span class="special">::</span><span class="identifier">ptime</span></code> absolute time points used by
-            Boost.Interprocess synchronization mechanisms are UTC time points, not
-            local time points
+            Boost.Interprocess timed synchronization mechanisms support several timepoints:
+            <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">posix_time</span><span class="special">::</span><span class="identifier">ptime</span></code> absolute UTC time points, <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">chrono</span></code> and <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">chrono</span></code>
+            timepoints.
           </p></td></tr>
 </table></div>
 </div>
@@ -2822,8 +2808,8 @@
         Lock and Sharable Lock With File Locking</a>
 </h4></div></div></div>
 <p>
-          <code class="computeroutput"><a class="link" href="../boost/interprocess/scoped_lock.html" title="Class template scoped_lock">scoped_lock</a></code>
-          and <code class="computeroutput"><a class="link" href="../boost/interprocess/sharable_lock.html" title="Class template sharable_lock">sharable_lock</a></code>
+          <code class="computeroutput"><a class="link" href="../doxygen/boost_interprocess_header_reference/classboost_1_1interprocess_1_1scoped__lock.html" title="Class template scoped_lock">scoped_lock</a></code>
+          and <code class="computeroutput"><a class="link" href="../doxygen/boost_interprocess_header_reference/classboost_1_1interprocess_1_1sharable__lock.html" title="Class template sharable_lock">sharable_lock</a></code>
           can be used to make file locking easier in the presence of exceptions,
           just like with mutexes:
         </p>
@@ -2838,7 +2824,7 @@
 <span class="identifier">file_lock</span> <span class="identifier">f_lock</span><span class="special">(</span><span class="string">"my_file"</span><span class="special">);</span>
 
 <span class="special">{</span>
-   <span class="comment">//Construct a sharable lock with the filel lock.</span>
+   <span class="comment">//Construct a sharable lock with the file lock.</span>
    <span class="comment">//This will call "f_lock.sharable_lock()".</span>
    <span class="identifier">sharable_lock</span><span class="special">&lt;</span><span class="identifier">file_lock</span><span class="special">&gt;</span> <span class="identifier">sh_lock</span><span class="special">(</span><span class="identifier">f_lock</span><span class="special">);</span>
 
@@ -2860,7 +2846,7 @@
 <span class="identifier">file_lock</span> <span class="identifier">f_lock</span><span class="special">(</span><span class="string">"my_file"</span><span class="special">);</span>
 
 <span class="special">{</span>
-   <span class="comment">//Construct a sharable lock with the filel lock.</span>
+   <span class="comment">//Construct an exclusive lock with the file lock.</span>
    <span class="comment">//This will call "f_lock.lock()".</span>
    <span class="identifier">scoped_lock</span><span class="special">&lt;</span><span class="identifier">file_lock</span><span class="special">&gt;</span> <span class="identifier">e_lock</span><span class="special">(</span><span class="identifier">f_lock</span><span class="special">);</span>
 
@@ -2874,7 +2860,7 @@
           However, lock transfers are only allowed between same type of locks, that
           is, from a sharable lock to another sharable lock or from a scoped lock
           to another scoped lock. A transfer from a scoped lock to a sharable lock
-          is not allowed, because <code class="computeroutput"><a class="link" href="../boost/interprocess/file_lock.html" title="Class file_lock">file_lock</a></code>
+          is not allowed, because <code class="computeroutput"><a class="link" href="../doxygen/boost_interprocess_header_reference/classboost_1_1interprocess_1_1file__lock.html" title="Class file_lock">file_lock</a></code>
           has no lock promotion or demotion functions like <code class="computeroutput"><span class="identifier">unlock_and_lock_sharable</span><span class="special">()</span></code>. This will produce a compilation error:
         </p>
 <pre class="programlisting"><span class="comment">//Open the file lock</span>
@@ -2897,7 +2883,7 @@
           implementations (POSIX, Windows) offer different guarantees. Interprocess
           file locks have the following limitations:
         </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
               It's unspecified if a <code class="computeroutput"><span class="identifier">file_lock</span></code>
               synchronizes <span class="bold"><strong>two threads from the same process</strong></span>.
@@ -2927,7 +2913,7 @@
           To sum up, if you plan to use portable file locking in your processes,
           use the following restrictions:
         </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
               <span class="bold"><strong>For each file, use a single <code class="computeroutput"><span class="identifier">file_lock</span></code>
               object per process.</strong></span>
@@ -2954,35 +2940,38 @@
           kind of buffering, so if you want to make sure that other processes can
           see the data you've written, you have the following alternatives:
         </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
               Use native file functions (read()/write() in Unix systems and ReadFile/WriteFile
               in Windows systems) instead of iostream.
             </li>
 <li class="listitem">
+<p class="simpara">
               Flush data before unlocking the file lock in writers using <code class="computeroutput"><span class="identifier">fflush</span></code> if you are using standard
               C functions or the <code class="computeroutput"><span class="identifier">flush</span><span class="special">()</span></code> member function when using C++ iostreams.
               In windows you can't even use another class to access the same file.
-            </li>
-</ul></div>
-<pre class="programlisting"><span class="comment">//...</span>
+            </p>
+<p class="simpara">
+              //...
+            </p>
+<p class="simpara">
+              using namespace boost::interprocess; //This process writes the file
+              // ... //Open the file lock fstream file("my_file") file_lock
+              f_lock("my_lock_file");
+            </p>
+<p class="simpara">
+              { scoped_lock&lt;file_lock&gt; e_lock(f_lock);
+            </p>
+<pre class="programlisting"><span class="comment">//Now write the file...</span>
 
-<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">interprocess</span><span class="special">;</span>
-<span class="comment">//This process writes the file</span>
-<span class="comment">//    ...</span>
-<span class="comment">//Open the file lock</span>
-<span class="identifier">fstream</span> <span class="identifier">file</span><span class="special">(</span><span class="string">"my_file"</span><span class="special">)</span>
-<span class="identifier">file_lock</span> <span class="identifier">f_lock</span><span class="special">(</span><span class="string">"my_lock_file"</span><span class="special">);</span>
-
-<span class="special">{</span>
-   <span class="identifier">scoped_lock</span><span class="special">&lt;</span><span class="identifier">file_lock</span><span class="special">&gt;</span> <span class="identifier">e_lock</span><span class="special">(</span><span class="identifier">f_lock</span><span class="special">);</span>
-
-   <span class="comment">//Now write the file...</span>
-
-   <span class="comment">//Flush data before unlocking the exclusive lock</span>
-   <span class="identifier">file</span><span class="special">.</span><span class="identifier">flush</span><span class="special">();</span>
-<span class="special">}</span>
+<span class="comment">//Flush data before unlocking the exclusive lock</span>
+<span class="identifier">file</span><span class="special">.</span><span class="identifier">flush</span><span class="special">();</span>
 </pre>
+<p class="simpara">
+              }
+            </p>
+</li>
+</ul></div>
 </div>
 </div>
 <div class="section">
@@ -2990,7 +2979,7 @@
 <a name="interprocess.synchronization_mechanisms.message_queue"></a><a class="link" href="synchronization_mechanisms.html#interprocess.synchronization_mechanisms.message_queue" title="Message Queue">Message
       Queue</a>
 </h3></div></div></div>
-<div class="toc"><dl>
+<div class="toc"><dl class="toc">
 <dt><span class="section"><a href="synchronization_mechanisms.html#interprocess.synchronization_mechanisms.message_queue.message_queue_whats_a_mq">What's
         A Message Queue?</a></span></dt>
 <dt><span class="section"><a href="synchronization_mechanisms.html#interprocess.synchronization_mechanisms.message_queue.message_queue_example">Using
@@ -3008,7 +2997,7 @@
           priority messages are read before lower priority messages. Each message
           has some attributes:
         </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
               A priority.
             </li>
@@ -3023,7 +3012,7 @@
           A thread can send a message to or receive a message from the message queue
           using 3 methods:
         </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
               <span class="bold"><strong>Blocking</strong></span>: If the message queue is
               full when sending or the message queue is empty when receiving, the
@@ -3060,7 +3049,7 @@
           resources (for example the size of the shared memory used to implement
           the message queue if shared memory is used).
         </p>
-<pre class="programlisting"><span class="keyword">using</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">interprocess</span><span class="special">;</span>
+<pre class="programlisting"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">interprocess</span><span class="special">;</span>
 <span class="comment">//Create a message_queue. If the queue</span>
 <span class="comment">//exists throws an exception</span>
 <span class="identifier">message_queue</span> <span class="identifier">mq</span>
@@ -3070,7 +3059,7 @@
    <span class="special">,</span><span class="number">100</span>                 <span class="comment">//max message size</span>
    <span class="special">);</span>
 </pre>
-<pre class="programlisting"><span class="keyword">using</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">interprocess</span><span class="special">;</span>
+<pre class="programlisting"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">interprocess</span><span class="special">;</span>
 <span class="comment">//Creates or opens a message_queue. If the queue</span>
 <span class="comment">//does not exist creates it, otherwise opens it.</span>
 <span class="comment">//Message number and size are ignored if the queue</span>
@@ -3082,7 +3071,7 @@
    <span class="special">,</span><span class="number">100</span>                 <span class="comment">//max message size</span>
    <span class="special">);</span>
 </pre>
-<pre class="programlisting"><span class="keyword">using</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">interprocess</span><span class="special">;</span>
+<pre class="programlisting"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">interprocess</span><span class="special">;</span>
 <span class="comment">//Opens a message_queue. If the queue</span>
 <span class="comment">//does not exist throws an exception.</span>
 <span class="identifier">message_queue</span> <span class="identifier">mq</span>
@@ -3093,7 +3082,7 @@
 <p>
           The message queue is explicitly removed calling the static <code class="computeroutput"><span class="identifier">remove</span></code> function:
         </p>
-<pre class="programlisting"><span class="keyword">using</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">interprocess</span><span class="special">;</span>
+<pre class="programlisting"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">interprocess</span><span class="special">;</span>
 <span class="identifier">message_queue</span><span class="special">::</span><span class="identifier">remove</span><span class="special">(</span><span class="string">"message_queue"</span><span class="special">);</span>
 </pre>
 <p>
@@ -3116,8 +3105,6 @@
           array and checks that the sequence number is correct. This is the first
           process:
         </p>
-<p>
-</p>
 <pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">interprocess</span><span class="special">/</span><span class="identifier">ipc</span><span class="special">/</span><span class="identifier">message_queue</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
 <span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
 <span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">vector</span><span class="special">&gt;</span>
@@ -3126,7 +3113,7 @@
 
 <span class="keyword">int</span> <span class="identifier">main</span> <span class="special">()</span>
 <span class="special">{</span>
-   <span class="keyword">try</span><span class="special">{</span>
+   try <span class="special">{</span>
       <span class="comment">//Erase previous message queue</span>
       <span class="identifier">message_queue</span><span class="special">::</span><span class="identifier">remove</span><span class="special">(</span><span class="string">"message_queue"</span><span class="special">);</span>
 
@@ -3143,7 +3130,7 @@
          <span class="identifier">mq</span><span class="special">.</span><span class="identifier">send</span><span class="special">(&amp;</span><span class="identifier">i</span><span class="special">,</span> <span class="keyword">sizeof</span><span class="special">(</span><span class="identifier">i</span><span class="special">),</span> <span class="number">0</span><span class="special">);</span>
       <span class="special">}</span>
    <span class="special">}</span>
-   <span class="keyword">catch</span><span class="special">(</span><span class="identifier">interprocess_exception</span> <span class="special">&amp;</span><span class="identifier">ex</span><span class="special">){</span>
+   catch<span class="special">(</span><span class="identifier">interprocess_exception</span> <span class="special">&amp;</span><span class="identifier">ex</span><span class="special">){</span>
       <span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">ex</span><span class="special">.</span><span class="identifier">what</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
       <span class="keyword">return</span> <span class="number">1</span><span class="special">;</span>
    <span class="special">}</span>
@@ -3152,12 +3139,8 @@
 <span class="special">}</span>
 </pre>
 <p>
-        </p>
-<p>
           This is the second process:
         </p>
-<p>
-</p>
 <pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">interprocess</span><span class="special">/</span><span class="identifier">ipc</span><span class="special">/</span><span class="identifier">message_queue</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
 <span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
 <span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">vector</span><span class="special">&gt;</span>
@@ -3166,10 +3149,10 @@
 
 <span class="keyword">int</span> <span class="identifier">main</span> <span class="special">()</span>
 <span class="special">{</span>
-   <span class="keyword">try</span><span class="special">{</span>
+   try <span class="special">{</span>
       <span class="comment">//Open a message queue.</span>
       <span class="identifier">message_queue</span> <span class="identifier">mq</span>
-         <span class="special">(</span><span class="identifier">open_only</span>        <span class="comment">//only create</span>
+         <span class="special">(</span><span class="identifier">open_only</span>        <span class="comment">//only open</span>
          <span class="special">,</span><span class="string">"message_queue"</span>  <span class="comment">//name</span>
          <span class="special">);</span>
 
@@ -3184,7 +3167,7 @@
             <span class="keyword">return</span> <span class="number">1</span><span class="special">;</span>
       <span class="special">}</span>
    <span class="special">}</span>
-   <span class="keyword">catch</span><span class="special">(</span><span class="identifier">interprocess_exception</span> <span class="special">&amp;</span><span class="identifier">ex</span><span class="special">){</span>
+   catch<span class="special">(</span><span class="identifier">interprocess_exception</span> <span class="special">&amp;</span><span class="identifier">ex</span><span class="special">){</span>
       <span class="identifier">message_queue</span><span class="special">::</span><span class="identifier">remove</span><span class="special">(</span><span class="string">"message_queue"</span><span class="special">);</span>
       <span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">ex</span><span class="special">.</span><span class="identifier">what</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
       <span class="keyword">return</span> <span class="number">1</span><span class="special">;</span>
@@ -3194,22 +3177,17 @@
 <span class="special">}</span>
 </pre>
 <p>
-        </p>
-<p>
-          To know more about this class and all its operations, please see the <code class="computeroutput"><a class="link" href="../boost/interprocess/message_queue.html" title="Type definition message_queue">message_queue</a></code> class
+          To know more about this class and all its operations, please see the <code class="computeroutput"><a class="link" href="../doxygen/boost_interprocess_header_reference/message__queue_8hpp_1a0d9116f62e6408d68a78a63dcb46c0e3.html" title="Type definition message_queue">message_queue</a></code> class
           reference.
         </p>
 </div>
 </div>
 </div>
-<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
-<td align="left"></td>
-<td align="right"><div class="copyright-footer">Copyright &#169; 2005-2015 Ion Gaztanaga<p>
+<div class="copyright-footer">Copyright © 2005-2024 Ion Gaztanaga<p>
         Distributed under the Boost Software License, Version 1.0. (See accompanying
         file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
       </p>
-</div></td>
-</tr></table>
+</div>
 <hr>
 <div class="spirit-nav">
 <a accesskey="p" href="offset_ptr.html"><img src="../../../doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../interprocess.html"><img src="../../../doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../index.html"><img src="../../../doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="managed_memory_segments.html"><img src="../../../doc/src/images/next.png" alt="Next"></a>

@@ -2,7 +2,7 @@
 @file
 Defines `boost::hana::optional`.
 
-@copyright Louis Dionne 2013-2016
+Copyright Louis Dionne 2013-2022
 Distributed under the Boost Software License, Version 1.0.
 (See accompanying file LICENSE.md or copy at http://boost.org/LICENSE_1_0.txt)
  */
@@ -15,6 +15,7 @@ Distributed under the Boost Software License, Version 1.0.
 #include <boost/hana/bool.hpp>
 #include <boost/hana/config.hpp>
 #include <boost/hana/core/tag_of.hpp>
+#include <boost/hana/detail/decay.hpp>
 #include <boost/hana/detail/operators/adl.hpp>
 #include <boost/hana/detail/operators/comparable.hpp>
 #include <boost/hana/detail/operators/monad.hpp>
@@ -40,7 +41,7 @@ Distributed under the Boost Software License, Version 1.0.
 #include <utility>
 
 
-BOOST_HANA_NAMESPACE_BEGIN
+namespace boost { namespace hana {
     //////////////////////////////////////////////////////////////////////////
     // optional<>
     //////////////////////////////////////////////////////////////////////////
@@ -115,7 +116,7 @@ BOOST_HANA_NAMESPACE_BEGIN
 
     template <typename T>
     constexpr auto make_just_t::operator()(T&& t) const {
-        return hana::optional<typename std::decay<T>::type>(static_cast<T&&>(t));
+        return hana::optional<typename detail::decay<T>::type>(static_cast<T&&>(t));
     }
     //! @endcond
 
@@ -411,6 +412,6 @@ BOOST_HANA_NAMESPACE_BEGIN
         static constexpr hana::false_ apply(hana::optional<> const&, Pred&&)
         { return {}; }
     };
-BOOST_HANA_NAMESPACE_END
+}} // end namespace boost::hana
 
 #endif // !BOOST_HANA_OPTIONAL_HPP

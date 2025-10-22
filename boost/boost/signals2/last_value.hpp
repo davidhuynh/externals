@@ -11,8 +11,11 @@
 #ifndef BOOST_SIGNALS2_LAST_VALUE_HPP
 #define BOOST_SIGNALS2_LAST_VALUE_HPP
 
+#include <boost/core/no_exceptions_support.hpp>
+#include <boost/move/utility_core.hpp>
 #include <boost/optional.hpp>
 #include <boost/signals2/expired_slot.hpp>
+#include <boost/throw_exception.hpp>
 #include <stdexcept>
 
 namespace boost {
@@ -36,20 +39,21 @@ namespace boost {
       {
         if(first == last)
         {
-          throw no_slots_error();
+          boost::throw_exception(no_slots_error());
         }
         optional<T> value;
         while (first != last)
         {
-          try
+          BOOST_TRY
           {
-            value = *first;
+            value = boost::move_if_not_lvalue_reference<T>(*first);
           }
-          catch(const expired_slot &) {}
+          BOOST_CATCH(const expired_slot &) {}
+          BOOST_CATCH_END
           ++first;
         }
         if(value) return value.get();
-        throw no_slots_error();
+        boost::throw_exception(no_slots_error());
       }
     };
 
@@ -62,11 +66,12 @@ namespace boost {
       {
         while (first != last)
         {
-          try
+          BOOST_TRY
           {
             *first;
           }
-          catch(const expired_slot &) {}
+          BOOST_CATCH(const expired_slot &) {}
+          BOOST_CATCH_END
           ++first;
         }
         return;

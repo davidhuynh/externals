@@ -1,13 +1,14 @@
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Building Hello World</title>
 <link rel="stylesheet" href="../../boostbook.css" type="text/css">
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
 <link rel="home" href="../index.html" title="Boost.Python Tutorial">
 <link rel="up" href="../index.html" title="Boost.Python Tutorial">
 <link rel="prev" href="../index.html" title="Boost.Python Tutorial">
 <link rel="next" href="exposing.html" title="Exposing Classes">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
 <table cellpadding="2" width="100%"><tr><td valign="top"><img alt="" width="" height="" src="../../images/boost.png"></td></tr></table>
@@ -21,7 +22,7 @@
 </h2></div></div></div>
 <h3>
 <a name="tutorial.hello.h0"></a>
-      <span><a name="tutorial.hello.from_start_to_finish"></a></span><a class="link" href="hello.html#tutorial.hello.from_start_to_finish">From
+      <span class="phrase"><a name="tutorial.hello.from_start_to_finish"></a></span><a class="link" href="hello.html#tutorial.hello.from_start_to_finish">From
       Start To Finish</a>
     </h3>
 <p>
@@ -55,15 +56,15 @@
 <p>
       We will skip over the details. Our objective will be to simply create the hello
       world module and run it in Python. For a complete reference to building Boost.Python,
-      check out: <a href="../../../../building.html" target="_top">building.html</a>. After
-      this brief <span class="emphasis"><em>bjam</em></span> tutorial, we should have built the DLLs
-      and run a python program using the extension.
+      check out: <a href="../../building.html" target="_top">building.html</a>. After this
+      brief <span class="emphasis"><em>bjam</em></span> tutorial, we should have built the DLLs and
+      run a python program using the extension.
     </p>
 <p>
       The tutorial example can be found in the directory: <code class="literal">libs/python/example/tutorial</code>.
       There, you can find:
     </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
           hello.cpp
         </li>
@@ -88,7 +89,7 @@
     </p>
 <h3>
 <a name="tutorial.hello.h1"></a>
-      <span><a name="tutorial.hello.let_s_jam"></a></span><a class="link" href="hello.html#tutorial.hello.let_s_jam">Let's
+      <span class="phrase"><a name="tutorial.hello.let_s_jam"></a></span><a class="link" href="hello.html#tutorial.hello.let_s_jam">Let's
       Jam!</a>
     </h3>
 <p>
@@ -100,12 +101,12 @@
       to where your boost root directory is and you're OK.
     </p>
 <p>
-      The comments contained in the Jamrules file above should be sufficient to get
+      The comments contained in the Jamroot file above should be sufficient to get
       you going.
     </p>
 <h3>
 <a name="tutorial.hello.h2"></a>
-      <span><a name="tutorial.hello.running_bjam"></a></span><a class="link" href="hello.html#tutorial.hello.running_bjam">Running
+      <span class="phrase"><a name="tutorial.hello.running_bjam"></a></span><a class="link" href="hello.html#tutorial.hello.running_bjam">Running
       bjam</a>
     </h3>
 <p>
@@ -174,15 +175,12 @@ bjam
         <span class="bold"><strong>There you go... Have fun!</strong></span>
       </p></blockquote></div>
 </div>
-<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
-<td align="left"></td>
-<td align="right"><div class="copyright-footer">Copyright &#169; 2002-2005 Joel
+<div class="copyright-footer">Copyright © 2002-2005 Joel
       de Guzman, David Abrahams<p>
         Distributed under the Boost Software License, Version 1.0. (See accompanying
         file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>
       </p>
-</div></td>
-</tr></table>
+</div>
 <hr>
 <div class="spirit-nav">
 <a accesskey="p" href="../index.html"><img src="../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../index.html"><img src="../../images/up.png" alt="Up"></a><a accesskey="h" href="../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="exposing.html"><img src="../../images/next.png" alt="Next"></a>

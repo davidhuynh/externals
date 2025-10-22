@@ -1,5 +1,5 @@
 // Copyright 2014 Renato Tegon Forti, Antony Polukhin.
-// Copyright 2015-2016 Antony Polukhin.
+// Copyright Antony Polukhin, 2015-2025.
 //
 // Distributed under the Boost Software License, Version 1.0.
 // (See accompanying file LICENSE_1_0.txt
@@ -8,18 +8,17 @@
 #ifndef BOOST_DLL_SHARED_LIBRARY_IMPL_HPP
 #define BOOST_DLL_SHARED_LIBRARY_IMPL_HPP
 
-#include <boost/config.hpp>
+#include <boost/dll/config.hpp>
 #include <boost/dll/shared_library_load_mode.hpp>
 #include <boost/dll/detail/aggressive_ptr_cast.hpp>
 #include <boost/dll/detail/system_error.hpp>
 #include <boost/dll/detail/windows/path_from_handle.hpp>
 
-#include <boost/move/utility.hpp>
-#include <boost/swap.hpp>
-#include <boost/filesystem/path.hpp>
-#include <boost/filesystem/operations.hpp>
+#include <boost/core/invoke_swap.hpp>
 
-#include <boost/detail/winapi/dll.hpp>
+#include <boost/winapi/dll.hpp>
+
+#include <utility>  // std::move
 
 #ifdef BOOST_HAS_PRAGMA_ONCE
 # pragma once
@@ -28,61 +27,69 @@
 namespace boost { namespace dll { namespace detail {
 
 class shared_library_impl {
-    BOOST_MOVABLE_BUT_NOT_COPYABLE(shared_library_impl)
-
 public:
-    typedef boost::detail::winapi::HMODULE_ native_handle_t;
+    typedef boost::winapi::HMODULE_ native_handle_t;
 
-    shared_library_impl() BOOST_NOEXCEPT
-        : handle_(NULL)
+    shared_library_impl() noexcept
+        : shared_library_impl(nullptr)
     {}
 
-    ~shared_library_impl() BOOST_NOEXCEPT {
+    ~shared_library_impl() noexcept {
         unload();
     }
-    
-    shared_library_impl(BOOST_RV_REF(shared_library_impl) sl) BOOST_NOEXCEPT
+
+    shared_library_impl(shared_library_impl&& sl) noexcept
         : handle_(sl.handle_)
     {
-        sl.handle_ = NULL;
+        sl.handle_ = nullptr;
     }
 
-    shared_library_impl & operator=(BOOST_RV_REF(shared_library_impl) sl) BOOST_NOEXCEPT {
+    explicit shared_library_impl(native_handle_t handle) noexcept
+        : handle_(handle)
+    {}
+
+    shared_library_impl & operator=(shared_library_impl&& sl) noexcept {
         swap(sl);
         return *this;
     }
 
-    void load(boost::filesystem::path sl, load_mode::type mode, boost::system::error_code &ec) {
-        typedef boost::detail::winapi::DWORD_ native_mode_t;
+    static boost::dll::fs::path decorate(const boost::dll::fs::path& sl) {
+        boost::dll::fs::path actual_path = sl;
+        actual_path += suffix();
+        return actual_path;
+    }
+
+    void load(boost::dll::fs::path sl, load_mode::type portable_mode, std::error_code &ec) {
+        typedef boost::winapi::DWORD_ native_mode_t;
+        native_mode_t native_mode = static_cast<native_mode_t>(portable_mode);
         unload();
 
-        if (!sl.is_absolute() && !(mode & load_mode::search_system_folders)) {
+        if (!sl.is_absolute() && !(native_mode & load_mode::search_system_folders)) {
+            boost::dll::fs::error_code current_path_ec;
+            boost::dll::fs::path prog_loc = boost::dll::fs::current_path(current_path_ec);
 
-            boost::system::error_code current_path_ec;
-            boost::filesystem::path prog_loc = boost::filesystem::current_path(current_path_ec);
             if (!current_path_ec) {
                 prog_loc /= sl;
                 sl.swap(prog_loc);
             }
         }
-        mode &= ~load_mode::search_system_folders;
+        native_mode = static_cast<unsigned>(native_mode) & ~static_cast<unsigned>(load_mode::search_system_folders);
 
         // Trying to open with appended decorations
-        if (!!(mode & load_mode::append_decorations)) {
-            mode &= ~load_mode::append_decorations;
+        if (!!(native_mode & load_mode::append_decorations)) {
+            native_mode = static_cast<unsigned>(native_mode) & ~static_cast<unsigned>(load_mode::append_decorations);
 
-            handle_ = boost::detail::winapi::LoadLibraryExW((sl.native() + L".dll").c_str(), 0, static_cast<native_mode_t>(mode));
-            if (!handle_) {
-                // MinGW loves 'lib' prefix and puts it even on Windows platform
-                const boost::filesystem::path load_path = (sl.has_parent_path() ? sl.parent_path() / L"lib" : L"lib").native() + sl.filename().native() + L".dll";
-                handle_ = boost::detail::winapi::LoadLibraryExW(
-                    load_path.c_str(),
-                    0,
-                    static_cast<native_mode_t>(mode)
-                );
+            if (load_impl(decorate(sl), native_mode, ec)) {
+                return;
             }
 
-            if (handle_) {
+            // MinGW loves 'lib' prefix and puts it even on Windows platform.
+            const boost::dll::fs::path mingw_load_path = (
+                sl.has_parent_path()
+                ? sl.parent_path() / L"lib"
+                : L"lib"
+            ).native() + sl.filename().native() + suffix().native();
+            if (load_impl(mingw_load_path, native_mode, ec)) {
                 return;
             }
         }
@@ -95,76 +102,91 @@ public:
         // we have some path. So we do not check for path, only for extension. We can not be sure that
         // such behavior remain across all platforms, so we add L"." by hand.
         if (sl.has_extension()) {
-            handle_ = boost::detail::winapi::LoadLibraryExW(sl.c_str(), 0, static_cast<native_mode_t>(mode));
+            handle_ = boost::winapi::LoadLibraryExW(sl.c_str(), 0, native_mode);
         } else {
-            handle_ = boost::detail::winapi::LoadLibraryExW((sl.native() + L".").c_str(), 0, static_cast<native_mode_t>(mode));
+            handle_ = boost::winapi::LoadLibraryExW((sl.native() + L".").c_str(), 0, native_mode);
         }
 
         // LoadLibraryExW method is capable of self loading from program_location() path. No special actions
         // must be taken to allow self loading.
-
         if (!handle_) {
             ec = boost::dll::detail::last_error_code();
         }
     }
 
-    bool is_loaded() const BOOST_NOEXCEPT {
+    bool is_loaded() const noexcept {
         return (handle_ != 0);
     }
 
-    void unload() BOOST_NOEXCEPT {
+    void unload() noexcept {
         if (handle_) {
-            boost::detail::winapi::FreeLibrary(handle_);
+            boost::winapi::FreeLibrary(handle_);
             handle_ = 0;
         }
     }
 
-    void swap(shared_library_impl& rhs) BOOST_NOEXCEPT {
-        boost::swap(handle_, rhs.handle_);
+    void swap(shared_library_impl& rhs) noexcept {
+        boost::core::invoke_swap(handle_, rhs.handle_);
     }
 
-    boost::filesystem::path full_module_path(boost::system::error_code &ec) const {
+    boost::dll::fs::path full_module_path(std::error_code &ec) const {
         return boost::dll::detail::path_from_handle(handle_, ec);
     }
 
-    static boost::filesystem::path suffix() {
+    static boost::dll::fs::path suffix() {
         return L".dll";
     }
 
-    void* symbol_addr(const char* sb, boost::system::error_code &ec) const BOOST_NOEXCEPT {
+    void* symbol_addr(const char* sb, std::error_code &ec) const noexcept {
         if (is_resource()) {
             // `GetProcAddress` could not be called for libraries loaded with
             // `LOAD_LIBRARY_AS_DATAFILE`, `LOAD_LIBRARY_AS_DATAFILE_EXCLUSIVE`
             // or `LOAD_LIBRARY_AS_IMAGE_RESOURCE`.
-            ec = boost::system::error_code(
-                boost::system::errc::operation_not_supported,
-                boost::system::generic_category()
+            ec = std::make_error_code(
+                std::errc::operation_not_supported
             );
 
-            return NULL;
+            return nullptr;
         }
 
         // Judging by the documentation of GetProcAddress
         // there is no version for UNICODE on desktop/server Windows, because
         // names of functions are stored in narrow characters.
         void* const symbol = boost::dll::detail::aggressive_ptr_cast<void*>(
-            boost::detail::winapi::get_proc_address(handle_, sb)
+            boost::winapi::get_proc_address(handle_, sb)
         );
-        if (symbol == NULL) {
+        if (symbol == nullptr) {
             ec = boost::dll::detail::last_error_code();
         }
 
         return symbol;
     }
 
-    native_handle_t native() const BOOST_NOEXCEPT {
+    native_handle_t native() const noexcept {
         return handle_;
     }
 
 private:
-    bool is_resource() const BOOST_NOEXCEPT {
+    // Returns true if this load attempt should be the last one.
+    bool load_impl(const boost::dll::fs::path &load_path, boost::winapi::DWORD_ mode, std::error_code &ec) {
+        handle_ = boost::winapi::LoadLibraryExW(load_path.c_str(), 0, mode);
+        if (handle_) {
+            return true;
+        }
+
+        ec = boost::dll::detail::last_error_code();
+        if (boost::dll::fs::exists(load_path)) {
+            // decorated path exists : current error is not a bad file descriptor
+            return true;
+        }
+
+        ec.clear();
+        return false;
+    }
+
+    bool is_resource() const noexcept {
         return false; /*!!(
-            reinterpret_cast<boost::detail::winapi::ULONG_PTR_>(handle_) & static_cast<boost::detail::winapi::ULONG_PTR_>(3)
+            reinterpret_cast<boost::winapi::ULONG_PTR_>(handle_) & static_cast<boost::winapi::ULONG_PTR_>(3)
         );*/
     }
 
@@ -174,4 +196,3 @@ private:
 }}} // boost::dll::detail
 
 #endif // BOOST_DLL_SHARED_LIBRARY_IMPL_HPP
-

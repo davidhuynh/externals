@@ -1,13 +1,14 @@
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Floating-point Comparison</title>
 <link rel="stylesheet" href="../math.css" type="text/css">
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
-<link rel="home" href="../index.html" title="Math Toolkit 2.4.0">
-<link rel="up" href="../utils.html" title="Chapter&#160;2.&#160;Floating Point Utilities">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
+<link rel="home" href="../index.html" title="Math Toolkit 4.2.1">
+<link rel="up" href="../utils.html" title="Chapter 2. Floating Point Utilities">
 <link rel="prev" href="next_float/ulp.html" title="Obtaining the Size of a Unit In the Last Place - ULP">
-<link rel="next" href="../cstdfloat.html" title="Chapter&#160;3.&#160;Specified-width floating-point typedefs">
+<link rel="next" href="cond.html" title="Condition Numbers">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
 <table cellpadding="2" width="100%"><tr>
@@ -20,7 +21,7 @@
 </tr></table>
 <hr>
 <div class="spirit-nav">
-<a accesskey="p" href="next_float/ulp.html"><img src="../../../../../doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../utils.html"><img src="../../../../../doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../index.html"><img src="../../../../../doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="../cstdfloat.html"><img src="../../../../../doc/src/images/next.png" alt="Next"></a>
+<a accesskey="p" href="next_float/ulp.html"><img src="../../../../../doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../utils.html"><img src="../../../../../doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../index.html"><img src="../../../../../doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="cond.html"><img src="../../../../../doc/src/images/next.png" alt="Next"></a>
 </div>
 <div class="section">
 <div class="titlepage"><div><div><h2 class="title" style="clear: both">
@@ -33,9 +34,9 @@
 <p>
       Unlike integral values that are exact, all floating-point operations will potentially
       produce an inexact result that will be rounded to the nearest available binary
-      representation. Even apparently inocuous operations such as assigning 0.1 to
-      a double produces an inexact result (as this decimal number has no exact binary
-      representation).
+      representation. Even apparently innocuous operations such as assigning 0.1
+      to a double produces an inexact result (as this decimal number has no exact
+      binary representation).
     </p>
 <p>
       Floating-point computations also involve rounding so that some 'computational
@@ -49,7 +50,7 @@
 <p>
       Some background reading is:
     </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
           Knuth D.E. The art of computer programming, vol II, section 4.2, especially
           Floating-Point Comparison 4.2.2, pages 198-220.
@@ -68,7 +69,7 @@
           Floating-Point_Comparison guide</a>
         </li>
 <li class="listitem">
-          <a href="../../../../../libs/test/doc/html/boost_test/users_guide/testing_tools/testing_floating_points.html" target="_top">Boost.Test
+          <a href="https://www.boost.org/doc/libs/release/libs/test/doc/html/boost_test/testing_tools/extended_comparison/floating_point.html" target="_top">Boost.Test
           Floating-Point_Comparison</a>
         </li>
 </ul></div>
@@ -77,7 +78,7 @@
       they are tolerably close enough to each other, but first we must decide what
       kind of comparison we require:
     </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
           Absolute difference/error: the absolute difference between two values
           <span class="emphasis"><em>a</em></span> and <span class="emphasis"><em>b</em></span> is simply <code class="computeroutput"><span class="identifier">fabs</span><span class="special">(</span><span class="identifier">a</span><span class="special">-</span><span class="identifier">b</span><span class="special">)</span></code>. This is the only meaningful comparison
@@ -107,27 +108,29 @@
 </ul></div>
 <h6>
 <a name="math_toolkit.float_comparison.h0"></a>
-      <span><a name="math_toolkit.float_comparison.fp_relative"></a></span><a class="link" href="float_comparison.html#math_toolkit.float_comparison.fp_relative">Relative
+      <span class="phrase"><a name="math_toolkit.float_comparison.fp_relative"></a></span><a class="link" href="float_comparison.html#math_toolkit.float_comparison.fp_relative">Relative
       Comparison of Floating-point Values</a>
     </h6>
 <p>
-      <code class="computeroutput"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">math</span><span class="special">/</span><span class="identifier">special_functions</span><span class="special">/</span><span class="identifier">relative_distance</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span></code>
+      <code class="computeroutput"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">math</span><span class="special">/</span><span class="identifier">special_functions</span><span class="special">/</span><span class="identifier">relative_difference</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span></code>
     </p>
 <pre class="programlisting"><span class="keyword">template</span> <span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">T</span><span class="special">,</span> <span class="keyword">class</span> <span class="identifier">U</span><span class="special">&gt;</span>
-<a class="link" href="result_type.html" title="Calculation of the Type of the Result"><span class="emphasis"><em>calculated-result-type</em></span></a> <span class="identifier">relative_distance</span><span class="special">(</span><span class="identifier">T</span> <span class="identifier">a</span><span class="special">,</span> <span class="identifier">U</span> <span class="identifier">b</span><span class="special">);</span>
+<a class="link" href="result_type.html" title="Calculation of the Type of the Result"><span class="emphasis"><em>calculated-result-type</em></span></a> <span class="identifier">relative_difference</span><span class="special">(</span><span class="identifier">T</span> <span class="identifier">a</span><span class="special">,</span> <span class="identifier">U</span> <span class="identifier">b</span><span class="special">);</span>
 
 <span class="keyword">template</span> <span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">T</span><span class="special">,</span> <span class="keyword">class</span> <span class="identifier">U</span><span class="special">&gt;</span>
-<a class="link" href="result_type.html" title="Calculation of the Type of the Result"><span class="emphasis"><em>calculated-result-type</em></span></a> <span class="identifier">epsilon_distance</span><span class="special">(</span><span class="identifier">T</span> <span class="identifier">a</span><span class="special">,</span> <span class="identifier">U</span> <span class="identifier">b</span><span class="special">);</span>
+<a class="link" href="result_type.html" title="Calculation of the Type of the Result"><span class="emphasis"><em>calculated-result-type</em></span></a> <span class="identifier">epsilon_difference</span><span class="special">(</span><span class="identifier">T</span> <span class="identifier">a</span><span class="special">,</span> <span class="identifier">U</span> <span class="identifier">b</span><span class="special">);</span>
 </pre>
 <p>
-      The function <code class="computeroutput"><span class="identifier">relative_distance</span></code>
+      The function <code class="computeroutput"><span class="identifier">relative_difference</span></code>
       returns the relative distance/error <span class="emphasis"><em>E</em></span> between two values
       as defined by:
     </p>
-<pre class="programlisting">E = fabs((a - b) / min(a,b))</pre>
+<div class="blockquote"><blockquote class="blockquote"><p>
+        <span class="serif_italic">E = fabs((a - b) / min(a,b))</span>
+      </p></blockquote></div>
 <p>
       The function <code class="computeroutput"><span class="identifier">epsilon_difference</span></code>
-      is a convenience function that returns <code class="computeroutput"><span class="identifier">relative_distance</span><span class="special">(</span><span class="identifier">a</span><span class="special">,</span>
+      is a convenience function that returns <code class="computeroutput"><span class="identifier">relative_difference</span><span class="special">(</span><span class="identifier">a</span><span class="special">,</span>
       <span class="identifier">b</span><span class="special">)</span> <span class="special">/</span> <span class="identifier">eps</span></code> where
       <code class="computeroutput"><span class="identifier">eps</span></code> is the machine epsilon
       for the result type.
@@ -135,7 +138,7 @@
 <p>
       The following special cases are handled as follows:
     </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
           If either of <span class="emphasis"><em>a</em></span> or <span class="emphasis"><em>b</em></span> is a NaN,
           then returns the largest representable value for T: for example for type
@@ -174,7 +177,7 @@
     </p>
 <h6>
 <a name="math_toolkit.float_comparison.h1"></a>
-      <span><a name="math_toolkit.float_comparison.examples"></a></span><a class="link" href="float_comparison.html#math_toolkit.float_comparison.examples">Examples</a>
+      <span class="phrase"><a name="math_toolkit.float_comparison.examples"></a></span><a class="link" href="float_comparison.html#math_toolkit.float_comparison.examples">Examples</a>
     </h6>
 <p>
       Some using statements will ensure that the functions we need are accessible.
@@ -191,10 +194,9 @@
 </pre>
 <p>
       The following examples display values with all possibly significant digits.
-      Newer compilers should provide <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">numeric_limitsFPT</span><span class="special">&gt;::</span><span class="identifier">max_digits10</span></code>
-      for this purpose, and here we use <code class="computeroutput"><span class="keyword">float</span></code>
-      precision where <code class="computeroutput"><span class="identifier">max_digits10</span></code>
-      = 9 to avoid displaying a distracting number of decimal digits.
+      Newer compilers should provide <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">numeric_limits</span><span class="special">&lt;</span><span class="identifier">FPT</span><span class="special">&gt;::</span><span class="identifier">max_digits10</span></code> for this purpose, and here we
+      use <code class="computeroutput"><span class="keyword">float</span></code> precision where <code class="computeroutput"><span class="identifier">max_digits10</span></code> = 9 to avoid displaying a distracting
+      number of decimal digits.
     </p>
 <div class="note"><table border="0" summary="Note">
 <tr>
@@ -203,7 +205,7 @@
 </tr>
 <tr><td align="left" valign="top"><p>
         Older compilers can use this formula to calculate <code class="computeroutput"><span class="identifier">max_digits10</span></code>
-        from <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">numeric_limits</span><span class="special">&lt;</span><span class="identifier">FPT</span><span class="special">&gt;::</span><span class="identifier">digits10</span></code>:<br> &#8192;&#8192; <code class="computeroutput"><span class="keyword">int</span>
+        from <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">numeric_limits</span><span class="special">&lt;</span><span class="identifier">FPT</span><span class="special">&gt;::</span><span class="identifier">digits10</span></code>:    <code class="computeroutput"><span class="keyword">int</span>
         <span class="identifier">max_digits10</span> <span class="special">=</span>
         <span class="number">2</span> <span class="special">+</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">numeric_limits</span><span class="special">&lt;</span><span class="identifier">FPT</span><span class="special">&gt;::</span><span class="identifier">digits10</span>
         <span class="special">*</span> <span class="number">3010</span><span class="special">/</span><span class="number">10000</span><span class="special">;</span></code>
@@ -360,7 +362,7 @@ epsilon_difference = 0.000000000</pre>
     </p>
 <h6>
 <a name="math_toolkit.float_comparison.h2"></a>
-      <span><a name="math_toolkit.float_comparison.small"></a></span><a class="link" href="float_comparison.html#math_toolkit.float_comparison.small">Handling
+      <span class="phrase"><a name="math_toolkit.float_comparison.small"></a></span><a class="link" href="float_comparison.html#math_toolkit.float_comparison.small">Handling
       Absolute Errors</a>
     </h6>
 <p>
@@ -372,7 +374,7 @@ epsilon_difference = 0.000000000</pre>
 <span class="special">}</span>
 </pre>
 <p>
-      This function has multiple roots, some of which are quite predicable in that
+      This function has multiple roots, some of which are quite predictable in that
       both <code class="computeroutput"><span class="identifier">sin</span><span class="special">(</span><span class="identifier">x</span><span class="special">)</span></code> and <code class="computeroutput"><span class="identifier">sin</span><span class="special">(</span><span class="number">4</span><span class="identifier">x</span><span class="special">)</span></code> are zero
       together. Others occur because the values returned from those two functions
       precisely cancel out. At such points the relative difference between the true
@@ -394,20 +396,18 @@ epsilon_difference = 0.000000000</pre>
       we may need a slightly higher value - some trial and error will be necessary).
     </p>
 </div>
-<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
-<td align="left"></td>
-<td align="right"><div class="copyright-footer">Copyright &#169; 2006-2010, 2012-2014 Nikhar Agrawal,
-      Anton Bikineev, Paul A. Bristow, Marco Guazzone, Christopher Kormanyos, Hubert
-      Holin, Bruno Lalande, John Maddock, Jeremy Murphy, Johan R&#229;de, Gautam Sewani,
-      Benjamin Sobotta, Thijs van den Berg, Daryle Walker and Xiaogang Zhang<p>
+<div class="copyright-footer">Copyright © 2006-2021 Nikhar Agrawal, Anton Bikineev, Matthew Borland,
+      Paul A. Bristow, Marco Guazzone, Christopher Kormanyos, Hubert Holin, Bruno
+      Lalande, John Maddock, Evan Miller, Jeremy Murphy, Matthew Pulver, Johan Råde,
+      Gautam Sewani, Benjamin Sobotta, Nicholas Thompson, Thijs van den Berg, Daryle
+      Walker and Xiaogang Zhang<p>
         Distributed under the Boost Software License, Version 1.0. (See accompanying
         file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
       </p>
-</div></td>
-</tr></table>
+</div>
 <hr>
 <div class="spirit-nav">
-<a accesskey="p" href="next_float/ulp.html"><img src="../../../../../doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../utils.html"><img src="../../../../../doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../index.html"><img src="../../../../../doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="../cstdfloat.html"><img src="../../../../../doc/src/images/next.png" alt="Next"></a>
+<a accesskey="p" href="next_float/ulp.html"><img src="../../../../../doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../utils.html"><img src="../../../../../doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../index.html"><img src="../../../../../doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="cond.html"><img src="../../../../../doc/src/images/next.png" alt="Next"></a>
 </div>
 </body>
 </html>

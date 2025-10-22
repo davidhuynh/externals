@@ -24,7 +24,7 @@
 [heading Synopsis]
 ``template<typename CoordinateType, typename CoordinateSystem>
 class model::d2::point_xy
-      : public model::point< CoordinateType, 2, CoordinateSystem >
+      : public model::point< CoordinateType, 2, cs::cartesian >
 {
   // ...
 };
@@ -98,6 +98,13 @@ class model::d2::point_xy
 ]
 
 [heading Header]
+Either
+
+`#include <boost/geometry/geometries/geometries.hpp>`
+
+
+Or
+
 `#include <boost/geometry/geometries/point_xy.hpp>`
 
 [include reference/geometries/point_xy.qbk]

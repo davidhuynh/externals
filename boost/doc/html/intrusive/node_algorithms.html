@@ -1,14 +1,15 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Node algorithms with custom NodeTraits</title>
 <link rel="stylesheet" href="../../../doc/src/boostbook.css" type="text/css">
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
 <link rel="home" href="../index.html" title="The Boost C++ Libraries BoostBook Documentation Subset">
-<link rel="up" href="../intrusive.html" title="Chapter&#160;16.&#160;Boost.Intrusive">
+<link rel="up" href="../intrusive.html" title="Chapter 16. Boost.Intrusive">
 <link rel="prev" href="concepts.html" title="Concepts explained">
 <link rel="next" href="value_traits.html" title="Containers with custom ValueTraits">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
 <table cellpadding="2" width="100%"><tr>
@@ -28,7 +29,7 @@
 <a name="intrusive.node_algorithms"></a><a class="link" href="node_algorithms.html" title="Node algorithms with custom NodeTraits">Node algorithms with custom
     NodeTraits</a>
 </h2></div></div></div>
-<div class="toc"><dl>
+<div class="toc"><dl class="toc">
 <dt><span class="section"><a href="node_algorithms.html#intrusive.node_algorithms.circular_slist_algorithms">Intrusive
       singly linked list algorithms</a></span></dt>
 <dt><span class="section"><a href="node_algorithms.html#intrusive.node_algorithms.circular_list_algorithms">Intrusive
@@ -67,7 +68,7 @@
       singly linked list algorithms</a>
 </h3></div></div></div>
 <p>
-        These algorithms are static members of the <code class="computeroutput"><a class="link" href="../boost/intrusive/circular_slist_algorithms.html" title="Class template circular_slist_algorithms">circular_slist_algorithms</a></code>
+        These algorithms are static members of the <code class="computeroutput"><a class="link" href="../doxygen/classboost_1_1intrusive_1_1circular__slist__algorithms.html" title="Class template circular_slist_algorithms">circular_slist_algorithms</a></code>
         class:
       </p>
 <pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">NodeTraits</span><span class="special">&gt;</span>
@@ -75,14 +76,14 @@
 </pre>
 <p>
         An empty list is formed by a node whose pointer to the next node points to
-        itself. <code class="computeroutput"><a class="link" href="../boost/intrusive/circular_slist_algorithms.html" title="Class template circular_slist_algorithms">circular_slist_algorithms</a></code>
+        itself. <code class="computeroutput"><a class="link" href="../doxygen/classboost_1_1intrusive_1_1circular__slist__algorithms.html" title="Class template circular_slist_algorithms">circular_slist_algorithms</a></code>
         is configured with a NodeTraits class, which encapsulates the information
         about the node to be manipulated. NodeTraits must support the following interface:
       </p>
 <p>
         <span class="bold"><strong>Typedefs</strong></span>:
       </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
             <code class="computeroutput"><span class="identifier">node</span></code>: The type of the
             node that forms the circular list
@@ -99,7 +100,7 @@
 <p>
         <span class="bold"><strong>Static functions</strong></span>:
       </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
             <code class="computeroutput"><span class="keyword">static</span> <span class="identifier">node_ptr</span>
             <span class="identifier">get_next</span><span class="special">(</span><span class="identifier">const_node_ptr</span> <span class="identifier">n</span><span class="special">);</span></code>: Returns a pointer to the next node
@@ -165,7 +166,7 @@
 <span class="special">}</span>
 </pre>
 <p>
-        For a complete list of functions see <code class="computeroutput"><a class="link" href="../boost/intrusive/circular_slist_algorithms.html" title="Class template circular_slist_algorithms">circular_slist_algorithms
+        For a complete list of functions see <code class="computeroutput"><a class="link" href="../doxygen/classboost_1_1intrusive_1_1circular__slist__algorithms.html" title="Class template circular_slist_algorithms">circular_slist_algorithms
         reference</a></code>.
       </p>
 </div>
@@ -175,7 +176,7 @@
       doubly linked list algorithms</a>
 </h3></div></div></div>
 <p>
-        These algorithms are static members of the <code class="computeroutput"><a class="link" href="../boost/intrusive/circular_list_algorithms.html" title="Class template circular_list_algorithms">circular_list_algorithms</a></code>
+        These algorithms are static members of the <code class="computeroutput"><a class="link" href="../doxygen/classboost_1_1intrusive_1_1circular__list__algorithms.html" title="Class template circular_list_algorithms">circular_list_algorithms</a></code>
         class:
       </p>
 <pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">NodeTraits</span><span class="special">&gt;</span>
@@ -183,14 +184,14 @@
 </pre>
 <p>
         An empty list is formed by a node whose pointer to the next node points to
-        itself. <code class="computeroutput"><a class="link" href="../boost/intrusive/circular_list_algorithms.html" title="Class template circular_list_algorithms">circular_list_algorithms</a></code>
+        itself. <code class="computeroutput"><a class="link" href="../doxygen/classboost_1_1intrusive_1_1circular__list__algorithms.html" title="Class template circular_list_algorithms">circular_list_algorithms</a></code>
         is configured with a NodeTraits class, which encapsulates the information
         about the node to be manipulated. NodeTraits must support the following interface:
       </p>
 <p>
         <span class="bold"><strong>Typedefs</strong></span>:
       </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
             <code class="computeroutput"><span class="identifier">node</span></code>: The type of the
             node that forms the circular list
@@ -207,7 +208,7 @@
 <p>
         <span class="bold"><strong>Static functions</strong></span>:
       </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
             <code class="computeroutput"><span class="keyword">static</span> <span class="identifier">node_ptr</span>
             <span class="identifier">get_next</span><span class="special">(</span><span class="identifier">const_node_ptr</span> <span class="identifier">n</span><span class="special">);</span></code>: Returns a pointer to the next node
@@ -290,7 +291,7 @@
 <span class="special">}</span>
 </pre>
 <p>
-        For a complete list of functions see <code class="computeroutput"><a class="link" href="../boost/intrusive/circular_list_algorithms.html" title="Class template circular_list_algorithms">circular_list_algorithms
+        For a complete list of functions see <code class="computeroutput"><a class="link" href="../doxygen/classboost_1_1intrusive_1_1circular__list__algorithms.html" title="Class template circular_list_algorithms">circular_list_algorithms
         reference</a></code>.
       </p>
 </div>
@@ -300,7 +301,7 @@
       red-black tree algorithms</a>
 </h3></div></div></div>
 <p>
-        These algorithms are static members of the <code class="computeroutput"><a class="link" href="../boost/intrusive/rbtree_algorithms.html" title="Class template rbtree_algorithms">rbtree_algorithms</a></code>
+        These algorithms are static members of the <code class="computeroutput"><a class="link" href="../doxygen/classboost_1_1intrusive_1_1rbtree__algorithms.html" title="Class template rbtree_algorithms">rbtree_algorithms</a></code>
         class:
       </p>
 <pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">NodeTraits</span><span class="special">&gt;</span>
@@ -309,14 +310,14 @@
 <p>
         An empty tree is formed by a node whose pointer to the parent node is null,
         the left and right node pointers point to itself, and whose color is red.
-        <code class="computeroutput"><a class="link" href="../boost/intrusive/rbtree_algorithms.html" title="Class template rbtree_algorithms">rbtree_algorithms</a></code>
+        <code class="computeroutput"><a class="link" href="../doxygen/classboost_1_1intrusive_1_1rbtree__algorithms.html" title="Class template rbtree_algorithms">rbtree_algorithms</a></code>
         is configured with a NodeTraits class, which encapsulates the information
         about the node to be manipulated. NodeTraits must support the following interface:
       </p>
 <p>
         <span class="bold"><strong>Typedefs</strong></span>:
       </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
             <code class="computeroutput"><span class="identifier">node</span></code>: The type of the
             node that forms the circular rbtree
@@ -337,7 +338,7 @@
 <p>
         <span class="bold"><strong>Static functions</strong></span>:
       </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
             <code class="computeroutput"><span class="keyword">static</span> <span class="identifier">node_ptr</span>
             <span class="identifier">get_parent</span><span class="special">(</span><span class="identifier">const_node_ptr</span> <span class="identifier">n</span><span class="special">);</span></code>: Returns a pointer to the parent node
@@ -466,7 +467,7 @@
 <span class="special">}</span>
 </pre>
 <p>
-        For a complete list of functions see <code class="computeroutput"><a class="link" href="../boost/intrusive/rbtree_algorithms.html" title="Class template rbtree_algorithms">rbtree_algorithms
+        For a complete list of functions see <code class="computeroutput"><a class="link" href="../doxygen/classboost_1_1intrusive_1_1rbtree__algorithms.html" title="Class template rbtree_algorithms">rbtree_algorithms
         reference</a></code>.
       </p>
 </div>
@@ -476,7 +477,7 @@
       splay tree algorithms</a>
 </h3></div></div></div>
 <p>
-        These algorithms are static members of the <code class="computeroutput"><a class="link" href="../boost/intrusive/splaytree_algorithms.html" title="Class template splaytree_algorithms">splaytree_algorithms</a></code>
+        These algorithms are static members of the <code class="computeroutput"><a class="link" href="../doxygen/classboost_1_1intrusive_1_1splaytree__algorithms.html" title="Class template splaytree_algorithms">splaytree_algorithms</a></code>
         class:
       </p>
 <pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">NodeTraits</span><span class="special">&gt;</span>
@@ -484,14 +485,14 @@
 </pre>
 <p>
         An empty tree is formed by a node whose pointer to the parent node is null,
-        and whose left and right nodes pointers point to itself. <code class="computeroutput"><a class="link" href="../boost/intrusive/splaytree_algorithms.html" title="Class template splaytree_algorithms">splaytree_algorithms</a></code>
+        and whose left and right nodes pointers point to itself. <code class="computeroutput"><a class="link" href="../doxygen/classboost_1_1intrusive_1_1splaytree__algorithms.html" title="Class template splaytree_algorithms">splaytree_algorithms</a></code>
         is configured with a NodeTraits class, which encapsulates the information
         about the node to be manipulated. NodeTraits must support the following interface:
       </p>
 <p>
         <span class="bold"><strong>Typedefs</strong></span>:
       </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
             <code class="computeroutput"><span class="identifier">node</span></code>: The type of the
             node that forms the circular splaytree
@@ -508,7 +509,7 @@
 <p>
         <span class="bold"><strong>Static functions</strong></span>:
       </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
             <code class="computeroutput"><span class="keyword">static</span> <span class="identifier">node_ptr</span>
             <span class="identifier">get_parent</span><span class="special">(</span><span class="identifier">const_node_ptr</span> <span class="identifier">n</span><span class="special">);</span></code>: Returns a pointer to the parent node
@@ -613,7 +614,7 @@
 <span class="special">}</span>
 </pre>
 <p>
-        For a complete list of functions see <code class="computeroutput"><a class="link" href="../boost/intrusive/splaytree_algorithms.html" title="Class template splaytree_algorithms">splaytree_algorithms
+        For a complete list of functions see <code class="computeroutput"><a class="link" href="../doxygen/classboost_1_1intrusive_1_1splaytree__algorithms.html" title="Class template splaytree_algorithms">splaytree_algorithms
         reference</a></code>.
       </p>
 </div>
@@ -623,21 +624,21 @@
       avl tree algorithms</a>
 </h3></div></div></div>
 <p>
-        <code class="computeroutput"><a class="link" href="../boost/intrusive/avltree_algorithms.html" title="Class template avltree_algorithms">avltree_algorithms</a></code>
-        have the same interface as <code class="computeroutput"><a class="link" href="../boost/intrusive/rbtree_algorithms.html" title="Class template rbtree_algorithms">rbtree_algorithms</a></code>.
+        <code class="computeroutput"><a class="link" href="../doxygen/classboost_1_1intrusive_1_1avltree__algorithms.html" title="Class template avltree_algorithms">avltree_algorithms</a></code>
+        have the same interface as <code class="computeroutput"><a class="link" href="../doxygen/classboost_1_1intrusive_1_1rbtree__algorithms.html" title="Class template rbtree_algorithms">rbtree_algorithms</a></code>.
       </p>
 <pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">NodeTraits</span><span class="special">&gt;</span>
 <span class="keyword">struct</span> <span class="identifier">avltree_algorithms</span><span class="special">;</span>
 </pre>
 <p>
-        <code class="computeroutput"><a class="link" href="../boost/intrusive/avltree_algorithms.html" title="Class template avltree_algorithms">avltree_algorithms</a></code>
+        <code class="computeroutput"><a class="link" href="../doxygen/classboost_1_1intrusive_1_1avltree__algorithms.html" title="Class template avltree_algorithms">avltree_algorithms</a></code>
         is configured with a NodeTraits class, which encapsulates the information
         about the node to be manipulated. NodeTraits must support the following interface:
       </p>
 <p>
         <span class="bold"><strong>Typedefs</strong></span>:
       </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
             <code class="computeroutput"><span class="identifier">node</span></code>: The type of the
             node that forms the circular avltree
@@ -658,7 +659,7 @@
 <p>
         <span class="bold"><strong>Static functions</strong></span>:
       </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
             <code class="computeroutput"><span class="keyword">static</span> <span class="identifier">node_ptr</span>
             <span class="identifier">get_parent</span><span class="special">(</span><span class="identifier">const_node_ptr</span> <span class="identifier">n</span><span class="special">);</span></code>: Returns a pointer to the parent node
@@ -796,7 +797,7 @@
 <span class="special">}</span>
 </pre>
 <p>
-        For a complete list of functions see <code class="computeroutput"><a class="link" href="../boost/intrusive/avltree_algorithms.html" title="Class template avltree_algorithms">avltree_algorithms
+        For a complete list of functions see <code class="computeroutput"><a class="link" href="../doxygen/classboost_1_1intrusive_1_1avltree__algorithms.html" title="Class template avltree_algorithms">avltree_algorithms
         reference</a></code>.
       </p>
 </div>
@@ -806,21 +807,21 @@
       treap algorithms</a>
 </h3></div></div></div>
 <p>
-        <code class="computeroutput"><a class="link" href="../boost/intrusive/treap_algorithms.html" title="Class template treap_algorithms">treap_algorithms</a></code>
-        have the same interface as <code class="computeroutput"><a class="link" href="../boost/intrusive/rbtree_algorithms.html" title="Class template rbtree_algorithms">rbtree_algorithms</a></code>.
+        <code class="computeroutput"><a class="link" href="../doxygen/classboost_1_1intrusive_1_1treap__algorithms.html" title="Class template treap_algorithms">treap_algorithms</a></code>
+        have the same interface as <code class="computeroutput"><a class="link" href="../doxygen/classboost_1_1intrusive_1_1rbtree__algorithms.html" title="Class template rbtree_algorithms">rbtree_algorithms</a></code>.
       </p>
 <pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">NodeTraits</span><span class="special">&gt;</span>
 <span class="keyword">struct</span> <span class="identifier">treap_algorithms</span><span class="special">;</span>
 </pre>
 <p>
-        <code class="computeroutput"><a class="link" href="../boost/intrusive/treap_algorithms.html" title="Class template treap_algorithms">treap_algorithms</a></code>
+        <code class="computeroutput"><a class="link" href="../doxygen/classboost_1_1intrusive_1_1treap__algorithms.html" title="Class template treap_algorithms">treap_algorithms</a></code>
         is configured with a NodeTraits class, which encapsulates the information
         about the node to be manipulated. NodeTraits must support the following interface:
       </p>
 <p>
         <span class="bold"><strong>Typedefs</strong></span>:
       </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
             <code class="computeroutput"><span class="identifier">node</span></code>: The type of the
             node that forms the circular treap
@@ -837,7 +838,7 @@
 <p>
         <span class="bold"><strong>Static functions</strong></span>:
       </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
             <code class="computeroutput"><span class="keyword">static</span> <span class="identifier">node_ptr</span>
             <span class="identifier">get_parent</span><span class="special">(</span><span class="identifier">const_node_ptr</span> <span class="identifier">n</span><span class="special">);</span></code>: Returns a pointer to the parent node
@@ -881,7 +882,7 @@
 
 <span class="keyword">struct</span> <span class="identifier">my_node</span>
 <span class="special">{</span>
-   <span class="identifier">my_node</span><span class="special">(</span><span class="keyword">int</span> <span class="identifier">i</span> <span class="special">=</span> <span class="number">0</span><span class="special">,</span> <span class="keyword">unsigned</span> <span class="keyword">int</span> <span class="identifier">priority</span> <span class="special">=</span> <span class="number">0</span><span class="special">)</span>
+   <span class="identifier">my_node</span><span class="special">(</span><span class="keyword">int</span> <span class="identifier">i</span> <span class="special">=</span> <span class="number">0</span><span class="special">,</span> <span class="keyword">int</span> <span class="identifier">priority</span> <span class="special">=</span> <span class="number">0</span><span class="special">)</span>
       <span class="special">:</span>  <span class="identifier">prio_</span><span class="special">(</span><span class="identifier">priority</span><span class="special">),</span> <span class="identifier">int_</span><span class="special">(</span><span class="identifier">i</span><span class="special">)</span>
    <span class="special">{}</span>
    <span class="identifier">my_node</span> <span class="special">*</span><span class="identifier">parent_</span><span class="special">,</span> <span class="special">*</span><span class="identifier">left_</span><span class="special">,</span> <span class="special">*</span><span class="identifier">right_</span><span class="special">;</span>
@@ -943,19 +944,16 @@
 <span class="special">}</span>
 </pre>
 <p>
-        For a complete list of functions see <code class="computeroutput"><a class="link" href="../boost/intrusive/treap_algorithms.html" title="Class template treap_algorithms">treap_algorithms
+        For a complete list of functions see <code class="computeroutput"><a class="link" href="../doxygen/classboost_1_1intrusive_1_1treap__algorithms.html" title="Class template treap_algorithms">treap_algorithms
         reference</a></code>.
       </p>
 </div>
 </div>
-<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
-<td align="left"></td>
-<td align="right"><div class="copyright-footer">Copyright &#169; 2005 Olaf Krzikalla<br>Copyright &#169; 2006-2015 Ion Gaztanaga<p>
+<div class="copyright-footer">Copyright © 2005 Olaf Krzikalla<br>Copyright © 2006-2015 Ion Gaztanaga<p>
         Distributed under the Boost Software License, Version 1.0. (See accompanying
         file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
       </p>
-</div></td>
-</tr></table>
+</div>
 <hr>
 <div class="spirit-nav">
 <a accesskey="p" href="concepts.html"><img src="../../../doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../intrusive.html"><img src="../../../doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../index.html"><img src="../../../doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="value_traits.html"><img src="../../../doc/src/images/next.png" alt="Next"></a>

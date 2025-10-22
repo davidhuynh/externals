@@ -1,13 +1,14 @@
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Detailed Semantics - Free Functions</title>
 <link rel="stylesheet" href="../../../../../../../doc/src/boostbook.css" type="text/css">
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
 <link rel="home" href="../../../index.html" title="Boost.Optional">
 <link rel="up" href="../../../optional/reference/header__boost_optional_optional_hpp_.html" title="Header &lt;boost/optional/optional.hpp&gt;">
 <link rel="prev" href="detailed_semantics___optional_references.html" title="Detailed Semantics - Optional References">
-<link rel="next" href="../header__boost_optional_hpp_.html" title="Header &lt;boost/optional.hpp&gt;">
+<link rel="next" href="detailed_semantics___std__hash_specializations.html" title="Detailed Semantics - std::hash Specializations">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
 <table cellpadding="2" width="100%"><tr>
@@ -20,7 +21,7 @@
 </tr></table>
 <hr>
 <div class="spirit-nav">
-<a accesskey="p" href="detailed_semantics___optional_references.html"><img src="../../../../../../../doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../../../optional/reference/header__boost_optional_optional_hpp_.html"><img src="../../../../../../../doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../../../index.html"><img src="../../../../../../../doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="../header__boost_optional_hpp_.html"><img src="../../../../../../../doc/src/images/next.png" alt="Next"></a>
+<a accesskey="p" href="detailed_semantics___optional_references.html"><img src="../../../../../../../doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../../../optional/reference/header__boost_optional_optional_hpp_.html"><img src="../../../../../../../doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../../../index.html"><img src="../../../../../../../doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="detailed_semantics___std__hash_specializations.html"><img src="../../../../../../../doc/src/images/next.png" alt="Next"></a>
 </div>
 <div class="section">
 <div class="titlepage"><div><div><h4 class="title">
@@ -34,7 +35,7 @@
             <code class="computeroutput"><span class="identifier">optional</span><span class="special">&lt;</span><span class="identifier">T</span><span class="special">&gt;</span> <span class="identifier">make_optional</span><span class="special">(</span>
             <span class="identifier">T</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">v</span> <span class="special">)</span></code>
           </p></blockquote></div>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
               <span class="bold"><strong>Returns: </strong></span> <code class="computeroutput"><span class="identifier">optional</span><span class="special">&lt;</span><span class="identifier">T</span><span class="special">&gt;(</span><span class="identifier">v</span><span class="special">)</span></code> for the <span class="emphasis"><em>deduced</em></span>
               type <code class="computeroutput"><span class="identifier">T</span></code> of <code class="computeroutput"><span class="identifier">v</span></code>.
@@ -50,11 +51,24 @@
 <p>
           <span class="inlinemediaobject"><img src="../../../images/space.png" alt="space"></span>
         </p>
+<a name="reference_make_optional_rvalue"></a><div class="blockquote"><blockquote class="blockquote"><p>
+            <code class="computeroutput"><span class="identifier">optional</span><span class="special">&lt;</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">decay_t</span><span class="special">&lt;</span><span class="identifier">T</span><span class="special">&gt;&gt;</span>
+            <span class="identifier">make_optional</span><span class="special">(</span>
+            <span class="identifier">T</span> <span class="special">&amp;&amp;</span>
+            <span class="identifier">v</span> <span class="special">)</span></code>
+          </p></blockquote></div>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+              <span class="bold"><strong>Returns: </strong></span> <code class="computeroutput"><span class="identifier">optional</span><span class="special">&lt;</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">decay_t</span><span class="special">&lt;</span><span class="identifier">T</span><span class="special">&gt;&gt;(</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">move</span><span class="special">(</span><span class="identifier">v</span><span class="special">))</span></code> for the <span class="emphasis"><em>deduced</em></span>
+              type <code class="computeroutput"><span class="identifier">T</span></code> of <code class="computeroutput"><span class="identifier">v</span></code>.
+            </li></ul></div>
+<p>
+          <span class="inlinemediaobject"><img src="../../../images/space.png" alt="space"></span>
+        </p>
 <a name="reference_make_optional_bool_value"></a><div class="blockquote"><blockquote class="blockquote"><p>
             <code class="computeroutput"><span class="identifier">optional</span><span class="special">&lt;</span><span class="identifier">T</span><span class="special">&gt;</span> <span class="identifier">make_optional</span><span class="special">(</span>
             <span class="keyword">bool</span> <span class="identifier">condition</span><span class="special">,</span> <span class="identifier">T</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">v</span> <span class="special">)</span></code>
           </p></blockquote></div>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
               <span class="bold"><strong>Returns: </strong></span> <code class="computeroutput"><span class="identifier">optional</span><span class="special">&lt;</span><span class="identifier">T</span><span class="special">&gt;(</span><span class="identifier">condition</span><span class="special">,</span> <span class="identifier">v</span><span class="special">)</span></code> for the <span class="emphasis"><em>deduced</em></span>
               type <code class="computeroutput"><span class="identifier">T</span></code> of <code class="computeroutput"><span class="identifier">v</span></code>.
@@ -76,15 +90,28 @@
 <p>
           <span class="inlinemediaobject"><img src="../../../images/space.png" alt="space"></span>
         </p>
+<a name="reference_make_optional_bool_rvalue"></a><div class="blockquote"><blockquote class="blockquote"><p>
+            <code class="computeroutput"><span class="identifier">optional</span><span class="special">&lt;</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">decay_t</span><span class="special">&lt;</span><span class="identifier">T</span><span class="special">&gt;&gt;</span>
+            <span class="identifier">make_optional</span><span class="special">(</span>
+            <span class="keyword">bool</span> <span class="identifier">condition</span><span class="special">,</span> <span class="identifier">T</span> <span class="special">&amp;&amp;</span> <span class="identifier">v</span>
+            <span class="special">)</span></code>
+          </p></blockquote></div>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+              <span class="bold"><strong>Returns: </strong></span> <code class="computeroutput"><span class="identifier">optional</span><span class="special">&lt;</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">decay_t</span><span class="special">&lt;</span><span class="identifier">T</span><span class="special">&gt;&gt;(</span><span class="identifier">condition</span><span class="special">,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">move</span><span class="special">(</span><span class="identifier">v</span><span class="special">))</span></code> for the <span class="emphasis"><em>deduced</em></span>
+              type <code class="computeroutput"><span class="identifier">T</span></code> of <code class="computeroutput"><span class="identifier">v</span></code>.
+            </li></ul></div>
+<p>
+          <span class="inlinemediaobject"><img src="../../../images/space.png" alt="space"></span>
+        </p>
 <a name="reference_operator_compare_equal_optional_optional"></a><div class="blockquote"><blockquote class="blockquote"><p>
             <code class="computeroutput"><span class="keyword">bool</span> <span class="keyword">operator</span>
             <span class="special">==</span> <span class="special">(</span>
             <span class="identifier">optional</span><span class="special">&lt;</span><span class="identifier">T</span><span class="special">&gt;</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">x</span><span class="special">,</span> <span class="identifier">optional</span><span class="special">&lt;</span><span class="identifier">T</span><span class="special">&gt;</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">y</span> <span class="special">);</span></code>
           </p></blockquote></div>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
               <span class="bold"><strong>Requires:</strong></span> <code class="computeroutput"><span class="identifier">T</span></code>
-              shall meet requirements of <a href="http://www.sgi.com/tech/stl/EqualityComparable.html" target="_top"><code class="computeroutput"><span class="identifier">EqualityComparable</span></code></a>.
+              shall meet requirements of <a href="https://en.cppreference.com/w/cpp/named_req/EqualityComparable" target="_top"><code class="computeroutput"><span class="identifier">EqualityComparable</span></code></a>.
             </li>
 <li class="listitem">
               <span class="bold"><strong>Returns:</strong></span> If both <code class="computeroutput"><span class="identifier">x</span></code>
@@ -130,7 +157,7 @@
             <span class="special">&lt;</span> <span class="special">(</span>
             <span class="identifier">optional</span><span class="special">&lt;</span><span class="identifier">T</span><span class="special">&gt;</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">x</span><span class="special">,</span> <span class="identifier">optional</span><span class="special">&lt;</span><span class="identifier">T</span><span class="special">&gt;</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">y</span> <span class="special">);</span></code>
           </p></blockquote></div>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
               <span class="bold"><strong>Requires:</strong></span> Expression <code class="computeroutput"><span class="special">*</span><span class="identifier">x</span> <span class="special">&lt;</span> <span class="special">*</span><span class="identifier">y</span></code> shall be well-formed and its result
               shall be convertible to <code class="computeroutput"><span class="keyword">bool</span></code>.
@@ -148,12 +175,12 @@
               has deep relational operators. Do not use <code class="computeroutput"><span class="keyword">operator</span><span class="special">&lt;</span></code> directly in generic code which
               expect to be given either an <code class="computeroutput"><span class="identifier">optional</span><span class="special">&lt;</span><span class="identifier">T</span><span class="special">&gt;</span></code> or a pointer; use <a href="../../../../../../utility/OptionalPointee.html#less" target="_top"><code class="computeroutput"><span class="identifier">less_pointees</span><span class="special">()</span></code></a>
               instead. <code class="computeroutput"><span class="identifier">T</span></code> need not
-              be <a href="http://www.sgi.com/tech/stl/LessThanComparable.html" target="_top"><code class="computeroutput"><span class="identifier">LessThanComparable</span></code></a>. Only
+              be <a href="https://en.cppreference.com/w/cpp/named_req/LessThanComparable" target="_top"><code class="computeroutput"><span class="identifier">LessThanComparable</span></code></a>. Only
               single <code class="computeroutput"><span class="keyword">operator</span><span class="special">&lt;</span></code>
               is required. Other relational operations are defined in terms of this
               one. If <code class="computeroutput"><span class="identifier">T</span></code>'s <code class="computeroutput"><span class="keyword">operator</span><span class="special">&lt;</span></code>
-              satisfies the axioms of <a href="http://www.sgi.com/tech/stl/LessThanComparable.html" target="_top"><code class="computeroutput"><span class="identifier">LessThanComparable</span></code></a> (transitivity,
-              antisymmetry and irreflexivity), <code class="computeroutput"><span class="identifier">optinal</span><span class="special">&lt;</span><span class="identifier">T</span><span class="special">&gt;</span></code> is <a href="http://www.sgi.com/tech/stl/LessThanComparable.html" target="_top"><code class="computeroutput"><span class="identifier">LessThanComparable</span></code></a>.
+              satisfies the axioms of <a href="https://en.cppreference.com/w/cpp/named_req/LessThanComparable" target="_top"><code class="computeroutput"><span class="identifier">LessThanComparable</span></code></a> (transitivity,
+              antisymmetry and irreflexivity), <code class="computeroutput"><span class="identifier">optional</span><span class="special">&lt;</span><span class="identifier">T</span><span class="special">&gt;</span></code> is <a href="https://en.cppreference.com/w/cpp/named_req/LessThanComparable" target="_top"><code class="computeroutput"><span class="identifier">LessThanComparable</span></code></a>.
             </li>
 <li class="listitem">
               <span class="bold"><strong>Example:</strong></span>
@@ -184,7 +211,7 @@
             <span class="special">!=</span> <span class="special">(</span>
             <span class="identifier">optional</span><span class="special">&lt;</span><span class="identifier">T</span><span class="special">&gt;</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">x</span><span class="special">,</span> <span class="identifier">optional</span><span class="special">&lt;</span><span class="identifier">T</span><span class="special">&gt;</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">y</span> <span class="special">);</span></code>
           </p></blockquote></div>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
               <span class="bold"><strong>Returns: </strong></span> <code class="computeroutput"><span class="special">!(</span>
               <span class="identifier">x</span> <span class="special">==</span>
               <span class="identifier">y</span> <span class="special">);</span></code>
@@ -197,7 +224,7 @@
             <span class="special">&gt;</span> <span class="special">(</span>
             <span class="identifier">optional</span><span class="special">&lt;</span><span class="identifier">T</span><span class="special">&gt;</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">x</span><span class="special">,</span> <span class="identifier">optional</span><span class="special">&lt;</span><span class="identifier">T</span><span class="special">&gt;</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">y</span> <span class="special">);</span></code>
           </p></blockquote></div>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
               <span class="bold"><strong>Returns: </strong></span> <code class="computeroutput"><span class="special">(</span>
               <span class="identifier">y</span> <span class="special">&lt;</span>
               <span class="identifier">x</span> <span class="special">);</span></code>
@@ -210,7 +237,7 @@
             <span class="special">&lt;=</span> <span class="special">(</span>
             <span class="identifier">optional</span><span class="special">&lt;</span><span class="identifier">T</span><span class="special">&gt;</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">x</span><span class="special">,</span> <span class="identifier">optional</span><span class="special">&lt;</span><span class="identifier">T</span><span class="special">&gt;</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">y</span> <span class="special">);</span></code>
           </p></blockquote></div>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
               <span class="bold"><strong>Returns: </strong></span> <code class="computeroutput"><span class="special">!(</span>
               <span class="identifier">y</span> <span class="special">&lt;</span>
               <span class="identifier">x</span> <span class="special">);</span></code>
@@ -223,7 +250,7 @@
             <span class="special">&gt;=</span> <span class="special">(</span>
             <span class="identifier">optional</span><span class="special">&lt;</span><span class="identifier">T</span><span class="special">&gt;</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">x</span><span class="special">,</span> <span class="identifier">optional</span><span class="special">&lt;</span><span class="identifier">T</span><span class="special">&gt;</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">y</span> <span class="special">);</span></code>
           </p></blockquote></div>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
               <span class="bold"><strong>Returns: </strong></span> <code class="computeroutput"><span class="special">!(</span>
               <span class="identifier">x</span> <span class="special">&lt;</span>
               <span class="identifier">y</span> <span class="special">);</span></code>
@@ -243,13 +270,13 @@
             <span class="identifier">none_t</span><span class="special">,</span>
             <span class="identifier">optional</span><span class="special">&lt;</span><span class="identifier">T</span><span class="special">&gt;</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">x</span> <span class="special">)</span> <span class="keyword">noexcept</span><span class="special">;</span></code>
           </p></blockquote></div>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
               <span class="bold"><strong>Returns:</strong></span> <code class="computeroutput"><span class="special">!</span><span class="identifier">x</span></code>.
             </li>
 <li class="listitem">
               <span class="bold"><strong>Notes:</strong></span> <code class="computeroutput"><span class="identifier">T</span></code>
-              need not meet requirements of <a href="http://www.sgi.com/tech/stl/EqualityComparable.html" target="_top"><code class="computeroutput"><span class="identifier">EqualityComparable</span></code></a>.
+              need not meet requirements of <a href="https://en.cppreference.com/w/cpp/named_req/EqualityComparable" target="_top"><code class="computeroutput"><span class="identifier">EqualityComparable</span></code></a>.
             </li>
 </ul></div>
 <p>
@@ -267,10 +294,8 @@
             <span class="identifier">none_t</span><span class="special">,</span>
             <span class="identifier">optional</span><span class="special">&lt;</span><span class="identifier">T</span><span class="special">&gt;</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">x</span> <span class="special">)</span> <span class="keyword">noexcept</span><span class="special">;</span></code>
           </p></blockquote></div>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
-              <span class="bold"><strong>Returns: </strong></span> <code class="computeroutput"><span class="special">!(</span>
-              <span class="identifier">x</span> <span class="special">==</span>
-              <span class="identifier">y</span> <span class="special">);</span></code>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+              <span class="bold"><strong>Returns: </strong></span> <code class="computeroutput"><span class="keyword">bool</span><span class="special">(</span><span class="identifier">x</span><span class="special">);</span></code>
             </li></ul></div>
 <p>
           <span class="inlinemediaobject"><img src="../../../images/space.png" alt="space"></span>
@@ -287,7 +312,7 @@
             <span class="special">(</span> <span class="identifier">optional</span><span class="special">&lt;</span><span class="identifier">T</span><span class="special">&gt;</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">o</span> <span class="special">)</span> <span class="special">-&gt;</span> <span class="keyword">typename</span> <span class="identifier">optional</span><span class="special">&lt;</span><span class="identifier">T</span><span class="special">&gt;::</span><span class="identifier">pointer_const_type</span>
             <span class="special">;</span></code>
           </p></blockquote></div>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
               <span class="bold"><strong>Returns:</strong></span> <code class="computeroutput"><span class="identifier">o</span><span class="special">.</span><span class="identifier">get_ptr</span><span class="special">()</span></code>.
             </li>
@@ -312,7 +337,7 @@
             <span class="keyword">typename</span> <span class="identifier">optional</span><span class="special">&lt;</span><span class="identifier">T</span><span class="special">&gt;::</span><span class="identifier">reference_const_type</span>
             <span class="special">;</span></code>
           </p></blockquote></div>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
               <span class="bold"><strong>Returns:</strong></span> <code class="computeroutput"><span class="identifier">o</span><span class="special">.</span><span class="identifier">get_value_or</span><span class="special">(</span><span class="identifier">def</span><span class="special">)</span></code>.
             </li>
@@ -331,7 +356,7 @@
             <span class="special">(</span> <span class="identifier">optional</span><span class="special">&lt;</span><span class="identifier">T</span><span class="special">&gt;&amp;</span> <span class="identifier">x</span><span class="special">,</span> <span class="identifier">optional</span><span class="special">&lt;</span><span class="identifier">T</span><span class="special">&gt;&amp;</span> <span class="identifier">y</span>
             <span class="special">)</span> <span class="special">;</span></code>
           </p></blockquote></div>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
               <span class="bold"><strong>Requires:</strong></span> Lvalues of type <code class="computeroutput"><span class="identifier">T</span></code> shall be swappable and <code class="computeroutput"><span class="identifier">T</span></code> shall be <code class="computeroutput"><span class="identifier">MoveConstructible</span></code>.
             </li>
@@ -452,10 +477,10 @@
             <span class="special">)</span> <span class="keyword">noexcept</span>
             <span class="special">;</span></code>
           </p></blockquote></div>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
               <span class="bold"><strong>Postconditions:</strong></span> <code class="computeroutput"><span class="identifier">x</span></code>
-              refers to what <code class="computeroutput"><span class="identifier">y</span></code> refererred
+              refers to what <code class="computeroutput"><span class="identifier">y</span></code> referred
               to before the swap (if anything). <code class="computeroutput"><span class="identifier">y</span></code>
               refers to whatever <code class="computeroutput"><span class="identifier">x</span></code>
               referred to before the swap.
@@ -481,17 +506,14 @@
             </li>
 </ul></div>
 </div>
-<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
-<td align="left"></td>
-<td align="right"><div class="copyright-footer">Copyright &#169; 2003-2007 Fernando Luis Cacciola Carballal<br>Copyright &#169; 2014-2016 Andrzej Krzemie&#324;ski<p>
+<div class="copyright-footer">Copyright © 2003-2007 Fernando Luis Cacciola Carballal<br>Copyright © 2014-2024 Andrzej Krzemieński<p>
         Distributed under the Boost Software License, Version 1.0. (See accompanying
         file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
       </p>
-</div></td>
-</tr></table>
+</div>
 <hr>
 <div class="spirit-nav">
-<a accesskey="p" href="detailed_semantics___optional_references.html"><img src="../../../../../../../doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../../../optional/reference/header__boost_optional_optional_hpp_.html"><img src="../../../../../../../doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../../../index.html"><img src="../../../../../../../doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="../header__boost_optional_hpp_.html"><img src="../../../../../../../doc/src/images/next.png" alt="Next"></a>
+<a accesskey="p" href="detailed_semantics___optional_references.html"><img src="../../../../../../../doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../../../optional/reference/header__boost_optional_optional_hpp_.html"><img src="../../../../../../../doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../../../index.html"><img src="../../../../../../../doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="detailed_semantics___std__hash_specializations.html"><img src="../../../../../../../doc/src/images/next.png" alt="Next"></a>
 </div>
 </body>
 </html>

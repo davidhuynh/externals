@@ -1,13 +1,14 @@
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Transform Iterator</title>
 <link rel="stylesheet" href="../../../../../../doc/src/boostbook.css" type="text/css">
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
-<link rel="home" href="../../index.html" title="Chapter&#160;1.&#160;Boost.Iterator">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
+<link rel="home" href="../../index.html" title="Chapter 1. Boost.Iterator">
 <link rel="up" href="../specialized.html" title="Specialized Adaptors">
-<link rel="prev" href="shared_container/shared_container_generator.html" title="The Shared Container Iterator Range Generator">
+<link rel="prev" href="shared_container.html" title="Shared Container Iterator">
 <link rel="next" href="zip.html" title="Zip Iterator">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
 <table cellpadding="2" width="100%"><tr>
@@ -20,7 +21,7 @@
 </tr></table>
 <hr>
 <div class="spirit-nav">
-<a accesskey="p" href="shared_container/shared_container_generator.html"><img src="../../../../../../doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../specialized.html"><img src="../../../../../../doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../../../../../doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="zip.html"><img src="../../../../../../doc/src/images/next.png" alt="Next"></a>
+<a accesskey="p" href="shared_container.html"><img src="../../../../../../doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../specialized.html"><img src="../../../../../../doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../../../../../doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="zip.html"><img src="../../../../../../doc/src/images/next.png" alt="Next"></a>
 </div>
 <div class="section">
 <div class="titlepage"><div><div><h3 class="title">
@@ -33,7 +34,7 @@
       </p>
 <h3>
 <a name="iterator.specialized.transform.h0"></a>
-        <span><a name="iterator.specialized.transform.example"></a></span><a class="link" href="transform.html#iterator.specialized.transform.example">Example</a>
+        <span class="phrase"><a name="iterator.specialized.transform.example"></a></span><a class="link" href="transform.html#iterator.specialized.transform.example">Example</a>
       </h3>
 <p>
         This is a simple example of using the transform_iterators class to generate
@@ -56,28 +57,28 @@
 
 <span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"adding 4 to each element in the array:"</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
 <span class="identifier">std</span><span class="special">::</span><span class="identifier">copy</span><span class="special">(</span><span class="identifier">boost</span><span class="special">::</span><span class="identifier">make_transform_iterator</span><span class="special">(</span><span class="identifier">x</span><span class="special">,</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">bind1st</span><span class="special">(</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">plus</span><span class="special">&lt;</span><span class="keyword">int</span><span class="special">&gt;(),</span> <span class="number">4</span><span class="special">)),</span>
-     <span class="identifier">boost</span><span class="special">::</span><span class="identifier">make_transform_iterator</span><span class="special">(</span><span class="identifier">x</span> <span class="special">+</span> <span class="identifier">N</span><span class="special">,</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">bind1st</span><span class="special">(</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">plus</span><span class="special">&lt;</span><span class="keyword">int</span><span class="special">&gt;(),</span> <span class="number">4</span><span class="special">)),</span>
-     <span class="identifier">std</span><span class="special">::</span><span class="identifier">ostream_iterator</span><span class="special">&lt;</span><span class="keyword">int</span><span class="special">&gt;(</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span><span class="special">,</span> <span class="string">" "</span><span class="special">));</span>
+  <span class="identifier">boost</span><span class="special">::</span><span class="identifier">make_transform_iterator</span><span class="special">(</span><span class="identifier">x</span> <span class="special">+</span> <span class="identifier">N</span><span class="special">,</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">bind1st</span><span class="special">(</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">plus</span><span class="special">&lt;</span><span class="keyword">int</span><span class="special">&gt;(),</span> <span class="number">4</span><span class="special">)),</span>
+  <span class="identifier">std</span><span class="special">::</span><span class="identifier">ostream_iterator</span><span class="special">&lt;</span><span class="keyword">int</span><span class="special">&gt;(</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span><span class="special">,</span> <span class="string">" "</span><span class="special">));</span>
 <span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
 </pre>
 <p>
         The output is:
       </p>
-<pre class="programlisting"><span class="identifier">multiplying</span> <span class="identifier">the</span> <span class="identifier">array</span> <span class="identifier">by</span> <span class="number">2</span><span class="special">:</span>
-<span class="number">2</span> <span class="number">4</span> <span class="number">6</span> <span class="number">8</span> <span class="number">10</span> <span class="number">12</span> <span class="number">14</span> <span class="number">16</span>
-<span class="identifier">adding</span> <span class="number">4</span> <span class="identifier">to</span> <span class="identifier">each</span> <span class="identifier">element</span> <span class="identifier">in</span> <span class="identifier">the</span> <span class="identifier">array</span><span class="special">:</span>
-<span class="number">5</span> <span class="number">6</span> <span class="number">7</span> <span class="number">8</span> <span class="number">9</span> <span class="number">10</span> <span class="number">11</span> <span class="number">12</span>
+<pre class="programlisting">multiplying the array by 2:
+2 4 6 8 10 12 14 16
+adding 4 to each element in the array:
+5 6 7 8 9 10 11 12
 </pre>
 <p>
-        The source code for this example can be found <a href="../../../example/transform_iterator_example.cpp" target="_top">here</a>.
+        The source code for this example can be found <a href="../../../../example/transform_iterator_example.cpp" target="_top">here</a>.
       </p>
 <h3>
 <a name="iterator.specialized.transform.h1"></a>
-        <span><a name="iterator.specialized.transform.reference"></a></span><a class="link" href="transform.html#iterator.specialized.transform.reference">Reference</a>
+        <span class="phrase"><a name="iterator.specialized.transform.reference"></a></span><a class="link" href="transform.html#iterator.specialized.transform.reference">Reference</a>
       </h3>
 <h4>
 <a name="iterator.specialized.transform.h2"></a>
-        <span><a name="iterator.specialized.transform.synopsis"></a></span><a class="link" href="transform.html#iterator.specialized.transform.synopsis">Synopsis</a>
+        <span class="phrase"><a name="iterator.specialized.transform.synopsis"></a></span><a class="link" href="transform.html#iterator.specialized.transform.synopsis">Synopsis</a>
       </h4>
 <pre class="programlisting"><span class="keyword">template</span> <span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">UnaryFunction</span><span class="special">,</span>
           <span class="keyword">class</span> <span class="identifier">Iterator</span><span class="special">,</span>
@@ -114,8 +115,9 @@
 <p>
         If <code class="computeroutput"><span class="identifier">Reference</span></code> is <code class="computeroutput"><span class="identifier">use_default</span></code> then the <code class="computeroutput"><span class="identifier">reference</span></code>
         member of <code class="computeroutput"><span class="identifier">transform_iterator</span></code>
-        is<br> <code class="computeroutput"><span class="identifier">result_of</span><span class="special">&lt;</span><span class="identifier">UnaryFunction</span><span class="special">(</span><span class="identifier">iterator_traits</span><span class="special">&lt;</span><span class="identifier">Iterator</span><span class="special">&gt;::</span><span class="identifier">reference</span><span class="special">)&gt;::</span><span class="identifier">type</span></code>. Otherwise, <code class="computeroutput"><span class="identifier">reference</span></code>
-        is <code class="computeroutput"><span class="identifier">Reference</span></code>.
+        is<br> <code class="computeroutput"><span class="identifier">result_of</span><span class="special">&lt;</span><span class="keyword">const</span> <span class="identifier">UnaryFunction</span><span class="special">(</span><span class="identifier">iterator_traits</span><span class="special">&lt;</span><span class="identifier">Iterator</span><span class="special">&gt;::</span><span class="identifier">reference</span><span class="special">)&gt;::</span><span class="identifier">type</span></code>.
+        Otherwise, <code class="computeroutput"><span class="identifier">reference</span></code> is
+        <code class="computeroutput"><span class="identifier">Reference</span></code>.
       </p>
 <p>
         If <code class="computeroutput"><span class="identifier">Value</span></code> is <code class="computeroutput"><span class="identifier">use_default</span></code> then the <code class="computeroutput"><span class="identifier">value_type</span></code>
@@ -140,14 +142,14 @@
       </p>
 <h4>
 <a name="iterator.specialized.transform.h3"></a>
-        <span><a name="iterator.specialized.transform.requirements"></a></span><a class="link" href="transform.html#iterator.specialized.transform.requirements">Requirements</a>
+        <span class="phrase"><a name="iterator.specialized.transform.requirements"></a></span><a class="link" href="transform.html#iterator.specialized.transform.requirements">Requirements</a>
       </h4>
 <p>
         The type <code class="computeroutput"><span class="identifier">UnaryFunction</span></code> must
         be Assignable, Copy Constructible, and the expression <code class="computeroutput"><span class="identifier">f</span><span class="special">(*</span><span class="identifier">i</span><span class="special">)</span></code>
         must be valid where <code class="computeroutput"><span class="identifier">f</span></code> is
-        an object of type <code class="computeroutput"><span class="identifier">UnaryFunction</span></code>,
-        <code class="computeroutput"><span class="identifier">i</span></code> is an object of type <code class="computeroutput"><span class="identifier">Iterator</span></code>, and where the type of <code class="computeroutput"><span class="identifier">f</span><span class="special">(*</span><span class="identifier">i</span><span class="special">)</span></code> must be <code class="computeroutput"><span class="identifier">result_of</span><span class="special">&lt;</span><span class="identifier">UnaryFunction</span><span class="special">(</span><span class="identifier">iterator_traits</span><span class="special">&lt;</span><span class="identifier">Iterator</span><span class="special">&gt;::</span><span class="identifier">reference</span><span class="special">)&gt;::</span><span class="identifier">type</span></code>.
+        a const object of type <code class="computeroutput"><span class="identifier">UnaryFunction</span></code>,
+        <code class="computeroutput"><span class="identifier">i</span></code> is an object of type <code class="computeroutput"><span class="identifier">Iterator</span></code>, and where the type of <code class="computeroutput"><span class="identifier">f</span><span class="special">(*</span><span class="identifier">i</span><span class="special">)</span></code> must be <code class="computeroutput"><span class="identifier">result_of</span><span class="special">&lt;</span><span class="keyword">const</span> <span class="identifier">UnaryFunction</span><span class="special">(</span><span class="identifier">iterator_traits</span><span class="special">&lt;</span><span class="identifier">Iterator</span><span class="special">&gt;::</span><span class="identifier">reference</span><span class="special">)&gt;::</span><span class="identifier">type</span></code>.
       </p>
 <p>
         The argument <code class="computeroutput"><span class="identifier">Iterator</span></code> shall
@@ -155,13 +157,13 @@
       </p>
 <h4>
 <a name="iterator.specialized.transform.h4"></a>
-        <span><a name="iterator.specialized.transform.concepts"></a></span><a class="link" href="transform.html#iterator.specialized.transform.concepts">Concepts</a>
+        <span class="phrase"><a name="iterator.specialized.transform.concepts"></a></span><a class="link" href="transform.html#iterator.specialized.transform.concepts">Concepts</a>
       </h4>
 <p>
         The resulting <code class="computeroutput"><span class="identifier">transform_iterator</span></code>
         models the most refined of the following that is also modeled by <code class="computeroutput"><span class="identifier">Iterator</span></code>.
       </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
             Writable Lvalue Iterator if <code class="computeroutput"><span class="identifier">transform_iterator</span><span class="special">::</span><span class="identifier">reference</span></code>
             is a non-const reference.
@@ -185,7 +187,7 @@
         argument models.
       </p>
 <div class="table">
-<a name="iterator.specialized.transform.category"></a><p class="title"><b>Table&#160;1.17.&#160;Category</b></p>
+<a name="iterator.specialized.transform.category"></a><p class="title"><b>Table 1.17. Category</b></p>
 <div class="table-contents"><table class="table" summary="Category">
 <colgroup>
 <col>
@@ -271,7 +273,7 @@
       </p>
 <h4>
 <a name="iterator.specialized.transform.h5"></a>
-        <span><a name="iterator.specialized.transform.operations"></a></span><a class="link" href="transform.html#iterator.specialized.transform.operations">Operations</a>
+        <span class="phrase"><a name="iterator.specialized.transform.operations"></a></span><a class="link" href="transform.html#iterator.specialized.transform.operations">Operations</a>
       </h4>
 <p>
         In addition to the operations required by the <a class="link" href="transform.html#iterator.specialized.transform.concepts">concepts</a>
@@ -296,7 +298,7 @@
 <pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">F2</span><span class="special">,</span> <span class="keyword">class</span> <span class="identifier">I2</span><span class="special">,</span> <span class="keyword">class</span> <span class="identifier">R2</span><span class="special">,</span> <span class="keyword">class</span> <span class="identifier">V2</span><span class="special">&gt;</span>
 <span class="identifier">transform_iterator</span><span class="special">(</span>
       <span class="identifier">transform_iterator</span><span class="special">&lt;</span><span class="identifier">F2</span><span class="special">,</span> <span class="identifier">I2</span><span class="special">,</span> <span class="identifier">R2</span><span class="special">,</span> <span class="identifier">V2</span><span class="special">&gt;</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">t</span>
-    <span class="special">,</span> <span class="keyword">typename</span> <span class="identifier">enable_if_convertible</span><span class="special">&lt;</span><span class="identifier">I2</span><span class="special">,</span> <span class="identifier">Iterator</span><span class="special">&gt;::</span><span class="identifier">type</span><span class="special">*</span> <span class="special">=</span> <span class="number">0</span>	   <span class="comment">// exposition only</span>
+    <span class="special">,</span> <span class="keyword">typename</span> <span class="identifier">enable_if_convertible</span><span class="special">&lt;</span><span class="identifier">I2</span><span class="special">,</span> <span class="identifier">Iterator</span><span class="special">&gt;::</span><span class="identifier">type</span><span class="special">*</span> <span class="special">=</span> <span class="number">0</span>      <span class="comment">// exposition only</span>
     <span class="special">,</span> <span class="keyword">typename</span> <span class="identifier">enable_if_convertible</span><span class="special">&lt;</span><span class="identifier">F2</span><span class="special">,</span> <span class="identifier">UnaryFunction</span><span class="special">&gt;::</span><span class="identifier">type</span><span class="special">*</span> <span class="special">=</span> <span class="number">0</span> <span class="comment">// exposition only</span>
 <span class="special">);</span>
 </pre>
@@ -337,19 +339,16 @@
         </strong></span> <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code>
       </p>
 </div>
-<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
-<td align="left"></td>
-<td align="right"><div class="copyright-footer">Copyright &#169; 2003, 2005 David Abrahams Jeremy Siek Thomas
+<div class="copyright-footer">Copyright © 2003, 2005 David Abrahams Jeremy Siek Thomas
       Witt<p>
         Distributed under the Boost Software License, Version 1.0. (See accompanying
         file LICENSE_1_0.txt or copy at &lt;ulink url="http://www.boost.org/LICENSE_1_0.txt"&gt;
         http://www.boost.org/LICENSE_1_0.txt &lt;/ulink&gt;)
       </p>
-</div></td>
-</tr></table>
+</div>
 <hr>
 <div class="spirit-nav">
-<a accesskey="p" href="shared_container/shared_container_generator.html"><img src="../../../../../../doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../specialized.html"><img src="../../../../../../doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../../../../../doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="zip.html"><img src="../../../../../../doc/src/images/next.png" alt="Next"></a>
+<a accesskey="p" href="shared_container.html"><img src="../../../../../../doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../specialized.html"><img src="../../../../../../doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../../../../../doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="zip.html"><img src="../../../../../../doc/src/images/next.png" alt="Next"></a>
 </div>
 </body>
 </html>

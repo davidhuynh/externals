@@ -1,13 +1,14 @@
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>checked_delete</title>
 <link rel="stylesheet" href="../../../../../doc/src/boostbook.css" type="text/css">
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
-<link rel="home" href="../index.html" title="Chapter&#160;1.&#160;Boost.Core">
-<link rel="up" href="../index.html" title="Chapter&#160;1.&#160;Boost.Core">
-<link rel="prev" href="addressof.html" title="addressof">
-<link rel="next" href="demangle.html" title="demangle">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
+<link rel="home" href="../index.html" title="Chapter 1. Boost.Core">
+<link rel="up" href="../index.html" title="Chapter 1. Boost.Core">
+<link rel="prev" href="bit.html" title="bit">
+<link rel="next" href="cmath.html" title="cmath">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
 <table cellpadding="2" width="100%"><tr>
@@ -20,13 +21,13 @@
 </tr></table>
 <hr>
 <div class="spirit-nav">
-<a accesskey="p" href="addressof.html"><img src="../../../../../doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../index.html"><img src="../../../../../doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../index.html"><img src="../../../../../doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="demangle.html"><img src="../../../../../doc/src/images/next.png" alt="Next"></a>
+<a accesskey="p" href="bit.html"><img src="../../../../../doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../index.html"><img src="../../../../../doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../index.html"><img src="../../../../../doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="cmath.html"><img src="../../../../../doc/src/images/next.png" alt="Next"></a>
 </div>
 <div class="section">
 <div class="titlepage"><div><div><h2 class="title" style="clear: both">
 <a name="core.checked_delete"></a><a class="link" href="checked_delete.html" title="checked_delete">checked_delete</a>
 </h2></div></div></div>
-<div class="toc"><dl>
+<div class="toc"><dl class="toc">
 <dt><span class="section"><a href="checked_delete.html#core.checked_delete.overview">Overview</a></span></dt>
 <dt><span class="section"><a href="checked_delete.html#core.checked_delete.synopsis">Synopsis</a></span></dt>
 <dt><span class="section"><a href="checked_delete.html#core.checked_delete.checked_delete">checked_delete</a></span></dt>
@@ -37,8 +38,8 @@
 </dl></div>
 <div class="simplesect">
 <div class="titlepage"><div><div><h3 class="title">
-<a name="idp5017872"></a>Authors</h3></div></div></div>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<a name="id5508"></a>Authors</h3></div></div></div>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
           Beman Dawes
         </li>
@@ -106,7 +107,7 @@
 <a name="core.checked_delete.checked_delete.template_class_t_void_checked_de"></a><a class="link" href="checked_delete.html#core.checked_delete.checked_delete.template_class_t_void_checked_de" title="template&lt;class T&gt; void checked_delete(T * p);">template&lt;class
         T&gt; void checked_delete(T * p);</a>
 </h4></div></div></div>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
               <span class="bold"><strong>Requires:</strong></span> <code class="computeroutput"><span class="identifier">T</span></code>
               must be a complete type. The expression <code class="computeroutput"><span class="keyword">delete</span>
@@ -128,7 +129,7 @@
 <a name="core.checked_delete.checked_array_delete.template_class_t_void_checked_ar"></a><a class="link" href="checked_delete.html#core.checked_delete.checked_array_delete.template_class_t_void_checked_ar" title="template&lt;class T&gt; void checked_array_delete(T * p);">template&lt;class
         T&gt; void checked_array_delete(T * p);</a>
 </h4></div></div></div>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
               <span class="bold"><strong>Requires:</strong></span> <code class="computeroutput"><span class="identifier">T</span></code>
               must be a complete type. The expression <code class="computeroutput"><span class="keyword">delete</span>
@@ -158,7 +159,7 @@
 <a name="core.checked_delete.checked_deleter.void_checked_deleter_t_operator_"></a><a class="link" href="checked_delete.html#core.checked_delete.checked_deleter.void_checked_deleter_t_operator_" title="void checked_deleter&lt;T&gt;::operator()(T * p) const;">void
         checked_deleter&lt;T&gt;::operator()(T * p) const;</a>
 </h4></div></div></div>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
               <span class="bold"><strong>Requires:</strong></span> <code class="computeroutput"><span class="identifier">T</span></code>
               must be a complete type. The expression <code class="computeroutput"><span class="keyword">delete</span>
@@ -187,7 +188,7 @@
 <a name="core.checked_delete.checked_array_deleter.void_checked_array_deleter_t_ope"></a><a class="link" href="checked_delete.html#core.checked_delete.checked_array_deleter.void_checked_array_deleter_t_ope" title="void checked_array_deleter&lt;T&gt;::operator()(T * p) const;">void
         checked_array_deleter&lt;T&gt;::operator()(T * p) const;</a>
 </h4></div></div></div>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
               <span class="bold"><strong>Requires:</strong></span> <code class="computeroutput"><span class="identifier">T</span></code>
               must be a complete type. The expression <code class="computeroutput"><span class="keyword">delete</span>
@@ -214,17 +215,14 @@
       </p>
 </div>
 </div>
-<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
-<td align="left"></td>
-<td align="right"><div class="copyright-footer">Copyright &#169; 2014 Peter Dimov<br>Copyright &#169; 2014 Glen Fernandes<br>Copyright &#169; 2014 Andrey Semashev<p>
+<div class="copyright-footer">Copyright © 2014 Peter Dimov<br>Copyright © 2014 Glen Fernandes<br>Copyright © 2014 Andrey Semashev<p>
         Distributed under the <a href="http://boost.org/LICENSE_1_0.txt" target="_top">Boost
         Software License, Version 1.0</a>.
       </p>
-</div></td>
-</tr></table>
+</div>
 <hr>
 <div class="spirit-nav">
-<a accesskey="p" href="addressof.html"><img src="../../../../../doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../index.html"><img src="../../../../../doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../index.html"><img src="../../../../../doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="demangle.html"><img src="../../../../../doc/src/images/next.png" alt="Next"></a>
+<a accesskey="p" href="bit.html"><img src="../../../../../doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../index.html"><img src="../../../../../doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../index.html"><img src="../../../../../doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="cmath.html"><img src="../../../../../doc/src/images/next.png" alt="Next"></a>
 </div>
 </body>
 </html>

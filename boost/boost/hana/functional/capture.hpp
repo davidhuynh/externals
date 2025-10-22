@@ -2,7 +2,7 @@
 @file
 Defines `boost::hana::capture`.
 
-@copyright Louis Dionne 2013-2016
+Copyright Louis Dionne 2013-2022
 Distributed under the Boost Software License, Version 1.0.
 (See accompanying file LICENSE.md or copy at http://boost.org/LICENSE_1_0.txt)
  */
@@ -19,7 +19,7 @@ Distributed under the Boost Software License, Version 1.0.
 #include <utility>
 
 
-BOOST_HANA_NAMESPACE_BEGIN
+namespace boost { namespace hana {
     //! @ingroup group-functional
     //! Create a function capturing the given variables.
     //!
@@ -54,7 +54,7 @@ BOOST_HANA_NAMESPACE_BEGIN
         template <typename F, typename Closure, std::size_t ...i>
         constexpr auto apply_capture(F&& f, Closure&& closure, std::index_sequence<i...>) {
             return hana::partial(static_cast<F&&>(f),
-                hana::get_impl<i>(static_cast<Closure&&>(closure).storage_)...
+                hana::at_c<i>(static_cast<Closure&&>(closure).storage_)...
             );
         }
     }
@@ -105,8 +105,8 @@ BOOST_HANA_NAMESPACE_BEGIN
         }
     };
 
-    constexpr make_capture_t capture{};
+    BOOST_HANA_INLINE_VARIABLE constexpr make_capture_t capture{};
 #endif
-BOOST_HANA_NAMESPACE_END
+}} // end namespace boost::hana
 
 #endif // !BOOST_HANA_FUNCTIONAL_CAPTURE_HPP

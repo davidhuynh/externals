@@ -5,6 +5,9 @@
 // Copyright (c) 2009-2012 Mateusz Loskot, London, UK.
 // Copyright (c) 2014 Adam Wulkiewicz, Lodz, Poland.
 
+// Copyright (c) 2020, Oracle and/or its affiliates.
+// Contributed and/or modified by Adam Wulkiewicz, on behalf of Oracle
+
 // Parts of Boost.Geometry are redesigned from Geodan's Geographic Library
 // (geolib/GGL), copyright (c) 1995-2010 Geodan, Amsterdam, the Netherlands.
 
@@ -19,17 +22,14 @@
 #include <vector>
 
 #include <boost/concept/assert.hpp>
-#include <boost/range.hpp>
+#include <boost/config.hpp>
 
 #include <boost/geometry/core/tag.hpp>
 #include <boost/geometry/core/tags.hpp>
 
 #include <boost/geometry/geometries/concepts/point_concept.hpp>
 
-#include <boost/config.hpp>
-#ifndef BOOST_NO_CXX11_HDR_INITIALIZER_LIST
 #include <initializer_list>
-#endif
 
 namespace boost { namespace geometry
 {
@@ -59,7 +59,7 @@ template
 >
 class linestring : public Container<Point, Allocator<Point> >
 {
-    BOOST_CONCEPT_ASSERT( (concept::Point<Point>) );
+    BOOST_CONCEPT_ASSERT( (concepts::Point<Point>) );
 
     typedef Container<Point, Allocator<Point> > base_type;
 
@@ -74,8 +74,6 @@ public :
     inline linestring(Iterator begin, Iterator end)
         : base_type(begin, end)
     {}
-
-#ifndef BOOST_NO_CXX11_HDR_INITIALIZER_LIST
 
     /// \constructor_initializer_list{linestring}
     inline linestring(std::initializer_list<Point> l)
@@ -94,8 +92,6 @@ public :
 //        return *this;
 //    }
 //#endif
-
-#endif
 };
 
 } // namespace model
@@ -112,7 +108,7 @@ template
 >
 struct tag<model::linestring<Point, Container, Allocator> >
 {
-    typedef linestring_tag type;
+    using type = linestring_tag;
 };
 } // namespace traits
 

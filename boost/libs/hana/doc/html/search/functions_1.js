@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['map',['map',['../structboost_1_1hana_1_1map.html#abd092d2810258d4f3bedb85c9dd4c6fd',1,'boost::hana::map::map()=default'],['../structboost_1_1hana_1_1map.html#a11b676101f99adfaa6b626367541e238',1,'boost::hana::map::map(map const &amp;other)=default'],['../structboost_1_1hana_1_1map.html#ac5841d20f15b8e4013da2153348c8a7a',1,'boost::hana::map::map(map &amp;&amp;other)=default']]]
+  ['boost_5fhana_5fadapt_5fadt_963',['BOOST_HANA_ADAPT_ADT',['../group__group-_struct.html#ga141761435a7826b3cbe646b4f59eaf0a',1,'boost::hana']]],
+  ['boost_5fhana_5fadapt_5fstruct_964',['BOOST_HANA_ADAPT_STRUCT',['../group__group-_struct.html#gaba3b4d2cf342bfca773e90fc20bfae91',1,'boost::hana']]],
+  ['boost_5fhana_5fdefine_5fstruct_965',['BOOST_HANA_DEFINE_STRUCT',['../group__group-_struct.html#gab9efb238a82207d91643994c5295cf8c',1,'boost::hana']]]
 ];

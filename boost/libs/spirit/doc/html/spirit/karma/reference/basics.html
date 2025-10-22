@@ -1,13 +1,14 @@
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Generator Basics</title>
 <link rel="stylesheet" href="../../../../../../../doc/src/boostbook.css" type="text/css">
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
-<link rel="home" href="../../../index.html" title="Spirit 2.5.2">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
+<link rel="home" href="../../../index.html" title="Spirit 2.59">
 <link rel="up" href="../reference.html" title="Reference">
 <link rel="prev" href="generator_concepts/nonterminal.html" title="Nonterminal">
 <link rel="next" href="generate_api.html" title="Generator API">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
 <table cellpadding="2" width="100%"><tr>
@@ -28,7 +29,7 @@
 </h4></div></div></div>
 <h6>
 <a name="spirit.karma.reference.basics.h0"></a>
-          <span><a name="spirit.karma.reference.basics.lazy_argument"></a></span><a class="link" href="basics.html#spirit.karma.reference.basics.lazy_argument">Lazy
+          <span class="phrase"><a name="spirit.karma.reference.basics.lazy_argument"></a></span><a class="link" href="basics.html#spirit.karma.reference.basics.lazy_argument">Lazy
           Argument</a>
         </h6>
 <p>
@@ -54,7 +55,7 @@
         </p>
 <h6>
 <a name="spirit.karma.reference.basics.h1"></a>
-          <span><a name="spirit.karma.reference.basics.character_encoding_namespace"></a></span><a class="link" href="basics.html#spirit.karma.reference.basics.character_encoding_namespace">Character
+          <span class="phrase"><a name="spirit.karma.reference.basics.character_encoding_namespace"></a></span><a class="link" href="basics.html#spirit.karma.reference.basics.character_encoding_namespace">Character
           Encoding Namespace</a>
         </h6>
 <p>
@@ -81,7 +82,7 @@
 <p>
           Namespaces:
         </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
               boost::spirit::ascii
             </li>
@@ -99,7 +100,7 @@
           For ease of use, the components in this namespaces are also brought into
           the karma sub-namespaces with the same names:
         </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
               boost::spirit::karma::ascii
             </li>
@@ -115,7 +116,7 @@
 </ul></div>
 <h6>
 <a name="spirit.karma.reference.basics.h2"></a>
-          <span><a name="spirit.karma.reference.basics.examples"></a></span><a class="link" href="basics.html#spirit.karma.reference.basics.examples">Examples</a>
+          <span class="phrase"><a name="spirit.karma.reference.basics.examples"></a></span><a class="link" href="basics.html#spirit.karma.reference.basics.examples">Examples</a>
         </h6>
 <p>
           All sections in the reference present some real world examples. The examples
@@ -129,9 +130,10 @@
 </p>
 <pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">spirit</span><span class="special">/</span><span class="identifier">include</span><span class="special">/</span><span class="identifier">karma</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
 <span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">spirit</span><span class="special">/</span><span class="identifier">include</span><span class="special">/</span><span class="identifier">support_utree</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
-<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">spirit</span><span class="special">/</span><span class="identifier">include</span><span class="special">/</span><span class="identifier">phoenix_core</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
-<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">spirit</span><span class="special">/</span><span class="identifier">include</span><span class="special">/</span><span class="identifier">phoenix_operator</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">phoenix</span><span class="special">/</span><span class="identifier">core</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">phoenix</span><span class="special">/</span><span class="keyword">operator</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
 <span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">fusion</span><span class="special">/</span><span class="identifier">include</span><span class="special">/</span><span class="identifier">std_pair</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+<span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">proto</span><span class="special">/</span><span class="identifier">deep_copy</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
 <span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">iostream</span><span class="special">&gt;</span>
 <span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">string</span><span class="special">&gt;</span>
 </pre>
@@ -256,12 +258,12 @@
         </p>
 <h6>
 <a name="spirit.karma.reference.basics.h3"></a>
-          <span><a name="spirit.karma.reference.basics.models"></a></span><a class="link" href="basics.html#spirit.karma.reference.basics.models">Models</a>
+          <span class="phrase"><a name="spirit.karma.reference.basics.models"></a></span><a class="link" href="basics.html#spirit.karma.reference.basics.models">Models</a>
         </h6>
 <p>
           Predefined models include:
         </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
               any literal string, e.g. "Hello, World",
             </li>
@@ -279,14 +281,11 @@
           <a class="link" href="../../advanced/customize.html" title="Customization of Spirit's Attribute Handling">Customization of Attribute Handling</a>.
         </p>
 </div>
-<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
-<td align="left"></td>
-<td align="right"><div class="copyright-footer">Copyright &#169; 2001-2011 Joel de Guzman, Hartmut Kaiser<p>
+<div class="copyright-footer">Copyright © 2001-2011 Joel de Guzman, Hartmut Kaiser<p>
         Distributed under the Boost Software License, Version 1.0. (See accompanying
         file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
       </p>
-</div></td>
-</tr></table>
+</div>
 <hr>
 <div class="spirit-nav">
 <a accesskey="p" href="generator_concepts/nonterminal.html"><img src="../../../../../../../doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../reference.html"><img src="../../../../../../../doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../../../index.html"><img src="../../../../../../../doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="generate_api.html"><img src="../../../../../../../doc/src/images/next.png" alt="Next"></a>

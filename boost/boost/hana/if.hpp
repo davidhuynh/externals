@@ -2,7 +2,7 @@
 @file
 Defines `boost::hana::if_`.
 
-@copyright Louis Dionne 2013-2016
+Copyright Louis Dionne 2013-2022
 Distributed under the Boost Software License, Version 1.0.
 (See accompanying file LICENSE.md or copy at http://boost.org/LICENSE_1_0.txt)
  */
@@ -18,10 +18,10 @@ Distributed under the Boost Software License, Version 1.0.
 #include <boost/hana/eval_if.hpp>
 
 
-BOOST_HANA_NAMESPACE_BEGIN
+namespace boost { namespace hana {
     //! @cond
     template <typename Cond, typename Then, typename Else>
-    constexpr decltype(auto) if_t::operator()(Cond&& cond, Then&& then, Else&& else_) const {
+    constexpr decltype(auto) if_t::operator()(Cond&& cond, Then&& then_, Else&& else_) const {
         using Bool = typename hana::tag_of<Cond>::type;
         using If = BOOST_HANA_DISPATCH_IF(if_impl<Bool>,
             hana::Logical<Bool>::value
@@ -33,7 +33,7 @@ BOOST_HANA_NAMESPACE_BEGIN
     #endif
 
         return If::apply(static_cast<Cond&&>(cond),
-                         static_cast<Then&&>(then),
+                         static_cast<Then&&>(then_),
                          static_cast<Else&&>(else_));
     }
     //! @endcond
@@ -56,6 +56,6 @@ BOOST_HANA_NAMESPACE_BEGIN
             );
         }
     };
-BOOST_HANA_NAMESPACE_END
+}} // end namespace boost::hana
 
 #endif // !BOOST_HANA_IF_HPP

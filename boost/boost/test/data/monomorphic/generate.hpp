@@ -16,6 +16,8 @@
 #include <boost/test/data/config.hpp>
 #include <boost/test/data/monomorphic/fwd.hpp>
 
+#include <boost/core/ref.hpp>
+
 #include <boost/test/detail/suppress_warnings.hpp>
 
 //____________________________________________________________________________//
@@ -46,7 +48,7 @@ class generated_by {
 public:
     typedef typename Generator::sample sample;
 
-    enum { arity = 1 };
+    static const int arity = 1;
 
     struct iterator {
         // Constructor

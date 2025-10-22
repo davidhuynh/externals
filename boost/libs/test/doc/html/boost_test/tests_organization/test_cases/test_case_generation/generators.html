@@ -1,13 +1,14 @@
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Datasets generators</title>
 <link rel="stylesheet" href="../../../../boostbook.css" type="text/css">
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
 <link rel="home" href="../../../../index.html" title="Boost.Test">
 <link rel="up" href="../test_case_generation.html" title="Data-driven test cases">
 <link rel="prev" href="operations.html" title="Operations on dataset">
 <link rel="next" href="../test_organization_templates.html" title="Template test cases">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
 <table cellpadding="2" width="100%"><tr>
@@ -31,7 +32,7 @@
             Several <span class="emphasis"><em>generators</em></span> for datasets are implemented
             in <span class="emphasis"><em>Unit Test Framework</em></span>:
           </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
                 <a class="link" href="generators.html#boost_test.tests_organization.test_cases.test_case_generation.generators.singletons">Singletons</a>
               </li>
@@ -55,13 +56,13 @@
           </p>
 <h5>
 <a name="boost_test.tests_organization.test_cases.test_case_generation.generators.h0"></a>
-            <span><a name="boost_test.tests_organization.test_cases.test_case_generation.generators.singletons"></a></span><a class="link" href="generators.html#boost_test.tests_organization.test_cases.test_case_generation.generators.singletons">Singletons</a>
+            <span class="phrase"><a name="boost_test.tests_organization.test_cases.test_case_generation.generators.singletons"></a></span><a class="link" href="generators.html#boost_test.tests_organization.test_cases.test_case_generation.generators.singletons">Singletons</a>
           </h5>
 <p>
             A singleton is a dataset containing a unique value. The size and arity
             of such a dataset is 1. This value can be
           </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
                 either consumed once
               </li>
@@ -74,11 +75,11 @@
             of infinite size, the resulting dataset will have a size of 1.
           </p>
 <p>
-            The singleton is constructible through the function <code class="computeroutput"><a class="link" href="../../../../boost/unit_test/data/make_idp26471104.html" title="Function make">boost::unit_test::data::make</a></code>.
+            The singleton is constructible through the function <code class="computeroutput"><a class="link" href="../../../../doxygen/a00788.html#doxygen.a00867_1ae2a718aa3cba362df6f827dbad955120">boost::unit_test::data::make</a></code>.
           </p>
 <h6>
 <a name="boost_test.tests_organization.test_cases.test_case_generation.generators.h1"></a>
-            <span><a name="boost_test.tests_organization.test_cases.test_case_generation.generators.example_descr"></a></span><a class="link" href="generators.html#boost_test.tests_organization.test_cases.test_case_generation.generators.example_descr">Example:
+            <span class="phrase"><a name="boost_test.tests_organization.test_cases.test_case_generation.generators.example_descr"></a></span><a class="link" href="generators.html#boost_test.tests_organization.test_cases.test_case_generation.generators.example_descr">Example:
             Singleton</a>
           </h6>
 <div class="informaltable"><table class="table">
@@ -89,7 +90,7 @@
                     </p>
                   </th></tr></thead>
 <tbody><tr><td>
-<pre xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" class="table-programlisting"><span class="preprocessor">#define</span> <span class="identifier">BOOST_TEST_MODULE</span> <span class="identifier">dataset_example65</span>
+<pre class="table-programlisting"><span class="preprocessor">#define</span> <span class="identifier">BOOST_TEST_MODULE</span> <span class="identifier">dataset_example65</span>
 <span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">test</span><span class="special">/</span><span class="identifier">included</span><span class="special">/</span><span class="identifier">unit_test</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
 <span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">test</span><span class="special">/</span><span class="identifier">data</span><span class="special">/</span><span class="identifier">test_case</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
 <span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">test</span><span class="special">/</span><span class="identifier">data</span><span class="special">/</span><span class="identifier">monomorphic</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
@@ -129,7 +130,7 @@
                     </p>
                   </th></tr></thead>
 <tbody><tr><td>
-<pre xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" class="table-programlisting"><span class="special">&gt;</span> <span class="identifier">dataset_example65</span>
+<pre class="table-programlisting"><span class="special">&gt;</span> <span class="identifier">dataset_example65</span>
 <span class="identifier">Running</span> <span class="number">4</span> <span class="identifier">test</span> <span class="identifier">cases</span><span class="special">...</span>
 <span class="identifier">test</span> <span class="number">1</span><span class="special">:</span> <span class="number">2</span>
 <span class="identifier">test</span> <span class="number">2</span><span class="special">:</span> <span class="number">0</span><span class="special">,</span> <span class="number">2</span>
@@ -142,7 +143,7 @@
 </table></div>
 <h5>
 <a name="boost_test.tests_organization.test_cases.test_case_generation.generators.h2"></a>
-            <span><a name="boost_test.tests_organization.test_cases.test_case_generation.generators.c_arrays"></a></span><a class="link" href="generators.html#boost_test.tests_organization.test_cases.test_case_generation.generators.c_arrays">Datasets
+            <span class="phrase"><a name="boost_test.tests_organization.test_cases.test_case_generation.generators.c_arrays"></a></span><a class="link" href="generators.html#boost_test.tests_organization.test_cases.test_case_generation.generators.c_arrays">Datasets
             from C arrays</a>
           </h5>
 <p>
@@ -152,12 +153,12 @@
             The arity is 1 and the size is the size of the array.
           </p>
 <p>
-            Such datasets are simply constructed from an overload of the <code class="computeroutput"><a class="link" href="../../../../boost/unit_test/data/make_idp26471104.html" title="Function make">make</a></code>
+            Such datasets are simply constructed from an overload of the <code class="computeroutput"><a class="link" href="../../../../doxygen/a00788.html#doxygen.a00867_1ae2a718aa3cba362df6f827dbad955120">make</a></code>
             function.
           </p>
 <h6>
 <a name="boost_test.tests_organization.test_cases.test_case_generation.generators.h3"></a>
-            <span><a name="boost_test.tests_organization.test_cases.test_case_generation.generators.example_descr0"></a></span><a class="link" href="generators.html#boost_test.tests_organization.test_cases.test_case_generation.generators.example_descr0">Example:
+            <span class="phrase"><a name="boost_test.tests_organization.test_cases.test_case_generation.generators.example_descr0"></a></span><a class="link" href="generators.html#boost_test.tests_organization.test_cases.test_case_generation.generators.example_descr0">Example:
             Array</a>
           </h6>
 <div class="informaltable"><table class="table">
@@ -168,7 +169,7 @@
                     </p>
                   </th></tr></thead>
 <tbody><tr><td>
-<pre xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" class="table-programlisting"><span class="preprocessor">#define</span> <span class="identifier">BOOST_TEST_MODULE</span> <span class="identifier">dataset_example66</span>
+<pre class="table-programlisting"><span class="preprocessor">#define</span> <span class="identifier">BOOST_TEST_MODULE</span> <span class="identifier">dataset_example66</span>
 <span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">test</span><span class="special">/</span><span class="identifier">included</span><span class="special">/</span><span class="identifier">unit_test</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
 <span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">test</span><span class="special">/</span><span class="identifier">data</span><span class="special">/</span><span class="identifier">test_case</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
 <span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">test</span><span class="special">/</span><span class="identifier">data</span><span class="special">/</span><span class="identifier">monomorphic</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
@@ -199,7 +200,7 @@
                     </p>
                   </th></tr></thead>
 <tbody><tr><td>
-<pre xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" class="table-programlisting"><span class="special">&gt;</span> <span class="identifier">dataset_example66</span>
+<pre class="table-programlisting"><span class="special">&gt;</span> <span class="identifier">dataset_example66</span>
 <span class="identifier">Running</span> <span class="number">2</span> <span class="identifier">test</span> <span class="identifier">cases</span><span class="special">...</span>
 <span class="identifier">test</span> <span class="number">1</span><span class="special">:</span> <span class="number">0</span><span class="special">,</span> <span class="identifier">cat</span>
 <span class="identifier">test</span> <span class="number">1</span><span class="special">:</span> <span class="number">1</span><span class="special">,</span> <span class="identifier">dog</span>
@@ -210,7 +211,7 @@
 </table></div>
 <h5>
 <a name="boost_test.tests_organization.test_cases.test_case_generation.generators.h4"></a>
-            <span><a name="boost_test.tests_organization.test_cases.test_case_generation.generators.stl"></a></span><a class="link" href="generators.html#boost_test.tests_organization.test_cases.test_case_generation.generators.stl">Datasets
+            <span class="phrase"><a name="boost_test.tests_organization.test_cases.test_case_generation.generators.stl"></a></span><a class="link" href="generators.html#boost_test.tests_organization.test_cases.test_case_generation.generators.stl">Datasets
             from forward iterable containers</a>
           </h5>
 <p>
@@ -232,7 +233,7 @@
 </table></div>
 <h6>
 <a name="boost_test.tests_organization.test_cases.test_case_generation.generators.h5"></a>
-            <span><a name="boost_test.tests_organization.test_cases.test_case_generation.generators.example_descr1"></a></span><a class="link" href="generators.html#boost_test.tests_organization.test_cases.test_case_generation.generators.example_descr1">Example:
+            <span class="phrase"><a name="boost_test.tests_organization.test_cases.test_case_generation.generators.example_descr1"></a></span><a class="link" href="generators.html#boost_test.tests_organization.test_cases.test_case_generation.generators.example_descr1">Example:
             Dataset from <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">vector</span></code> and <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">map</span></code></a>
           </h6>
 <div class="informaltable"><table class="table">
@@ -243,7 +244,7 @@
                     </p>
                   </th></tr></thead>
 <tbody><tr><td>
-<pre xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" class="table-programlisting"><span class="preprocessor">#define</span> <span class="identifier">BOOST_TEST_MODULE</span> <span class="identifier">example67</span>
+<pre class="table-programlisting"><span class="preprocessor">#define</span> <span class="identifier">BOOST_TEST_MODULE</span> <span class="identifier">example67</span>
 <span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">test</span><span class="special">/</span><span class="identifier">included</span><span class="special">/</span><span class="identifier">unit_test</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
 <span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">test</span><span class="special">/</span><span class="identifier">data</span><span class="special">/</span><span class="identifier">test_case</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
 <span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">test</span><span class="special">/</span><span class="identifier">data</span><span class="special">/</span><span class="identifier">monomorphic</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
@@ -314,7 +315,7 @@
                     </p>
                   </th></tr></thead>
 <tbody><tr><td>
-<pre xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" class="table-programlisting"><span class="special">&gt;</span> <span class="identifier">dataset_example67</span>
+<pre class="table-programlisting"><span class="special">&gt;</span> <span class="identifier">dataset_example67</span>
 <span class="identifier">Running</span> <span class="number">15</span> <span class="identifier">test</span> <span class="identifier">cases</span><span class="special">...</span>
 <span class="identifier">test</span> <span class="number">1</span><span class="special">:</span> <span class="number">0</span>
 <span class="identifier">test</span> <span class="number">1</span><span class="special">:</span> <span class="number">1</span>
@@ -338,7 +339,7 @@
 </table></div>
 <h5>
 <a name="boost_test.tests_organization.test_cases.test_case_generation.generators.h6"></a>
-            <span><a name="boost_test.tests_organization.test_cases.test_case_generation.generators.ranges"></a></span><a class="link" href="generators.html#boost_test.tests_organization.test_cases.test_case_generation.generators.ranges">Ranges</a>
+            <span class="phrase"><a name="boost_test.tests_organization.test_cases.test_case_generation.generators.ranges"></a></span><a class="link" href="generators.html#boost_test.tests_organization.test_cases.test_case_generation.generators.ranges">Ranges</a>
           </h5>
 <p>
             A range is a dataset that implements a sequence of equally spaced values,
@@ -346,7 +347,7 @@
             and a <span class="emphasis"><em>step</em></span>.
           </p>
 <p>
-            It is possible to construct a range using the factory <code class="computeroutput"><a class="link" href="../../../../boost/unit_test/data/xrange.html" title="Function xrange">boost::unit_test::data::xrange</a></code>,
+            It is possible to construct a range using the factory <code class="computeroutput"><a class="link" href="../../../../doxygen/a00867_1ab271da61d6a5d7eb4d0ff601c6cbecb9.html" title="Function template xrange">boost::unit_test::data::xrange</a></code>,
             available in the overloads below:
           </p>
 <pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">test</span><span class="special">/</span><span class="identifier">data</span><span class="special">/</span><span class="identifier">test_case</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
@@ -369,13 +370,13 @@
 </table></div>
 <h6>
 <a name="boost_test.tests_organization.test_cases.test_case_generation.generators.h7"></a>
-            <span><a name="boost_test.tests_organization.test_cases.test_case_generation.generators.parameters"></a></span><a class="link" href="generators.html#boost_test.tests_organization.test_cases.test_case_generation.generators.parameters">Parameters</a>
+            <span class="phrase"><a name="boost_test.tests_organization.test_cases.test_case_generation.generators.parameters"></a></span><a class="link" href="generators.html#boost_test.tests_organization.test_cases.test_case_generation.generators.parameters">Parameters</a>
           </h6>
 <p>
             The details of the named value parameters is given in the table below.
           </p>
 <div class="table">
-<a name="boost_test.tests_organization.test_cases.test_case_generation.generators.id_range_parameter_table"></a><p class="title"><b>Table&#160;1.&#160;Range parameters</b></p>
+<a name="boost_test.tests_organization.test_cases.test_case_generation.generators.id_range_parameter_table"></a><p class="title"><b>Table 1. Range parameters</b></p>
 <div class="table-contents"><table class="table" summary="Range parameters">
 <colgroup>
 <col>
@@ -462,7 +463,7 @@
 </div>
 <br class="table-break"><h6>
 <a name="boost_test.tests_organization.test_cases.test_case_generation.generators.h8"></a>
-            <span><a name="boost_test.tests_organization.test_cases.test_case_generation.generators.example_descr2"></a></span><a class="link" href="generators.html#boost_test.tests_organization.test_cases.test_case_generation.generators.example_descr2">Example:
+            <span class="phrase"><a name="boost_test.tests_organization.test_cases.test_case_generation.generators.example_descr2"></a></span><a class="link" href="generators.html#boost_test.tests_organization.test_cases.test_case_generation.generators.example_descr2">Example:
             Declaring a test with a range</a>
           </h6>
 <div class="informaltable"><table class="table">
@@ -473,7 +474,7 @@
                     </p>
                   </th></tr></thead>
 <tbody><tr><td>
-<pre xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" class="table-programlisting"><span class="preprocessor">#define</span> <span class="identifier">BOOST_TEST_MODULE</span> <span class="identifier">dataset_example59</span>
+<pre class="table-programlisting"><span class="preprocessor">#define</span> <span class="identifier">BOOST_TEST_MODULE</span> <span class="identifier">dataset_example59</span>
 <span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">test</span><span class="special">/</span><span class="identifier">included</span><span class="special">/</span><span class="identifier">unit_test</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
 <span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">test</span><span class="special">/</span><span class="identifier">data</span><span class="special">/</span><span class="identifier">test_case</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
 <span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">test</span><span class="special">/</span><span class="identifier">data</span><span class="special">/</span><span class="identifier">monomorphic</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
@@ -504,7 +505,7 @@
                     </p>
                   </th></tr></thead>
 <tbody><tr><td>
-<pre xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" class="table-programlisting"><span class="special">&gt;</span> <span class="identifier">dataset_example61</span>
+<pre class="table-programlisting"><span class="special">&gt;</span> <span class="identifier">dataset_example59</span>
 <span class="identifier">Running</span> <span class="number">8</span> <span class="identifier">test</span> <span class="identifier">cases</span><span class="special">...</span>
 <span class="identifier">test</span> <span class="number">1</span><span class="special">:</span> <span class="number">0</span>
 <span class="identifier">test</span> <span class="number">1</span><span class="special">:</span> <span class="number">1</span>
@@ -514,7 +515,7 @@
 <span class="identifier">test</span> <span class="number">2</span><span class="special">:</span> <span class="number">1</span>
 <span class="identifier">test</span> <span class="number">2</span><span class="special">:</span> <span class="number">4</span>
 <span class="identifier">test</span> <span class="number">2</span><span class="special">:</span> <span class="number">7</span>
-<span class="identifier">test</span><span class="special">.</span><span class="identifier">cpp</span><span class="special">(</span><span class="number">27</span><span class="special">):</span> <span class="identifier">error</span><span class="special">:</span> <span class="identifier">in</span> <span class="string">"test2"</span><span class="special">:</span> <span class="identifier">check</span> <span class="special">(</span><span class="identifier">sample</span> <span class="special">&lt;=</span> <span class="number">4</span> <span class="special">&amp;&amp;</span> <span class="identifier">sample</span> <span class="special">&gt;=</span> <span class="number">0</span><span class="special">)</span> <span class="identifier">has</span> <span class="identifier">failed</span>
+<span class="identifier">test</span><span class="special">.</span><span class="identifier">cpp</span><span class="special">(</span><span class="number">27</span><span class="special">):</span> <span class="identifier">error</span><span class="special">:</span> <span class="identifier">in</span> <span class="string">"test2/_2"</span><span class="special">:</span> <span class="identifier">check</span> <span class="special">(</span><span class="identifier">sample</span> <span class="special">&lt;=</span> <span class="number">4</span> <span class="special">&amp;&amp;</span> <span class="identifier">sample</span> <span class="special">&gt;=</span> <span class="number">0</span><span class="special">)</span> <span class="identifier">has</span> <span class="identifier">failed</span>
 <span class="identifier">Failure</span> <span class="identifier">occurred</span> <span class="identifier">in</span> <span class="identifier">a</span> <span class="identifier">following</span> <span class="identifier">context</span><span class="special">:</span>
     <span class="identifier">sample</span> <span class="special">=</span> <span class="number">7</span><span class="special">;</span>
 
@@ -524,7 +525,7 @@
 </table></div>
 <h5>
 <a name="boost_test.tests_organization.test_cases.test_case_generation.generators.h9"></a>
-            <span><a name="boost_test.tests_organization.test_cases.test_case_generation.generators.random"></a></span><a class="link" href="generators.html#boost_test.tests_organization.test_cases.test_case_generation.generators.random">Random
+            <span class="phrase"><a name="boost_test.tests_organization.test_cases.test_case_generation.generators.random"></a></span><a class="link" href="generators.html#boost_test.tests_organization.test_cases.test_case_generation.generators.random">Random
             value dataset</a>
           </h5>
 <p>
@@ -539,12 +540,12 @@
 </tr>
 <tr><td align="left" valign="top"><p>
               The random value generator is available only for C++11 capable compilers.
-              If this feature is not supported for your compiler, the macro <code class="computeroutput"><a class="link" href="../../../../BOOST_TEST_NO_RANDOM_DATASET_AVAILABLE.html" title="Macro BOOST_TEST_NO_RANDOM_DATASET_AVAILABLE">BOOST_TEST_NO_RANDOM_DATASET_AVAILABLE</a></code>
+              If this feature is not supported for your compiler, the macro <code class="computeroutput"><a class="link" href="../../../../doxygen/a00809_1a8524e9dc1fe870a7e7ff3d9e6bff5027.html" title="Macro BOOST_TEST_NO_RANDOM_DATASET_AVAILABLE">BOOST_TEST_NO_RANDOM_DATASET_AVAILABLE</a></code>
               will be automatically set by the <span class="emphasis"><em>Unit Test Framework</em></span>
             </p></td></tr>
 </table></div>
 <p>
-            It is possible to construct a random sequence using the factory <code class="computeroutput"><a class="link" href="../../../../boost/unit_test/data/random.html" title="Function random">boost::unit_test::data::random</a></code>,
+            It is possible to construct a random sequence using the factory <code class="computeroutput"><a class="link" href="../../../../doxygen/a00867_1aa047482a660068cc9a1b90d4e5341d1f.html" title="Function random">boost::unit_test::data::random</a></code>,
             available in the overloads below:
           </p>
 <pre class="programlisting"><span class="keyword">auto</span> <span class="identifier">rdgen</span> <span class="special">=</span> <span class="identifier">random</span><span class="special">();</span> <span class="comment">// uniform distribution (real) on [0, 1)</span>
@@ -571,13 +572,13 @@
 </table></div>
 <h6>
 <a name="boost_test.tests_organization.test_cases.test_case_generation.generators.h10"></a>
-            <span><a name="boost_test.tests_organization.test_cases.test_case_generation.generators.parameters0"></a></span><a class="link" href="generators.html#boost_test.tests_organization.test_cases.test_case_generation.generators.parameters0">Parameters</a>
+            <span class="phrase"><a name="boost_test.tests_organization.test_cases.test_case_generation.generators.parameters0"></a></span><a class="link" href="generators.html#boost_test.tests_organization.test_cases.test_case_generation.generators.parameters0">Parameters</a>
           </h6>
 <p>
             The details of the named value parameters is given in the table below.
           </p>
 <div class="table">
-<a name="boost_test.tests_organization.test_cases.test_case_generation.generators.id_range_parameter_table0"></a><p class="title"><b>Table&#160;2.&#160;Range parameters</b></p>
+<a name="boost_test.tests_organization.test_cases.test_case_generation.generators.id_range_parameter_table0"></a><p class="title"><b>Table 2. Range parameters</b></p>
 <div class="table-contents"><table class="table" summary="Range parameters">
 <colgroup>
 <col>
@@ -661,7 +662,7 @@
 </div>
 <br class="table-break"><h6>
 <a name="boost_test.tests_organization.test_cases.test_case_generation.generators.h11"></a>
-            <span><a name="boost_test.tests_organization.test_cases.test_case_generation.generators.example_descr3"></a></span><a class="link" href="generators.html#boost_test.tests_organization.test_cases.test_case_generation.generators.example_descr3">Example:
+            <span class="phrase"><a name="boost_test.tests_organization.test_cases.test_case_generation.generators.example_descr3"></a></span><a class="link" href="generators.html#boost_test.tests_organization.test_cases.test_case_generation.generators.example_descr3">Example:
             Declaring a test with a random sequence</a>
           </h6>
 <div class="informaltable"><table class="table">
@@ -672,7 +673,7 @@
                     </p>
                   </th></tr></thead>
 <tbody><tr><td>
-<pre xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" class="table-programlisting"><span class="preprocessor">#define</span> <span class="identifier">BOOST_TEST_MODULE</span> <span class="identifier">dataset_example63</span>
+<pre class="table-programlisting"><span class="preprocessor">#define</span> <span class="identifier">BOOST_TEST_MODULE</span> <span class="identifier">dataset_example63</span>
 <span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">test</span><span class="special">/</span><span class="identifier">included</span><span class="special">/</span><span class="identifier">unit_test</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
 <span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">test</span><span class="special">/</span><span class="identifier">data</span><span class="special">/</span><span class="identifier">test_case</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
 <span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">test</span><span class="special">/</span><span class="identifier">data</span><span class="special">/</span><span class="identifier">monomorphic</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
@@ -711,51 +712,36 @@
                     </p>
                   </th></tr></thead>
 <tbody><tr><td>
-<pre xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" class="table-programlisting"><span class="special">&gt;</span> <span class="identifier">dataset_example63</span>
+<pre class="table-programlisting"><span class="special">&gt;</span> <span class="identifier">dataset_example63</span>
 <span class="identifier">Running</span> <span class="number">14</span> <span class="identifier">test</span> <span class="identifier">cases</span><span class="special">...</span>
-<span class="identifier">test</span> <span class="number">1</span><span class="special">:</span> <span class="number">1</span><span class="special">,</span> <span class="number">0</span>
-<span class="identifier">test</span> <span class="number">1</span><span class="special">:</span> <span class="number">14</span><span class="special">,</span> <span class="number">1</span>
-<span class="identifier">test</span> <span class="number">1</span><span class="special">:</span> <span class="number">13</span><span class="special">,</span> <span class="number">2</span>
-<span class="identifier">test</span> <span class="number">1</span><span class="special">:</span> <span class="number">15</span><span class="special">,</span> <span class="number">3</span>
-<span class="identifier">test</span> <span class="number">1</span><span class="special">:</span> <span class="number">13</span><span class="special">,</span> <span class="number">4</span>
-<span class="identifier">test</span> <span class="number">1</span><span class="special">:</span> <span class="number">17</span><span class="special">,</span> <span class="number">5</span>
-<span class="identifier">test</span> <span class="number">1</span><span class="special">:</span> <span class="number">11</span><span class="special">,</span> <span class="number">6</span>
-<span class="identifier">test</span> <span class="number">2</span><span class="special">:</span> <span class="number">1.81472</span><span class="special">,</span> <span class="number">0</span>
-<span class="identifier">test</span><span class="special">.</span><span class="identifier">cpp</span><span class="special">(</span><span class="number">35</span><span class="special">):</span> <span class="identifier">error</span><span class="special">:</span> <span class="identifier">in</span> <span class="string">"test2"</span><span class="special">:</span> <span class="identifier">check</span> <span class="identifier">random_sample</span> <span class="special">&lt;</span> <span class="number">1.7</span> <span class="identifier">has</span> <span class="identifier">failed</span>
+<span class="identifier">test</span> <span class="number">1</span><span class="special">:</span> <span class="number">2</span><span class="special">,</span> <span class="number">0</span>
+<span class="identifier">test</span> <span class="number">1</span><span class="special">:</span> <span class="number">3</span><span class="special">,</span> <span class="number">1</span>
+<span class="identifier">test</span> <span class="number">1</span><span class="special">:</span> <span class="number">2</span><span class="special">,</span> <span class="number">2</span>
+<span class="identifier">test</span> <span class="number">1</span><span class="special">:</span> <span class="number">8</span><span class="special">,</span> <span class="number">3</span>
+<span class="identifier">test</span> <span class="number">1</span><span class="special">:</span> <span class="number">10</span><span class="special">,</span> <span class="number">4</span>
+<span class="identifier">test</span> <span class="number">1</span><span class="special">:</span> <span class="number">15</span><span class="special">,</span> <span class="number">5</span>
+<span class="identifier">test</span> <span class="number">1</span><span class="special">:</span> <span class="number">8</span><span class="special">,</span> <span class="number">6</span>
+<span class="identifier">test</span> <span class="number">2</span><span class="special">:</span> <span class="number">1.00001</span><span class="special">,</span> <span class="number">0</span>
+<span class="identifier">test</span> <span class="number">2</span><span class="special">:</span> <span class="number">1.13154</span><span class="special">,</span> <span class="number">1</span>
+<span class="identifier">test</span> <span class="number">2</span><span class="special">:</span> <span class="number">1.75561</span><span class="special">,</span> <span class="number">2</span>
+<span class="identifier">test</span><span class="special">.</span><span class="identifier">cpp</span><span class="special">(</span><span class="number">35</span><span class="special">):</span> <span class="identifier">error</span><span class="special">:</span> <span class="identifier">in</span> <span class="string">"test2/_2"</span><span class="special">:</span> <span class="identifier">check</span> <span class="identifier">random_sample</span> <span class="special">&lt;</span> <span class="number">1.7</span> <span class="identifier">has</span> <span class="identifier">failed</span> <span class="special">[</span><span class="number">1.75560534</span> <span class="special">&gt;=</span> <span class="number">1.7</span><span class="special">]</span>
 <span class="identifier">Failure</span> <span class="identifier">occurred</span> <span class="identifier">in</span> <span class="identifier">a</span> <span class="identifier">following</span> <span class="identifier">context</span><span class="special">:</span>
-    <span class="identifier">random_sample</span> <span class="special">=</span> <span class="number">1.81472373</span><span class="special">;</span> <span class="identifier">index</span> <span class="special">=</span> <span class="number">0</span><span class="special">;</span>
-<span class="identifier">test</span> <span class="number">2</span><span class="special">:</span> <span class="number">1.13548</span><span class="special">,</span> <span class="number">1</span>
-<span class="identifier">test</span> <span class="number">2</span><span class="special">:</span> <span class="number">1.90579</span><span class="special">,</span> <span class="number">2</span>
-<span class="identifier">test</span><span class="special">.</span><span class="identifier">cpp</span><span class="special">(</span><span class="number">35</span><span class="special">):</span> <span class="identifier">error</span><span class="special">:</span> <span class="identifier">in</span> <span class="string">"test2"</span><span class="special">:</span> <span class="identifier">check</span> <span class="identifier">random_sample</span> <span class="special">&lt;</span> <span class="number">1.7</span> <span class="identifier">has</span> <span class="identifier">failed</span>
-<span class="identifier">Failure</span> <span class="identifier">occurred</span> <span class="identifier">in</span> <span class="identifier">a</span> <span class="identifier">following</span> <span class="identifier">context</span><span class="special">:</span>
-    <span class="identifier">random_sample</span> <span class="special">=</span> <span class="number">1.905792</span><span class="special">;</span> <span class="identifier">index</span> <span class="special">=</span> <span class="number">2</span><span class="special">;</span>
-<span class="identifier">test</span> <span class="number">2</span><span class="special">:</span> <span class="number">1.83501</span><span class="special">,</span> <span class="number">3</span>
-<span class="identifier">test</span><span class="special">.</span><span class="identifier">cpp</span><span class="special">(</span><span class="number">35</span><span class="special">):</span> <span class="identifier">error</span><span class="special">:</span> <span class="identifier">in</span> <span class="string">"test2"</span><span class="special">:</span> <span class="identifier">check</span> <span class="identifier">random_sample</span> <span class="special">&lt;</span> <span class="number">1.7</span> <span class="identifier">has</span> <span class="identifier">failed</span>
-<span class="identifier">Failure</span> <span class="identifier">occurred</span> <span class="identifier">in</span> <span class="identifier">a</span> <span class="identifier">following</span> <span class="identifier">context</span><span class="special">:</span>
-    <span class="identifier">random_sample</span> <span class="special">=</span> <span class="number">1.83500862</span><span class="special">;</span> <span class="identifier">index</span> <span class="special">=</span> <span class="number">3</span><span class="special">;</span>
-<span class="identifier">test</span> <span class="number">2</span><span class="special">:</span> <span class="number">1.12699</span><span class="special">,</span> <span class="number">4</span>
-<span class="identifier">test</span> <span class="number">2</span><span class="special">:</span> <span class="number">1.96887</span><span class="special">,</span> <span class="number">5</span>
-<span class="identifier">test</span><span class="special">.</span><span class="identifier">cpp</span><span class="special">(</span><span class="number">35</span><span class="special">):</span> <span class="identifier">error</span><span class="special">:</span> <span class="identifier">in</span> <span class="string">"test2"</span><span class="special">:</span> <span class="identifier">check</span> <span class="identifier">random_sample</span> <span class="special">&lt;</span> <span class="number">1.7</span> <span class="identifier">has</span> <span class="identifier">failed</span>
-<span class="identifier">Failure</span> <span class="identifier">occurred</span> <span class="identifier">in</span> <span class="identifier">a</span> <span class="identifier">following</span> <span class="identifier">context</span><span class="special">:</span>
-    <span class="identifier">random_sample</span> <span class="special">=</span> <span class="number">1.96886778</span><span class="special">;</span> <span class="identifier">index</span> <span class="special">=</span> <span class="number">5</span><span class="special">;</span>
-<span class="identifier">test</span> <span class="number">2</span><span class="special">:</span> <span class="number">1.91338</span><span class="special">,</span> <span class="number">6</span>
-<span class="identifier">test</span><span class="special">.</span><span class="identifier">cpp</span><span class="special">(</span><span class="number">35</span><span class="special">):</span> <span class="identifier">error</span><span class="special">:</span> <span class="identifier">in</span> <span class="string">"test2"</span><span class="special">:</span> <span class="identifier">check</span> <span class="identifier">random_sample</span> <span class="special">&lt;</span> <span class="number">1.7</span> <span class="identifier">has</span> <span class="identifier">failed</span>
-<span class="identifier">Failure</span> <span class="identifier">occurred</span> <span class="identifier">in</span> <span class="identifier">a</span> <span class="identifier">following</span> <span class="identifier">context</span><span class="special">:</span>
-    <span class="identifier">random_sample</span> <span class="special">=</span> <span class="number">1.91337585</span><span class="special">;</span> <span class="identifier">index</span> <span class="special">=</span> <span class="number">6</span><span class="special">;</span>
+    <span class="identifier">random_sample</span> <span class="special">=</span> <span class="number">1.75560534</span><span class="special">;</span> <span class="identifier">index</span> <span class="special">=</span> <span class="number">2</span><span class="special">;</span>
+<span class="identifier">test</span> <span class="number">2</span><span class="special">:</span> <span class="number">1.45865</span><span class="special">,</span> <span class="number">3</span>
+<span class="identifier">test</span> <span class="number">2</span><span class="special">:</span> <span class="number">1.53277</span><span class="special">,</span> <span class="number">4</span>
+<span class="identifier">test</span> <span class="number">2</span><span class="special">:</span> <span class="number">1.21896</span><span class="special">,</span> <span class="number">5</span>
+<span class="identifier">test</span> <span class="number">2</span><span class="special">:</span> <span class="number">1.04704</span><span class="special">,</span> <span class="number">6</span>
 
-<span class="special">***</span> <span class="number">5</span> <span class="identifier">failures</span> <span class="identifier">are</span> <span class="identifier">detected</span> <span class="identifier">in</span> <span class="identifier">the</span> <span class="identifier">test</span> <span class="identifier">module</span> <span class="string">"dataset_example63"</span>
+<span class="special">***</span> <span class="number">1</span> <span class="identifier">failure</span> <span class="identifier">is</span> <span class="identifier">detected</span> <span class="identifier">in</span> <span class="identifier">the</span> <span class="identifier">test</span> <span class="identifier">module</span> <span class="string">"dataset_example63"</span>
 </pre>
                   </td></tr></tbody>
 </table></div>
 </div>
-<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
-<td align="left"></td>
-<td align="right"><div class="copyright-footer">Copyright &#169; 2001-2016 Boost.Test contributors<p>
+<div class="copyright-footer">Copyright © 2001-2022 Boost.Test contributors<p>
         Distributed under the Boost Software License, Version 1.0. (See accompanying
         file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
       </p>
-</div></td>
-</tr></table>
+</div>
 <hr>
 <div class="spirit-nav">
 <a accesskey="p" href="operations.html"><img src="../../../../../../../../doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../test_case_generation.html"><img src="../../../../../../../../doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../../../../index.html"><img src="../../../../../../../../doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="../test_organization_templates.html"><img src="../../../../../../../../doc/src/images/next.png" alt="Next"></a>

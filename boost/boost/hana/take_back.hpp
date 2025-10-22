@@ -2,7 +2,7 @@
 @file
 Defines `boost::hana::take_back`.
 
-@copyright Louis Dionne 2013-2016
+Copyright Louis Dionne 2013-2022
 Distributed under the Boost Software License, Version 1.0.
 (See accompanying file LICENSE.md or copy at http://boost.org/LICENSE_1_0.txt)
  */
@@ -25,7 +25,7 @@ Distributed under the Boost Software License, Version 1.0.
 #include <utility>
 
 
-BOOST_HANA_NAMESPACE_BEGIN
+namespace boost { namespace hana {
     //! @cond
     template <typename Xs, typename N>
     constexpr auto take_back_t::operator()(Xs&& xs, N const& n) const {
@@ -57,12 +57,20 @@ BOOST_HANA_NAMESPACE_BEGIN
         template <typename Xs, typename N>
         static constexpr auto apply(Xs&& xs, N const&) {
             constexpr std::size_t n = N::value;
-            constexpr std::size_t size = decltype(hana::length(xs))::value;
-            constexpr std::size_t start = n < size ? size - n : 0;
+            constexpr std::size_t len = decltype(hana::length(xs))::value;
+            constexpr std::size_t start = n < len ? len - n : 0;
             return take_back_helper<start>(static_cast<Xs&&>(xs),
-                        std::make_index_sequence<(n < size ? n : size)>{});
+                        std::make_index_sequence<(n < len ? n : len)>{});
         }
     };
-BOOST_HANA_NAMESPACE_END
+
+    template <std::size_t n>
+    struct take_back_c_t {
+        template <typename Xs>
+        constexpr auto operator()(Xs&& xs) const {
+            return hana::take_back(static_cast<Xs&&>(xs), hana::size_c<n>);
+        }
+    };
+}} // end namespace boost::hana
 
 #endif // !BOOST_HANA_TAKE_BACK_HPP

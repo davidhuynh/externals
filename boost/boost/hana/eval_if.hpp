@@ -2,7 +2,7 @@
 @file
 Defines `boost::hana::eval_if`.
 
-@copyright Louis Dionne 2013-2016
+Copyright Louis Dionne 2013-2022
 Distributed under the Boost Software License, Version 1.0.
 (See accompanying file LICENSE.md or copy at http://boost.org/LICENSE_1_0.txt)
  */
@@ -23,10 +23,10 @@ Distributed under the Boost Software License, Version 1.0.
 #include <type_traits>
 
 
-BOOST_HANA_NAMESPACE_BEGIN
+namespace boost { namespace hana {
     //! @cond
     template <typename Cond, typename Then, typename Else>
-    constexpr decltype(auto) eval_if_t::operator()(Cond&& cond, Then&& then, Else&& else_) const {
+    constexpr decltype(auto) eval_if_t::operator()(Cond&& cond, Then&& then_, Else&& else_) const {
         using Bool = typename hana::tag_of<Cond>::type;
         using EvalIf = BOOST_HANA_DISPATCH_IF(eval_if_impl<Bool>,
             hana::Logical<Bool>::value
@@ -38,7 +38,7 @@ BOOST_HANA_NAMESPACE_BEGIN
     #endif
 
         return EvalIf::apply(static_cast<Cond&&>(cond),
-                             static_cast<Then&&>(then),
+                             static_cast<Then&&>(then_),
                              static_cast<Else&&>(else_));
     }
     //! @endcond
@@ -83,11 +83,11 @@ BOOST_HANA_NAMESPACE_BEGIN
         static constexpr decltype(auto) apply(Cond const&, Then&& t, Else&& e) {
             constexpr auto cond = hana::value<Cond>();
             constexpr bool truth_value = hana::if_(cond, true, false);
-            return eval_if_helper(hana::bool_c<truth_value>,
+            return eval_if_helper(hana::bool_<truth_value>{},
                                   static_cast<Then&&>(t),
                                   static_cast<Else&&>(e));
         }
     };
-BOOST_HANA_NAMESPACE_END
+}} // end namespace boost::hana
 
 #endif // !BOOST_HANA_EVAL_IF_HPP

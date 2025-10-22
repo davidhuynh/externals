@@ -38,6 +38,48 @@ namespace
     };
 }
 
+constexpr bool compile_time_polymorphic_cast_check() {
+#if defined(__cpp_constexpr) && __cpp_constexpr >= 201907L
+    Derived derived;
+    Base* base = &derived;
+    return polymorphic_cast<Derived*>(base) != nullptr;
+#endif
+    return true;
+}
+
+static_assert(
+    compile_time_polymorphic_cast_check(),
+    "polymorphic_cast does not work at compile time"
+);
+
+constexpr bool compile_time_polymorphic_downcast_check() {
+#if defined(__cpp_constexpr) && __cpp_constexpr >= 201907L
+    Derived derived;
+    Base* base = &derived;
+    return polymorphic_downcast<Derived*>(base) != nullptr;
+#endif
+    return true;
+}
+
+static_assert(
+    compile_time_polymorphic_downcast_check(),
+    "polymorphic_downcast does not work at compile time"
+);
+
+constexpr bool compile_time_polymorphic_downcast2_check() {
+#if defined(__cpp_constexpr) && __cpp_constexpr >= 201907L
+    Derived derived;
+    Base& base = derived;
+    Derived& derived_again = polymorphic_downcast<Derived&>(base);
+    (void)derived_again;
+#endif
+    return true;
+}
+
+static_assert(
+    compile_time_polymorphic_downcast2_check(),
+    "polymorphic_downcast does not work at compile time"
+);
 
 int main( int argc, char * argv[] )
 {
@@ -72,7 +114,7 @@ int main( int argc, char * argv[] )
 
     bool caught_exception = false;
     try { derived = polymorphic_cast<Derived*>( base ); }
-    catch (std::bad_cast)
+    catch (const std::bad_cast&)
         { cout<<"caught bad_cast\n"; caught_exception = true; }
     BOOST_TEST( caught_exception );
     //  the following is just so generated code can be inspected

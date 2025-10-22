@@ -32,10 +32,12 @@ namespace monomorphic {
 /// Models a single element data set
 template<typename T>
 class singleton {
-public:
+private:
     typedef typename boost::decay<T>::type sample;
 
-    enum { arity = 1 };
+public:
+
+    static const int arity = 1;
 
     struct iterator {
         // Constructor
@@ -81,7 +83,7 @@ struct is_dataset<singleton<T>> : mpl::true_ {};
 
 /// @overload boost::unit_test::data::make()
 template<typename T>
-inline typename std::enable_if<!is_forward_iterable<T>::value && 
+inline typename std::enable_if<!is_container_forward_iterable<T>::value && 
                                !monomorphic::is_dataset<T>::value &&
                                !boost::is_array<typename boost::remove_reference<T>::type>::value, 
                                monomorphic::singleton<T>

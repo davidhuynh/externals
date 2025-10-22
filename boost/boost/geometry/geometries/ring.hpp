@@ -28,9 +28,8 @@
 #include <boost/geometry/geometries/concepts/point_concept.hpp>
 
 #include <boost/config.hpp>
-#ifndef BOOST_NO_CXX11_HDR_INITIALIZER_LIST
+
 #include <initializer_list>
-#endif
 
 namespace boost { namespace geometry
 {
@@ -63,7 +62,7 @@ template
 >
 class ring : public Container<Point, Allocator<Point> >
 {
-    BOOST_CONCEPT_ASSERT( (concept::Point<Point>) );
+    BOOST_CONCEPT_ASSERT( (concepts::Point<Point>) );
 
     typedef Container<Point, Allocator<Point> > base_type;
 
@@ -78,8 +77,6 @@ public :
     inline ring(Iterator begin, Iterator end)
         : base_type(begin, end)
     {}
-
-#ifndef BOOST_NO_CXX11_HDR_INITIALIZER_LIST
 
     /// \constructor_initializer_list{ring}
     inline ring(std::initializer_list<Point> l)
@@ -99,7 +96,6 @@ public :
 //    }
 //#endif
 
-#endif
 };
 
 } // namespace model
@@ -118,7 +114,7 @@ template
 >
 struct tag<model::ring<Point, ClockWise, Closed, Container, Allocator> >
 {
-    typedef ring_tag type;
+    using type = ring_tag;
 };
 
 

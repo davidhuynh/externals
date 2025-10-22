@@ -2,7 +2,7 @@
 @file
 Defines `boost::hana::Sequence`.
 
-@copyright Louis Dionne 2013-2016
+Copyright Louis Dionne 2013-2022
 Distributed under the Boost Software License, Version 1.0.
 (See accompanying file LICENSE.md or copy at http://boost.org/LICENSE_1_0.txt)
  */
@@ -15,19 +15,22 @@ Distributed under the Boost Software License, Version 1.0.
 #include <boost/hana/config.hpp>
 #include <boost/hana/core/tag_of.hpp>
 #include <boost/hana/core/when.hpp>
+#include <boost/hana/detail/integral_constant.hpp>
 
 
-BOOST_HANA_NAMESPACE_BEGIN
+namespace boost { namespace hana {
     namespace detail {
         template <typename S, typename Tag = typename hana::tag_of<S>::type>
-        struct sequence_dispatch {
-            static constexpr bool value = hana::Sequence<Tag>::value;
-        };
+        struct sequence_dispatch
+            : hana::integral_constant<bool,
+                hana::Sequence<Tag>::value
+            >
+        { };
 
         template <typename S>
-        struct sequence_dispatch<S, S> {
-            static constexpr bool value = false;
-        };
+        struct sequence_dispatch<S, S>
+            : hana::integral_constant<bool, false>
+        { };
     }
 
     //! @cond
@@ -36,6 +39,6 @@ BOOST_HANA_NAMESPACE_BEGIN
         : detail::sequence_dispatch<S>
     { };
     //! @endcond
-BOOST_HANA_NAMESPACE_END
+}} // end namespace boost::hana
 
 #endif // !BOOST_HANA_CONCEPT_SEQUENCE_HPP

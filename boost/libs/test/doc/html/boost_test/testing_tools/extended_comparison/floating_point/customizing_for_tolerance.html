@@ -1,13 +1,14 @@
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Enabling tolerance for user-defined types</title>
 <link rel="stylesheet" href="../../../../boostbook.css" type="text/css">
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
 <link rel="home" href="../../../../index.html" title="Boost.Test">
 <link rel="up" href="../floating_point.html" title="Floating point comparison">
 <link rel="prev" href="../floating_point.html" title="Floating point comparison">
 <link rel="next" href="floating_points_comparison_impl.html" title="Tolerance-based comparisons">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
 <table cellpadding="2" width="100%"><tr>
@@ -30,9 +31,10 @@
 <p>
             The <span class="emphasis"><em>Unit Test Framework</em></span> recognizes that a given
             type <code class="computeroutput"><span class="identifier">T</span></code> is suitable for
-            tolerance-based comparisons using the expression <code class="computeroutput"><a class="link" href="../../../../boost/math/fpc/tolerance_based.html" title="Struct template tolerance_based">boost::math::fpc::tolerance_based</a></code><code class="computeroutput"><span class="special">&lt;</span><span class="identifier">T</span><span class="special">&gt;::</span><span class="identifier">value</span></code>.
-            This meta-function already returns true for built-in floating-point types
-            as well as any other types that match the following compile-time expression:
+            tolerance-based comparisons using the expression <code class="computeroutput"><a class="link" href="../../../../doxygen/a01312.html" title="Struct template tolerance_based">boost::math::fpc::tolerance_based</a></code><code class="computeroutput"><span class="special">&lt;</span><span class="identifier">T</span><span class="special">&gt;::</span><span class="identifier">value</span></code>.
+            This meta-function already returns <code class="computeroutput"><span class="keyword">true</span></code>
+            for built-in floating-point types as well as any other types that match
+            the following compile-time expression:
           </p>
 <pre class="programlisting"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">is_floating_point</span><span class="special">&lt;</span><span class="identifier">T</span><span class="special">&gt;::</span><span class="identifier">value</span> <span class="special">||</span>
     <span class="special">(</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">numeric_limits</span><span class="special">&lt;</span><span class="identifier">T</span><span class="special">&gt;::</span><span class="identifier">is_specialized</span> <span class="special">&amp;&amp;</span>
@@ -41,14 +43,14 @@
 </pre>
 <p>
             If you require your type to also participate in tolerance-based comparisons,
-            regardless of the above expression, you can just specialize <code class="computeroutput"><a class="link" href="../../../../boost/math/fpc/tolerance_based.html" title="Struct template tolerance_based">boost::math::fpc::tolerance_based</a></code>
+            regardless of the above expression, you can just specialize <code class="computeroutput"><a class="link" href="../../../../doxygen/a01312.html" title="Struct template tolerance_based">boost::math::fpc::tolerance_based</a></code>
             for your type directly, and derive it from <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">true_type</span></code>.
             Your type does not even have to be a floating-point type provided that
             it models concept <a class="link" href="customizing_for_tolerance.html#boost_test.testing_tools.extended_comparison.floating_point.customizing_for_tolerance.concept_tolerance_based"><code class="computeroutput"><span class="identifier">ToleranceCompatible</span></code></a>.
           </p>
 <h6>
 <a name="boost_test.testing_tools.extended_comparison.floating_point.customizing_for_tolerance.h0"></a>
-            <span><a name="boost_test.testing_tools.extended_comparison.floating_point.customizing_for_tolerance.example_descr"></a></span><a class="link" href="customizing_for_tolerance.html#boost_test.testing_tools.extended_comparison.floating_point.customizing_for_tolerance.example_descr">Example:
+            <span class="phrase"><a name="boost_test.testing_tools.extended_comparison.floating_point.customizing_for_tolerance.example_descr"></a></span><a class="link" href="customizing_for_tolerance.html#boost_test.testing_tools.extended_comparison.floating_point.customizing_for_tolerance.example_descr">Example:
             adapting user-defined types for tolerance-based comparison</a>
           </h6>
 <div class="informaltable"><table class="table">
@@ -59,7 +61,7 @@
                     </p>
                   </th></tr></thead>
 <tbody><tr><td>
-<pre xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" class="table-programlisting"><span class="preprocessor">#define</span> <span class="identifier">BOOST_TEST_MODULE</span> <span class="identifier">tolerance_04</span>
+<pre class="table-programlisting"><span class="preprocessor">#define</span> <span class="identifier">BOOST_TEST_MODULE</span> <span class="identifier">tolerance_04</span>
 <span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">test</span><span class="special">/</span><span class="identifier">included</span><span class="special">/</span><span class="identifier">unit_test</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
 <span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">rational</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
 <span class="keyword">namespace</span> <span class="identifier">utf</span> <span class="special">=</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">unit_test</span><span class="special">;</span>
@@ -97,7 +99,7 @@
                     </p>
                   </th></tr></thead>
 <tbody><tr><td>
-<pre xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" class="table-programlisting"><span class="special">&gt;</span> <span class="identifier">tolerance_04</span>
+<pre class="table-programlisting"><span class="special">&gt;</span> <span class="identifier">tolerance_04</span>
 <span class="identifier">Running</span> <span class="number">1</span> <span class="identifier">test</span> <span class="keyword">case</span><span class="special">...</span>
 <span class="identifier">test</span><span class="special">.</span><span class="identifier">cpp</span><span class="special">(</span><span class="number">23</span><span class="special">):</span> <span class="identifier">error</span><span class="special">:</span> <span class="identifier">in</span> <span class="string">"test1"</span><span class="special">:</span> <span class="identifier">check</span> <span class="identifier">x</span> <span class="special">==</span> <span class="identifier">y</span> <span class="identifier">has</span> <span class="identifier">failed</span> <span class="special">[</span><span class="number">501</span><span class="special">/</span><span class="number">50</span> <span class="special">!=</span> <span class="number">1001</span><span class="special">/</span><span class="number">100</span><span class="special">].</span> <span class="identifier">Relative</span> <span class="identifier">difference</span> <span class="identifier">exceeds</span> <span class="identifier">tolerance</span> <span class="special">[</span><span class="number">1</span><span class="special">/</span><span class="number">1001</span> <span class="special">&gt;</span> <span class="number">1</span><span class="special">/</span><span class="number">2000</span><span class="special">]</span>
 <span class="identifier">test</span><span class="special">.</span><span class="identifier">cpp</span><span class="special">(</span><span class="number">26</span><span class="special">):</span> <span class="identifier">error</span><span class="special">:</span> <span class="identifier">in</span> <span class="string">"test1"</span><span class="special">:</span> <span class="identifier">check</span> <span class="identifier">x</span> <span class="special">!=</span> <span class="identifier">z</span> <span class="identifier">has</span> <span class="identifier">failed</span> <span class="special">[</span><span class="number">501</span><span class="special">/</span><span class="number">50</span> <span class="special">==</span> <span class="number">10</span><span class="special">/</span><span class="number">1</span><span class="special">].</span> <span class="identifier">Relative</span> <span class="identifier">difference</span> <span class="identifier">is</span> <span class="identifier">within</span> <span class="identifier">tolerance</span> <span class="special">[</span><span class="number">1</span><span class="special">/</span><span class="number">501</span> <span class="special">&lt;</span> <span class="number">1</span><span class="special">/</span><span class="number">500</span><span class="special">]</span>
@@ -108,20 +110,20 @@
 </table></div>
 <h4>
 <a name="boost_test.testing_tools.extended_comparison.floating_point.customizing_for_tolerance.h1"></a>
-            <span><a name="boost_test.testing_tools.extended_comparison.floating_point.customizing_for_tolerance.concept_tolerance_based"></a></span><a class="link" href="customizing_for_tolerance.html#boost_test.testing_tools.extended_comparison.floating_point.customizing_for_tolerance.concept_tolerance_based">Concept
+            <span class="phrase"><a name="boost_test.testing_tools.extended_comparison.floating_point.customizing_for_tolerance.concept_tolerance_based"></a></span><a class="link" href="customizing_for_tolerance.html#boost_test.testing_tools.extended_comparison.floating_point.customizing_for_tolerance.concept_tolerance_based">Concept
             <code class="computeroutput"><span class="identifier">ToleranceCompatible</span></code></a>
           </h4>
 <h5>
 <a name="boost_test.testing_tools.extended_comparison.floating_point.customizing_for_tolerance.h2"></a>
-            <span><a name="boost_test.testing_tools.extended_comparison.floating_point.customizing_for_tolerance.refinement_of"></a></span><a class="link" href="customizing_for_tolerance.html#boost_test.testing_tools.extended_comparison.floating_point.customizing_for_tolerance.refinement_of">Refinement
+            <span class="phrase"><a name="boost_test.testing_tools.extended_comparison.floating_point.customizing_for_tolerance.refinement_of"></a></span><a class="link" href="customizing_for_tolerance.html#boost_test.testing_tools.extended_comparison.floating_point.customizing_for_tolerance.refinement_of">Refinement
             of</a>
           </h5>
 <p>
-            <code class="computeroutput"><span class="identifier">MoveConstructible</span></code>, <a href="http://www.sgi.com/tech/stl/EqualityComparable.html" target="_top"><code class="computeroutput"><span class="identifier">EqualityComparable</span></code></a>, <a href="http://www.sgi.com/tech/stl/LessThanComparable.html" target="_top"><code class="computeroutput"><span class="identifier">LessThanComparable</span></code></a>
+            <a href="https://en.cppreference.com/w/cpp/named_req/MoveConstructible" target="_top"><code class="computeroutput"><span class="identifier">MoveConstructible</span></code></a>, <a href="https://en.cppreference.com/w/cpp/named_req/EqualityComparable" target="_top"><code class="computeroutput"><span class="identifier">EqualityComparable</span></code></a>, <a href="https://en.cppreference.com/w/cpp/named_req/LessThanComparable" target="_top"><code class="computeroutput"><span class="identifier">LessThanComparable</span></code></a>
           </p>
 <h5>
 <a name="boost_test.testing_tools.extended_comparison.floating_point.customizing_for_tolerance.h3"></a>
-            <span><a name="boost_test.testing_tools.extended_comparison.floating_point.customizing_for_tolerance.notation"></a></span><a class="link" href="customizing_for_tolerance.html#boost_test.testing_tools.extended_comparison.floating_point.customizing_for_tolerance.notation">Notation</a>
+            <span class="phrase"><a name="boost_test.testing_tools.extended_comparison.floating_point.customizing_for_tolerance.notation"></a></span><a class="link" href="customizing_for_tolerance.html#boost_test.testing_tools.extended_comparison.floating_point.customizing_for_tolerance.notation">Notation</a>
           </h5>
 <div class="informaltable"><table class="table">
 <colgroup>
@@ -175,7 +177,7 @@
 </table></div>
 <h5>
 <a name="boost_test.testing_tools.extended_comparison.floating_point.customizing_for_tolerance.h4"></a>
-            <span><a name="boost_test.testing_tools.extended_comparison.floating_point.customizing_for_tolerance.valid_expressions"></a></span><a class="link" href="customizing_for_tolerance.html#boost_test.testing_tools.extended_comparison.floating_point.customizing_for_tolerance.valid_expressions">Valid
+            <span class="phrase"><a name="boost_test.testing_tools.extended_comparison.floating_point.customizing_for_tolerance.valid_expressions"></a></span><a class="link" href="customizing_for_tolerance.html#boost_test.testing_tools.extended_comparison.floating_point.customizing_for_tolerance.valid_expressions">Valid
             expressions</a>
           </h5>
 <div class="informaltable"><table class="table">
@@ -352,7 +354,7 @@
 </table></div>
 <h5>
 <a name="boost_test.testing_tools.extended_comparison.floating_point.customizing_for_tolerance.h5"></a>
-            <span><a name="boost_test.testing_tools.extended_comparison.floating_point.customizing_for_tolerance.invariants"></a></span><a class="link" href="customizing_for_tolerance.html#boost_test.testing_tools.extended_comparison.floating_point.customizing_for_tolerance.invariants">Invariants</a>
+            <span class="phrase"><a name="boost_test.testing_tools.extended_comparison.floating_point.customizing_for_tolerance.invariants"></a></span><a class="link" href="customizing_for_tolerance.html#boost_test.testing_tools.extended_comparison.floating_point.customizing_for_tolerance.invariants">Invariants</a>
           </h5>
 <div class="informaltable"><table class="table">
 <colgroup>
@@ -393,14 +395,11 @@
 </tr></tbody>
 </table></div>
 </div>
-<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
-<td align="left"></td>
-<td align="right"><div class="copyright-footer">Copyright &#169; 2001-2016 Boost.Test contributors<p>
+<div class="copyright-footer">Copyright © 2001-2022 Boost.Test contributors<p>
         Distributed under the Boost Software License, Version 1.0. (See accompanying
         file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
       </p>
-</div></td>
-</tr></table>
+</div>
 <hr>
 <div class="spirit-nav">
 <a accesskey="p" href="../floating_point.html"><img src="../../../../../../../../doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../floating_point.html"><img src="../../../../../../../../doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../../../../index.html"><img src="../../../../../../../../doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="floating_points_comparison_impl.html"><img src="../../../../../../../../doc/src/images/next.png" alt="Next"></a>

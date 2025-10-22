@@ -2,7 +2,7 @@
 @file
 Defines the `Logical` and `Comparable` models of `boost::hana::integral_constant`.
 
-@copyright Louis Dionne 2013-2016
+Copyright Louis Dionne 2013-2022
 Distributed under the Boost Software License, Version 1.0.
 (See accompanying file LICENSE.md or copy at http://boost.org/LICENSE_1_0.txt)
  */
@@ -31,7 +31,7 @@ Distributed under the Boost Software License, Version 1.0.
 #include <utility>
 
 
-BOOST_HANA_NAMESPACE_BEGIN
+namespace boost { namespace hana {
     //////////////////////////////////////////////////////////////////////////
     // integral_constant
     //////////////////////////////////////////////////////////////////////////
@@ -157,7 +157,8 @@ BOOST_HANA_NAMESPACE_BEGIN
 
             if (N > 2) {
                 bool starts_with_zero = arr[0] == '0';
-                bool is_hex = starts_with_zero && arr[1] == 'x';
+                bool is_hex =
+                    starts_with_zero && (arr[1] == 'x' || arr[1] == 'X');
                 bool is_binary = starts_with_zero && arr[1] == 'b';
 
                 if (is_hex) {
@@ -182,8 +183,10 @@ BOOST_HANA_NAMESPACE_BEGIN
 
             for (std::size_t i = 0; i < N - offset; ++i) {
                 char c = arr[N - 1 - i];
-                number += to_int(c) * multiplier;
-                multiplier *= base;
+                if (c != '\'') { // skip digit separators
+                    number += to_int(c) * multiplier;
+                    multiplier *= base;
+                }
             }
 
             return number;
@@ -192,8 +195,9 @@ BOOST_HANA_NAMESPACE_BEGIN
 
     namespace literals {
         template <char ...c>
-        constexpr auto operator"" _c()
-        { return llong_c<ic_detail::parse<sizeof...(c)>({c...})>; }
+        constexpr auto operator ""_c() {
+            return hana::llong<ic_detail::parse<sizeof...(c)>({c...})>{};
+        }
     }
 
     //////////////////////////////////////////////////////////////////////////
@@ -221,8 +225,10 @@ BOOST_HANA_NAMESPACE_BEGIN
         template <typename Cond, typename Then, typename Else>
         static constexpr decltype(auto)
         apply(Cond const&, Then&& t, Else&& e) {
-            return eval_if_impl::apply(hana::bool_c<static_cast<bool>(Cond::value)>,
-                    static_cast<Then&&>(t), static_cast<Else&&>(e));
+            constexpr bool cond = static_cast<bool>(Cond::value);
+            return eval_if_impl::apply(hana::bool_<cond>{},
+                                       static_cast<Then&&>(t),
+                                       static_cast<Else&&>(e));
         }
 
         template <typename Then, typename Else>
@@ -241,8 +247,10 @@ BOOST_HANA_NAMESPACE_BEGIN
         template <typename Cond, typename Then, typename Else>
         static constexpr decltype(auto)
         apply(Cond const&, Then&& t, Else&& e) {
-            return if_impl::apply(hana::bool_c<static_cast<bool>(Cond::value)>,
-                    static_cast<Then&&>(t), static_cast<Else&&>(e));
+            constexpr bool cond = static_cast<bool>(Cond::value);
+            return if_impl::apply(hana::bool_<cond>{},
+                                  static_cast<Then&&>(t),
+                                  static_cast<Else&&>(e));
         }
 
         //! @todo We could return `Then` instead of `auto` to sometimes save
@@ -259,6 +267,6 @@ BOOST_HANA_NAMESPACE_BEGIN
         apply(hana::false_ const&, Then&&, Else&& e)
         { return static_cast<Else&&>(e); }
     };
-BOOST_HANA_NAMESPACE_END
+}} // end namespace boost::hana
 
 #endif // !BOOST_HANA_BOOL_HPP

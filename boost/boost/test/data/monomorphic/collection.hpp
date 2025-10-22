@@ -41,7 +41,7 @@ class collection {
 public:
     typedef typename col_type::value_type sample;
 
-    enum { arity = 1 };
+    static const int arity = 1;
 
     typedef typename col_type::const_iterator iterator;
 
@@ -75,7 +75,7 @@ struct is_dataset<collection<C>> : mpl::true_ {};
 
 //! @overload boost::unit_test::data::make()
 template<typename C>
-inline typename std::enable_if<is_forward_iterable<C>::value,monomorphic::collection<C>>::type
+inline typename std::enable_if<is_container_forward_iterable<C>::value,monomorphic::collection<C>>::type
 make( C&& c )
 {
     return monomorphic::collection<C>( std::forward<C>(c) );

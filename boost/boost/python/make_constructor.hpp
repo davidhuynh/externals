@@ -43,22 +43,32 @@ namespace detail
 
    private:
       template <class U>
-      void dispatch(U* x, mpl::true_) const
+      void dispatch(U* x, detail::true_) const
       {
-          std::auto_ptr<U> owner(x);
-          dispatch(owner, mpl::false_());
+#if defined(BOOST_NO_CXX11_SMART_PTR)
+	std::auto_ptr<U> owner(x);
+	dispatch(owner, detail::false_());
+#else
+	std::unique_ptr<U> owner(x);
+	dispatch(std::move(owner), detail::false_());
+#endif
       }
       
       template <class Ptr>
-      void dispatch(Ptr x, mpl::false_) const
+      void dispatch(Ptr x, detail::false_) const
       {
           typedef typename pointee<Ptr>::type value_type;
           typedef objects::pointer_holder<Ptr,value_type> holder;
           typedef objects::instance<holder> instance_t;
 
-          void* memory = holder::allocate(this->m_self, offsetof(instance_t, storage), sizeof(holder));
+          void* memory = holder::allocate(this->m_self, offsetof(instance_t, storage), sizeof(holder),
+                                          boost::python::detail::alignment_of<holder>::value);
           try {
+#if defined(BOOST_NO_CXX11_SMART_PTR)
               (new (memory) holder(x))->install(this->m_self);
+#else
+              (new (memory) holder(std::move(x)))->install(this->m_self);
+#endif
           }
           catch(...) {
               holder::deallocate(this->m_self, memory);
@@ -174,7 +184,7 @@ namespace detail
       
       typedef typename detail::error::more_keywords_than_function_arguments<
           NumKeywords::value, arity
-          >::too_many_keywords assertion;
+          >::too_many_keywords assertion BOOST_ATTRIBUTE_UNUSED;
     
       typedef typename outer_constructor_signature<Sig>::type outer_signature;
 

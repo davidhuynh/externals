@@ -2,7 +2,7 @@
 @file
 Adapts `std::integer_sequence` for use with Hana.
 
-@copyright Louis Dionne 2013-2016
+Copyright Louis Dionne 2013-2022
 Distributed under the Boost Software License, Version 1.0.
 (See accompanying file LICENSE.md or copy at http://boost.org/LICENSE_1_0.txt)
  */
@@ -62,7 +62,7 @@ namespace std {
 #endif
 
 
-BOOST_HANA_NAMESPACE_BEGIN
+namespace boost { namespace hana {
     namespace ext { namespace std { struct integer_sequence_tag; }}
 
     template <typename T, T ...v>
@@ -105,8 +105,8 @@ BOOST_HANA_NAMESPACE_BEGIN
         template <typename T, T ...v, typename N>
         static constexpr auto apply(std::integer_sequence<T, v...> const&, N const&) {
             constexpr std::size_t n = N::value;
-            constexpr T values[] = {v...};
-            return std::integral_constant<T, values[n]>{};
+            constexpr T values_[] = {v...};
+            return std::integral_constant<T, values_[n]>{};
         }
     };
 
@@ -135,6 +135,6 @@ BOOST_HANA_NAMESPACE_BEGIN
         static constexpr auto apply(std::integer_sequence<T, xs...> const&)
         { return hana::bool_c<sizeof...(xs) == 0>; }
     };
-BOOST_HANA_NAMESPACE_END
+}} // end namespace boost::hana
 
 #endif // !BOOST_HANA_EXT_STD_INTEGER_SEQUENCE_HPP

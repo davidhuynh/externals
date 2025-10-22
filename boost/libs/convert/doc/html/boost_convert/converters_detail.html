@@ -1,13 +1,14 @@
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Converters in Detail</title>
 <link rel="stylesheet" href="../../../../../doc/src/boostbook.css" type="text/css">
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
-<link rel="home" href="../index.html" title="Chapter&#160;1.&#160;Boost.Convert 2.0">
-<link rel="up" href="../index.html" title="Chapter&#160;1.&#160;Boost.Convert 2.0">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
+<link rel="home" href="../index.html" title="Chapter 1. Boost.Convert 2.0">
+<link rel="up" href="../index.html" title="Chapter 1. Boost.Convert 2.0">
 <link rel="prev" href="other_conversions.html" title="Beyond Basic Conversions">
 <link rel="next" href="converters_detail/stream_converter.html" title="boost::cnv::stream Converter">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
 <table cellpadding="2" width="100%"><tr>
@@ -26,7 +27,7 @@
 <div class="titlepage"><div><div><h2 class="title" style="clear: both">
 <a name="boost_convert.converters_detail"></a><a class="link" href="converters_detail.html" title="Converters in Detail">Converters in Detail</a>
 </h2></div></div></div>
-<div class="toc"><dl>
+<div class="toc"><dl class="toc">
 <dt><span class="section"><a href="converters_detail.html#boost_convert.converters_detail.lexical_cast_converter"><span class="emphasis"><em>boost::cnv::lexical_cast</em></span>
       Converter</a></span></dt>
 <dt><span class="section"><a href="converters_detail/stream_converter.html"><span class="emphasis"><em>boost::cnv::stream</em></span>
@@ -83,6 +84,30 @@
           String Types</a></span></dt>
 </dl></dd>
 </dl></dd>
+<dt><span class="section"><a href="converters_detail/charconv_converter.html"><span class="emphasis"><em>boost::cnv::charconv</em></span>
+      Converter</a></span></dt>
+<dd><dl>
+<dt><span class="section"><a href="converters_detail/charconv_converter.html#boost_convert.converters_detail.charconv_converter.basic_deployment">Basic
+        Deployment</a></span></dt>
+<dt><span class="section"><a href="converters_detail/charconv_converter/formatting_support.html">Formatting
+        Support</a></span></dt>
+<dd><dl>
+<dt><span class="section"><a href="converters_detail/charconv_converter/formatting_support.html#boost_convert.converters_detail.charconv_converter.formatting_support.numeric_base__bin__oct__dec__hex_">Numeric
+          Base (bin, oct, dec, hex)</a></span></dt>
+<dt><span class="section"><a href="converters_detail/charconv_converter/formatting_support/field_width__fill_character_and_adjustment.html">Field
+          Width, Fill Character and Adjustment</a></span></dt>
+<dt><span class="section"><a href="converters_detail/charconv_converter/formatting_support/leading_whitespace_characters.html">Leading
+          Whitespace Characters</a></span></dt>
+<dt><span class="section"><a href="converters_detail/charconv_converter/formatting_support/floating_point_precision.html">Floating-Point
+          Precision</a></span></dt>
+<dt><span class="section"><a href="converters_detail/charconv_converter/formatting_support/floating_point_notation.html">Floating-Point
+          Notation</a></span></dt>
+</dl></dd>
+<dt><span class="section"><a href="converters_detail/charconv_converter/supported_string_types.html">Supported
+        String Types</a></span></dt>
+<dd><dl><dt><span class="section"><a href="converters_detail/charconv_converter/supported_string_types.html#boost_convert.converters_detail.charconv_converter.supported_string_types.custom_string_types">Custom
+          String Types</a></span></dt></dl></dd>
+</dl></dd>
 </dl></div>
 <div class="section">
 <div class="titlepage"><div><div><h3 class="title">
@@ -92,7 +117,7 @@
 <p>
         The purpose of the converter is to
       </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
             Make use of the <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">lexical_cast</span></code>
             functionality and performance that many people have become accustomed
@@ -118,7 +143,7 @@
 <span class="keyword">using</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">convert</span><span class="special">;</span>
 <span class="keyword">using</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">lexical_cast</span><span class="special">;</span>
 
-<span class="keyword">struct</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">cnv</span><span class="special">::</span><span class="identifier">by_default</span> <span class="special">:</span> <span class="keyword">public</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">cnv</span><span class="special">::</span><span class="identifier">lexical_cast</span> <span class="special">{};</span>
+<span class="keyword">struct</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">cnv</span><span class="special">::</span><span class="identifier">by_default</span> <span class="special">:</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">cnv</span><span class="special">::</span><span class="identifier">lexical_cast</span> <span class="special">{};</span>
 </pre>
 <p>
       </p>
@@ -139,7 +164,7 @@
 <p>
       </p>
 <p>
-        See the <code class="computeroutput"><a class="link" href="../boost/cnv/lexical_cast.html" title="Struct lexical_cast">boost::cnv::lexical_cast implementation</a></code>
+        See the <code class="computeroutput"><a class="link" href="../doxygen/boost_convert_c___reference/structboost_1_1cnv_1_1lexical__cast.html" title="Struct lexical_cast">boost::cnv::lexical_cast implementation</a></code>
         for details.
       </p>
 <p>
@@ -147,13 +172,13 @@
         deployed with the <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">cnv</span><span class="special">::</span><span class="identifier">lexical_cast</span></code>
         converter:
       </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
-            <span class="emphasis"><em>TypeOut</em></span> needs to be <a href="http://en.cppreference.com/w/cpp/concept/CopyConstructible" target="_top"><span class="emphasis"><em>Copy
+            <span class="emphasis"><em>TypeOut</em></span> needs to be <a href="http://en.cppreference.com/w/cpp/named_req/CopyConstructible" target="_top"><span class="emphasis"><em>Copy
             Constructible</em></span></a>;
           </li>
 <li class="listitem">
-            <span class="emphasis"><em>TypeOut</em></span> needs to be <a href="http://en.cppreference.com/w/cpp/concept/DefaultConstructible" target="_top"><span class="emphasis"><em>Default
+            <span class="emphasis"><em>TypeOut</em></span> needs to be <a href="http://en.cppreference.com/w/cpp/named_req/DefaultConstructible" target="_top"><span class="emphasis"><em>Default
             Constructible</em></span></a>;
           </li>
 <li class="listitem">
@@ -170,13 +195,11 @@
       </p>
 </div>
 </div>
-<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
-<td align="left"></td>
-<td align="right"><div class="copyright-footer">Copyright &#169; 2009-2014 Vladimir Batov<p>
+<div class="copyright-footer">Copyright © 2009-2022 Vladimir
+      Batov<p>
         Distributed under the Boost Software License, Version 1.0. See copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>.
       </p>
-</div></td>
-</tr></table>
+</div>
 <hr>
 <div class="spirit-nav">
 <a accesskey="p" href="other_conversions.html"><img src="../../../../../doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../index.html"><img src="../../../../../doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../index.html"><img src="../../../../../doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="converters_detail/stream_converter.html"><img src="../../../../../doc/src/images/next.png" alt="Next"></a>

@@ -1,8 +1,9 @@
 // Boost.Geometry (aka GGL, Generic Geometry Library)
 
-// Copyright (c) 2015, Oracle and/or its affiliates.
+// Copyright (c) 2015-2020, Oracle and/or its affiliates.
 
 // Contributed and/or modified by Menelaos Karavelas, on behalf of Oracle
+// Contributed and/or modified by Adam Wulkiewicz, on behalf of Oracle
 
 // Licensed under the Boost Software License version 1.0.
 // http://www.boost.org/users/license.html
@@ -12,14 +13,12 @@
 
 #include <cstddef>
 
-#include <boost/mpl/assert.hpp>
-#include <boost/mpl/int.hpp>
-
 #include <boost/geometry/core/access.hpp>
 #include <boost/geometry/core/coordinate_type.hpp>
 #include <boost/geometry/core/coordinate_system.hpp>
 #include <boost/geometry/core/coordinate_dimension.hpp>
 #include <boost/geometry/core/point_type.hpp>
+#include <boost/geometry/core/static_assert.hpp>
 #include <boost/geometry/core/tag.hpp>
 #include <boost/geometry/core/tags.hpp>
 
@@ -38,7 +37,7 @@ template
     typename Geometry,
     std::size_t Dimension1 = 0,
     std::size_t Dimension2 = 1,
-    typename Tag = typename tag<Geometry>::type
+    typename Tag = tag_t<Geometry>
 >
 struct two_dimensional_view
     : not_implemented<Tag>
@@ -50,15 +49,15 @@ struct two_dimensional_view
 template <typename Point, std::size_t Dimension1, std::size_t Dimension2>
 struct two_dimensional_view<Point, Dimension1, Dimension2, point_tag>
 {
-    BOOST_MPL_ASSERT_MSG(
-        (Dimension1 < static_cast<std::size_t>(dimension<Point>::value)),
-        COORDINATE_DIMENSION1_IS_LARGER_THAN_POINT_DIMENSION,
-        (boost::mpl::int_<Dimension1>));
+    BOOST_GEOMETRY_STATIC_ASSERT(
+        (Dimension1 < dimension<Point>::value),
+        "Coordinate Dimension1 is larger than Point's dimension.",
+        std::integral_constant<std::size_t, Dimension1>);
 
-    BOOST_MPL_ASSERT_MSG(
-        (Dimension2 < static_cast<std::size_t>(dimension<Point>::value)),
-        COORDINATE_DIMENSION2_IS_LARGER_THAN_POINT_DIMENSION,
-        (boost::mpl::int_<Dimension2>));
+    BOOST_GEOMETRY_STATIC_ASSERT(
+        (Dimension2 < dimension<Point>::value),
+        "Coordinate Dimension2 is larger than Point's dimension.",
+        std::integral_constant<std::size_t, Dimension2>);
 
     two_dimensional_view(Point& point)
         : m_point(point)
@@ -86,7 +85,7 @@ struct tag
             >
     >
 {
-    typedef point_tag type;
+    using type = point_tag;
 };
 
 template <typename Point, std::size_t Dimension1, std::size_t Dimension2>
@@ -96,7 +95,7 @@ struct coordinate_system
             <
                 Point, Dimension1, Dimension2, point_tag
             >
-    > : coordinate_system<typename geometry::point_type<Point>::type>
+    > : coordinate_system<geometry::point_type_t<Point>>
 {};
 
 template <typename Point, std::size_t Dimension1, std::size_t Dimension2>
@@ -106,7 +105,7 @@ struct coordinate_type
             <
                 Point, Dimension1, Dimension2, point_tag
             >
-    > : coordinate_type<typename geometry::point_type<Point>::type>
+    > : coordinate_type<geometry::point_type_t<Point>>
 {};
 
 template <typename Point, std::size_t Dimension1, std::size_t Dimension2>
@@ -116,7 +115,7 @@ struct dimension
             <
                 Point, Dimension1, Dimension2, point_tag
             >
-    > : boost::mpl::int_<2>
+    > : std::integral_constant<std::size_t, 2>
 {};
 
 template <typename Point, std::size_t Dimension1, std::size_t Dimension2>
@@ -128,7 +127,7 @@ struct point_type
             >
     >
 {
-    typedef typename geometry::point_type<Point>::type type;
+    using type = geometry::point_type_t<Point>;
 };
 
 
@@ -142,7 +141,7 @@ struct access
         0
     >
 {
-    typedef typename geometry::coordinate_type<Point>::type coordinate_type;
+    using coordinate_type = geometry::coordinate_type_t<Point>;
     typedef geometry::detail::two_dimensional_view
         <
             Point, Dimension1, Dimension2, point_tag
@@ -169,11 +168,11 @@ struct access
         1
     >
 {
-    typedef typename geometry::coordinate_type<Point>::type coordinate_type;
-    typedef geometry::detail::two_dimensional_view
+    using coordinate_type = geometry::coordinate_type_t<Point>;
+    using view_type = geometry::detail::two_dimensional_view
         <
             Point, Dimension1, Dimension2, point_tag
-        > view_type;
+        >;
 
     static inline coordinate_type get(view_type const& view)
     {

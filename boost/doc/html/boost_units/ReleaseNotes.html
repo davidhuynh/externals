@@ -1,14 +1,15 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Release Notes</title>
 <link rel="stylesheet" href="../../../doc/src/boostbook.css" type="text/css">
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
 <link rel="home" href="../index.html" title="The Boost C++ Libraries BoostBook Documentation Subset">
-<link rel="up" href="../boost_units.html" title="Chapter&#160;39.&#160;Boost.Units 1.1.0">
+<link rel="up" href="../boost_units.html" title="Chapter 41. Boost.Units 1.1.0">
 <link rel="prev" href="version_id.html" title="Version Info">
 <link rel="next" href="TODO.html" title="TODO">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
 <table cellpadding="2" width="100%"><tr>
@@ -30,19 +31,19 @@
 <p>
       1.2 (March 2010)
     </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
           Added autoprefix ready for Boost 1.43
         </li></ul></div>
 <p>
       1.0.0 (August 1, 2008) :
     </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
           Initial release with Boost 1.36
         </li></ul></div>
 <p>
       0.7.1 (March 14, 2007) :
     </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
           Boost.Typeof emulation support.
         </li>
@@ -60,7 +61,7 @@
 <p>
       0.7.0 (March 13, 2007) :
     </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
           heterogeneous and mixed system functionality added.
         </li>
@@ -72,19 +73,19 @@
           added a number of utility metafunction classes and predicates.
         </li>
 <li class="listitem">
-          <code class="computeroutput"><a class="link" href="Reference.html#header.boost.units.operators_hpp" title="Header &lt;boost/units/operators.hpp&gt;">boost/units/operators.hpp</a></code>
+          <code class="computeroutput"><a class="link" href="Reference.html#doxygen.units_reference.operators_8hpp" title="Header &lt;boost/units/operators.hpp&gt;">boost/units/operators.hpp</a></code>
           now uses <code class="computeroutput"><span class="identifier">BOOST_TYPEOF</span></code> when
           possible.
         </li>
 <li class="listitem">
-          angular units added in <code class="computeroutput"><a class="link" href="Reference.html#header.boost.units.systems.angle.gradians_hpp" title="Header &lt;boost/units/systems/angle/gradians.hpp&gt;">boost/units/systems/angle/gradians.hpp</a></code>
-          and <code class="computeroutput"><a class="link" href="Reference.html#header.boost.units.systems.angle.gradians_hpp" title="Header &lt;boost/units/systems/angle/gradians.hpp&gt;">boost/units/systems/angle/gradians.hpp</a></code>.
+          angular units added in <code class="computeroutput"><a class="link" href="Reference.html#doxygen.trigonometry_and_angle_system_reference.gradians_8hpp" title="Header &lt;boost/units/systems/angle/gradians.hpp&gt;">boost/units/systems/angle/gradians.hpp</a></code>
+          and <code class="computeroutput"><a class="link" href="Reference.html#doxygen.trigonometry_and_angle_system_reference.gradians_8hpp" title="Header &lt;boost/units/systems/angle/gradians.hpp&gt;">boost/units/systems/angle/gradians.hpp</a></code>.
           Implicit conversion of radians between trigonometric, SI, and CGS systems
           is allowed.
         </li>
 <li class="listitem">
-          a variety of <span class="underline"><code class="computeroutput"><a class="link" href="../boost/units/unit.html" title="Class template unit">unit</a></code></span>
-          and <span class="underline"><code class="computeroutput"><a class="link" href="../boost/units/quantity.html" title="Class template quantity">quantity</a></code></span>
+          a variety of <span class="underline"><code class="computeroutput"><a class="link" href="../doxygen/units_reference/classboost_1_1units_1_1unit.html" title="Class template unit">unit</a></code></span>
+          and <span class="underline"><code class="computeroutput"><a class="link" href="../doxygen/units_reference/classboost_1_1units_1_1quantity.html" title="Class template quantity">quantity</a></code></span>
           tests added.
         </li>
 <li class="listitem">
@@ -94,7 +95,7 @@
 <p>
       0.6.2 (February 22, 2007) :
     </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
           changed template order in <code class="computeroutput"><span class="identifier">unit</span></code>
           so dimension precedes unit system
@@ -103,14 +104,14 @@
           added <code class="computeroutput"><span class="identifier">homogeneous_system</span><span class="special">&lt;</span><span class="identifier">S</span><span class="special">&gt;</span></code> for unit systems
         </li>
 <li class="listitem">
-          incorporated changes to <code class="computeroutput"><a class="link" href="Reference.html#header.boost.units.dimension_hpp" title="Header &lt;boost/units/dimension.hpp&gt;">boost/units/dimension.hpp</a></code>
-          (compile-time sorting by predicate), <code class="computeroutput"><a class="link" href="Reference.html#header.boost.units.conversion_hpp" title="Header &lt;boost/units/conversion.hpp&gt;">boost/units/conversion.hpp</a></code>
-          (thread-safe implementation of quantity conversions), and <code class="computeroutput"><a class="link" href="Reference.html#header.boost.units.io_hpp" title="Header &lt;boost/units/io.hpp&gt;">boost/units/io.hpp</a></code>
+          incorporated changes to <code class="computeroutput"><a class="link" href="Reference.html#doxygen.units_reference.dimension_8hpp" title="Header &lt;boost/units/dimension.hpp&gt;">boost/units/dimension.hpp</a></code>
+          (compile-time sorting by predicate), <code class="computeroutput"><a class="link" href="Reference.html#doxygen.units_reference.conversion_8hpp" title="Header &lt;boost/units/conversion.hpp&gt;">boost/units/conversion.hpp</a></code>
+          (thread-safe implementation of quantity conversions), and <code class="computeroutput"><a class="link" href="Reference.html#doxygen.units_reference.io_8hpp" title="Header &lt;boost/units/io.hpp&gt;">boost/units/io.hpp</a></code>
           (now works with any <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">basic_ostream</span></code>)
           by SW
         </li>
 <li class="listitem">
-          added abstract units in <code class="computeroutput"><a class="link" href="Reference.html#header.boost.units.systems.abstract_hpp" title="Header &lt;boost/units/systems/abstract.hpp&gt;">boost/units/systems/abstract.hpp</a></code>
+          added abstract units in <code class="computeroutput"><a class="link" href="Reference.html#doxygen.abstract_system_reference.abstract_8hpp" title="Header &lt;boost/units/systems/abstract.hpp&gt;">boost/units/systems/abstract.hpp</a></code>
           to allow abstract dimensional analysis
         </li>
 <li class="listitem">
@@ -121,10 +122,10 @@
 <p>
       0.6.1 (February 13, 2007) :
     </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
           added metafunctions to test if a type is
-          <div class="itemizedlist"><ul class="itemizedlist" type="circle">
+          <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; ">
 <li class="listitem">
                 a valid dimension list (<code class="computeroutput"><span class="identifier">is_dimension_list</span><span class="special">&lt;</span><span class="identifier">D</span><span class="special">&gt;</span></code>)
               </li>
@@ -153,7 +154,7 @@
 <p>
       0.6.0 (February 8, 2007) :
     </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
           incorporated Steven Watanabe's optimized code for dimension.hpp, leading
           to <span class="bold"><strong>dramatic</strong></span> decreases in compilation time
           (nearly a factor of 10 for unit_example_4.cpp in my tests).
@@ -161,9 +162,9 @@
 <p>
       0.5.8 (February 7, 2007) :
     </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
-          fixed <code class="computeroutput"><span class="preprocessor">#include</span></code> in <code class="computeroutput"><a class="link" href="Reference.html#header.boost.units.systems.si.base_hpp" title="Header &lt;boost/units/systems/si/base.hpp&gt;">boost/units/systems/si/base.hpp</a></code>
+          fixed <code class="computeroutput"><span class="preprocessor">#include</span></code> in <code class="computeroutput"><a class="link" href="Reference.html#doxygen.si_system_reference.base_8hpp" title="Header &lt;boost/units/systems/si/base.hpp&gt;">boost/units/systems/si/base.hpp</a></code>
           (thanks to Michael Fawcett and Steven Watanabe)
         </li>
 <li class="listitem">
@@ -172,7 +173,7 @@
           Fawcett)
         </li>
 <li class="listitem">
-          moved functions in <code class="computeroutput"><a class="link" href="Reference.html#header.boost.units.cmath_hpp" title="Header &lt;boost/units/cmath.hpp&gt;">boost/units/cmath.hpp</a></code>
+          moved functions in <code class="computeroutput"><a class="link" href="Reference.html#doxygen.units_reference.cmath_8hpp" title="Header &lt;boost/units/cmath.hpp&gt;">boost/units/cmath.hpp</a></code>
           into <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">units</span></code> namespace (thanks to Steven Watanabe)
         </li>
 <li class="listitem">
@@ -184,7 +185,7 @@
 <p>
       0.5.7 (February 5, 2007) :
     </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
           changed quantity conversion helper to increase flexibility
         </li>
@@ -198,7 +199,7 @@
 <p>
       0.5.6 (January 22, 2007) :
     </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
           added IEEE 1541 standard binary prefixes along with SI prefixes to and
           extended algebra of <code class="computeroutput"><span class="identifier">scale</span></code>
@@ -219,7 +220,7 @@
 <p>
       0.5.5 (January 18, 2007) :
     </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
           template parameter order in <code class="computeroutput"><span class="identifier">quantity</span></code>
           switched and default <code class="computeroutput"><span class="identifier">value_type</span></code>
@@ -233,7 +234,7 @@
 <li class="listitem">
           added <code class="computeroutput"><span class="identifier">quantity_cast</span></code> for
           three cases (thanks to Andrey Semashev):
-          <div class="itemizedlist"><ul class="itemizedlist" type="circle">
+          <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; ">
 <li class="listitem">
                 constructing <code class="computeroutput"><span class="identifier">quantity</span></code>
                 from raw <code class="computeroutput"><span class="identifier">value_type</span></code>
@@ -256,7 +257,7 @@
 <p>
       0.5.4 (January 12, 2007) :
     </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
           completely reimplemented unit conversion to allow for arbitrary unit conversions
           between systems
@@ -269,7 +270,7 @@
 <p>
       0.5.3 (December 12, 2006) :
     </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
           added Boost.Serialization support to <code class="computeroutput"><span class="identifier">unit</span></code>
           and <code class="computeroutput"><span class="identifier">quantity</span></code> classes
@@ -284,14 +285,14 @@
 <p>
       0.5.2 (December 4, 2006) :
     </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
           added <code class="computeroutput"><span class="special">&lt;</span><span class="identifier">cmath</span><span class="special">&gt;</span></code> wrappers in the <code class="computeroutput"><span class="identifier">std</span></code>
           namespace for functions that can support quantities
         </li></ul></div>
 <p>
       0.5.1 (November 3, 2006) :
     </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
           converted to Boost Software License
         </li>
@@ -302,7 +303,7 @@
 <p>
       0.5 (November 2, 2006) :
     </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
           completely reimplemented SI and CGS unit systems and changed syntax for
           quantities
@@ -330,7 +331,7 @@
 <p>
       0.4 (October 13, 2006) :
     </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
           <code class="computeroutput"><span class="identifier">pow</span><span class="special">&lt;</span><span class="identifier">R</span><span class="special">&gt;</span></code>
           and <code class="computeroutput"><span class="identifier">root</span><span class="special">&lt;</span><span class="identifier">R</span><span class="special">&gt;</span></code>
@@ -350,7 +351,7 @@
 <p>
       0.3 (September 6, 2006) :
     </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
           Support for <code class="computeroutput"><span class="identifier">op</span><span class="special">(</span><span class="identifier">X</span> <span class="identifier">x</span><span class="special">,</span><span class="identifier">Y</span> <span class="identifier">y</span><span class="special">)</span></code> for g++ added. This is automatically active
           when compiling with gcc and can be optionally enabled by defining the preprocessor
           constant <code class="computeroutput"><span class="identifier">BOOST_UNITS_HAS_TYPEOF</span></code>
@@ -364,15 +365,12 @@
       analysis in 2003.
     </p>
 </div>
-<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
-<td align="left"></td>
-<td align="right"><div class="copyright-footer">Copyright &#169; 2003-2008 Matthias Christian Schabel<br>Copyright &#169; 2007-2010 Steven
+<div class="copyright-footer">Copyright © 2003-2008 Matthias Christian Schabel<br>Copyright © 2007-2010 Steven
       Watanabe<p>
         Distributed under the Boost Software License, Version 1.0. (See accompanying
         file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
       </p>
-</div></td>
-</tr></table>
+</div>
 <hr>
 <div class="spirit-nav">
 <a accesskey="p" href="version_id.html"><img src="../../../doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../boost_units.html"><img src="../../../doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../index.html"><img src="../../../doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="TODO.html"><img src="../../../doc/src/images/next.png" alt="Next"></a>

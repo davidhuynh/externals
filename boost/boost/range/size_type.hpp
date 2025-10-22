@@ -20,7 +20,7 @@
 #include <boost/range/concepts.hpp>
 #include <boost/range/has_range_iterator.hpp>
 
-#include <boost/utility/enable_if.hpp>
+#include <boost/core/enable_if.hpp>
 #include <boost/type_traits/make_unsigned.hpp>
 #include <boost/type_traits/remove_const.hpp>
 #include <cstddef>
@@ -80,11 +80,6 @@ namespace boost
 
     template< class T >
     struct range_size :
-        detail::range_size<T>
-    { };
-
-    template< class T >
-    struct range_size<const T > :
         detail::range_size<T>
     { };
 

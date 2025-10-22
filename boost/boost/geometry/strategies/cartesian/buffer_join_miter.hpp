@@ -77,20 +77,19 @@ public:
             return false;
         }
 
-        typedef typename coordinate_type<Point>::type coordinate_type;
-        typedef typename geometry::select_most_precise
+        using promoted_type = typename geometry::select_most_precise
         <
-            coordinate_type,
+            coordinate_type_t<Point>,
             double
-        >::type promoted_type;
+        >::type;
 
         Point p = ip;
 
         // Check the distance ip-vertex (= miter distance)
         // (We calculate it manually (not using Pythagoras strategy) to reuse
         //  dx and dy)
-        coordinate_type const dx = get<0>(p) - get<0>(vertex);
-        coordinate_type const dy = get<1>(p) - get<1>(vertex);
+        promoted_type const dx = get<0>(p) - get<0>(vertex);
+        promoted_type const dy = get<1>(p) - get<1>(vertex);
 
         promoted_type const distance = geometry::math::sqrt(dx * dx + dy * dy);
 

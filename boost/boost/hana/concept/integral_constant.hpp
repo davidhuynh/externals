@@ -2,7 +2,7 @@
 @file
 Defines `boost::hana::IntegralConstant`.
 
-@copyright Louis Dionne 2013-2016
+Copyright Louis Dionne 2013-2022
 Distributed under the Boost Software License, Version 1.0.
 (See accompanying file LICENSE.md or copy at http://boost.org/LICENSE_1_0.txt)
  */
@@ -14,19 +14,22 @@ Distributed under the Boost Software License, Version 1.0.
 
 #include <boost/hana/config.hpp>
 #include <boost/hana/core/tag_of.hpp>
+#include <boost/hana/detail/integral_constant.hpp>
 
 
-BOOST_HANA_NAMESPACE_BEGIN
+namespace boost { namespace hana {
     namespace detail {
         template <typename C, typename Tag = typename tag_of<C>::type>
-        struct integral_constant_dispatch {
-            static constexpr bool value = hana::IntegralConstant<Tag>::value;
-        };
+        struct integral_constant_dispatch
+            : hana::integral_constant<bool,
+                hana::IntegralConstant<Tag>::value
+            >
+        { };
 
         template <typename C>
-        struct integral_constant_dispatch<C, C> {
-            static constexpr bool value = false;
-        };
+        struct integral_constant_dispatch<C, C>
+            : hana::integral_constant<bool, false>
+        { };
     }
 
     //! @cond
@@ -35,6 +38,6 @@ BOOST_HANA_NAMESPACE_BEGIN
         : detail::integral_constant_dispatch<C>
     { };
     //! @endcond
-BOOST_HANA_NAMESPACE_END
+}} // end namespace boost::hana
 
 #endif // !BOOST_HANA_CONCEPT_INTEGRAL_CONSTANT_HPP

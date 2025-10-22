@@ -2,7 +2,7 @@
 @file
 Defines `boost::hana::reverse_partial`.
 
-@copyright Louis Dionne 2013-2016
+Copyright Louis Dionne 2013-2022
 Distributed under the Boost Software License, Version 1.0.
 (See accompanying file LICENSE.md or copy at http://boost.org/LICENSE_1_0.txt)
  */
@@ -18,7 +18,7 @@ Distributed under the Boost Software License, Version 1.0.
 #include <utility>
 
 
-BOOST_HANA_NAMESPACE_BEGIN
+namespace boost { namespace hana {
     //! @ingroup group-functional
     //! Partially apply a function to some arguments.
     //!
@@ -62,6 +62,8 @@ BOOST_HANA_NAMESPACE_BEGIN
 
     template <std::size_t ...n, typename F, typename ...X>
     struct reverse_partial_t<std::index_sequence<n...>, F, X...> {
+        reverse_partial_t() = default;
+
         template <typename ...T>
         constexpr reverse_partial_t(make_reverse_partial_t::secret, T&& ...t)
             : storage_{static_cast<T&&>(t)...}
@@ -71,31 +73,31 @@ BOOST_HANA_NAMESPACE_BEGIN
 
         template <typename ...Y>
         constexpr decltype(auto) operator()(Y&& ...y) const& {
-            return hana::get_impl<0>(storage_)(
+            return hana::at_c<0>(storage_)(
                 static_cast<Y&&>(y)...,
-                hana::get_impl<n+1>(storage_)...
+                hana::at_c<n+1>(storage_)...
             );
         }
 
         template <typename ...Y>
         constexpr decltype(auto) operator()(Y&& ...y) & {
-            return hana::get_impl<0>(storage_)(
+            return hana::at_c<0>(storage_)(
                 static_cast<Y&&>(y)...,
-                hana::get_impl<n+1>(storage_)...
+                hana::at_c<n+1>(storage_)...
             );
         }
 
         template <typename ...Y>
         constexpr decltype(auto) operator()(Y&& ...y) && {
-            return static_cast<F&&>(hana::get_impl<0>(storage_))(
+            return static_cast<F&&>(hana::at_c<0>(storage_))(
                 static_cast<Y&&>(y)...,
-                static_cast<X&&>(hana::get_impl<n+1>(storage_))...
+                static_cast<X&&>(hana::at_c<n+1>(storage_))...
             );
         }
     };
 
-    constexpr make_reverse_partial_t reverse_partial{};
+    BOOST_HANA_INLINE_VARIABLE constexpr make_reverse_partial_t reverse_partial{};
 #endif
-BOOST_HANA_NAMESPACE_END
+}} // end namespace boost::hana
 
 #endif // !BOOST_HANA_FUNCTIONAL_REVERSE_PARTIAL_HPP

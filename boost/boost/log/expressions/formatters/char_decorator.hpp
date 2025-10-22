@@ -19,7 +19,6 @@
 #include <string>
 #include <iterator>
 #include <boost/assert.hpp>
-#include <boost/static_assert.hpp>
 #include <boost/mpl/bool.hpp>
 #include <boost/range/begin.hpp>
 #include <boost/range/end.hpp>
@@ -27,9 +26,8 @@
 #include <boost/range/const_iterator.hpp>
 #include <boost/range/value_type.hpp>
 #include <boost/move/core.hpp>
-#include <boost/move/utility.hpp>
-#include <boost/core/enable_if.hpp>
-#include <boost/utility/addressof.hpp>
+#include <boost/move/utility_core.hpp>
+#include <boost/core/addressof.hpp>
 #include <boost/phoenix/core/actor.hpp>
 #include <boost/phoenix/core/meta_grammar.hpp>
 #include <boost/phoenix/core/terminal_fwd.hpp>
@@ -43,6 +41,7 @@
 #include <boost/log/detail/config.hpp>
 #include <boost/log/detail/custom_terminal_spec.hpp>
 #include <boost/log/detail/deduce_char_type.hpp>
+#include <boost/log/detail/sfinae_tools.hpp>
 #include <boost/log/utility/formatting_ostream.hpp>
 #include <boost/log/detail/header.hpp>
 
@@ -113,7 +112,7 @@ public:
     explicit pattern_replacer(RangeT const& decorations
 #ifndef BOOST_LOG_DOXYGEN_PASS
         // This is needed for a workaround against an MSVC-10 and older bug in constructor overload resolution
-        , typename boost::enable_if_has_type< typename range_const_iterator< RangeT >::type, int >::type = 0
+        , typename boost::enable_if_has_type< typename range_const_iterator< RangeT >::type, boost::log::aux::sfinae_dummy >::type = boost::log::aux::sfinae_dummy()
 #endif
     )
     {
@@ -235,8 +234,10 @@ private:
     typedef char_decorator_output_terminal< LeftT, SubactorT, ImplT > this_type;
 
 public:
+#ifndef BOOST_LOG_DOXYGEN_PASS
     //! Internal typedef for type categorization
     typedef void _is_boost_log_terminal;
+#endif
 
     //! Implementation type
     typedef ImplT impl_type;
@@ -300,12 +301,12 @@ public:
         typename string_type::size_type const start_pos = strm.rdbuf()->storage()->size();
 
         // Invoke the adopted formatter
-        typedef typename result< this_type(ContextT const&) >::type result_type;
         phoenix::eval(m_subactor, ctx);
 
         // Flush the buffered characters and apply decorations
         strm.flush();
         m_impl(*strm.rdbuf()->storage(), start_pos);
+        strm.rdbuf()->ensure_max_size();
 
         return strm;
     }
@@ -323,12 +324,12 @@ public:
         typename string_type::size_type const start_pos = strm.rdbuf()->storage()->size();
 
         // Invoke the adopted formatter
-        typedef typename result< const this_type(ContextT const&) >::type result_type;
         phoenix::eval(m_subactor, ctx);
 
         // Flush the buffered characters and apply decorations
         strm.flush();
         m_impl(*strm.rdbuf()->storage(), start_pos);
+        strm.rdbuf()->ensure_max_size();
 
         return strm;
     }
@@ -357,8 +358,10 @@ private:
     typedef char_decorator_terminal< SubactorT, ImplT > this_type;
 
 public:
+#ifndef BOOST_LOG_DOXYGEN_PASS
     //! Internal typedef for type categorization
     typedef void _is_boost_log_terminal;
+#endif
 
     //! Implementation type
     typedef ImplT impl_type;
@@ -439,7 +442,7 @@ public:
         strm.flush();
         m_impl(*strm.rdbuf()->storage());
 
-        return boost::move(str);
+        return BOOST_LOG_NRVO_RESULT(str);
     }
 
     /*!
@@ -471,7 +474,7 @@ public:
         strm.flush();
         m_impl(*strm.rdbuf()->storage());
 
-        return boost::move(str);
+        return BOOST_LOG_NRVO_RESULT(str);
     }
 
     BOOST_DELETED_FUNCTION(char_decorator_terminal())
@@ -557,7 +560,7 @@ class char_decorator_gen2
 
     typedef typename boost::log::aux::deduce_char_type< typename range_value< FromRangeT >::type >::type from_char_type;
     typedef typename boost::log::aux::deduce_char_type< typename range_value< ToRangeT >::type >::type to_char_type;
-    BOOST_STATIC_ASSERT_MSG((is_same< from_char_type, to_char_type >::value), "Boost.Log: character decorator cannot be instantiated with different character types for source and replacement strings");
+    static_assert(is_same< from_char_type, to_char_type >::value, "Boost.Log: character decorator cannot be instantiated with different character types for source and replacement strings");
 
 public:
     char_decorator_gen2(FromRangeT const& from, ToRangeT const& to) : m_from(from), m_to(to)

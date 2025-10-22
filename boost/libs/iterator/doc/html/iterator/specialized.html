@@ -1,13 +1,14 @@
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Specialized Adaptors</title>
 <link rel="stylesheet" href="../../../../../doc/src/boostbook.css" type="text/css">
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
-<link rel="home" href="../index.html" title="Chapter&#160;1.&#160;Boost.Iterator">
-<link rel="up" href="../index.html" title="Chapter&#160;1.&#160;Boost.Iterator">
-<link rel="prev" href="generic/adaptor/adaptor_tutorial.html" title="Tutorial">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
+<link rel="home" href="../index.html" title="Chapter 1. Boost.Iterator">
+<link rel="up" href="../index.html" title="Chapter 1. Boost.Iterator">
+<link rel="prev" href="generic/adaptor.html" title="Iterator Adaptor">
 <link rel="next" href="specialized/filter.html" title="Filter Iterator">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
 <table cellpadding="2" width="100%"><tr>
@@ -20,13 +21,13 @@
 </tr></table>
 <hr>
 <div class="spirit-nav">
-<a accesskey="p" href="generic/adaptor/adaptor_tutorial.html"><img src="../../../../../doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../index.html"><img src="../../../../../doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../index.html"><img src="../../../../../doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="specialized/filter.html"><img src="../../../../../doc/src/images/next.png" alt="Next"></a>
+<a accesskey="p" href="generic/adaptor.html"><img src="../../../../../doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../index.html"><img src="../../../../../doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../index.html"><img src="../../../../../doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="specialized/filter.html"><img src="../../../../../doc/src/images/next.png" alt="Next"></a>
 </div>
 <div class="section">
 <div class="titlepage"><div><div><h2 class="title" style="clear: both">
 <a name="iterator.specialized"></a><a class="link" href="specialized.html" title="Specialized Adaptors">Specialized Adaptors</a>
 </h2></div></div></div>
-<div class="toc"><dl>
+<div class="toc"><dl class="toc">
 <dt><span class="section"><a href="specialized.html#iterator.specialized.counting">Counting Iterator</a></span></dt>
 <dt><span class="section"><a href="specialized/filter.html">Filter Iterator</a></span></dt>
 <dt><span class="section"><a href="specialized/function_output.html">Function Output
@@ -39,16 +40,16 @@
 <dd><dl>
 <dt><span class="section"><a href="specialized/shared_container.html#iterator.specialized.shared_container.shared_container_type">The
         Shared Container Iterator Type</a></span></dt>
-<dt><span class="section"><a href="specialized/shared_container/shared_container_object_generator.html">The
+<dt><span class="section"><a href="specialized/shared_container.html#iterator.specialized.shared_container.shared_container_object_generator">The
         Shared Container Iterator Object Generator</a></span></dt>
-<dt><span class="section"><a href="specialized/shared_container/shared_container_generator.html">The
+<dt><span class="section"><a href="specialized/shared_container.html#iterator.specialized.shared_container.shared_container_generator">The
         Shared Container Iterator Range Generator</a></span></dt>
 </dl></dd>
 <dt><span class="section"><a href="specialized/transform.html">Transform Iterator</a></span></dt>
 <dt><span class="section"><a href="specialized/zip.html">Zip Iterator</a></span></dt>
 <dd><dl>
 <dt><span class="section"><a href="specialized/zip.html#iterator.specialized.zip.zip_example">Example</a></span></dt>
-<dt><span class="section"><a href="specialized/zip/zip_reference.html">Reference</a></span></dt>
+<dt><span class="section"><a href="specialized/zip.html#iterator.specialized.zip.zip_reference">Reference</a></span></dt>
 </dl></dd>
 </dl></div>
 <div class="section">
@@ -62,7 +63,7 @@
       </p>
 <h3>
 <a name="iterator.specialized.counting.h0"></a>
-        <span><a name="iterator.specialized.counting.example"></a></span><a class="link" href="specialized.html#iterator.specialized.counting.example">Example</a>
+        <span class="phrase"><a name="iterator.specialized.counting.example"></a></span><a class="link" href="specialized.html#iterator.specialized.counting.example">Example</a>
       </h3>
 <p>
         This example fills an array with numbers and a second array with pointers
@@ -75,37 +76,37 @@
 <span class="identifier">std</span><span class="special">::</span><span class="identifier">vector</span><span class="special">&lt;</span><span class="keyword">int</span><span class="special">&gt;</span> <span class="identifier">numbers</span><span class="special">;</span>
 <span class="keyword">typedef</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">vector</span><span class="special">&lt;</span><span class="keyword">int</span><span class="special">&gt;::</span><span class="identifier">iterator</span> <span class="identifier">n_iter</span><span class="special">;</span>
 <span class="identifier">std</span><span class="special">::</span><span class="identifier">copy</span><span class="special">(</span><span class="identifier">boost</span><span class="special">::</span><span class="identifier">counting_iterator</span><span class="special">&lt;</span><span class="keyword">int</span><span class="special">&gt;(</span><span class="number">0</span><span class="special">),</span>
-         <span class="identifier">boost</span><span class="special">::</span><span class="identifier">counting_iterator</span><span class="special">&lt;</span><span class="keyword">int</span><span class="special">&gt;(</span><span class="identifier">N</span><span class="special">),</span>
-         <span class="identifier">std</span><span class="special">::</span><span class="identifier">back_inserter</span><span class="special">(</span><span class="identifier">numbers</span><span class="special">));</span>
+          <span class="identifier">boost</span><span class="special">::</span><span class="identifier">counting_iterator</span><span class="special">&lt;</span><span class="keyword">int</span><span class="special">&gt;(</span><span class="identifier">N</span><span class="special">),</span>
+          <span class="identifier">std</span><span class="special">::</span><span class="identifier">back_inserter</span><span class="special">(</span><span class="identifier">numbers</span><span class="special">));</span>
 
 <span class="identifier">std</span><span class="special">::</span><span class="identifier">vector</span><span class="special">&lt;</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">vector</span><span class="special">&lt;</span><span class="keyword">int</span><span class="special">&gt;::</span><span class="identifier">iterator</span><span class="special">&gt;</span> <span class="identifier">pointers</span><span class="special">;</span>
 <span class="identifier">std</span><span class="special">::</span><span class="identifier">copy</span><span class="special">(</span><span class="identifier">boost</span><span class="special">::</span><span class="identifier">make_counting_iterator</span><span class="special">(</span><span class="identifier">numbers</span><span class="special">.</span><span class="identifier">begin</span><span class="special">()),</span>
-      <span class="identifier">boost</span><span class="special">::</span><span class="identifier">make_counting_iterator</span><span class="special">(</span><span class="identifier">numbers</span><span class="special">.</span><span class="identifier">end</span><span class="special">()),</span>
-      <span class="identifier">std</span><span class="special">::</span><span class="identifier">back_inserter</span><span class="special">(</span><span class="identifier">pointers</span><span class="special">));</span>
+    <span class="identifier">boost</span><span class="special">::</span><span class="identifier">make_counting_iterator</span><span class="special">(</span><span class="identifier">numbers</span><span class="special">.</span><span class="identifier">end</span><span class="special">()),</span>
+    <span class="identifier">std</span><span class="special">::</span><span class="identifier">back_inserter</span><span class="special">(</span><span class="identifier">pointers</span><span class="special">));</span>
 
 <span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"indirectly printing out the numbers from 0 to "</span>
-      <span class="special">&lt;&lt;</span> <span class="identifier">N</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+    <span class="special">&lt;&lt;</span> <span class="identifier">N</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
 <span class="identifier">std</span><span class="special">::</span><span class="identifier">copy</span><span class="special">(</span><span class="identifier">boost</span><span class="special">::</span><span class="identifier">make_indirect_iterator</span><span class="special">(</span><span class="identifier">pointers</span><span class="special">.</span><span class="identifier">begin</span><span class="special">()),</span>
-      <span class="identifier">boost</span><span class="special">::</span><span class="identifier">make_indirect_iterator</span><span class="special">(</span><span class="identifier">pointers</span><span class="special">.</span><span class="identifier">end</span><span class="special">()),</span>
-      <span class="identifier">std</span><span class="special">::</span><span class="identifier">ostream_iterator</span><span class="special">&lt;</span><span class="keyword">int</span><span class="special">&gt;(</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span><span class="special">,</span> <span class="string">" "</span><span class="special">));</span>
+    <span class="identifier">boost</span><span class="special">::</span><span class="identifier">make_indirect_iterator</span><span class="special">(</span><span class="identifier">pointers</span><span class="special">.</span><span class="identifier">end</span><span class="special">()),</span>
+    <span class="identifier">std</span><span class="special">::</span><span class="identifier">ostream_iterator</span><span class="special">&lt;</span><span class="keyword">int</span><span class="special">&gt;(</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span><span class="special">,</span> <span class="string">" "</span><span class="special">));</span>
 <span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
 </pre>
 <p>
         The output is:
       </p>
-<pre class="programlisting"><span class="identifier">indirectly</span> <span class="identifier">printing</span> <span class="identifier">out</span> <span class="identifier">the</span> <span class="identifier">numbers</span> <span class="identifier">from</span> <span class="number">0</span> <span class="identifier">to</span> <span class="number">7</span>
-<span class="number">0</span> <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span> <span class="number">6</span>
+<pre class="programlisting">indirectly printing out the numbers from 0 to 7
+0 1 2 3 4 5 6
 </pre>
 <p>
-        The source code for this example can be found <a href="../../example/counting_iterator_example.cpp" target="_top">here</a>.
+        The source code for this example can be found <a href="../../../example/counting_iterator_example.cpp" target="_top">here</a>.
       </p>
 <h3>
 <a name="iterator.specialized.counting.h1"></a>
-        <span><a name="iterator.specialized.counting.reference"></a></span><a class="link" href="specialized.html#iterator.specialized.counting.reference">Reference</a>
+        <span class="phrase"><a name="iterator.specialized.counting.reference"></a></span><a class="link" href="specialized.html#iterator.specialized.counting.reference">Reference</a>
       </h3>
 <h4>
 <a name="iterator.specialized.counting.h2"></a>
-        <span><a name="iterator.specialized.counting.synopsis"></a></span><a class="link" href="specialized.html#iterator.specialized.counting.synopsis">Synopsis</a>
+        <span class="phrase"><a name="iterator.specialized.counting.synopsis"></a></span><a class="link" href="specialized.html#iterator.specialized.counting.synopsis">Synopsis</a>
       </h4>
 <pre class="programlisting"><span class="keyword">template</span> <span class="special">&lt;</span>
     <span class="keyword">class</span> <span class="identifier">Incrementable</span>
@@ -152,8 +153,8 @@
          <span class="identifier">iterator_traversal</span><span class="special">&lt;</span><span class="identifier">Incrementable</span><span class="special">&gt;::</span><span class="identifier">type</span><span class="special">,</span>
          <span class="identifier">Incrementable</span><span class="special">,</span> <span class="keyword">const</span> <span class="identifier">Incrementable</span><span class="special">&amp;)</span>
 </pre>
-<div class="sidebar">
-<div class="titlepage"></div>
+<div class="blurb">
+<div class="titlepage"><div><div><p class="title"><b></b></p></div></div></div>
 <p>
         <span class="bold"><strong>Note:</strong></span> implementers are encouraged to provide
         an implementation of <code class="computeroutput"><span class="keyword">operator</span><span class="special">-</span></code> and a <code class="computeroutput"><span class="identifier">difference_type</span></code>
@@ -163,7 +164,7 @@
 </div>
 <h4>
 <a name="iterator.specialized.counting.h3"></a>
-        <span><a name="iterator.specialized.counting.requirements"></a></span><a class="link" href="specialized.html#iterator.specialized.counting.requirements">Requirements</a>
+        <span class="phrase"><a name="iterator.specialized.counting.requirements"></a></span><a class="link" href="specialized.html#iterator.specialized.counting.requirements">Requirements</a>
       </h4>
 <p>
         The <code class="computeroutput"><span class="identifier">Incrementable</span></code> argument
@@ -200,7 +201,7 @@
 </pre>
 <h4>
 <a name="iterator.specialized.counting.h4"></a>
-        <span><a name="iterator.specialized.counting.concepts"></a></span><a class="link" href="specialized.html#iterator.specialized.counting.concepts">Concepts</a>
+        <span class="phrase"><a name="iterator.specialized.counting.concepts"></a></span><a class="link" href="specialized.html#iterator.specialized.counting.concepts">Concepts</a>
       </h4>
 <p>
         Specializations of <code class="computeroutput"><span class="identifier">counting_iterator</span></code>
@@ -222,7 +223,7 @@
       </p>
 <h4>
 <a name="iterator.specialized.counting.h5"></a>
-        <span><a name="iterator.specialized.counting.operations"></a></span><a class="link" href="specialized.html#iterator.specialized.counting.operations">Operations</a>
+        <span class="phrase"><a name="iterator.specialized.counting.operations"></a></span><a class="link" href="specialized.html#iterator.specialized.counting.operations">Operations</a>
       </h4>
 <p>
         In addition to the operations required by the concepts modeled by <code class="computeroutput"><span class="identifier">counting_iterator</span></code>, <code class="computeroutput"><span class="identifier">counting_iterator</span></code>
@@ -269,19 +270,16 @@
       </p>
 </div>
 </div>
-<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
-<td align="left"></td>
-<td align="right"><div class="copyright-footer">Copyright &#169; 2003, 2005 David Abrahams Jeremy Siek Thomas
+<div class="copyright-footer">Copyright © 2003, 2005 David Abrahams Jeremy Siek Thomas
       Witt<p>
         Distributed under the Boost Software License, Version 1.0. (See accompanying
         file LICENSE_1_0.txt or copy at &lt;ulink url="http://www.boost.org/LICENSE_1_0.txt"&gt;
         http://www.boost.org/LICENSE_1_0.txt &lt;/ulink&gt;)
       </p>
-</div></td>
-</tr></table>
+</div>
 <hr>
 <div class="spirit-nav">
-<a accesskey="p" href="generic/adaptor/adaptor_tutorial.html"><img src="../../../../../doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../index.html"><img src="../../../../../doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../index.html"><img src="../../../../../doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="specialized/filter.html"><img src="../../../../../doc/src/images/next.png" alt="Next"></a>
+<a accesskey="p" href="generic/adaptor.html"><img src="../../../../../doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../index.html"><img src="../../../../../doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../index.html"><img src="../../../../../doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="specialized/filter.html"><img src="../../../../../doc/src/images/next.png" alt="Next"></a>
 </div>
 </body>
 </html>
